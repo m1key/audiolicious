@@ -1,0 +1,1696 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>Major Version</key>
+		<integer>1</integer>
+		<key>Minor Version</key>
+		<integer>1</integer>
+		<key>Application Version</key>
+		<string>10.2.2</string>
+		<key>Features</key>
+		<integer>5</integer>
+		<key>Show Content Ratings</key>
+		<true />
+		<key>Music Folder</key>
+		<string>file://localhost/E:/iTunes/</string>
+		<key>Library Persistent ID</key>
+		<string>10B7BF9345EC1A28</string>
+		<key>Tracks</key>
+		<dict>
+			<key>18246</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>18246</integer>
+				<key>Name</key>
+				<string>All Quiet on the Western Front (Unabridged)</string>
+				<key>Artist</key>
+				<string>Erich Maria Remarque</string>
+				<key>Album Artist</key>
+				<string>Erich Maria Remarque</string>
+				<key>Album</key>
+				<string>All Quiet on the Western Front (Unabridged)</string>
+				<key>Genre</key>
+				<string>Classics</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>206312863</integer>
+				<key>Total Time</key>
+				<integer>25771221</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Track Count</key>
+				<integer>1</integer>
+				<key>Date Modified</key>
+				<date>2010-11-20T09:04:26Z</date>
+				<key>Date Added</key>
+				<date>2010-11-20T13:12:12Z</date>
+				<key>Bit Rate</key>
+				<integer>64</integer>
+				<key>Sample Rate</key>
+				<integer>22050</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>E29A456B06978C87</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Erich%20Maria%20Remarque/All%20Quiet%20on%20the%20Western%20Front%20(Unabridg/01%20All%20Quiet%20on%20the%20Western%20Front%20(U.m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+
+			<key>19264</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>19264</integer>
+				<key>Name</key>
+				<string>At Home: A Short History of Private Life (Unabridged) Part 1</string>
+				<key>Artist</key>
+				<string>Bill Bryson</string>
+				<key>Album Artist</key>
+				<string>Bill Bryson</string>
+				<key>Album</key>
+				<string>At Home: A Short History of Private Life (Unabridged)</string>
+				<key>Genre</key>
+				<string>Audiobook</string>
+				<key>Kind</key>
+				<string>Audible file</string>
+				<key>Size</key>
+				<integer>253635131</integer>
+				<key>Total Time</key>
+				<integer>31341226</integer>
+				<key>Date Modified</key>
+				<date>2011-03-16T20:05:12Z</date>
+				<key>Date Added</key>
+				<date>2011-03-16T20:50:44Z</date>
+				<key>Bit Rate</key>
+				<integer>64</integer>
+				<key>Sample Rate</key>
+				<integer>22050</integer>
+				<key>Comments</key>
+				<string>Bill Bryson was struck one day by the thought that we devote
+					more time to studying the battles and wars of history than to
+					considering what history really consists of....</string>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>9AAC061331BEB025</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Bill%20Bryson/At%20Home_%20A%20Short%20History%20of%20Private%20Life/At%20Home_%20A%20Short%20History%20of%20Private.aax</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+
+			<key>19266</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>19266</integer>
+				<key>Name</key>
+				<string>At Home: A Short History of Private Life (Unabridged) Part 2</string>
+				<key>Artist</key>
+				<string>Bill Bryson</string>
+				<key>Album Artist</key>
+				<string>Bill Bryson</string>
+				<key>Album</key>
+				<string>At Home: A Short History of Private Life (Unabridged)</string>
+				<key>Genre</key>
+				<string>Audiobook</string>
+				<key>Kind</key>
+				<string>Audible file</string>
+				<key>Size</key>
+				<integer>228916560</integer>
+				<key>Total Time</key>
+				<integer>28283623</integer>
+				<key>Date Modified</key>
+				<date>2011-03-16T20:11:44Z</date>
+				<key>Date Added</key>
+				<date>2011-03-16T20:50:58Z</date>
+				<key>Bit Rate</key>
+				<integer>64</integer>
+				<key>Sample Rate</key>
+				<integer>22050</integer>
+				<key>Comments</key>
+				<string>Bill Bryson was struck one day by the thought that we devote
+					more time to studying the battles and wars of history than to
+					considering what history really consists of....</string>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>90888100D07DF981</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Bill%20Bryson/At%20Home_%20A%20Short%20History%20of%20Private%20Life/At%20Home_%20A%20Short%20History%20of%20Private%201.aax</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+
+			<key>20052</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>20052</integer>
+				<key>Name</key>
+				<string>Blade Runner (Unabridged), Part 1</string>
+				<key>Artist</key>
+				<string>Philip K. Dick</string>
+				<key>Album Artist</key>
+				<string>Philip K. Dick</string>
+				<key>Album</key>
+				<string>Blade Runner (Unabridged)</string>
+				<key>Genre</key>
+				<string>Audiobook</string>
+				<key>Kind</key>
+				<string>Audible file</string>
+				<key>Size</key>
+				<integer>128194118</integer>
+				<key>Total Time</key>
+				<integer>15825235</integer>
+				<key>Year</key>
+				<integer>2007</integer>
+				<key>Date Modified</key>
+				<date>2011-04-16T16:27:34Z</date>
+				<key>Date Added</key>
+				<date>2011-04-17T12:47:29Z</date>
+				<key>Bit Rate</key>
+				<integer>64</integer>
+				<key>Sample Rate</key>
+				<integer>22050</integer>
+				<key>Comments</key>
+				<string>Somewhere among the hordes of humans out there, lurked
+					several rogue androids....</string>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>1BE3CE501924BB06</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Philip%20K.%20Dick/Blade%20Runner%20(Unabridged)/Blade%20Runner%20(Unabridged),%20Part%201.aax</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>20054</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>20054</integer>
+				<key>Name</key>
+				<string>Blade Runner (Unabridged), Part 2</string>
+				<key>Artist</key>
+				<string>Philip K. Dick</string>
+				<key>Album Artist</key>
+				<string>Philip K. Dick</string>
+				<key>Album</key>
+				<string>Blade Runner (Unabridged)</string>
+				<key>Genre</key>
+				<string>Audiobook</string>
+				<key>Kind</key>
+				<string>Audible file</string>
+				<key>Size</key>
+				<integer>140611539</integer>
+				<key>Total Time</key>
+				<integer>17361142</integer>
+				<key>Year</key>
+				<integer>2007</integer>
+				<key>Date Modified</key>
+				<date>2011-04-16T16:34:52Z</date>
+				<key>Date Added</key>
+				<date>2011-04-17T12:47:29Z</date>
+				<key>Bit Rate</key>
+				<integer>64</integer>
+				<key>Sample Rate</key>
+				<integer>22050</integer>
+				<key>Comments</key>
+				<string>Somewhere among the hordes of humans out there, lurked
+					several rogue androids....</string>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>2AB8C0AF7FFA8161</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Philip%20K.%20Dick/Blade%20Runner%20(Unabridged)/Blade%20Runner%20(Unabridged),%20Part%202.aax</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+
+
+			<key>20852</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>20852</integer>
+				<key>Name</key>
+				<string>Dune (Unabridged), Part 1</string>
+				<key>Artist</key>
+				<string>Frank Herbert</string>
+				<key>Album</key>
+				<string>Dune (Unabridged)</string>
+				<key>Genre</key>
+				<string>Audiobook</string>
+				<key>Kind</key>
+				<string>Audible file</string>
+				<key>Size</key>
+				<integer>104709017</integer>
+				<key>Total Time</key>
+				<integer>26238000</integer>
+				<key>Date Modified</key>
+				<date>2011-05-16T20:39:50Z</date>
+				<key>Date Added</key>
+				<date>2011-05-16T20:51:00Z</date>
+				<key>Bit Rate</key>
+				<integer>32</integer>
+				<key>Sample Rate</key>
+				<integer>22050</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>C171E6662FA7AEBA</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Frank%20Herbert/Dune%20(Unabridged)/Dune%20(Unabridged),%20Part%201.aa</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>20854</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>20854</integer>
+				<key>Name</key>
+				<string>Dune (Unabridged), Part 2</string>
+				<key>Artist</key>
+				<string>Frank Herbert</string>
+				<key>Album</key>
+				<string>Dune (Unabridged)</string>
+				<key>Genre</key>
+				<string>Audiobook</string>
+				<key>Kind</key>
+				<string>Audible file</string>
+				<key>Size</key>
+				<integer>107573883</integer>
+				<key>Total Time</key>
+				<integer>26958000</integer>
+				<key>Date Modified</key>
+				<date>2011-05-16T20:39:42Z</date>
+				<key>Date Added</key>
+				<date>2011-05-16T20:51:00Z</date>
+				<key>Bit Rate</key>
+				<integer>32</integer>
+				<key>Sample Rate</key>
+				<integer>22050</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>5E259703E3F72D79</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Frank%20Herbert/Dune%20(Unabridged)/Dune%20(Unabridged),%20Part%202.aa</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>20856</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>20856</integer>
+				<key>Name</key>
+				<string>Dune (Unabridged), Part 3</string>
+				<key>Artist</key>
+				<string>Frank Herbert</string>
+				<key>Album</key>
+				<string>Dune (Unabridged)</string>
+				<key>Genre</key>
+				<string>Audiobook</string>
+				<key>Kind</key>
+				<string>Audible file</string>
+				<key>Size</key>
+				<integer>90695492</integer>
+				<key>Total Time</key>
+				<integer>22728000</integer>
+				<key>Date Modified</key>
+				<date>2011-05-16T20:38:50Z</date>
+				<key>Date Added</key>
+				<date>2011-05-16T20:51:00Z</date>
+				<key>Bit Rate</key>
+				<integer>32</integer>
+				<key>Sample Rate</key>
+				<integer>22050</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>570D63FCB1DB9A75</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Frank%20Herbert/Dune%20(Unabridged)/Dune%20(Unabridged),%20Part%203.aa</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+
+			<key>20116</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>20116</integer>
+				<key>Name</key>
+				<string>Farsi Persian Phase 1, Unit 01-05: Learn to Speak and
+					Understand Farsi Persian with Pimsleur Language Programs</string>
+				<key>Artist</key>
+				<string>Pimsleur</string>
+				<key>Album Artist</key>
+				<string>Pimsleur</string>
+				<key>Album</key>
+				<string>Farsi Persian Phase 1, Unit 01-05: Learn to Speak and
+					Understand Farsi Persian with Pimsleur Language Programs</string>
+				<key>Genre</key>
+				<string>Languages</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>77757717</integer>
+				<key>Total Time</key>
+				<integer>9710582</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Track Count</key>
+				<integer>1</integer>
+				<key>Date Modified</key>
+				<date>2011-04-20T20:37:06Z</date>
+				<key>Date Added</key>
+				<date>2011-04-20T21:05:51Z</date>
+				<key>Bit Rate</key>
+				<integer>64</integer>
+				<key>Sample Rate</key>
+				<integer>22050</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>21E696430AA2CC62</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Pimsleur/Farsi%20Persian%20Phase%201,%20Unit%2001-05_%20Learn/01%20Farsi%20Persian%20Phase%201,%20Unit%2001-05.m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+
+			<key>13100</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>13100</integer>
+				<key>Name</key>
+				<string>The Feynman Lectures On Physics: Volume 1, Quantum Mechanics
+					Part 1 of 3</string>
+				<key>Artist</key>
+				<string>Richard P. Feynman</string>
+				<key>Album Artist</key>
+				<string>Richard P. Feynman</string>
+				<key>Album</key>
+				<string>The Feynman Lectures On Physics: Volume 1, Quantum Mechanics
+					(Unabridged Nonfiction)</string>
+				<key>Genre</key>
+				<string>Wetenschap</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>38664077</integer>
+				<key>Total Time</key>
+				<integer>9751250</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Track Count</key>
+				<integer>3</integer>
+				<key>Date Modified</key>
+				<date>2010-05-19T21:48:18Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T15:44:06Z</date>
+				<key>Bit Rate</key>
+				<integer>32</integer>
+				<key>Sample Rate</key>
+				<integer>24000</integer>
+				<key>Normalization</key>
+				<integer>943</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Sort Album</key>
+				<string>Feynman Lectures On Physics: Volume 1, Quantum Mechanics
+					(Unabridged Nonfiction)</string>
+				<key>Sort Name</key>
+				<string>Feynman Lectures On Physics: Volume 1, Quantum Mechanics
+					Part 1 of 3</string>
+				<key>Persistent ID</key>
+				<string>D6FAD3D98DFE59E0</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Richard%20P.%20Feynman/The%20Feynman%20Lectures%20On%20Physics_%20Volume/01%20The%20Feynman%20Lectures%20On%20Physics_.m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>13102</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>13102</integer>
+				<key>Name</key>
+				<string>The Feynman Lectures On Physics: Volume 1, Quantum Mechanics
+					Part 2 of 3</string>
+				<key>Artist</key>
+				<string>Richard P. Feynman</string>
+				<key>Album Artist</key>
+				<string>Richard P. Feynman</string>
+				<key>Album</key>
+				<string>The Feynman Lectures On Physics: Volume 1, Quantum Mechanics
+					(Unabridged Nonfiction)</string>
+				<key>Genre</key>
+				<string>Wetenschap</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>27268061</integer>
+				<key>Total Time</key>
+				<integer>6872957</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>2</integer>
+				<key>Track Count</key>
+				<integer>3</integer>
+				<key>Date Modified</key>
+				<date>2010-05-19T21:45:16Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T15:44:06Z</date>
+				<key>Bit Rate</key>
+				<integer>32</integer>
+				<key>Sample Rate</key>
+				<integer>24000</integer>
+				<key>Normalization</key>
+				<integer>479</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Sort Album</key>
+				<string>Feynman Lectures On Physics: Volume 1, Quantum Mechanics
+					(Unabridged Nonfiction)</string>
+				<key>Sort Name</key>
+				<string>Feynman Lectures On Physics: Volume 1, Quantum Mechanics
+					Part 2 of 3</string>
+				<key>Persistent ID</key>
+				<string>501F6AD39F3E775B</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Richard%20P.%20Feynman/The%20Feynman%20Lectures%20On%20Physics_%20Volume/02%20The%20Feynman%20Lectures%20On%20Physics_.m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>13104</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>13104</integer>
+				<key>Name</key>
+				<string>The Feynman Lectures On Physics: Volume 1, Quantum Mechanics
+					Part 3 of 3</string>
+				<key>Artist</key>
+				<string>Richard P. Feynman</string>
+				<key>Album Artist</key>
+				<string>Richard P. Feynman</string>
+				<key>Album</key>
+				<string>The Feynman Lectures On Physics: Volume 1, Quantum Mechanics
+					(Unabridged Nonfiction)</string>
+				<key>Genre</key>
+				<string>Wetenschap</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>12994109</integer>
+				<key>Total Time</key>
+				<integer>3269373</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>3</integer>
+				<key>Track Count</key>
+				<integer>3</integer>
+				<key>Date Modified</key>
+				<date>2010-05-19T21:41:56Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T15:44:06Z</date>
+				<key>Bit Rate</key>
+				<integer>32</integer>
+				<key>Sample Rate</key>
+				<integer>24000</integer>
+				<key>Normalization</key>
+				<integer>547</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Sort Album</key>
+				<string>Feynman Lectures On Physics: Volume 1, Quantum Mechanics
+					(Unabridged Nonfiction)</string>
+				<key>Sort Name</key>
+				<string>Feynman Lectures On Physics: Volume 1, Quantum Mechanics
+					Part 3 of 3</string>
+				<key>Persistent ID</key>
+				<string>92E8D4607DAB58A4</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Richard%20P.%20Feynman/The%20Feynman%20Lectures%20On%20Physics_%20Volume/03%20The%20Feynman%20Lectures%20On%20Physics_.m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+
+			<key>14526</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>14526</integer>
+				<key>Name</key>
+				<string>Jabberwocky (Unabridged)</string>
+				<key>Artist</key>
+				<string>Lewis Carroll</string>
+				<key>Album Artist</key>
+				<string>Lewis Carroll</string>
+				<key>Album</key>
+				<string>Jabberwocky (Unabridged)</string>
+				<key>Genre</key>
+				<string>Kinderen en jongvolwassenen</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>1669386</integer>
+				<key>Total Time</key>
+				<integer>174750</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Track Count</key>
+				<integer>1</integer>
+				<key>Date Modified</key>
+				<date>2010-05-17T20:30:30Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T15:44:33Z</date>
+				<key>Bit Rate</key>
+				<integer>64</integer>
+				<key>Sample Rate</key>
+				<integer>22050</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>840F7806BD4940F9</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Lewis%20Carroll/Jabberwocky%20(Unabridged)/01%20Jabberwocky%20(Unabridged).m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+
+			<key>17084</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>17084</integer>
+				<key>Name</key>
+				<string>The Kite Runner (Unabridged), Part 1</string>
+				<key>Artist</key>
+				<string>Khaled Hosseini</string>
+				<key>Album Artist</key>
+				<string>Khaled Hosseini</string>
+				<key>Album</key>
+				<string>The Kite Runner (Unabridged)</string>
+				<key>Genre</key>
+				<string>Fictie</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>178365763</integer>
+				<key>Total Time</key>
+				<integer>22280936</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Track Count</key>
+				<integer>2</integer>
+				<key>Date Modified</key>
+				<date>2010-08-13T16:22:14Z</date>
+				<key>Date Added</key>
+				<date>2010-08-13T18:16:35Z</date>
+				<key>Bit Rate</key>
+				<integer>64</integer>
+				<key>Sample Rate</key>
+				<integer>22050</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Sort Album</key>
+				<string>Kite Runner (Unabridged)</string>
+				<key>Sort Name</key>
+				<string>Kite Runner (Unabridged), Part 1</string>
+				<key>Persistent ID</key>
+				<string>73CFBF1C09ECA59A</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Khaled%20Hosseini/The%20Kite%20Runner%20(Unabridged)/01%20The%20Kite%20Runner%20(Unabridged),%20Par.m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+
+			<key>17086</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>17086</integer>
+				<key>Name</key>
+				<string>The Kite Runner (Unabridged), Part 2</string>
+				<key>Artist</key>
+				<string>Khaled Hosseini</string>
+				<key>Album Artist</key>
+				<string>Khaled Hosseini</string>
+				<key>Album</key>
+				<string>The Kite Runner (Unabridged)</string>
+				<key>Genre</key>
+				<string>Fictie</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>168953779</integer>
+				<key>Total Time</key>
+				<integer>21104381</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>2</integer>
+				<key>Track Count</key>
+				<integer>2</integer>
+				<key>Date Modified</key>
+				<date>2010-08-13T16:39:52Z</date>
+				<key>Date Added</key>
+				<date>2010-08-13T18:16:35Z</date>
+				<key>Bit Rate</key>
+				<integer>64</integer>
+				<key>Sample Rate</key>
+				<integer>22050</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Sort Album</key>
+				<string>Kite Runner (Unabridged)</string>
+				<key>Sort Name</key>
+				<string>Kite Runner (Unabridged), Part 2</string>
+				<key>Persistent ID</key>
+				<string>2E70FCE756C235D3</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Khaled%20Hosseini/The%20Kite%20Runner%20(Unabridged)/02%20The%20Kite%20Runner%20(Unabridged),%20Par.m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+
+			<key>18044</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>18044</integer>
+				<key>Name</key>
+				<string>Letters from the Earth (Unabridged)</string>
+				<key>Artist</key>
+				<string>Mark Twain</string>
+				<key>Album Artist</key>
+				<string>Mark Twain</string>
+				<key>Album</key>
+				<string>Letters from the Earth (Unabridged)</string>
+				<key>Genre</key>
+				<string>Klassiekers</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>188202349</integer>
+				<key>Total Time</key>
+				<integer>23510340</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Track Count</key>
+				<integer>1</integer>
+				<key>Date Modified</key>
+				<date>2010-10-17T07:37:33Z</date>
+				<key>Date Added</key>
+				<date>2010-10-17T08:15:29Z</date>
+				<key>Bit Rate</key>
+				<integer>64</integer>
+				<key>Sample Rate</key>
+				<integer>22050</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>CD014D39CFC8BE14</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Mark%20Twain/Letters%20from%20the%20Earth%20(Unabridged)/01%20Letters%20from%20the%20Earth%20(Unabridge.m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+
+			<key>12994</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>12994</integer>
+				<key>Name</key>
+				<string>The Raven (Unabridged)</string>
+				<key>Artist</key>
+				<string>Edgar Allan Poe</string>
+				<key>Album Artist</key>
+				<string>Edgar Allan Poe</string>
+				<key>Album</key>
+				<string>The Raven (Unabridged)</string>
+				<key>Genre</key>
+				<string>Klassiekers</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>5401772</integer>
+				<key>Total Time</key>
+				<integer>669056</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Track Count</key>
+				<integer>1</integer>
+				<key>Date Modified</key>
+				<date>2010-05-17T20:26:30Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T15:44:04Z</date>
+				<key>Bit Rate</key>
+				<integer>64</integer>
+				<key>Sample Rate</key>
+				<integer>22050</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Sort Album</key>
+				<string>Raven (Unabridged)</string>
+				<key>Sort Name</key>
+				<string>Raven (Unabridged)</string>
+				<key>Persistent ID</key>
+				<string>E823B5AE190C6BC2</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Edgar%20Allan%20Poe/The%20Raven%20(Unabridged)/01%20The%20Raven%20(Unabridged).m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+
+
+			<key>1160</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>1160</integer>
+				<key>Name</key>
+				<string>The Rubaiyat (Unabridged)</string>
+				<key>Artist</key>
+				<string>Omar Khayyam</string>
+				<key>Album Artist</key>
+				<string>Omar Khayyam</string>
+				<key>Album</key>
+				<string>The Rubaiyat (Unabridged)</string>
+				<key>Genre</key>
+				<string>Classics</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>6632521</integer>
+				<key>Total Time</key>
+				<integer>1670568</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Track Count</key>
+				<integer>1</integer>
+				<key>Date Modified</key>
+				<date>2009-03-17T17:42:40Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T15:39:58Z</date>
+				<key>Bit Rate</key>
+				<integer>32</integer>
+				<key>Sample Rate</key>
+				<integer>24000</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3340725993</integer>
+				<key>Play Date UTC</key>
+				<date>2009-11-10T18:26:33Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Normalization</key>
+				<integer>1149</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Sort Album</key>
+				<string>Rubaiyat (Unabridged)</string>
+				<key>Sort Name</key>
+				<string>Rubaiyat (Unabridged)</string>
+				<key>Persistent ID</key>
+				<string>BB894F4BB38E619E</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Omar%20Khayyam/The%20Rubaiyat%20(Unabridged)/01%20The%20Rubaiyat%20(Unabridged).m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+
+			<key>16460</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>16460</integer>
+				<key>Name</key>
+				<string>Sluga Bozy</string>
+				<key>Artist</key>
+				<string>Jacek Piekara</string>
+				<key>Album</key>
+				<string>Sluga Bozy</string>
+				<key>Genre</key>
+				<string>Audiobook</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>235180143</integer>
+				<key>Total Time</key>
+				<integer>35297394</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Track Count</key>
+				<integer>1</integer>
+				<key>Date Modified</key>
+				<date>2010-08-04T20:11:27Z</date>
+				<key>Date Added</key>
+				<date>2010-08-04T20:13:00Z</date>
+				<key>Bit Rate</key>
+				<integer>51</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Comments</key>
+				<string>czyta Jaroslaw Rabenda</string>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>9980A509A40058CB</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Jacek%20Piekara/Sluga%20Bozy/01%20Sluga%20Bozy.m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+
+
+			<key>18122</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>18122</integer>
+				<key>Name</key>
+				<string>The Sun Also Rises (Unabridged) Part 1 of 4</string>
+				<key>Artist</key>
+				<string>Ernest Hemingway</string>
+				<key>Album Artist</key>
+				<string>Ernest Hemingway</string>
+				<key>Album</key>
+				<string>The Sun Also Rises (Unabridged)</string>
+				<key>Genre</key>
+				<string>Klassiekers</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>32588727</integer>
+				<key>Total Time</key>
+				<integer>8145362</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Track Count</key>
+				<integer>4</integer>
+				<key>Date Modified</key>
+				<date>2010-10-21T20:39:23Z</date>
+				<key>Date Added</key>
+				<date>2010-10-21T21:26:47Z</date>
+				<key>Bit Rate</key>
+				<integer>32</integer>
+				<key>Sample Rate</key>
+				<integer>24000</integer>
+				<key>Normalization</key>
+				<integer>1333</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Sort Album</key>
+				<string>Sun Also Rises (Unabridged)</string>
+				<key>Sort Name</key>
+				<string>Sun Also Rises (Unabridged) Part 1 of 4</string>
+				<key>Persistent ID</key>
+				<string>8A5F4BFFCDAECB1E</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Ernest%20Hemingway/The%20Sun%20Also%20Rises%20(Unabridged)/01%20The%20Sun%20Also%20Rises%20(Unabridged)%20P.m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>18124</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>18124</integer>
+				<key>Name</key>
+				<string>The Sun Also Rises (Unabridged) Part 2 of 4</string>
+				<key>Artist</key>
+				<string>Ernest Hemingway</string>
+				<key>Album Artist</key>
+				<string>Ernest Hemingway</string>
+				<key>Album</key>
+				<string>The Sun Also Rises (Unabridged)</string>
+				<key>Genre</key>
+				<string>Klassiekers</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>30733879</integer>
+				<key>Total Time</key>
+				<integer>7680893</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>2</integer>
+				<key>Track Count</key>
+				<integer>4</integer>
+				<key>Date Modified</key>
+				<date>2010-10-21T20:43:06Z</date>
+				<key>Date Added</key>
+				<date>2010-10-21T21:26:47Z</date>
+				<key>Bit Rate</key>
+				<integer>32</integer>
+				<key>Sample Rate</key>
+				<integer>24000</integer>
+				<key>Normalization</key>
+				<integer>1546</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Sort Album</key>
+				<string>Sun Also Rises (Unabridged)</string>
+				<key>Sort Name</key>
+				<string>Sun Also Rises (Unabridged) Part 2 of 4</string>
+				<key>Persistent ID</key>
+				<string>B150B9BD9735660D</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Ernest%20Hemingway/The%20Sun%20Also%20Rises%20(Unabridged)/02%20The%20Sun%20Also%20Rises%20(Unabridged)%20P.m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>18126</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>18126</integer>
+				<key>Name</key>
+				<string>The Sun Also Rises (Unabridged) Part 3 of 4</string>
+				<key>Artist</key>
+				<string>Ernest Hemingway</string>
+				<key>Album Artist</key>
+				<string>Ernest Hemingway</string>
+				<key>Album</key>
+				<string>The Sun Also Rises (Unabridged)</string>
+				<key>Genre</key>
+				<string>Klassiekers</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>31942503</integer>
+				<key>Total Time</key>
+				<integer>7983570</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>3</integer>
+				<key>Track Count</key>
+				<integer>4</integer>
+				<key>Date Modified</key>
+				<date>2010-10-21T20:37:50Z</date>
+				<key>Date Added</key>
+				<date>2010-10-21T21:26:47Z</date>
+				<key>Bit Rate</key>
+				<integer>32</integer>
+				<key>Sample Rate</key>
+				<integer>24000</integer>
+				<key>Normalization</key>
+				<integer>1390</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Sort Album</key>
+				<string>Sun Also Rises (Unabridged)</string>
+				<key>Sort Name</key>
+				<string>Sun Also Rises (Unabridged) Part 3 of 4</string>
+				<key>Persistent ID</key>
+				<string>7943DCE5159AD171</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Ernest%20Hemingway/The%20Sun%20Also%20Rises%20(Unabridged)/03%20The%20Sun%20Also%20Rises%20(Unabridged)%20P.m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>18128</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>18128</integer>
+				<key>Name</key>
+				<string>The Sun Also Rises (Unabridged) Part 4 of 4</string>
+				<key>Artist</key>
+				<string>Ernest Hemingway</string>
+				<key>Album Artist</key>
+				<string>Ernest Hemingway</string>
+				<key>Album</key>
+				<string>The Sun Also Rises (Unabridged)</string>
+				<key>Genre</key>
+				<string>Klassiekers</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>16788079</integer>
+				<key>Total Time</key>
+				<integer>4222589</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>4</integer>
+				<key>Track Count</key>
+				<integer>4</integer>
+				<key>Date Modified</key>
+				<date>2010-10-21T20:41:37Z</date>
+				<key>Date Added</key>
+				<date>2010-10-21T21:26:47Z</date>
+				<key>Bit Rate</key>
+				<integer>32</integer>
+				<key>Sample Rate</key>
+				<integer>24000</integer>
+				<key>Normalization</key>
+				<integer>1336</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Sort Album</key>
+				<string>Sun Also Rises (Unabridged)</string>
+				<key>Sort Name</key>
+				<string>Sun Also Rises (Unabridged) Part 4 of 4</string>
+				<key>Persistent ID</key>
+				<string>651C005C51859E9A</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Ernest%20Hemingway/The%20Sun%20Also%20Rises%20(Unabridged)/04%20The%20Sun%20Also%20Rises%20(Unabridged)%20P.m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>17010</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>17010</integer>
+				<key>Name</key>
+				<string>Surely You're Joking, Mr. Feynman! (Unabridged) Part 1 of 6</string>
+				<key>Artist</key>
+				<string>Richard P. Feynman</string>
+				<key>Album Artist</key>
+				<string>Richard P. Feynman</string>
+				<key>Album</key>
+				<string>Surely You're Joking, Mr. Feynman! (Unabridged)</string>
+				<key>Genre</key>
+				<string>Biografieën en memoires</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>32447024</integer>
+				<key>Total Time</key>
+				<integer>8188456</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Track Count</key>
+				<integer>6</integer>
+				<key>Date Modified</key>
+				<date>2010-08-12T18:54:09Z</date>
+				<key>Date Added</key>
+				<date>2010-08-12T19:43:45Z</date>
+				<key>Bit Rate</key>
+				<integer>32</integer>
+				<key>Sample Rate</key>
+				<integer>24000</integer>
+				<key>Normalization</key>
+				<integer>699</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>9578AC2A989BE4B9</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Richard%20P.%20Feynman/Surely%20You're%20Joking,%20Mr.%20Feynman!%20(Unab/01%20Surely%20You're%20Joking,%20Mr.%20Feynman.m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>17012</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>17012</integer>
+				<key>Name</key>
+				<string>Surely You're Joking, Mr. Feynman! (Unabridged) Part 2 of 6</string>
+				<key>Artist</key>
+				<string>Richard P. Feynman</string>
+				<key>Album Artist</key>
+				<string>Richard P. Feynman</string>
+				<key>Album</key>
+				<string>Surely You're Joking, Mr. Feynman! (Unabridged)</string>
+				<key>Genre</key>
+				<string>Biografieën en memoires</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>33072944</integer>
+				<key>Total Time</key>
+				<integer>8346536</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>2</integer>
+				<key>Track Count</key>
+				<integer>6</integer>
+				<key>Date Modified</key>
+				<date>2010-08-12T18:58:59Z</date>
+				<key>Date Added</key>
+				<date>2010-08-12T19:43:45Z</date>
+				<key>Bit Rate</key>
+				<integer>32</integer>
+				<key>Sample Rate</key>
+				<integer>24000</integer>
+				<key>Normalization</key>
+				<integer>786</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>4C701C67A865DBA4</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Richard%20P.%20Feynman/Surely%20You're%20Joking,%20Mr.%20Feynman!%20(Unab/02%20Surely%20You're%20Joking,%20Mr.%20Feynman.m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>17014</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>17014</integer>
+				<key>Name</key>
+				<string>Surely You're Joking, Mr. Feynman! (Unabridged) Part 3 of 6</string>
+				<key>Artist</key>
+				<string>Richard P. Feynman</string>
+				<key>Album Artist</key>
+				<string>Richard P. Feynman</string>
+				<key>Album</key>
+				<string>Surely You're Joking, Mr. Feynman! (Unabridged)</string>
+				<key>Genre</key>
+				<string>Biografieën en memoires</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>32904896</integer>
+				<key>Total Time</key>
+				<integer>8302632</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>3</integer>
+				<key>Track Count</key>
+				<integer>6</integer>
+				<key>Date Modified</key>
+				<date>2010-08-12T18:54:10Z</date>
+				<key>Date Added</key>
+				<date>2010-08-12T19:43:45Z</date>
+				<key>Bit Rate</key>
+				<integer>32</integer>
+				<key>Sample Rate</key>
+				<integer>24000</integer>
+				<key>Normalization</key>
+				<integer>728</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>1257AB9EB89D55C2</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Richard%20P.%20Feynman/Surely%20You're%20Joking,%20Mr.%20Feynman!%20(Unab/03%20Surely%20You're%20Joking,%20Mr.%20Feynman.m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>17016</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>17016</integer>
+				<key>Name</key>
+				<string>Surely You're Joking, Mr. Feynman! (Unabridged) Part 4 of 6</string>
+				<key>Artist</key>
+				<string>Richard P. Feynman</string>
+				<key>Album Artist</key>
+				<string>Richard P. Feynman</string>
+				<key>Album</key>
+				<string>Surely You're Joking, Mr. Feynman! (Unabridged)</string>
+				<key>Genre</key>
+				<string>Biografieën en memoires</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>32715616</integer>
+				<key>Total Time</key>
+				<integer>8254973</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>4</integer>
+				<key>Track Count</key>
+				<integer>6</integer>
+				<key>Date Modified</key>
+				<date>2010-08-12T19:03:07Z</date>
+				<key>Date Added</key>
+				<date>2010-08-12T19:43:45Z</date>
+				<key>Bit Rate</key>
+				<integer>32</integer>
+				<key>Sample Rate</key>
+				<integer>24000</integer>
+				<key>Normalization</key>
+				<integer>792</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>E358303567BDCC40</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Richard%20P.%20Feynman/Surely%20You're%20Joking,%20Mr.%20Feynman!%20(Unab/04%20Surely%20You're%20Joking,%20Mr.%20Feynman.m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>17018</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>17018</integer>
+				<key>Name</key>
+				<string>Surely You're Joking, Mr. Feynman! (Unabridged) Part 5 of 6</string>
+				<key>Artist</key>
+				<string>Richard P. Feynman</string>
+				<key>Album Artist</key>
+				<string>Richard P. Feynman</string>
+				<key>Album</key>
+				<string>Surely You're Joking, Mr. Feynman! (Unabridged)</string>
+				<key>Genre</key>
+				<string>Biografieën en memoires</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>33162992</integer>
+				<key>Total Time</key>
+				<integer>8368680</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>5</integer>
+				<key>Track Count</key>
+				<integer>6</integer>
+				<key>Date Modified</key>
+				<date>2010-08-12T19:03:40Z</date>
+				<key>Date Added</key>
+				<date>2010-08-12T19:43:45Z</date>
+				<key>Bit Rate</key>
+				<integer>32</integer>
+				<key>Sample Rate</key>
+				<integer>24000</integer>
+				<key>Normalization</key>
+				<integer>767</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>5034F2B30C3EC0D2</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Richard%20P.%20Feynman/Surely%20You're%20Joking,%20Mr.%20Feynman!%20(Unab/05%20Surely%20You're%20Joking,%20Mr.%20Feynman.m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>17020</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>17020</integer>
+				<key>Name</key>
+				<string>Surely You're Joking, Mr. Feynman! (Unabridged) Part 6 of 6</string>
+				<key>Artist</key>
+				<string>Richard P. Feynman</string>
+				<key>Album Artist</key>
+				<string>Richard P. Feynman</string>
+				<key>Album</key>
+				<string>Surely You're Joking, Mr. Feynman! (Unabridged)</string>
+				<key>Genre</key>
+				<string>Biografieën en memoires</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>8308971</integer>
+				<key>Total Time</key>
+				<integer>2093522</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>6</integer>
+				<key>Track Count</key>
+				<integer>6</integer>
+				<key>Date Modified</key>
+				<date>2010-08-12T19:01:38Z</date>
+				<key>Date Added</key>
+				<date>2010-08-12T19:43:45Z</date>
+				<key>Bit Rate</key>
+				<integer>32</integer>
+				<key>Sample Rate</key>
+				<integer>24000</integer>
+				<key>Normalization</key>
+				<integer>700</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>B699CB1F6E09AACF</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Richard%20P.%20Feynman/Surely%20You're%20Joking,%20Mr.%20Feynman!%20(Unab/06%20Surely%20You're%20Joking,%20Mr.%20Feynman.m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+
+			<key>12992</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>12992</integer>
+				<key>Name</key>
+				<string>2001: a Space Odyssey (Unabridged)</string>
+				<key>Artist</key>
+				<string>Arthur C. Clarke</string>
+				<key>Album Artist</key>
+				<string>Arthur C. Clarke</string>
+				<key>Album</key>
+				<string>2001: a Space Odyssey (Unabridged)</string>
+				<key>Genre</key>
+				<string>Science Fiction &#38; Fantasy</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>193514731</integer>
+				<key>Total Time</key>
+				<integer>24180700</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Track Count</key>
+				<integer>1</integer>
+				<key>Date Modified</key>
+				<date>2010-05-16T11:52:20Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T15:44:04Z</date>
+				<key>Bit Rate</key>
+				<integer>64</integer>
+				<key>Sample Rate</key>
+				<integer>22050</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>11B1BE9A96B711AD</string>
+				<key>Clean</key>
+				<true />
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<false />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Arthur%20C.%20Clarke/2001_%20a%20Space%20Odyssey%20(Unabridged)/01%202001_%20a%20Space%20Odyssey%20(Unabridged.m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+		</dict>
+
+		<key>Playlists</key>
+		<array>
+			<dict>
+				<key>Name</key>
+				<string>Library</string>
+				<key>Master</key>
+				<true />
+				<key>Playlist ID</key>
+				<integer>21082</integer>
+				<key>Playlist Persistent ID</key>
+				<string>9424A599A4C512D0</string>
+				<key>Visible</key>
+				<false />
+				<key>All Items</key>
+				<true />
+				<key>Playlist Items</key>
+				<array>
+					<dict>
+						<key>Track ID</key>
+						<integer>1156</integer>
+					</dict>
+					<dict>
+						<key>Track ID</key>
+						<integer>1158</integer>
+					</dict>
+					<dict>
+					</dict>
+				</array>
+			</dict>
+		</array>
+	</dict>
+</plist>

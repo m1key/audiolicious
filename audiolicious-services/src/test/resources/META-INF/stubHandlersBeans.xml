@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+ http://java.sun.com/xml/ns/javaee/beans_1_0.xsd">
+	<alternatives>
+		<class>me.m1key.audiolicious.services.handlers.StubAudiobookHandler</class>
+		<class>me.m1key.audiolicious.services.handlers.StubPodcastHandler</class>
+		<class>me.m1key.audiolicious.services.handlers.StubSongHandler</class>
+		<class>me.m1key.audiolicious.services.handlers.StubVideoHandler</class>
+		<class>me.m1key.audiolicious.services.handlers.StubTrackHandlersFactory</class>
+		<class>me.m1key.audiolicious.services.StubArtistRepository</class>
+		<class>me.m1key.audiolicious.services.StubAlbumRepository</class>
+		<class>me.m1key.audiolicious.services.StubSongRepository</class>
+	</alternatives>
+</beans>

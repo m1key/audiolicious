@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>audiolicious</artifactId>
+		<groupId>me.m1key.audiolicious</groupId>
+		<version>0.1.0-SNAPSHOT</version>
+	</parent>
+	<groupId>me.m1key.audiolicious</groupId>
+	<artifactId>audiolicious-object-mappers</artifactId>
+	<name>Audiolicious Object Mappers</name>
+	<description>Maps raw track data into objects.</description>
+	<dependencies>
+		<dependency>
+			<groupId>me.m1key.audiolicious</groupId>
+			<artifactId>audiolicious-domain-objects</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>me.m1key.audiolicious</groupId>
+			<artifactId>audiolicious-commons</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>

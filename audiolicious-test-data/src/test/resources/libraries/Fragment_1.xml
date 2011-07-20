@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>Major Version</key>
+		<integer>1</integer>
+		<key>Minor Version</key>
+		<integer>1</integer>
+		<key>Application Version</key>
+		<string>10.2.2</string>
+		<key>Features</key>
+		<integer>5</integer>
+		<key>Show Content Ratings</key>
+		<true />
+		<key>Music Folder</key>
+		<string>file://localhost/E:/iTunes/</string>
+		<key>Library Persistent ID</key>
+		<string>10B7BF9345EC1A28</string>
+		<key>Tracks</key>
+		<dict>
+			<key>1160</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>1160</integer>
+				<key>Name</key>
+				<string>The Rubaiyat (Unabridged)</string>
+				<key>Artist</key>
+				<string>Omar Khayyam</string>
+				<key>Album Artist</key>
+				<string>Omar Khayyam</string>
+				<key>Album</key>
+				<string>The Rubaiyat (Unabridged)</string>
+				<key>Genre</key>
+				<string>Classics</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>6632521</integer>
+				<key>Total Time</key>
+				<integer>1670568</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Track Count</key>
+				<integer>1</integer>
+				<key>Date Modified</key>
+				<date>2009-03-17T17:42:40Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T15:39:58Z</date>
+				<key>Bit Rate</key>
+				<integer>32</integer>
+				<key>Sample Rate</key>
+				<integer>24000</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3340725993</integer>
+				<key>Play Date UTC</key>
+				<date>2009-11-10T18:26:33Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Normalization</key>
+				<integer>1149</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Sort Album</key>
+				<string>Rubaiyat (Unabridged)</string>
+				<key>Sort Name</key>
+				<string>Rubaiyat (Unabridged)</string>
+				<key>Persistent ID</key>
+				<string>BB894F4BB38E619E</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Omar%20Khayyam/The%20Rubaiyat%20(Unabridged)/01%20The%20Rubaiyat%20(Unabridged).m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>1162</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>1162</integer>
+				<key>Name</key>
+				<string>Revelations</string>
+				<key>Artist</key>
+				<string>Audioslave</string>
+				<key>Album Artist</key>
+				<string>Audioslave</string>
+				<key>Album</key>
+				<string>Revelations</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>8818831</integer>
+				<key>Total Time</key>
+				<integer>252413</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Year</key>
+				<integer>2006</integer>
+				<key>Date Modified</key>
+				<date>2009-04-04T19:54:36Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T15:39:58Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>2</integer>
+				<key>Play Date</key>
+				<integer>3341067375</integer>
+				<key>Play Date UTC</key>
+				<date>2009-11-14T17:16:15Z</date>
+				<key>Release Date</key>
+				<date>2006-09-01T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>100</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Normalization</key>
+				<integer>8175</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>50F6CE431D13761A</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Audioslave/Revelations/01%20Revelations.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>1164</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>1164</integer>
+				<key>Name</key>
+				<string>One and the Same</string>
+				<key>Artist</key>
+				<string>Audioslave</string>
+				<key>Album Artist</key>
+				<string>Audioslave</string>
+				<key>Album</key>
+				<string>Revelations</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>7682827</integer>
+				<key>Total Time</key>
+				<integer>217773</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>2</integer>
+				<key>Year</key>
+				<integer>2006</integer>
+				<key>Date Modified</key>
+				<date>2009-04-04T20:56:22Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T15:39:58Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>2</integer>
+				<key>Play Date</key>
+				<integer>3341067589</integer>
+				<key>Play Date UTC</key>
+				<date>2009-11-14T17:19:49Z</date>
+				<key>Release Date</key>
+				<date>2006-09-01T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>100</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Normalization</key>
+				<integer>8436</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>69D146B49228D2A6</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Audioslave/Revelations/02%20One%20and%20the%20Same.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>1166</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>1166</integer>
+				<key>Name</key>
+				<string>Sound of a Gun</string>
+				<key>Artist</key>
+				<string>Audioslave</string>
+				<key>Album Artist</key>
+				<string>Audioslave</string>
+				<key>Album</key>
+				<string>Revelations</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>9029949</integer>
+				<key>Total Time</key>
+				<integer>260200</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>3</integer>
+				<key>Year</key>
+				<integer>2006</integer>
+				<key>Date Modified</key>
+				<date>2009-04-04T20:59:44Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T15:39:58Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>2</integer>
+				<key>Play Date</key>
+				<integer>3341067844</integer>
+				<key>Play Date UTC</key>
+				<date>2009-11-14T17:24:04Z</date>
+				<key>Release Date</key>
+				<date>2006-09-01T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>100</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Normalization</key>
+				<integer>7921</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>8534F313F31F3C99</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Audioslave/Revelations/03%20Sound%20of%20a%20Gun.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>1168</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>1168</integer>
+				<key>Name</key>
+				<string>Until We Fall</string>
+				<key>Artist</key>
+				<string>Audioslave</string>
+				<key>Album Artist</key>
+				<string>Audioslave</string>
+				<key>Album</key>
+				<string>Revelations</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>8113929</integer>
+				<key>Total Time</key>
+				<integer>230786</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>4</integer>
+				<key>Year</key>
+				<integer>2006</integer>
+				<key>Date Modified</key>
+				<date>2009-04-04T21:00:26Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T15:39:58Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>2</integer>
+				<key>Play Date</key>
+				<integer>3341068070</integer>
+				<key>Play Date UTC</key>
+				<date>2009-11-14T17:27:50Z</date>
+				<key>Release Date</key>
+				<date>2006-09-01T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Normalization</key>
+				<integer>6119</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>7DB559362585CC5C</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Audioslave/Revelations/04%20Until%20We%20Fall.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>1170</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>1170</integer>
+				<key>Name</key>
+				<string>Original Fire</string>
+				<key>Artist</key>
+				<string>Audioslave</string>
+				<key>Album Artist</key>
+				<string>Audioslave</string>
+				<key>Album</key>
+				<string>Revelations</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>7504955</integer>
+				<key>Total Time</key>
+				<integer>218946</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>5</integer>
+				<key>Year</key>
+				<integer>2006</integer>
+				<key>Date Modified</key>
+				<date>2009-04-04T21:01:50Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T15:39:59Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>2</integer>
+				<key>Play Date</key>
+				<integer>3341068284</integer>
+				<key>Play Date UTC</key>
+				<date>2009-11-14T17:31:24Z</date>
+				<key>Release Date</key>
+				<date>2006-09-01T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>100</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Normalization</key>
+				<integer>7791</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>7FA2FF2D849E0E99</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Audioslave/Revelations/05%20Original%20Fire.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+
+			<key>3100</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>3100</integer>
+				<key>Name</key>
+				<string>4 Way Diablo</string>
+				<key>Artist</key>
+				<string>Monster Magnet</string>
+				<key>Album Artist</key>
+				<string>Monster Magnet</string>
+				<key>Album</key>
+				<string>4-Way Diablo</string>
+				<key>Genre</key>
+				<string>Rock</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>6991746</integer>
+				<key>Total Time</key>
+				<integer>199680</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Track Count</key>
+				<integer>13</integer>
+				<key>Year</key>
+				<integer>2007</integer>
+				<key>Date Modified</key>
+				<date>2009-06-06T19:01:20Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T15:40:38Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3340566114</integer>
+				<key>Play Date UTC</key>
+				<date>2009-11-08T22:01:54Z</date>
+				<key>Release Date</key>
+				<date>2007-11-02T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Normalization</key>
+				<integer>14026</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>7E94358243C6D520</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Monster%20Magnet/4-Way%20Diablo/01%204%20Way%20Diablo.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+
+			<key>19058</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>19058</integer>
+				<key>Name</key>
+				<string>Plundered My Soul (Stones In Exile Version)</string>
+				<key>Artist</key>
+				<string>The Rolling Stones</string>
+				<key>Album Artist</key>
+				<string>The Rolling Stones</string>
+				<key>Album</key>
+				<string>Exile On Main St</string>
+				<key>Genre</key>
+				<string>Rock</string>
+				<key>Kind</key>
+				<string>Purchased MPEG-4 video file</string>
+				<key>Size</key>
+				<integer>55605450</integer>
+				<key>Total Time</key>
+				<integer>244080</integer>
+				<key>Track Number</key>
+				<integer>11</integer>
+				<key>Year</key>
+				<integer>2003</integer>
+				<key>Date Modified</key>
+				<date>2011-03-08T20:17:20Z</date>
+				<key>Date Added</key>
+				<date>2011-03-08T21:23:36Z</date>
+				<key>Bit Rate</key>
+				<integer>241</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3382468751</integer>
+				<key>Play Date UTC</key>
+				<date>2011-03-08T21:39:11Z</date>
+				<key>Release Date</key>
+				<date>2003-04-28T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Sort Album Artist</key>
+				<string>Rolling Stones</string>
+				<key>Sort Artist</key>
+				<string>Rolling Stones</string>
+				<key>Persistent ID</key>
+				<string>5F8A2E8E75E60754</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Has Video</key>
+				<true />
+				<key>HD</key>
+				<false />
+				<key>Video Width</key>
+				<integer>640</integer>
+				<key>Video Height</key>
+				<integer>352</integer>
+				<key>Music Video</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/The%20Rolling%20Stones/Exile%20On%20Main%20St/11%20Plundered%20My%20Soul%20(Stones%20In%20Exil.m4v</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>18925</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>18925</integer>
+				<key>Name</key>
+				<string>The Kite Runner</string>
+				<key>Artist</key>
+				<string>Marc Forster</string>
+				<key>Genre</key>
+				<string>Drama</string>
+				<key>Kind</key>
+				<string>Beveiligd MPEG-4-videobestand</string>
+				<key>Size</key>
+				<integer>1441398693</integer>
+				<key>Total Time</key>
+				<integer>7672047</integer>
+				<key>Year</key>
+				<integer>2009</integer>
+				<key>Date Modified</key>
+				<date>2010-12-27T17:10:21Z</date>
+				<key>Date Added</key>
+				<date>2010-12-27T16:20:00Z</date>
+				<key>Bit Rate</key>
+				<integer>110</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3376329604</integer>
+				<key>Play Date UTC</key>
+				<date>2010-12-27T20:20:04Z</date>
+				<key>Release Date</key>
+				<date>2009-11-18T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Sort Name</key>
+				<string>Kite Runner</string>
+				<key>Persistent ID</key>
+				<string>4F91665BFC6DDF2F</string>
+				<key>Content Rating</key>
+				<string>uk-movie|12|300|Contains strong language and infrequent
+					strong violence.</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Has Video</key>
+				<true />
+				<key>HD</key>
+				<false />
+				<key>Video Width</key>
+				<integer>640</integer>
+				<key>Video Height</key>
+				<integer>364</integer>
+				<key>Movie</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/Users/michalhuniewicz/Music/iTunes/iTunes%20Music/Movies/The%20Kite%20Runner.m4v</string>
+				<key>File Folder Count</key>
+				<integer>3</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>12985</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>12985</integer>
+				<key>Name</key>
+				<string>Tree Ring Science and Tomorrow's Water</string>
+				<key>Artist</key>
+				<string>Scientific American</string>
+				<key>Album</key>
+				<string>Scientific American Podcast</string>
+				<key>Genre</key>
+				<string>Podcast</string>
+				<key>Kind</key>
+				<string>MPEG-audiobestand</string>
+				<key>Size</key>
+				<integer>11587043</integer>
+				<key>Total Time</key>
+				<integer>1448124</integer>
+				<key>Year</key>
+				<integer>2009</integer>
+				<key>Date Modified</key>
+				<date>2010-04-03T22:33:57Z</date>
+				<key>Date Added</key>
+				<date>2010-04-03T22:33:57Z</date>
+				<key>Bit Rate</key>
+				<integer>64</integer>
+				<key>Sample Rate</key>
+				<integer>22050</integer>
+				<key>Comments</key>
+				<string>Join host Steve Mirsky each week as he explores the latest
+					developments in science and technology through interviews with
+					leading scientists and journalists. </string>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3357141508</integer>
+				<key>Play Date UTC</key>
+				<date>2010-05-19T18:18:28Z</date>
+				<key>Release Date</key>
+				<date>2009-11-18T16:42:08Z</date>
+				<key>Persistent ID</key>
+				<string>F28F93BB54F82F33</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Podcast</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/Users/michalhuniewicz/Music/iTunes/iTunes%20Music/Podcasts/Scientific%20American%20Podcast/Tree%20Ring%20Science%20and%20Tomorrow's%20Water.mp3</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+		</dict>
+	</dict>
+</plist>

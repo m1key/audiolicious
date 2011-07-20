@@ -1,0 +1,29 @@
+AUDIOLICIOUS
+
+by Michal Huniewicz
+www.m1key.me
+
+The primary goal of this project is to exercise the JEE 6 platform without using
+other dependency injection frameworks, such as Spring. Other technologies can be
+used.
+
+The application analyses your music library and provides statistics. The library
+file must be in a supported format.
+
+The main points of interests are:
+	* CDI (JSR 299),
+	* JPA 2.0 (JSR 317),
+	* and JBoss Seam.
+It is extremely important that all parts of code are unit or integration tested.
+
+Requirements for building:
+	* Maven 3,
+	* VTD installed in the local m2 repository.
+At the moment of writing this document VTD was not available from Maven
+repositories, so it must be downloaded and installed manually. It can be
+obtained from here: http://vtd-xml.sourceforge.net/
+
+Requirements for running:
+	* JBoss 7 AS,
+	* MySQL 5.
+A different configuration has not been tested.
