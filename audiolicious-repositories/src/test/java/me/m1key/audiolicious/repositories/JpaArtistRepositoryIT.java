@@ -47,7 +47,8 @@ import org.junit.runner.RunWith;
 @RunWith(Arquillian.class)
 public class JpaArtistRepositoryIT {
 
-	private static final String ARTIST_NAME = "Foreigner";
+	private static final String ARTIST_1_NAME = "Foreigner";
+	private static final String ARTIST_2_NAME = "Natacha Atlas";
 
 	@Inject
 	private JpaArtistRepository jpaArtistRepository;
@@ -84,16 +85,38 @@ public class JpaArtistRepositoryIT {
 	@Test
 	public void shouldSaveAndRetrieveArtist() {
 		entityManager.getTransaction().begin();
-		Artist artist = new Artist(ARTIST_NAME);
+		Artist artist = new Artist(ARTIST_1_NAME);
 		jpaArtistRepository.createArtist(artist);
 
 		entityManager.getTransaction().commit();
 
-		Artist retrievedArtist = jpaArtistRepository.getArtist(ARTIST_NAME);
+		Artist retrievedArtist = jpaArtistRepository.getArtist(ARTIST_1_NAME);
 		assertNotNull(retrievedArtist);
 		assertEquals(
 				"Created and retrieved by name artist should be the same.",
 				artist, retrievedArtist);
+	}
+
+	@Test
+	public void shouldSaveTwoArtistsAndRetrieveCorrectArtist() {
+		entityManager.getTransaction().begin();
+		Artist artist1 = new Artist(ARTIST_1_NAME);
+		Artist artist2 = new Artist(ARTIST_2_NAME);
+		jpaArtistRepository.createArtist(artist1);
+		jpaArtistRepository.createArtist(artist2);
+
+		entityManager.getTransaction().commit();
+
+		Artist retrievedArtist1 = jpaArtistRepository.getArtist(ARTIST_1_NAME);
+		Artist retrievedArtist2 = jpaArtistRepository.getArtist(ARTIST_2_NAME);
+		assertNotNull(retrievedArtist1);
+		assertNotNull(retrievedArtist2);
+		assertEquals(
+				"Created and retrieved by name artist should be the same.",
+				artist1, retrievedArtist1);
+		assertEquals(
+				"Created and retrieved by name artist should be the same.",
+				artist2, retrievedArtist2);
 	}
 
 	@After
