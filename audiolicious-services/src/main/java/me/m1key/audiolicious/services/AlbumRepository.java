@@ -25,4 +25,6 @@ public interface AlbumRepository {
 
 	Album getAlbum(Artist artist, String album);
 
+	void createAlbum(Album album);
+
 }

@@ -81,4 +81,8 @@ public class StubAlbumRepository implements AlbumRepository {
 		return variousArtistsAnimatrix;
 	}
 
+	@Override
+	public void createAlbum(Album album) {
+	}
+
 }

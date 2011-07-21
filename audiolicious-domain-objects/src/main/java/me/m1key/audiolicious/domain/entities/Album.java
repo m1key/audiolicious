@@ -23,6 +23,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
@@ -50,7 +51,8 @@ public class Album {
 	@Column(name = "UUID", unique = true, length = 36)
 	private String uuid;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = {
+			CascadeType.PERSIST, CascadeType.MERGE })
 	private Artist artist;
 
 	@Column(name = "NAME", length = 512)
@@ -130,8 +132,7 @@ public class Album {
 		if (!(other instanceof Album))
 			return false;
 		Album castOther = (Album) other;
-		return new EqualsBuilder().append(uuid, castOther.uuid)
-				.append(name, castOther.name).isEquals();
+		return new EqualsBuilder().append(uuid, castOther.uuid).isEquals();
 	}
 
 	@Override

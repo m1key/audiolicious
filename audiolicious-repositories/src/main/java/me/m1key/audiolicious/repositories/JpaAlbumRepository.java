@@ -24,7 +24,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import me.m1key.audiolicious.commons.qualifiers.NullArtist;
+import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.services.AlbumRepository;
@@ -35,15 +35,17 @@ public class JpaAlbumRepository implements AlbumRepository {
 	private EntityManager entityManager;
 
 	@Inject
-	@NullArtist
+	@NullAlbum
 	private Album nullAlbum;
 
 	@Override
 	public Album getAlbum(Artist artist, String albumName) {
 		@SuppressWarnings("unchecked")
 		List<Album> albumObjects = entityManager
-				.createQuery("from Album a where a.name = :name")
-				.setParameter("name", albumName).getResultList();
+				.createQuery(
+						"FROM Album a WHERE a.name = :name AND a.artist = :artist")
+				.setParameter("name", albumName).setParameter("artist", artist)
+				.getResultList();
 
 		if (albumNotFound(albumObjects)) {
 			return nullAlbum;
@@ -58,6 +60,11 @@ public class JpaAlbumRepository implements AlbumRepository {
 
 	void setEntityManager(EntityManager entityManager) {
 		this.entityManager = entityManager;
+	}
+
+	@Override
+	public void createAlbum(Album album) {
+		entityManager.persist(album);
 	}
 
 }

@@ -89,7 +89,7 @@ public class DefaultSongService implements SongService {
 		if (album.equals(nullAlbum)) {
 			album = new Album(albumName, artist, new Rating(
 					songTo.getAlbumRating()));
-			// TODO albumDao.save(album);
+			albumRepository.createAlbum(album);
 		}
 		return album;
 	}

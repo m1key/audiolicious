@@ -23,6 +23,7 @@ import static org.junit.Assert.assertNotNull;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -122,8 +123,11 @@ public class JpaArtistRepositoryIT {
 	@After
 	public void clearTestData() {
 		entityManager.getTransaction().begin();
-		Query deleteAllQuery = entityManager.createQuery("DELETE FROM Artist");
-		deleteAllQuery.executeUpdate();
+		Query select = entityManager.createQuery("FROM Artist");
+		List<?> allArtists = select.getResultList();
+		for (Object artist : allArtists) {
+			entityManager.remove(artist);
+		}
 		entityManager.getTransaction().commit();
 	}
 

@@ -23,12 +23,13 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -51,7 +52,7 @@ public class Artist {
 	@Column(name = "NAME", unique = true, length = 512)
 	private String name;
 
-	@ElementCollection(fetch = FetchType.LAZY, targetClass = Album.class)
+	@OneToMany(mappedBy = "artist", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<Album> albums;
 
 	// For proxying.
@@ -105,7 +106,8 @@ public class Artist {
 
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this).append("uuid", uuid).toString();
+		return new ToStringBuilder(this).append("uuid", uuid)
+				.append("name", name).toString();
 	}
 
 }

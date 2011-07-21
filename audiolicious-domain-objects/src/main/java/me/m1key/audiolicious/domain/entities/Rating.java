@@ -36,6 +36,10 @@ public class Rating {
 	@Column(name = "PERCENTAGE")
 	private int percentage;
 
+	// For proxying.
+	protected Rating() {
+	}
+
 	public Rating(int percentage) {
 		this.percentage = percentage;
 	}
