@@ -71,6 +71,19 @@ public class ArtistHibernateIT {
 	}
 
 	@Test
+	public void shouldHaveCorrectNumberOfArtistsAndAlbums() {
+		createAlbums();
+
+		Query selectArtists = entityManager.createQuery("FROM Artist");
+		List<?> allArtists = selectArtists.getResultList();
+		assertEquals("There should be two artists.", 2, allArtists.size());
+
+		Query select = entityManager.createQuery("FROM Album");
+		List<?> allAlbums = select.getResultList();
+		assertEquals("There should be three albums.", 3, allAlbums.size());
+	}
+
+	@Test
 	public void whenAllArtistsRemovedThereShouldBeNoAlbums() {
 		createAlbums();
 		deleteAllArtists();
