@@ -16,25 +16,18 @@
  * along with this program.  If not, see http://www.m1key.me
  */
 
-package me.m1key.audiolicious.repositories;
+package me.m1key.audiolicious.domain.entities;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-
-import me.m1key.audiolicious.domain.entities.Album;
-import me.m1key.audiolicious.domain.entities.Artist;
-import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
-import me.m1key.audiolicious.domain.entities.Rating;
 
 import org.jboss.arquillian.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -48,7 +41,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(Arquillian.class)
-public class JpaAlbumRepositoryIT {
+public class ArtistHibernateIT {
 
 	private static final String ARTIST_1_NAME = "Morcheeba";
 	private static final String ARTIST_1_ALBUM_1_NAME = "Charango";
@@ -56,22 +49,18 @@ public class JpaAlbumRepositoryIT {
 	private static final String ARTIST_2_NAME = "Natacha Atlas";
 	private static final String ARTIST_2_ALBUM_1_NAME = "Halim";
 
-	@Inject
-	private JpaAlbumRepository jpaAlbumRepository;
-
 	private EntityManager entityManager;
 
 	@Deployment
 	public static Archive<?> createTestArchive()
 			throws IllegalArgumentException, IOException {
 		return ShrinkWrap
-				.create(JpaArtistRepositoryIT.class.getSimpleName() + ".jar",
+				.create(ArtistHibernateIT.class.getSimpleName() + ".jar",
 						JavaArchive.class)
 				.addManifestResource(
 						new File("src/test/resources/META-INF/persistence.xml"),
 						ArchivePaths.create("persistence.xml"))
-				.addClasses(Album.class, Artist.class,
-						JpaAlbumRepository.class, NullEntitiesFactory.class);
+				.addClasses(Album.class, Artist.class);
 	}
 
 	@Before
@@ -79,65 +68,17 @@ public class JpaAlbumRepositoryIT {
 		EntityManagerFactory emf = Persistence
 				.createEntityManagerFactory("testPu");
 		entityManager = emf.createEntityManager();
-		jpaAlbumRepository.setEntityManager(entityManager);
 	}
 
 	@Test
-	public void shouldNotReturnNullForNonExistentAlbum() {
-		assertNotNull("Non existent album should not be null.",
-				jpaAlbumRepository.getAlbum(createArtist(ARTIST_1_NAME),
-						"nonexistentartist"));
-	}
+	public void whenAllArtistsRemovedThereShouldBeNoAlbums() {
+		createAlbums();
+		deleteAllArtists();
 
-	@Test
-	public void shouldSaveAndRetrieveAlbum() {
-		entityManager.getTransaction().begin();
-		Artist artist = new Artist(ARTIST_1_NAME);
-		Album album = new Album(ARTIST_1_ALBUM_1_NAME, artist, new Rating(80));
-		jpaAlbumRepository.createAlbum(album);
-
-		entityManager.getTransaction().commit();
-
-		Album retrievedAlbum = jpaAlbumRepository.getAlbum(artist,
-				ARTIST_1_ALBUM_1_NAME);
-		assertNotNull(retrievedAlbum);
-		assertEquals("Created and retrieved by name album should be the same.",
-				album, retrievedAlbum);
-	}
-
-	@Test
-	public void shouldReturnCorrectAlbum() {
-		entityManager.getTransaction().begin();
-
-		Artist artist1 = new Artist(ARTIST_1_NAME);
-		Album artist1Album1 = new Album(ARTIST_1_ALBUM_1_NAME, artist1,
-				new Rating(80));
-		jpaAlbumRepository.createAlbum(artist1Album1);
-		Album artist1Album2 = new Album(ARTIST_1_ALBUM_2_NAME, artist1,
-				new Rating(80));
-		jpaAlbumRepository.createAlbum(artist1Album2);
-
-		Artist artist2 = new Artist(ARTIST_2_NAME);
-		Album artist2Album1 = new Album(ARTIST_2_ALBUM_1_NAME, artist2,
-				new Rating(80));
-		Album artist2Album2WithTheSameNameAsArist1Album1 = new Album(
-				ARTIST_1_ALBUM_1_NAME, artist2, new Rating(80));
-		jpaAlbumRepository.createAlbum(artist2Album1);
-
-		entityManager.getTransaction().commit();
-
-		assertEquals("Created and retrieved by name album should be the same.",
-				artist1Album1,
-				jpaAlbumRepository.getAlbum(artist1, ARTIST_1_ALBUM_1_NAME));
-		assertEquals("Created and retrieved by name album should be the same.",
-				artist1Album2,
-				jpaAlbumRepository.getAlbum(artist1, ARTIST_1_ALBUM_2_NAME));
-		assertEquals("Created and retrieved by name album should be the same.",
-				artist2Album1,
-				jpaAlbumRepository.getAlbum(artist2, ARTIST_2_ALBUM_1_NAME));
-		assertEquals("Created and retrieved by name album should be the same.",
-				artist2Album2WithTheSameNameAsArist1Album1,
-				jpaAlbumRepository.getAlbum(artist2, ARTIST_1_ALBUM_1_NAME));
+		Query select = entityManager.createQuery("FROM Album");
+		List<?> allAlbums = select.getResultList();
+		assertEquals("There should be no albums after all artists removed.", 0,
+				allAlbums.size());
 	}
 
 	@After
@@ -145,16 +86,23 @@ public class JpaAlbumRepositoryIT {
 		deleteAllArtists();
 	}
 
-	private Artist createArtist(String artistName) {
+	private void createAlbums() {
 		entityManager.getTransaction().begin();
-		entityManager.persist(new Artist(artistName));
-		entityManager.getTransaction().commit();
 
-		@SuppressWarnings("unchecked")
-		List<Artist> artistObjects = entityManager
-				.createQuery("from Artist a where a.name = :name")
-				.setParameter("name", artistName).getResultList();
-		return artistObjects.get(0);
+		Artist artist1 = new Artist(ARTIST_1_NAME);
+		Album artist1Album1 = new Album(ARTIST_1_ALBUM_1_NAME, artist1,
+				new Rating(80));
+		entityManager.persist(artist1Album1);
+		Album artist1Album2 = new Album(ARTIST_1_ALBUM_2_NAME, artist1,
+				new Rating(80));
+		entityManager.persist(artist1Album2);
+
+		Artist artist2 = new Artist(ARTIST_2_NAME);
+		Album artist2Album1 = new Album(ARTIST_2_ALBUM_1_NAME, artist2,
+				new Rating(80));
+		entityManager.persist(artist2Album1);
+
+		entityManager.getTransaction().commit();
 	}
 
 	private void deleteAllArtists() {
