@@ -1,6 +1,8 @@
 package me.m1key.audiolicious.domain.entities;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
@@ -56,7 +58,7 @@ public class ArtistHibernateIT {
 		assertEquals("There should be no artists before none are created.",
 				new Integer(0), numberOfArtists());
 		createArtists();
-		assertEquals("There should be two artists after three are created.",
+		assertEquals("There should be three artists after three are created.",
 				new Integer(3), numberOfArtists());
 	}
 
@@ -67,6 +69,42 @@ public class ArtistHibernateIT {
 
 		persistArtist(artist1);
 		persistArtist(artist2);
+	}
+
+	@Test
+	public void shouldReturnArtistByName() {
+		assertEquals("There should be no artists before none are created.",
+				new Integer(0), numberOfArtists());
+		createArtists();
+		assertTrue(String.format("Should return artist [%s].", ARTIST_1_NAME),
+				artistsContain(ARTIST_1_NAME));
+	}
+
+	@Test
+	public void shouldDeleteOnlyOneArtist() {
+		assertEquals("There should be no artists before none are created.",
+				new Integer(0), numberOfArtists());
+		createArtists();
+		assertEquals("There should be three artists after three are created.",
+				new Integer(3), numberOfArtists());
+		assertTrue(String.format("Should return artist [%s].", ARTIST_1_NAME),
+				artistsContain(ARTIST_1_NAME));
+		deleteArtist(ARTIST_1_NAME);
+		assertEquals("There should be two artists after one has been deleted.",
+				new Integer(2), numberOfArtists());
+		assertFalse(String.format(
+				"Should not return artist [%s] after it was deleted.",
+				ARTIST_1_NAME), artistsContain(ARTIST_1_NAME));
+	}
+
+	private boolean artistsContain(String artistName) {
+		entityManager.getTransaction().begin();
+		Query select = entityManager.createQuery(
+				"FROM Artist WHERE name = :name").setParameter("name",
+				artistName);
+		boolean artistExists = select.getResultList().size() > 0;
+		entityManager.getTransaction().commit();
+		return artistExists;
 	}
 
 	@After
@@ -82,6 +120,18 @@ public class ArtistHibernateIT {
 		for (Object artist : allArtists) {
 			entityManager.remove(artist);
 		}
+
+		entityManager.getTransaction().commit();
+	}
+
+	private void deleteArtist(String artistName) {
+		entityManager.getTransaction().begin();
+
+		Query select = entityManager.createQuery(
+				"FROM Artist WHERE name = :name").setParameter("name",
+				artistName);
+		Artist artist = (Artist) select.getResultList().get(0);
+		entityManager.remove(artist);
 
 		entityManager.getTransaction().commit();
 	}
