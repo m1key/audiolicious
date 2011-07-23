@@ -20,10 +20,13 @@ package me.m1key.audiolicious.domain.entities;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -76,10 +79,7 @@ public class AlbumHibernateIT {
 	public void shouldHaveCorrectNumberOfArtistsAndAlbums() {
 		createAlbums();
 
-		Query selectArtists = entityManager.createQuery("FROM Artist");
-		List<?> allArtists = selectArtists.getResultList();
-		assertEquals("There should be two artists.", 2, allArtists.size());
-
+		assertEquals("There should be two artists.", 2, getAllArtists().size());
 		assertEquals("There should be three albums.", 3, getAllAlbums().size());
 	}
 
@@ -95,13 +95,13 @@ public class AlbumHibernateIT {
 	public void shouldHaveCorrectNumberOfAlbumsPerArtist() {
 		createAlbums();
 
-		Query selectArtists = entityManager.createQuery("FROM Artist");
-		List<?> allArtists = selectArtists.getResultList();
-		assertEquals("There should be two artists.", 2, allArtists.size());
+		assertEquals("There should be two artists.", 2, getAllArtists().size());
+		assertEquals("There should be three albums.", 3, getAllAlbums().size());
 
-		Query select = entityManager.createQuery("FROM Album");
-		List<?> allAlbums = select.getResultList();
-		assertEquals("There should be three albums.", 3, allAlbums.size());
+		assertEquals(String.format("Artist [%s] should have 2 albums",
+				ARTIST_1_NAME), 2, getAlbumsByArtistName(ARTIST_1_NAME).size());
+		assertEquals(String.format("Artist [%s] should have 2 albums",
+				ARTIST_2_NAME), 1, getAlbumsByArtistName(ARTIST_2_NAME).size());
 	}
 
 	@Test
@@ -116,9 +116,79 @@ public class AlbumHibernateIT {
 				ARTIST_1_ALBUM_1_NAME, retrievedAlbum.getName());
 	}
 
+	@Test
+	public void shouldDeleteOnlyOneAlbum() {
+		createAlbums();
+
+		assertEquals("There should be two artists.", 2, getAllArtists().size());
+		assertEquals("There should be three albums.", 3, getAllAlbums().size());
+
+		deleteAlbumByArtistNameAlbumName(ARTIST_1_NAME, ARTIST_1_ALBUM_1_NAME);
+
+		assertEquals("There should be two artists.", 2, getAllArtists().size());
+		assertEquals("There should be two albums after one has been deleted.",
+				2, getAllAlbums().size());
+
+		assertNotNull(
+				String.format("Not deleted album [%s] should still exist.",
+						ARTIST_1_ALBUM_2_NAME),
+				getAlbumByArtistNameAlbumName(ARTIST_1_NAME,
+						ARTIST_1_ALBUM_2_NAME));
+		assertNotNull(
+				String.format("Not deleted album [%s] should still exist.",
+						ARTIST_2_ALBUM_1_NAME),
+				getAlbumByArtistNameAlbumName(ARTIST_2_NAME,
+						ARTIST_2_ALBUM_1_NAME));
+		assertNull(
+				String.format("Deleted album [%s] should not exist.",
+						ARTIST_1_ALBUM_1_NAME),
+				getAlbumByArtistNameAlbumName(ARTIST_2_NAME,
+						ARTIST_1_ALBUM_1_NAME));
+	}
+
 	@After
 	public void clearTestData() {
 		deleteAllArtists();
+	}
+
+	private void deleteAlbumByArtistNameAlbumName(String artistName,
+			String albumName) {
+		Album album = getAlbumByArtistNameAlbumName(artistName, albumName);
+		Artist artist = getArtistByName(artistName);
+
+		entityManager.getTransaction().begin();
+		removeAlbumFromArtist(artist, album);
+		entityManager.remove(album);
+		entityManager.getTransaction().commit();
+	}
+
+	@SuppressWarnings("unchecked")
+	private void removeAlbumFromArtist(Artist artist, Album album) {
+		try {
+			Field albumsField = artist.getClass().getDeclaredField("albums");
+			albumsField.setAccessible(true);
+			Set<Album> albums = (Set<Album>) albumsField.get(artist);
+			albums.remove(album);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	private Album getAlbumByArtistNameAlbumName(String artistName,
+			String albumName) {
+		Artist artist = getArtistByName(artistName);
+		entityManager.getTransaction().begin();
+		List<?> albums = entityManager
+				.createQuery(
+						"FROM Album WHERE artist = :artist AND name = :name")
+				.setParameter("artist", artist).setParameter("name", albumName)
+				.getResultList();
+		Album album = null;
+		if (albums.size() > 0) {
+			album = (Album) albums.get(0);
+		}
+		entityManager.getTransaction().commit();
+		return album;
 	}
 
 	private Album getAlbumByUuid(String uuid) {
@@ -131,8 +201,29 @@ public class AlbumHibernateIT {
 	}
 
 	@SuppressWarnings("unchecked")
+	private List<Album> getAlbumsByArtistName(String artistName) {
+		Artist artist = getArtistByName(artistName);
+		Query select = entityManager.createQuery(
+				"FROM Album WHERE artist = :artist").setParameter("artist",
+				artist);
+		return (List<Album>) select.getResultList();
+	}
+
+	private Artist getArtistByName(String artistName) {
+		return (Artist) entityManager
+				.createQuery("FROM Artist WHERE name = :name")
+				.setParameter("name", artistName).getResultList().get(0);
+	}
+
+	@SuppressWarnings("unchecked")
 	private List<Album> getAllAlbums() {
 		Query select = entityManager.createQuery("FROM Album");
+		return select.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	private List<Artist> getAllArtists() {
+		Query select = entityManager.createQuery("FROM Artist");
 		return select.getResultList();
 	}
 
@@ -159,10 +250,10 @@ public class AlbumHibernateIT {
 	}
 
 	private void deleteAllArtists() {
+		List<Artist> allArtists = getAllArtists();
+
 		entityManager.getTransaction().begin();
-		Query select = entityManager.createQuery("FROM Artist");
-		List<?> allArtists = select.getResultList();
-		for (Object artist : allArtists) {
+		for (Artist artist : allArtists) {
 			entityManager.remove(artist);
 		}
 		entityManager.getTransaction().commit();
