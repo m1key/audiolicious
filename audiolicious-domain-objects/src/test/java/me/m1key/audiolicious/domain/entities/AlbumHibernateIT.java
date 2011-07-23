@@ -41,7 +41,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(Arquillian.class)
-public class ArtistHibernateIT {
+public class AlbumHibernateIT {
 
 	private static final String ARTIST_1_NAME = "Morcheeba";
 	private static final String ARTIST_1_ALBUM_1_NAME = "Charango";
@@ -55,7 +55,7 @@ public class ArtistHibernateIT {
 	public static Archive<?> createTestArchive()
 			throws IllegalArgumentException, IOException {
 		return ShrinkWrap
-				.create(ArtistHibernateIT.class.getSimpleName() + ".jar",
+				.create(AlbumHibernateIT.class.getSimpleName() + ".jar",
 						JavaArchive.class)
 				.addManifestResource(
 						new File("src/test/resources/META-INF/persistence.xml"),
