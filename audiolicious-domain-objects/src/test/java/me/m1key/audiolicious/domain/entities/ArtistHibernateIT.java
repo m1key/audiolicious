@@ -32,6 +32,7 @@ public class ArtistHibernateIT {
 	private static final String ARTIST_2_NAME = "Foghat";
 	private static final String ARTIST_3_NAME = "The Edgar Winter Group";
 
+	private Artist artist1;
 	private EntityManager entityManager;
 
 	@Deployment
@@ -77,27 +78,52 @@ public class ArtistHibernateIT {
 				new Integer(0), numberOfArtists());
 		createArtists();
 		assertTrue(String.format("Should return artist [%s].", ARTIST_1_NAME),
-				artistsContain(ARTIST_1_NAME));
+				artistsContainByName(ARTIST_1_NAME));
 	}
 
 	@Test
-	public void shouldDeleteOnlyOneArtist() {
+	public void shouldDeleteOnlyOneArtistByName() {
 		assertEquals("There should be no artists before none are created.",
 				new Integer(0), numberOfArtists());
 		createArtists();
 		assertEquals("There should be three artists after three are created.",
 				new Integer(3), numberOfArtists());
 		assertTrue(String.format("Should return artist [%s].", ARTIST_1_NAME),
-				artistsContain(ARTIST_1_NAME));
-		deleteArtist(ARTIST_1_NAME);
+				artistsContainByName(ARTIST_1_NAME));
+		deleteArtistByName(ARTIST_1_NAME);
 		assertEquals("There should be two artists after one has been deleted.",
 				new Integer(2), numberOfArtists());
 		assertFalse(String.format(
 				"Should not return artist [%s] after it was deleted.",
-				ARTIST_1_NAME), artistsContain(ARTIST_1_NAME));
+				ARTIST_1_NAME), artistsContainByName(ARTIST_1_NAME));
 	}
 
-	private boolean artistsContain(String artistName) {
+	@Test
+	public void shouldDeleteOnlyOneArtistByUuid() {
+		assertEquals("There should be no artists before none are created.",
+				new Integer(0), numberOfArtists());
+		createArtists();
+		assertEquals("There should be three artists after three are created.",
+				new Integer(3), numberOfArtists());
+		assertTrue(String.format("Should return artist [%s].", ARTIST_1_NAME),
+				artistsContainByName(ARTIST_1_NAME));
+		deleteArtistByUuid(artist1.getUuid());
+		assertEquals("There should be two artists after one has been deleted.",
+				new Integer(2), numberOfArtists());
+		assertFalse(String.format(
+				"Should not return artist [%s] after it was deleted.",
+				ARTIST_1_NAME), artistsContainByName(ARTIST_1_NAME));
+		assertFalse(String.format(
+				"Should not return artist [%s] after it was deleted.",
+				ARTIST_1_NAME), artistsContainByUuid(artist1.getUuid()));
+	}
+
+	@After
+	public void clearTestData() {
+		deleteAllArtists();
+	}
+
+	private boolean artistsContainByName(String artistName) {
 		entityManager.getTransaction().begin();
 		Query select = entityManager.createQuery(
 				"FROM Artist WHERE name = :name").setParameter("name",
@@ -107,9 +133,14 @@ public class ArtistHibernateIT {
 		return artistExists;
 	}
 
-	@After
-	public void clearTestData() {
-		deleteAllArtists();
+	private boolean artistsContainByUuid(String artistName) {
+		entityManager.getTransaction().begin();
+		Query select = entityManager.createQuery(
+				"FROM Artist WHERE uuid = :uuid").setParameter("uuid",
+				artistName);
+		boolean artistExists = select.getResultList().size() > 0;
+		entityManager.getTransaction().commit();
+		return artistExists;
 	}
 
 	private void deleteAllArtists() {
@@ -124,7 +155,7 @@ public class ArtistHibernateIT {
 		entityManager.getTransaction().commit();
 	}
 
-	private void deleteArtist(String artistName) {
+	private void deleteArtistByName(String artistName) {
 		entityManager.getTransaction().begin();
 
 		Query select = entityManager.createQuery(
@@ -136,8 +167,20 @@ public class ArtistHibernateIT {
 		entityManager.getTransaction().commit();
 	}
 
+	private void deleteArtistByUuid(String artistUuid) {
+		entityManager.getTransaction().begin();
+
+		Query select = entityManager.createQuery(
+				"FROM Artist WHERE uuid = :uuid").setParameter("uuid",
+				artistUuid);
+		Artist artist = (Artist) select.getResultList().get(0);
+		entityManager.remove(artist);
+
+		entityManager.getTransaction().commit();
+	}
+
 	private void createArtists() {
-		Artist artist1 = new Artist(ARTIST_1_NAME);
+		artist1 = new Artist(ARTIST_1_NAME);
 		Artist artist2 = new Artist(ARTIST_2_NAME);
 		Artist artist3 = new Artist(ARTIST_3_NAME);
 
