@@ -125,6 +125,30 @@ public class AlbumHibernateIT extends HibernateIT {
 						ARTIST_2_ALBUM_1_NAME));
 	}
 
+	@Test
+	public void testGetAlbums() {
+		createAlbums();
+
+		getEntityManager().getTransaction().begin();
+
+		Artist artist = (Artist) getEntityManager()
+				.createQuery("FROM Artist WHERE name = :name")
+				.setParameter("name", ARTIST_1_NAME).getResultList().get(0);
+		assertNotNull(String.format("Artist's [%s] albums should not be null.",
+				ARTIST_1_NAME), artist.getAlbums());
+		assertEquals(String.format("Artist [%s] should have 2 albums.",
+				ARTIST_1_NAME), 2, artist.getAlbums().size());
+		for (Album album : artist.getAlbums()) {
+			assertEquals(String.format("Album's artist should be [%s].",
+					ARTIST_1_NAME), artist, album.getArtist());
+			assertNotNull("Album name should not be null.", album.getName());
+			assertNotNull("Album rating should not be null.", album.getRating());
+			assertNotNull("Album uuid should not be null.", album.getUuid());
+		}
+
+		getEntityManager().getTransaction().commit();
+	}
+
 	private void createAlbums() {
 		assertEquals("There should be no albums before any are created.", 0,
 				getAllAlbums().size());
