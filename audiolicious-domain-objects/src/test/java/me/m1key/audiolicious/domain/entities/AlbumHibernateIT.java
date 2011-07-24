@@ -78,14 +78,12 @@ public class AlbumHibernateIT {
 	@Test
 	public void shouldHaveCorrectNumberOfArtistsAndAlbums() {
 		createAlbums();
-
-		assertEquals("There should be two artists.", 2, getAllArtists().size());
-		assertEquals("There should be three albums.", 3, getAllAlbums().size());
 	}
 
 	@Test
 	public void whenAllArtistsRemovedThereShouldBeNoAlbums() {
 		createAlbums();
+
 		deleteAllArtists();
 		assertEquals("There should be no albums after all artists removed.", 0,
 				getAllAlbums().size());
@@ -94,9 +92,6 @@ public class AlbumHibernateIT {
 	@Test
 	public void shouldHaveCorrectNumberOfAlbumsPerArtist() {
 		createAlbums();
-
-		assertEquals("There should be two artists.", 2, getAllArtists().size());
-		assertEquals("There should be three albums.", 3, getAllAlbums().size());
 
 		assertEquals(String.format("Artist [%s] should have 2 albums",
 				ARTIST_1_NAME), 2, getAlbumsByArtistName(ARTIST_1_NAME).size());
@@ -120,35 +115,67 @@ public class AlbumHibernateIT {
 	public void shouldDeleteOnlyOneAlbum() {
 		createAlbums();
 
-		assertEquals("There should be two artists.", 2, getAllArtists().size());
-		assertEquals("There should be three albums.", 3, getAllAlbums().size());
-
 		deleteAlbumByArtistNameAlbumName(ARTIST_1_NAME, ARTIST_1_ALBUM_1_NAME);
 
 		assertEquals("There should be two artists.", 2, getAllArtists().size());
 		assertEquals("There should be two albums after one has been deleted.",
 				2, getAllAlbums().size());
 
+		assertNull(
+				String.format("Not deleted album [%s] should still exist.",
+						ARTIST_1_ALBUM_1_NAME),
+				getAlbumByArtistNameAlbumName(ARTIST_1_NAME,
+						ARTIST_1_ALBUM_1_NAME));
 		assertNotNull(
 				String.format("Not deleted album [%s] should still exist.",
 						ARTIST_1_ALBUM_2_NAME),
 				getAlbumByArtistNameAlbumName(ARTIST_1_NAME,
 						ARTIST_1_ALBUM_2_NAME));
 		assertNotNull(
+				String.format("Deleted album [%s] should not exist.",
+						ARTIST_2_ALBUM_1_NAME),
+				getAlbumByArtistNameAlbumName(ARTIST_2_NAME,
+						ARTIST_2_ALBUM_1_NAME));
+	}
+
+	@Test
+	public void shouldDeleteOneArtistAndAllItsAlbums() {
+		createAlbums();
+
+		deleteArtistByName(ARTIST_2_NAME);
+
+		assertEquals("There should be one artist.", 1, getAllArtists().size());
+		assertEquals(
+				"There should be two albums after the other artist has been deleted",
+				2, getAllAlbums().size());
+
+		assertNotNull(
+				String.format("Deleted album [%s] should not exist.",
+						ARTIST_1_ALBUM_1_NAME),
+				getAlbumByArtistNameAlbumName(ARTIST_1_NAME,
+						ARTIST_1_ALBUM_1_NAME));
+		assertNotNull(
+				String.format("Not deleted album [%s] should still exist.",
+						ARTIST_1_ALBUM_2_NAME),
+				getAlbumByArtistNameAlbumName(ARTIST_1_NAME,
+						ARTIST_1_ALBUM_2_NAME));
+		assertNull(
 				String.format("Not deleted album [%s] should still exist.",
 						ARTIST_2_ALBUM_1_NAME),
 				getAlbumByArtistNameAlbumName(ARTIST_2_NAME,
 						ARTIST_2_ALBUM_1_NAME));
-		assertNull(
-				String.format("Deleted album [%s] should not exist.",
-						ARTIST_1_ALBUM_1_NAME),
-				getAlbumByArtistNameAlbumName(ARTIST_2_NAME,
-						ARTIST_1_ALBUM_1_NAME));
 	}
 
 	@After
 	public void clearTestData() {
 		deleteAllArtists();
+	}
+
+	private void deleteArtistByName(String artistName) {
+		Artist artistToDelete = getArtistByName(artistName);
+		entityManager.getTransaction().begin();
+		entityManager.remove(artistToDelete);
+		entityManager.getTransaction().commit();
 	}
 
 	private void deleteAlbumByArtistNameAlbumName(String artistName,
@@ -210,9 +237,14 @@ public class AlbumHibernateIT {
 	}
 
 	private Artist getArtistByName(String artistName) {
-		return (Artist) entityManager
+		List<?> artistsByName = entityManager
 				.createQuery("FROM Artist WHERE name = :name")
-				.setParameter("name", artistName).getResultList().get(0);
+				.setParameter("name", artistName).getResultList();
+		if (artistsByName.isEmpty()) {
+			return null;
+		} else {
+			return (Artist) artistsByName.get(0);
+		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -247,6 +279,9 @@ public class AlbumHibernateIT {
 		entityManager.persist(artist2Album1);
 
 		entityManager.getTransaction().commit();
+
+		assertEquals("There should be two artists.", 2, getAllArtists().size());
+		assertEquals("There should be three albums.", 3, getAllAlbums().size());
 	}
 
 	private void deleteAllArtists() {
