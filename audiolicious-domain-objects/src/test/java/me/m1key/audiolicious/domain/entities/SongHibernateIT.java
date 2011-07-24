@@ -120,6 +120,31 @@ public class SongHibernateIT {
 		createArtistsAlbumsAndSongs();
 	}
 
+	@Test
+	public void whenAllArtistsRemovedThereShouldBeNoSongs() {
+		createArtistsAlbumsAndSongs();
+
+		deleteAllArtists();
+		assertEquals("There should be no songs after all artists removed.", 0,
+				getAllSongs().size());
+	}
+
+	@Test
+	public void shouldDeleteOnlyOneArtistAndAllOfItsSongsAndAlbums() {
+		createArtistsAlbumsAndSongs();
+
+		deleteArtistByName(ARTIST_1_NAME);
+
+		assertEquals("There should be one artist after one has been deleted.",
+				1, getAllArtists().size());
+		assertEquals(
+				"There should be one albums after one artist has been deleted..",
+				1, getAllAlbums().size());
+		assertEquals(
+				"There should be 11 songs after one artist has been deleted.",
+				11, getAllSongs().size());
+	}
+
 	@After
 	public void clearTestData() {
 		deleteAllArtists();
@@ -133,6 +158,19 @@ public class SongHibernateIT {
 			entityManager.remove(artist);
 		}
 		entityManager.getTransaction().commit();
+	}
+
+	private void deleteArtistByName(String artistName) {
+		Artist artistToDelete = getArtistByName(artistName);
+		entityManager.getTransaction().begin();
+		entityManager.remove(artistToDelete);
+		entityManager.getTransaction().commit();
+	}
+
+	@SuppressWarnings("unchecked")
+	private List<Album> getAllSongs() {
+		Query select = entityManager.createQuery("FROM Song");
+		return select.getResultList();
 	}
 
 	@SuppressWarnings("unchecked")
