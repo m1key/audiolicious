@@ -21,9 +21,11 @@ package me.m1key.audiolicious.domain.entities;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -84,7 +86,8 @@ public class Song {
 	@Column(name = "HD")
 	private boolean hd;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = {
+			CascadeType.PERSIST, CascadeType.MERGE })
 	private Album album;
 
 	@Embedded
