@@ -22,30 +22,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
-import java.io.File;
-import java.io.IOException;
-import java.lang.reflect.Field;
-import java.util.List;
-import java.util.Set;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-
-import org.jboss.arquillian.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.Archive;
-import org.jboss.shrinkwrap.api.ArchivePaths;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-@RunWith(Arquillian.class)
-public class AlbumHibernateIT {
+public class AlbumHibernateIT extends HibernateIT {
 
 	private static final String ARTIST_1_NAME = "Morcheeba";
 	private static final String ARTIST_1_ALBUM_1_NAME = "Charango";
@@ -53,27 +32,7 @@ public class AlbumHibernateIT {
 	private static final String ARTIST_2_NAME = "Natacha Atlas";
 	private static final String ARTIST_2_ALBUM_1_NAME = "Halim";
 
-	private EntityManager entityManager;
 	private Album artist1Album1;
-
-	@Deployment
-	public static Archive<?> createTestArchive()
-			throws IllegalArgumentException, IOException {
-		return ShrinkWrap
-				.create(AlbumHibernateIT.class.getSimpleName() + ".jar",
-						JavaArchive.class)
-				.addManifestResource(
-						new File("src/test/resources/META-INF/persistence.xml"),
-						ArchivePaths.create("persistence.xml"))
-				.addClasses(Album.class, Artist.class);
-	}
-
-	@Before
-	public void setup() {
-		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("testPu");
-		entityManager = emf.createEntityManager();
-	}
 
 	@Test
 	public void shouldHaveCorrectNumberOfArtistsAndAlbums() {
@@ -166,132 +125,29 @@ public class AlbumHibernateIT {
 						ARTIST_2_ALBUM_1_NAME));
 	}
 
-	@After
-	public void clearTestData() {
-		deleteAllArtists();
-	}
-
-	private void deleteArtistByName(String artistName) {
-		Artist artistToDelete = getArtistByName(artistName);
-		entityManager.getTransaction().begin();
-		entityManager.remove(artistToDelete);
-		entityManager.getTransaction().commit();
-	}
-
-	private void deleteAlbumByArtistNameAlbumName(String artistName,
-			String albumName) {
-		Album album = getAlbumByArtistNameAlbumName(artistName, albumName);
-		Artist artist = getArtistByName(artistName);
-
-		entityManager.getTransaction().begin();
-		removeAlbumFromArtist(artist, album);
-		entityManager.remove(album);
-		entityManager.getTransaction().commit();
-	}
-
-	@SuppressWarnings("unchecked")
-	private void removeAlbumFromArtist(Artist artist, Album album) {
-		try {
-			Field albumsField = artist.getClass().getDeclaredField("albums");
-			albumsField.setAccessible(true);
-			Set<Album> albums = (Set<Album>) albumsField.get(artist);
-			albums.remove(album);
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-	}
-
-	private Album getAlbumByArtistNameAlbumName(String artistName,
-			String albumName) {
-		Artist artist = getArtistByName(artistName);
-		entityManager.getTransaction().begin();
-		List<?> albums = entityManager
-				.createQuery(
-						"FROM Album WHERE artist = :artist AND name = :name")
-				.setParameter("artist", artist).setParameter("name", albumName)
-				.getResultList();
-		Album album = null;
-		if (albums.size() > 0) {
-			album = (Album) albums.get(0);
-		}
-		entityManager.getTransaction().commit();
-		return album;
-	}
-
-	private Album getAlbumByUuid(String uuid) {
-		entityManager.getTransaction().begin();
-		Album album = (Album) entityManager
-				.createQuery("FROM Album WHERE uuid = :uuid")
-				.setParameter("uuid", uuid).getResultList().get(0);
-		entityManager.getTransaction().commit();
-		return album;
-	}
-
-	@SuppressWarnings("unchecked")
-	private List<Album> getAlbumsByArtistName(String artistName) {
-		Artist artist = getArtistByName(artistName);
-		Query select = entityManager.createQuery(
-				"FROM Album WHERE artist = :artist").setParameter("artist",
-				artist);
-		return (List<Album>) select.getResultList();
-	}
-
-	private Artist getArtistByName(String artistName) {
-		List<?> artistsByName = entityManager
-				.createQuery("FROM Artist WHERE name = :name")
-				.setParameter("name", artistName).getResultList();
-		if (artistsByName.isEmpty()) {
-			return null;
-		} else {
-			return (Artist) artistsByName.get(0);
-		}
-	}
-
-	@SuppressWarnings("unchecked")
-	private List<Album> getAllAlbums() {
-		Query select = entityManager.createQuery("FROM Album");
-		return select.getResultList();
-	}
-
-	@SuppressWarnings("unchecked")
-	private List<Artist> getAllArtists() {
-		Query select = entityManager.createQuery("FROM Artist");
-		return select.getResultList();
-	}
-
 	private void createAlbums() {
 		assertEquals("There should be no albums before any are created.", 0,
 				getAllAlbums().size());
 
-		entityManager.getTransaction().begin();
+		getEntityManager().getTransaction().begin();
 
 		Artist artist1 = new Artist(ARTIST_1_NAME);
 		artist1Album1 = new Album(ARTIST_1_ALBUM_1_NAME, artist1,
 				new Rating(80));
-		entityManager.persist(artist1Album1);
+		getEntityManager().persist(artist1Album1);
 		Album artist1Album2 = new Album(ARTIST_1_ALBUM_2_NAME, artist1,
 				new Rating(80));
-		entityManager.persist(artist1Album2);
+		getEntityManager().persist(artist1Album2);
 
 		Artist artist2 = new Artist(ARTIST_2_NAME);
 		Album artist2Album1 = new Album(ARTIST_2_ALBUM_1_NAME, artist2,
 				new Rating(80));
-		entityManager.persist(artist2Album1);
+		getEntityManager().persist(artist2Album1);
 
-		entityManager.getTransaction().commit();
+		getEntityManager().getTransaction().commit();
 
 		assertEquals("There should be two artists.", 2, getAllArtists().size());
 		assertEquals("There should be three albums.", 3, getAllAlbums().size());
-	}
-
-	private void deleteAllArtists() {
-		List<Artist> allArtists = getAllArtists();
-
-		entityManager.getTransaction().begin();
-		for (Artist artist : allArtists) {
-			entityManager.remove(artist);
-		}
-		entityManager.getTransaction().commit();
 	}
 
 }

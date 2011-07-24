@@ -20,29 +20,11 @@ package me.m1key.audiolicious.domain.entities;
 
 import static org.junit.Assert.assertEquals;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-
-import org.jboss.arquillian.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.Archive;
-import org.jboss.shrinkwrap.api.ArchivePaths;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-@RunWith(Arquillian.class)
-public class SongHibernateIT {
+public class SongHibernateIT extends HibernateIT {
 
 	private static final String ARTIST_1_NAME = "Ozzy Osbourne";
 	private static final String ARTIST_1_ALBUM_1_NAME = "No Rest for the Wicked";
@@ -85,7 +67,6 @@ public class SongHibernateIT {
 	private static final String ARTIST_2_ALBUM_1_SONG_10_NAME = "No Hassle Night";
 	private static final String ARTIST_2_ALBUM_1_SONG_11_NAME = "Will There Be Enough Water?";
 
-	private EntityManager entityManager;
 	private Date artist1Album1DateAdded = new Date();
 	private Date artist1Album1DateModifed = new Date();
 	private Date artist1Album1DateSkipped = new Date();
@@ -95,25 +76,6 @@ public class SongHibernateIT {
 	private Date artist2Album1DateAdded = new Date();
 	private Date artist2Album1DateModifed = new Date();
 	private Date artist2Album1DateSkipped = new Date();
-
-	@Deployment
-	public static Archive<?> createTestArchive()
-			throws IllegalArgumentException, IOException {
-		return ShrinkWrap
-				.create(AlbumHibernateIT.class.getSimpleName() + ".jar",
-						JavaArchive.class)
-				.addManifestResource(
-						new File("src/test/resources/META-INF/persistence.xml"),
-						ArchivePaths.create("persistence.xml"))
-				.addClasses(Album.class, Artist.class, Song.class);
-	}
-
-	@Before
-	public void setup() {
-		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("testPu");
-		entityManager = emf.createEntityManager();
-	}
 
 	@Test
 	public void shouldHaveCorrectNumberOfArtistsAlbumsAndSongs() {
@@ -145,69 +107,29 @@ public class SongHibernateIT {
 				11, getAllSongs().size());
 	}
 
-	@After
-	public void clearTestData() {
-		deleteAllArtists();
-	}
-
-	private void deleteAllArtists() {
-		List<Artist> allArtists = getAllArtists();
-
-		entityManager.getTransaction().begin();
-		for (Artist artist : allArtists) {
-			entityManager.remove(artist);
-		}
-		entityManager.getTransaction().commit();
-	}
-
-	private void deleteArtistByName(String artistName) {
-		Artist artistToDelete = getArtistByName(artistName);
-		entityManager.getTransaction().begin();
-		entityManager.remove(artistToDelete);
-		entityManager.getTransaction().commit();
-	}
-
-	@SuppressWarnings("unchecked")
-	private List<Album> getAllSongs() {
-		Query select = entityManager.createQuery("FROM Song");
-		return select.getResultList();
-	}
-
-	@SuppressWarnings("unchecked")
-	private List<Album> getAllAlbums() {
-		Query select = entityManager.createQuery("FROM Album");
-		return select.getResultList();
-	}
-
-	@SuppressWarnings("unchecked")
-	private List<Artist> getAllArtists() {
-		Query select = entityManager.createQuery("FROM Artist");
-		return select.getResultList();
-	}
-
 	private void createArtistsAlbumsAndSongs() {
 		assertEquals("There should be no albums before any are created.", 0,
 				getAllAlbums().size());
 
-		entityManager.getTransaction().begin();
+		getEntityManager().getTransaction().begin();
 
 		Artist artist1 = new Artist(ARTIST_1_NAME);
 		Album artist1Album1 = new Album(ARTIST_1_ALBUM_1_NAME, artist1,
 				new Rating(80));
 		addSongsToAlbum1(artist1Album1);
-		entityManager.persist(artist1Album1);
+		getEntityManager().persist(artist1Album1);
 		Album artist1Album2 = new Album(ARTIST_1_ALBUM_2_NAME, artist1,
 				new Rating(80));
 		addSongsToAlbum2(artist1Album2);
-		entityManager.persist(artist1Album2);
+		getEntityManager().persist(artist1Album2);
 
 		Artist artist2 = new Artist(ARTIST_2_NAME);
 		Album artist2Album1 = new Album(ARTIST_2_ALBUM_1_NAME, artist2,
 				new Rating(80));
 		addSongsToAlbum3(artist2Album1);
-		entityManager.persist(artist2Album1);
+		getEntityManager().persist(artist2Album1);
 
-		entityManager.getTransaction().commit();
+		getEntityManager().getTransaction().commit();
 
 		assertEquals("There should be two artists.", 2, getAllArtists().size());
 		assertEquals("There should be three albums.", 3, getAllAlbums().size());
@@ -229,46 +151,6 @@ public class SongHibernateIT {
 				11,
 				getAllSongsByArtistNameAlbumName(ARTIST_2_NAME,
 						ARTIST_2_ALBUM_1_NAME).size());
-	}
-
-	@SuppressWarnings("unchecked")
-	private List<Song> getAllSongsByArtistNameAlbumName(String artistName,
-			String artistAlbumName) {
-		Album album = getAlbumByArtistNameAlbumName(artistName, artistAlbumName);
-		entityManager.getTransaction().begin();
-		List<Song> songs = entityManager
-				.createQuery("FROM Song WHERE album = :album")
-				.setParameter("album", album).getResultList();
-		entityManager.getTransaction().commit();
-		return songs;
-	}
-
-	private Album getAlbumByArtistNameAlbumName(String artistName,
-			String albumName) {
-		Artist artist = getArtistByName(artistName);
-		entityManager.getTransaction().begin();
-		List<?> albums = entityManager
-				.createQuery(
-						"FROM Album WHERE artist = :artist AND name = :name")
-				.setParameter("artist", artist).setParameter("name", albumName)
-				.getResultList();
-		Album album = null;
-		if (albums.size() > 0) {
-			album = (Album) albums.get(0);
-		}
-		entityManager.getTransaction().commit();
-		return album;
-	}
-
-	private Artist getArtistByName(String artistName) {
-		List<?> artistsByName = entityManager
-				.createQuery("FROM Artist WHERE name = :name")
-				.setParameter("name", artistName).getResultList();
-		if (artistsByName.isEmpty()) {
-			return null;
-		} else {
-			return (Artist) artistsByName.get(0);
-		}
 	}
 
 	private void addSongsToAlbum1(Album artist1Album1) {
