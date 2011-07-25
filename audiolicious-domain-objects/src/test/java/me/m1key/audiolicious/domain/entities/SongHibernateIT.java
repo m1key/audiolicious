@@ -19,8 +19,12 @@
 package me.m1key.audiolicious.domain.entities;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
+import java.util.Set;
 
 import org.junit.Test;
 
@@ -68,13 +72,13 @@ public class SongHibernateIT extends HibernateIT {
 	private static final String ARTIST_2_ALBUM_1_SONG_11_NAME = "Will There Be Enough Water?";
 
 	private Date artist1Album1DateAdded = new Date();
-	private Date artist1Album1DateModifed = new Date();
+	private Date artist1Album1DateModified = new Date();
 	private Date artist1Album1DateSkipped = new Date();
 	private Date artist1Album2DateAdded = new Date();
-	private Date artist1Album2DateModifed = new Date();
+	private Date artist1Album2DateModified = new Date();
 	private Date artist1Album2DateSkipped = new Date();
 	private Date artist2Album1DateAdded = new Date();
-	private Date artist2Album1DateModifed = new Date();
+	private Date artist2Album1DateModified = new Date();
 	private Date artist2Album1DateSkipped = new Date();
 
 	@Test
@@ -105,6 +109,111 @@ public class SongHibernateIT extends HibernateIT {
 		assertEquals(
 				"There should be 11 songs after one artist has been deleted.",
 				11, getAllSongs().size());
+	}
+
+	@Test
+	public void testGetSongs() {
+		createArtistsAlbumsAndSongs();
+
+		getEntityManager().getTransaction().begin();
+
+		Album album = getAlbumByArtistNameAlbumNameInsideExistingTransaction(
+				ARTIST_1_NAME, ARTIST_1_ALBUM_1_NAME);
+
+		Set<Song> songs = getAndVerifyAlbumSongs(album, 11);
+
+		verifySong1Correct(album, songs);
+		verifySong2Correct(album, songs);
+
+		getEntityManager().getTransaction().commit();
+	}
+
+	private Album getAlbumByArtistNameAlbumNameInsideExistingTransaction(
+			String artistName, String albumName) {
+		Artist artist = (Artist) getEntityManager()
+				.createQuery("FROM Artist WHERE name = :name")
+				.setParameter("name", artistName).getResultList().get(0);
+		Album album = (Album) getEntityManager()
+				.createQuery(
+						"FROM Album WHERE artist = :artist AND name = :name")
+				.setParameter("artist", artist).setParameter("name", albumName)
+				.getResultList().get(0);
+		return album;
+	}
+
+	private Set<Song> getAndVerifyAlbumSongs(Album album,
+			int expectedNumberOfSongs) {
+		Set<Song> songs = album.getSongs();
+		assertNotNull("Songs obtained via getter should not be null.", songs);
+		assertEquals(String.format(
+				"There should be [%s] songs obtained via getter.",
+				expectedNumberOfSongs), expectedNumberOfSongs, songs.size());
+		return songs;
+	}
+
+	private void verifySong1Correct(Album album, Set<Song> songs) {
+		Song song1 = getSong(songs, ARTIST_1_ALBUM_1_SONG_1_NAME);
+		assertNotNull(String.format("Song [%s] should not be null.",
+				ARTIST_1_ALBUM_1_SONG_1_NAME), song1);
+		assertEquals(
+				String.format(
+						"Song [%s] date added should be equal to the one that was set.",
+						ARTIST_1_ALBUM_1_SONG_1_NAME),
+				artist1Album1DateAdded.getTime(), song1.getDateAdded()
+						.getTime());
+		assertEquals(
+				String.format(
+						"Song [%s] date modified should be equal to the one that was set.",
+						ARTIST_1_ALBUM_1_SONG_1_NAME),
+				artist1Album1DateModified.getTime(), song1.getDateModified()
+						.getTime());
+		assertEquals(
+				String.format(
+						"Song [%s] date skipped should be equal to the one that was set.",
+						ARTIST_1_ALBUM_1_SONG_1_NAME),
+				artist1Album1DateSkipped.getTime(), song1.getSkipDate()
+						.getTime());
+		assertFalse(String.format("Song [%s] should not have video.",
+				ARTIST_1_ALBUM_1_SONG_1_NAME), song1.hasVideo());
+		assertEquals("song1.getAlbum() should equal album.", song1.getAlbum(),
+				album);
+	}
+
+	private void verifySong2Correct(Album album, Set<Song> songs) {
+		Song song2 = getSong(songs, ARTIST_1_ALBUM_1_SONG_2_NAME);
+		assertNotNull(String.format("Song [%s] should not be null.",
+				ARTIST_1_ALBUM_1_SONG_2_NAME), song2);
+		assertEquals(
+				String.format(
+						"Song [%s] date added should be equal to the one that was set.",
+						ARTIST_1_ALBUM_1_SONG_2_NAME),
+				artist1Album1DateAdded.getTime(), song2.getDateAdded()
+						.getTime());
+		assertEquals(
+				String.format(
+						"Song [%s] date modified should be equal to the one that was set.",
+						ARTIST_1_ALBUM_1_SONG_2_NAME),
+				artist1Album1DateModified.getTime(), song2.getDateModified()
+						.getTime());
+		assertEquals(
+				String.format(
+						"Song [%s] date skipped should be equal to the one that was set.",
+						ARTIST_1_ALBUM_1_SONG_2_NAME),
+				artist1Album1DateSkipped.getTime(), song2.getSkipDate()
+						.getTime());
+		assertTrue(String.format("Song [%s] should have video.",
+				ARTIST_1_ALBUM_1_SONG_2_NAME), song2.hasVideo());
+		assertEquals("song2.getAlbum() should equal album.", song2.getAlbum(),
+				album);
+	}
+
+	private Song getSong(Set<Song> songs, String songName) {
+		for (Song song : songs) {
+			if (song.getName().equals(songName)) {
+				return song;
+			}
+		}
+		return null;
 	}
 
 	private void createArtistsAlbumsAndSongs() {
@@ -156,57 +265,57 @@ public class SongHibernateIT extends HibernateIT {
 	private void addSongsToAlbum1(Album artist1Album1) {
 		Song song01 = new Song(ARTIST_1_ALBUM_1_SONG_1_NAME, ARTIST_1_NAME,
 				artist1Album1, 1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne",
-				"Rock", artist1Album1DateAdded, artist1Album1DateModifed,
+				"Rock", artist1Album1DateAdded, artist1Album1DateModified,
 				new Rating(80), 9, artist1Album1DateSkipped, 0, false, 0, 0,
 				false);
 		Song song02 = new Song(ARTIST_1_ALBUM_1_SONG_2_NAME, ARTIST_1_NAME,
 				artist1Album1, 1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne",
-				"Rock", artist1Album1DateAdded, artist1Album1DateModifed,
-				new Rating(80), 1, artist1Album1DateSkipped, 0, false, 0, 0,
+				"Rock", artist1Album1DateAdded, artist1Album1DateModified,
+				new Rating(80), 1, artist1Album1DateSkipped, 0, true, 0, 0,
 				false);
 		Song song03 = new Song(ARTIST_1_ALBUM_1_SONG_3_NAME, ARTIST_1_NAME,
 				artist1Album1, 1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne",
-				"Rock", artist1Album1DateAdded, artist2Album1DateModifed,
+				"Rock", artist1Album1DateAdded, artist2Album1DateModified,
 				new Rating(100), 8, artist1Album1DateSkipped, 0, false, 0, 0,
 				false);
 		Song song04 = new Song(ARTIST_1_ALBUM_1_SONG_4_NAME, ARTIST_1_NAME,
 				artist1Album1, 1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne",
-				"Rock", artist1Album1DateAdded, artist1Album1DateModifed,
+				"Rock", artist1Album1DateAdded, artist1Album1DateModified,
 				new Rating(80), 76, artist1Album1DateSkipped, 0, false, 0, 0,
 				false);
 		Song song05 = new Song(ARTIST_1_ALBUM_1_SONG_5_NAME, ARTIST_1_NAME,
 				artist1Album1, 1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne",
-				"Rock", artist1Album1DateAdded, artist1Album1DateModifed,
+				"Rock", artist1Album1DateAdded, artist1Album1DateModified,
 				new Rating(100), 16, artist1Album1DateSkipped, 0, false, 0, 0,
 				false);
 		Song song06 = new Song(ARTIST_1_ALBUM_1_SONG_6_NAME, ARTIST_1_NAME,
 				artist1Album1, 1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne",
-				"Rock", artist1Album1DateAdded, artist1Album1DateModifed,
+				"Rock", artist1Album1DateAdded, artist1Album1DateModified,
 				new Rating(100), 2, artist1Album1DateSkipped, 0, false, 0, 0,
 				false);
 		Song song07 = new Song(ARTIST_1_ALBUM_1_SONG_7_NAME, ARTIST_1_NAME,
 				artist1Album1, 1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne",
-				"Rock", artist1Album1DateAdded, artist1Album1DateModifed,
+				"Rock", artist1Album1DateAdded, artist1Album1DateModified,
 				new Rating(60), 34, artist1Album1DateSkipped, 0, false, 0, 0,
 				false);
 		Song song08 = new Song(ARTIST_1_ALBUM_1_SONG_8_NAME, ARTIST_1_NAME,
 				artist1Album1, 1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne",
-				"Rock", artist1Album1DateAdded, artist1Album1DateModifed,
+				"Rock", artist1Album1DateAdded, artist1Album1DateModified,
 				new Rating(80), 0, artist1Album1DateSkipped, 0, false, 0, 0,
 				false);
 		Song song09 = new Song(ARTIST_1_ALBUM_1_SONG_9_NAME, ARTIST_1_NAME,
 				artist1Album1, 1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne",
-				"Rock", artist1Album1DateAdded, artist1Album1DateModifed,
+				"Rock", artist1Album1DateAdded, artist1Album1DateModified,
 				new Rating(80), 1, artist1Album1DateSkipped, 0, false, 0, 0,
 				false);
 		Song song10 = new Song(ARTIST_1_ALBUM_1_SONG_10_NAME, ARTIST_1_NAME,
 				artist1Album1, 1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne",
-				"Rock", artist1Album1DateAdded, artist1Album1DateModifed,
+				"Rock", artist1Album1DateAdded, artist1Album1DateModified,
 				new Rating(60), 14, artist1Album1DateSkipped, 0, false, 0, 0,
 				false);
 		Song song11 = new Song(ARTIST_1_ALBUM_1_SONG_11_NAME, ARTIST_1_NAME,
 				artist1Album1, 1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne",
-				"Rock", artist1Album1DateAdded, artist1Album1DateModifed,
+				"Rock", artist1Album1DateAdded, artist1Album1DateModified,
 				new Rating(80), 2, artist1Album1DateSkipped, 0, false, 0, 0,
 				false);
 
@@ -227,55 +336,55 @@ public class SongHibernateIT extends HibernateIT {
 	private void addSongsToAlbum2(Album artist1Album2) {
 		Song song01 = new Song(ARTIST_1_ALBUM_2_SONG_1_NAME, ARTIST_1_NAME,
 				artist1Album2, 1991, "", "Rock", artist1Album2DateAdded,
-				artist1Album2DateModifed, new Rating(100), 9,
+				artist1Album2DateModified, new Rating(100), 9,
 				artist1Album2DateSkipped, 0, false, 0, 0, false);
 		Song song02 = new Song(ARTIST_1_ALBUM_2_SONG_2_NAME, ARTIST_1_NAME,
 				artist1Album2, 1991, "", "Rock", artist1Album2DateAdded,
-				artist1Album2DateModifed, new Rating(80), 1,
+				artist1Album2DateModified, new Rating(80), 1,
 				artist1Album2DateSkipped, 0, false, 0, 0, false);
 		Song song03 = new Song(ARTIST_1_ALBUM_2_SONG_3_NAME, ARTIST_1_NAME,
 				artist1Album2, 1991, "", "Rock", artist1Album2DateAdded,
-				artist1Album2DateModifed, new Rating(60), 8,
+				artist1Album2DateModified, new Rating(60), 8,
 				artist1Album2DateSkipped, 0, false, 0, 0, false);
 		Song song04 = new Song(ARTIST_1_ALBUM_2_SONG_4_NAME, ARTIST_1_NAME,
 				artist1Album2, 1991, "", "Rock", artist1Album2DateAdded,
-				artist1Album2DateModifed, new Rating(80), 76,
+				artist1Album2DateModified, new Rating(80), 76,
 				artist1Album2DateSkipped, 0, false, 0, 0, false);
 		Song song05 = new Song(ARTIST_1_ALBUM_2_SONG_5_NAME, ARTIST_1_NAME,
 				artist1Album2, 1991, "", "Rock", artist1Album2DateAdded,
-				artist1Album2DateModifed, new Rating(100), 11,
+				artist1Album2DateModified, new Rating(100), 11,
 				artist1Album2DateSkipped, 0, false, 0, 0, false);
 		Song song06 = new Song(ARTIST_1_ALBUM_2_SONG_6_NAME, ARTIST_1_NAME,
 				artist1Album2, 1991, "", "Rock", artist1Album2DateAdded,
-				artist1Album2DateModifed, new Rating(60), 2,
+				artist1Album2DateModified, new Rating(60), 2,
 				artist1Album2DateSkipped, 0, false, 0, 0, false);
 		Song song07 = new Song(ARTIST_1_ALBUM_2_SONG_7_NAME, ARTIST_1_NAME,
 				artist1Album2, 1991, "", "Rock", artist1Album2DateAdded,
-				artist1Album2DateModifed, new Rating(100), 21,
+				artist1Album2DateModified, new Rating(100), 21,
 				artist1Album2DateSkipped, 0, false, 0, 0, false);
 		Song song08 = new Song(ARTIST_1_ALBUM_2_SONG_8_NAME, ARTIST_1_NAME,
 				artist1Album2, 1991, "", "Rock", artist1Album2DateAdded,
-				artist1Album2DateModifed, new Rating(60), 0,
+				artist1Album2DateModified, new Rating(60), 0,
 				artist1Album2DateSkipped, 0, false, 0, 0, false);
 		Song song09 = new Song(ARTIST_1_ALBUM_2_SONG_9_NAME, ARTIST_1_NAME,
 				artist1Album2, 1991, "", "Rock", artist1Album2DateAdded,
-				artist1Album2DateModifed, new Rating(80), 1,
+				artist1Album2DateModified, new Rating(80), 1,
 				artist1Album2DateSkipped, 0, false, 0, 0, false);
 		Song song10 = new Song(ARTIST_1_ALBUM_2_SONG_10_NAME, ARTIST_1_NAME,
 				artist1Album2, 1991, "", "Rock", artist1Album2DateAdded,
-				artist1Album2DateModifed, new Rating(80), 14,
+				artist1Album2DateModified, new Rating(80), 14,
 				artist1Album2DateSkipped, 0, false, 0, 0, false);
 		Song song11 = new Song(ARTIST_1_ALBUM_2_SONG_11_NAME, ARTIST_1_NAME,
 				artist1Album2, 1991, "", "Rock", artist1Album2DateAdded,
-				artist1Album2DateModifed, new Rating(60), 2,
+				artist1Album2DateModified, new Rating(60), 2,
 				artist1Album2DateSkipped, 0, false, 0, 0, false);
 		Song song12 = new Song(ARTIST_1_ALBUM_2_SONG_12_NAME, ARTIST_1_NAME,
 				artist1Album2, 1991, "", "Rock", artist1Album2DateAdded,
-				artist1Album2DateModifed, new Rating(100), 2,
+				artist1Album2DateModified, new Rating(100), 2,
 				artist1Album2DateSkipped, 0, false, 0, 0, false);
 		Song song13 = new Song(ARTIST_1_ALBUM_2_SONG_13_NAME, ARTIST_1_NAME,
 				artist1Album2, 1991, "", "Rock", artist1Album2DateAdded,
-				artist1Album2DateModifed, new Rating(100), 2,
+				artist1Album2DateModified, new Rating(100), 2,
 				artist1Album2DateSkipped, 0, false, 0, 0, false);
 
 		artist1Album2.addSong(song01);
@@ -297,47 +406,47 @@ public class SongHibernateIT extends HibernateIT {
 	private void addSongsToAlbum3(Album artist2Album1) {
 		Song song01 = new Song(ARTIST_2_ALBUM_1_SONG_1_NAME, ARTIST_2_NAME,
 				artist2Album1, 2009, "", "Alternative", artist2Album1DateAdded,
-				artist2Album1DateModifed, new Rating(100), 9,
+				artist2Album1DateModified, new Rating(100), 9,
 				artist2Album1DateSkipped, 0, false, 0, 0, false);
 		Song song02 = new Song(ARTIST_2_ALBUM_1_SONG_2_NAME, ARTIST_2_NAME,
 				artist2Album1, 2009, "", "Alternative", artist2Album1DateAdded,
-				artist2Album1DateModifed, new Rating(80), 9,
+				artist2Album1DateModified, new Rating(80), 9,
 				artist2Album1DateSkipped, 0, false, 0, 0, false);
 		Song song03 = new Song(ARTIST_2_ALBUM_1_SONG_3_NAME, ARTIST_2_NAME,
 				artist2Album1, 2009, "", "Alternative", artist2Album1DateAdded,
-				artist2Album1DateModifed, new Rating(100), 9,
+				artist2Album1DateModified, new Rating(100), 9,
 				artist2Album1DateSkipped, 0, false, 0, 0, false);
 		Song song04 = new Song(ARTIST_2_ALBUM_1_SONG_4_NAME, ARTIST_2_NAME,
 				artist2Album1, 2009, "", "Alternative", artist2Album1DateAdded,
-				artist2Album1DateModifed, new Rating(100), 9,
+				artist2Album1DateModified, new Rating(100), 9,
 				artist2Album1DateSkipped, 0, false, 0, 0, false);
 		Song song05 = new Song(ARTIST_2_ALBUM_1_SONG_5_NAME, ARTIST_2_NAME,
 				artist2Album1, 2009, "", "Alternative", artist2Album1DateAdded,
-				artist2Album1DateModifed, new Rating(80), 9,
+				artist2Album1DateModified, new Rating(80), 9,
 				artist2Album1DateSkipped, 0, false, 0, 0, false);
 		Song song06 = new Song(ARTIST_2_ALBUM_1_SONG_6_NAME, ARTIST_2_NAME,
 				artist2Album1, 2009, "", "Alternative", artist2Album1DateAdded,
-				artist2Album1DateModifed, new Rating(80), 9,
+				artist2Album1DateModified, new Rating(80), 9,
 				artist2Album1DateSkipped, 0, false, 0, 0, false);
 		Song song07 = new Song(ARTIST_2_ALBUM_1_SONG_7_NAME, ARTIST_2_NAME,
 				artist2Album1, 2009, "", "Alternative", artist2Album1DateAdded,
-				artist2Album1DateModifed, new Rating(80), 9,
+				artist2Album1DateModified, new Rating(80), 9,
 				artist2Album1DateSkipped, 0, false, 0, 0, false);
 		Song song08 = new Song(ARTIST_2_ALBUM_1_SONG_8_NAME, ARTIST_2_NAME,
 				artist2Album1, 2009, "", "Alternative", artist2Album1DateAdded,
-				artist2Album1DateModifed, new Rating(80), 9,
+				artist2Album1DateModified, new Rating(80), 9,
 				artist2Album1DateSkipped, 0, false, 0, 0, false);
 		Song song09 = new Song(ARTIST_2_ALBUM_1_SONG_9_NAME, ARTIST_2_NAME,
 				artist2Album1, 2009, "", "Alternative", artist2Album1DateAdded,
-				artist2Album1DateModifed, new Rating(80), 9,
+				artist2Album1DateModified, new Rating(80), 9,
 				artist2Album1DateSkipped, 0, false, 0, 0, false);
 		Song song10 = new Song(ARTIST_2_ALBUM_1_SONG_10_NAME, ARTIST_2_NAME,
 				artist2Album1, 2009, "", "Alternative", artist2Album1DateAdded,
-				artist2Album1DateModifed, new Rating(80), 9,
+				artist2Album1DateModified, new Rating(80), 9,
 				artist2Album1DateSkipped, 0, false, 0, 0, false);
 		Song song11 = new Song(ARTIST_2_ALBUM_1_SONG_11_NAME, ARTIST_2_NAME,
 				artist2Album1, 2009, "", "Alternative", artist2Album1DateAdded,
-				artist2Album1DateModifed, new Rating(80), 9,
+				artist2Album1DateModified, new Rating(80), 9,
 				artist2Album1DateSkipped, 0, false, 0, 0, false);
 
 		artist2Album1.addSong(song01);
