@@ -65,6 +65,12 @@ public class Song {
 	@Column(name = "DATE_MODIFIED")
 	private Date dateModified;
 
+	@Column(name = "DATE_SKIPPED")
+	private Date dateSkipped;
+
+	@Column(name = "SKIP_COUNT")
+	private int skipCount;
+
 	@Column(name = "GENRE", length = 128)
 	private String genre;
 
@@ -86,22 +92,16 @@ public class Song {
 	@Column(name = "HD")
 	private boolean hd;
 
+	@Embedded
+	private Rating rating;
+
 	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = {
 			CascadeType.PERSIST, CascadeType.MERGE })
 	private Album album;
 
-	@Embedded
-	private Rating rating;
-
-	@Column(name = "SKIP_DATE")
-	private Date skipDate;
-
-	@Column(name = "SKIP_COUNT")
-	private int skipCount;
-
 	public Song(String name, String artistName, Album album, int year,
 			String composer, String genre, Date dateAdded, Date dateModified,
-			Rating rating, int playCount, Date skipDate, int skipCount,
+			Rating rating, int playCount, Date dateSkipped, int skipCount,
 			boolean hasVideo, int videoHeight, int videoWidth, boolean hd) {
 		this.uuid = UUID.randomUUID().toString();
 		this.name = name;
@@ -118,7 +118,7 @@ public class Song {
 		this.videoWidth = videoWidth;
 		this.hd = hd;
 		this.rating = rating;
-		this.skipDate = skipDate;
+		this.dateSkipped = dateSkipped;
 		this.skipCount = skipCount;
 	}
 
@@ -137,7 +137,7 @@ public class Song {
 		this.videoWidth = songTo.getVideoWidth();
 		this.hd = songTo.isHd();
 		this.rating = new Rating(songTo.getRating());
-		this.skipDate = songTo.getSkipDate();
+		this.dateSkipped = songTo.getSkipDate();
 		this.skipCount = songTo.getSkipCount();
 	}
 
@@ -205,8 +205,8 @@ public class Song {
 		return skipCount;
 	}
 
-	public Date getSkipDate() {
-		return skipDate;
+	public Date getDateSkipped() {
+		return dateSkipped;
 	}
 
 	public void setAlbum(Album album) {
@@ -227,8 +227,8 @@ public class Song {
 				.append(artistName).append(composer).append(dateAdded)
 				.append(dateModified).append(genre).append(playCount)
 				.append(year).append(hasVideo).append(videoHeight)
-				.append(videoWidth).append(hd).append(rating).append(skipDate)
-				.append(skipCount).toHashCode();
+				.append(videoWidth).append(hd).append(rating)
+				.append(dateSkipped).append(skipCount).toHashCode();
 	}
 
 	@Override
@@ -263,8 +263,9 @@ public class Song {
 				.append("hasVideo", hasVideo)
 				.append("videoHeight", videoHeight)
 				.append("videoWidth", videoWidth).append("hd", hd)
-				.append("skipDate", skipDate).append("skipCount", skipCount)
-				.append("rating", rating).toString();
+				.append("dateSkipped", dateSkipped)
+				.append("skipCount", skipCount).append("rating", rating)
+				.toString();
 	}
 
 }

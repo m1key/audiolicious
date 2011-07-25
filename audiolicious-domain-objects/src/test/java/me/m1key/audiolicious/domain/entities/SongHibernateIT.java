@@ -171,7 +171,7 @@ public class SongHibernateIT extends HibernateIT {
 				String.format(
 						"Song [%s] date skipped should be equal to the one that was set.",
 						ARTIST_1_ALBUM_1_SONG_1_NAME),
-				artist1Album1DateSkipped.getTime(), song1.getSkipDate()
+				artist1Album1DateSkipped.getTime(), song1.getDateSkipped()
 						.getTime());
 		assertFalse(String.format("Song [%s] should not have video.",
 				ARTIST_1_ALBUM_1_SONG_1_NAME), song1.hasVideo());
@@ -199,7 +199,7 @@ public class SongHibernateIT extends HibernateIT {
 				String.format(
 						"Song [%s] date skipped should be equal to the one that was set.",
 						ARTIST_1_ALBUM_1_SONG_2_NAME),
-				artist1Album1DateSkipped.getTime(), song2.getSkipDate()
+				artist1Album1DateSkipped.getTime(), song2.getDateSkipped()
 						.getTime());
 		assertTrue(String.format("Song [%s] should have video.",
 				ARTIST_1_ALBUM_1_SONG_2_NAME), song2.hasVideo());

@@ -126,7 +126,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(1, song1.getPlayCount());
 		assertEquals(new Rating(80), song1.getRating());
 		assertEquals(0, song1.getSkipCount());
-		assertEquals(null, song1.getSkipDate());
+		assertEquals(null, song1.getDateSkipped());
 		assertEquals(album, song1.getAlbum());
 		assertEquals(0, song1.getVideoHeight());
 		assertEquals(0, song1.getVideoWidth());
@@ -151,7 +151,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(1, song2.getPlayCount());
 		assertEquals(new Rating(80), song2.getRating());
 		assertEquals(0, song2.getSkipCount());
-		assertEquals(null, song2.getSkipDate());
+		assertEquals(null, song2.getDateSkipped());
 		assertEquals(album, song2.getAlbum());
 		assertEquals(0, song2.getVideoHeight());
 		assertEquals(0, song2.getVideoWidth());
@@ -176,7 +176,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(1, song3.getPlayCount());
 		assertEquals(new Rating(100), song3.getRating());
 		assertEquals(0, song3.getSkipCount());
-		assertEquals(null, song3.getSkipDate());
+		assertEquals(null, song3.getDateSkipped());
 		assertEquals(album, song3.getAlbum());
 		assertEquals(0, song3.getVideoHeight());
 		assertEquals(0, song3.getVideoWidth());
@@ -201,7 +201,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(1, song4.getPlayCount());
 		assertEquals(new Rating(100), song4.getRating());
 		assertEquals(0, song4.getSkipCount());
-		assertEquals(null, song4.getSkipDate());
+		assertEquals(null, song4.getDateSkipped());
 		assertEquals(album, song4.getAlbum());
 		assertEquals(0, song4.getVideoHeight());
 		assertEquals(0, song4.getVideoWidth());
@@ -226,7 +226,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(1, song5.getPlayCount());
 		assertEquals(new Rating(100), song5.getRating());
 		assertEquals(0, song5.getSkipCount());
-		assertEquals(null, song5.getSkipDate());
+		assertEquals(null, song5.getDateSkipped());
 		assertEquals(album, song5.getAlbum());
 		assertEquals(0, song5.getVideoHeight());
 		assertEquals(0, song5.getVideoWidth());
@@ -251,7 +251,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(2, song6.getPlayCount());
 		assertEquals(new Rating(100), song6.getRating());
 		assertEquals(0, song6.getSkipCount());
-		assertEquals(null, song6.getSkipDate());
+		assertEquals(null, song6.getDateSkipped());
 		assertEquals(album, song6.getAlbum());
 		assertEquals(0, song6.getVideoHeight());
 		assertEquals(0, song6.getVideoWidth());
@@ -276,7 +276,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(2, song7.getPlayCount());
 		assertEquals(new Rating(100), song7.getRating());
 		assertEquals(0, song7.getSkipCount());
-		assertEquals(null, song7.getSkipDate());
+		assertEquals(null, song7.getDateSkipped());
 		assertEquals(album, song7.getAlbum());
 		assertEquals(0, song7.getVideoHeight());
 		assertEquals(0, song7.getVideoWidth());
@@ -301,7 +301,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(3, song8.getPlayCount());
 		assertEquals(new Rating(100), song8.getRating());
 		assertEquals(0, song8.getSkipCount());
-		assertEquals(null, song8.getSkipDate());
+		assertEquals(null, song8.getDateSkipped());
 		assertEquals(album, song8.getAlbum());
 		assertEquals(0, song8.getVideoHeight());
 		assertEquals(0, song8.getVideoWidth());
@@ -326,7 +326,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(2, song9.getPlayCount());
 		assertEquals(new Rating(100), song9.getRating());
 		assertEquals(0, song9.getSkipCount());
-		assertEquals(null, song9.getSkipDate());
+		assertEquals(null, song9.getDateSkipped());
 		assertEquals(album, song9.getAlbum());
 		assertEquals(0, song9.getVideoHeight());
 		assertEquals(0, song9.getVideoWidth());
@@ -361,7 +361,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(4, song1.getPlayCount());
 		assertEquals(new Rating(100), song1.getRating());
 		assertEquals(0, song1.getSkipCount());
-		assertEquals(null, song1.getSkipDate());
+		assertEquals(null, song1.getDateSkipped());
 		assertEquals(album, song1.getAlbum());
 		assertEquals(0, song1.getVideoHeight());
 		assertEquals(0, song1.getVideoWidth());
@@ -386,7 +386,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(2, song2.getPlayCount());
 		assertEquals(new Rating(80), song2.getRating());
 		assertEquals(0, song2.getSkipCount());
-		assertEquals(null, song2.getSkipDate());
+		assertEquals(null, song2.getDateSkipped());
 		assertEquals(album, song2.getAlbum());
 		assertEquals(0, song2.getVideoHeight());
 		assertEquals(0, song2.getVideoWidth());
@@ -411,7 +411,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(1, song3.getPlayCount());
 		assertEquals(new Rating(80), song3.getRating());
 		assertEquals(0, song3.getSkipCount());
-		assertEquals(null, song3.getSkipDate());
+		assertEquals(null, song3.getDateSkipped());
 		assertEquals(album, song3.getAlbum());
 		assertEquals(0, song3.getVideoHeight());
 		assertEquals(0, song3.getVideoWidth());
@@ -436,7 +436,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(1, song4.getPlayCount());
 		assertEquals(new Rating(80), song4.getRating());
 		assertEquals(0, song4.getSkipCount());
-		assertEquals(null, song4.getSkipDate());
+		assertEquals(null, song4.getDateSkipped());
 		assertEquals(album, song4.getAlbum());
 		assertEquals(0, song4.getVideoHeight());
 		assertEquals(0, song4.getVideoWidth());
@@ -461,7 +461,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(1, song5.getPlayCount());
 		assertEquals(new Rating(80), song5.getRating());
 		assertEquals(0, song5.getSkipCount());
-		assertEquals(null, song5.getSkipDate());
+		assertEquals(null, song5.getDateSkipped());
 		assertEquals(album, song5.getAlbum());
 		assertEquals(0, song5.getVideoHeight());
 		assertEquals(0, song5.getVideoWidth());
@@ -486,7 +486,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(1, song6.getPlayCount());
 		assertEquals(new Rating(80), song6.getRating());
 		assertEquals(0, song6.getSkipCount());
-		assertEquals(null, song6.getSkipDate());
+		assertEquals(null, song6.getDateSkipped());
 		assertEquals(album, song6.getAlbum());
 		assertEquals(0, song6.getVideoHeight());
 		assertEquals(0, song6.getVideoWidth());
@@ -511,7 +511,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(1, song7.getPlayCount());
 		assertEquals(new Rating(80), song7.getRating());
 		assertEquals(0, song7.getSkipCount());
-		assertEquals(null, song7.getSkipDate());
+		assertEquals(null, song7.getDateSkipped());
 		assertEquals(album, song7.getAlbum());
 		assertEquals(0, song7.getVideoHeight());
 		assertEquals(0, song7.getVideoWidth());
@@ -536,7 +536,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(1, song8.getPlayCount());
 		assertEquals(new Rating(80), song8.getRating());
 		assertEquals(0, song8.getSkipCount());
-		assertEquals(null, song8.getSkipDate());
+		assertEquals(null, song8.getDateSkipped());
 		assertEquals(album, song8.getAlbum());
 		assertEquals(0, song8.getVideoHeight());
 		assertEquals(0, song8.getVideoWidth());
@@ -561,7 +561,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(1, song9.getPlayCount());
 		assertEquals(new Rating(80), song9.getRating());
 		assertEquals(0, song9.getSkipCount());
-		assertEquals(null, song9.getSkipDate());
+		assertEquals(null, song9.getDateSkipped());
 		assertEquals(album, song9.getAlbum());
 		assertEquals(0, song9.getVideoHeight());
 		assertEquals(0, song9.getVideoWidth());
@@ -586,7 +586,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(1, song10.getPlayCount());
 		assertEquals(new Rating(80), song10.getRating());
 		assertEquals(0, song10.getSkipCount());
-		assertEquals(null, song10.getSkipDate());
+		assertEquals(null, song10.getDateSkipped());
 		assertEquals(album, song10.getAlbum());
 		assertEquals(0, song10.getVideoHeight());
 		assertEquals(0, song10.getVideoWidth());
@@ -611,7 +611,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(1, song11.getPlayCount());
 		assertEquals(new Rating(80), song11.getRating());
 		assertEquals(0, song11.getSkipCount());
-		assertEquals(null, song11.getSkipDate());
+		assertEquals(null, song11.getDateSkipped());
 		assertEquals(album, song11.getAlbum());
 		assertEquals(0, song11.getVideoHeight());
 		assertEquals(0, song11.getVideoWidth());
@@ -636,7 +636,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(1, song12.getPlayCount());
 		assertEquals(new Rating(80), song12.getRating());
 		assertEquals(0, song12.getSkipCount());
-		assertEquals(null, song12.getSkipDate());
+		assertEquals(null, song12.getDateSkipped());
 		assertEquals(album, song12.getAlbum());
 		assertEquals(0, song12.getVideoHeight());
 		assertEquals(0, song12.getVideoWidth());
@@ -661,7 +661,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(1, song13.getPlayCount());
 		assertEquals(new Rating(80), song13.getRating());
 		assertEquals(0, song13.getSkipCount());
-		assertEquals(null, song13.getSkipDate());
+		assertEquals(null, song13.getDateSkipped());
 		assertEquals(album, song13.getAlbum());
 		assertEquals(0, song13.getVideoHeight());
 		assertEquals(0, song13.getVideoWidth());
@@ -686,7 +686,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(1, song14.getPlayCount());
 		assertEquals(new Rating(20), song14.getRating());
 		assertEquals(0, song14.getSkipCount());
-		assertEquals(null, song14.getSkipDate());
+		assertEquals(null, song14.getDateSkipped());
 		assertEquals(album, song14.getAlbum());
 		assertEquals(0, song14.getVideoHeight());
 		assertEquals(0, song14.getVideoWidth());
@@ -711,7 +711,7 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(1, song15.getPlayCount());
 		assertEquals(new Rating(80), song15.getRating());
 		assertEquals(0, song15.getSkipCount());
-		assertEquals(null, song15.getSkipDate());
+		assertEquals(null, song15.getDateSkipped());
 		assertEquals(album, song15.getAlbum());
 		assertEquals(0, song15.getVideoHeight());
 		assertEquals(0, song15.getVideoWidth());

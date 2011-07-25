@@ -51,18 +51,18 @@ public class Album {
 	@Column(name = "UUID", unique = true, length = 36)
 	private String uuid;
 
+	@Column(name = "NAME", length = 512)
+	private String name;
+
+	@Embedded
+	private Rating rating;
+
 	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = {
 			CascadeType.PERSIST, CascadeType.MERGE })
 	private Artist artist;
 
-	@Column(name = "NAME", length = 512)
-	private String name;
-
 	@OneToMany(mappedBy = "album", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private Set<Song> songs;
-
-	@Embedded
-	private Rating rating;
 
 	// For proxying.
 	protected Album() {
