@@ -112,6 +112,67 @@ public class SongHibernateIT extends HibernateIT {
 	}
 
 	@Test
+	public void shouldReturnValidSong05FromAlbum1Artist2() {
+		createArtistsAlbumsAndSongs();
+
+		Song song = getSongByArtistNameAlbumNameSongName(ARTIST_2_NAME,
+				ARTIST_2_ALBUM_1_NAME, ARTIST_2_ALBUM_1_SONG_5_NAME);
+
+		assertNotNull(String.format("Song [%s] should not be null.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), song);
+		assertEquals(
+				String.format(
+						"Song [%s] album should equal album it was requested with.",
+						ARTIST_2_ALBUM_1_SONG_5_NAME),
+				song.getAlbum(),
+				getAlbumByArtistNameAlbumName(ARTIST_2_NAME,
+						ARTIST_2_ALBUM_1_NAME));
+		assertEquals(
+				String.format(
+						"Song [%s] album artist should equal artist it was requested with.",
+						ARTIST_2_ALBUM_1_SONG_5_NAME), song.getArtistName(),
+				ARTIST_2_NAME);
+		assertEquals(String.format(
+				"Song [%s] composer should be an empty string.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getComposer(), "");
+		assertEquals(String.format("Song [%s] date added should be correct.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getDateAdded(),
+				artist2Album1DateAdded);
+		assertEquals(String.format(
+				"Song [%s] date modified should be correct.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getDateModified(),
+				artist2Album1DateModified);
+		assertEquals(String.format("Song [%s] date skipped should be correct.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getDateSkipped(),
+				artist2Album1DateSkipped);
+		assertEquals(String.format("Song [%s] genre should be correct.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getGenre(), "Alternative");
+		assertEquals(String.format("Song [%s] name should be correct.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getName(),
+				ARTIST_2_ALBUM_1_SONG_5_NAME);
+		assertEquals(String.format("Song [%s] should have play count equal 9.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getPlayCount(), 9);
+		assertEquals(String.format("Song [%s] should have rating equal 80.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getRating(), new Rating(80));
+		assertEquals(String.format("Song [%s] should have skip count equal 0.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getSkipCount(), 0);
+		assertEquals(String.format(
+				"Song [%s] should have video height count equal 0.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getVideoHeight(), 0);
+		assertEquals(String.format(
+				"Song [%s] should have video width count equal 0.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getVideoWidth(), 0);
+		assertEquals(String.format("Song [%s] should have year equal 2009.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getYear(), 2009);
+		assertNotNull(String.format("Song [%s] UUID should not be null.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getUuid());
+		assertFalse(String.format("Song [%s] HD should be false.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), song.isHd());
+		assertFalse(String.format("Song [%s] should have no video.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), song.hasVideo());
+	}
+
+	@Test
 	public void testGetSongs() {
 		createArtistsAlbumsAndSongs();
 

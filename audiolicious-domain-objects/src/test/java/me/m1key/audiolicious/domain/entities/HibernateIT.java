@@ -215,13 +215,13 @@ public abstract class HibernateIT {
 
 	protected void deleteArtistByUuid(String artistUuid) {
 		getEntityManager().getTransaction().begin();
-	
+
 		Query select = getEntityManager().createQuery(
 				"FROM Artist WHERE uuid = :uuid").setParameter("uuid",
 				artistUuid);
 		Artist artist = (Artist) select.getResultList().get(0);
 		getEntityManager().remove(artist);
-	
+
 		getEntityManager().getTransaction().commit();
 	}
 
@@ -240,6 +240,18 @@ public abstract class HibernateIT {
 		List<?> allArtists = getEntityManager().createQuery("FROM Artist")
 				.getResultList();
 		return allArtists.size();
+	}
+
+	protected Song getSongByArtistNameAlbumNameSongName(String artistName,
+			String albumName, String songName) {
+		Album album = getAlbumByArtistNameAlbumName(artistName, albumName);
+		getEntityManager().getTransaction().begin();
+		Song song = (Song) getEntityManager()
+				.createQuery("FROM Song WHERE album = :album AND name = :name")
+				.setParameter("album", album).setParameter("name", songName)
+				.getResultList().get(0);
+		getEntityManager().getTransaction().commit();
+		return song;
 	}
 
 }
