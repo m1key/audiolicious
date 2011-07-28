@@ -18,6 +18,7 @@
 		<module>audiolicious-test-data</module>
 		<module>audiolicious-services</module>
 		<module>audiolicious-repositories</module>
+		<module>audiolicious-integration-tests</module>
 	</modules>
 	<properties>
 
@@ -104,6 +105,11 @@
 			<dependency>
 				<groupId>me.m1key.audiolicious</groupId>
 				<artifactId>audiolicious-services</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>me.m1key.audiolicious</groupId>
+				<artifactId>audiolicious-repositories</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 

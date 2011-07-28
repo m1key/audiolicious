@@ -20,6 +20,7 @@ package me.m1key.audiolicious.repositories;
 
 import java.util.List;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,6 +29,7 @@ import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.services.ArtistRepository;
 
+@ApplicationScoped
 public class JpaArtistRepository implements ArtistRepository {
 
 	@PersistenceContext
