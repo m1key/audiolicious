@@ -56,7 +56,7 @@ import org.junit.runner.RunWith;
 @RunWith(Arquillian.class)
 public class DefaultSongServiceMacOsIT {
 
-	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/MacOsExportedLibrary-2011-06-18.xml";
+	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/MacOsExportedLibrary-2011-07-28.xml";
 
 	@Inject
 	private DefaultObjectTrackDataHandler handler;
@@ -153,12 +153,12 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testCorrectNumberOfAlbums() {
-		assertEquals(new Integer(674), songRepository.getNumberOfAlbums());
+		assertEquals(new Integer(704), songRepository.getNumberOfAlbums());
 	}
 
 	@Test
 	public void testCorrectNumberOfArtists() {
-		assertEquals(new Integer(422), songRepository.getNumberOfArtists());
+		assertEquals(new Integer(449), songRepository.getNumberOfArtists());
 	}
 
 	@Test

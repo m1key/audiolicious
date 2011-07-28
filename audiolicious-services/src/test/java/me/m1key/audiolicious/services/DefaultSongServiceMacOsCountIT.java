@@ -56,11 +56,11 @@ import org.junit.runner.RunWith;
 @RunWith(Arquillian.class)
 public class DefaultSongServiceMacOsCountIT {
 
-	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/MacOsExportedLibrary-2011-06-18.xml";
-	private static final int TOTAL_SONGS = 10256;
+	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/MacOsExportedLibrary-2011-07-28.xml";
+	private static final int TOTAL_SONGS = 10732;
 	private static final int TOTAL_MUSIC_VIDEOS = 6;
-	private static final int TOTAL_PODCASTS = 62;
-	private static final int TOTAL_AUDIOBOOKS = 31;
+	private static final int TOTAL_PODCASTS = 55;
+	private static final int TOTAL_AUDIOBOOKS = 35;
 	private static final int TOTAL_VIDEOS = 1;
 
 	@Inject
@@ -105,13 +105,13 @@ public class DefaultSongServiceMacOsCountIT {
 
 	@Test
 	public void testCorrectNumberOfTracksProcessed() {
-		assertEquals(TOTAL_AUDIOBOOKS + TOTAL_PODCASTS + TOTAL_SONGS
-				+ TOTAL_MUSIC_VIDEOS + TOTAL_VIDEOS,
-				audiobookHandler.getCount() + podcastHandler.getCount()
-						+ songHandler.getCount() + videoHandler.getCount());
 		assertEquals(TOTAL_AUDIOBOOKS, audiobookHandler.getCount());
 		assertEquals(TOTAL_PODCASTS, podcastHandler.getCount());
 		assertEquals(TOTAL_SONGS + TOTAL_MUSIC_VIDEOS, songHandler.getCount());
 		assertEquals(TOTAL_VIDEOS, videoHandler.getCount());
+		assertEquals(TOTAL_AUDIOBOOKS + TOTAL_PODCASTS + TOTAL_SONGS
+				+ TOTAL_MUSIC_VIDEOS + TOTAL_VIDEOS,
+				audiobookHandler.getCount() + podcastHandler.getCount()
+						+ songHandler.getCount() + videoHandler.getCount());
 	}
 }
