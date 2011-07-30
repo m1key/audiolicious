@@ -172,6 +172,51 @@ public class JpaSongRepositoryIT {
 		jpaSongRepository.save(song10);
 		jpaSongRepository.save(song11);
 		entityManager.getTransaction().commit();
+
+		assertTrue("Saved song should not be null.",
+				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
+						.setParameter("uuid", song01.getUuid()).getResultList()
+						.size() > 0);
+		assertTrue("Saved song should not be null.",
+				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
+						.setParameter("uuid", song02.getUuid()).getResultList()
+						.size() > 0);
+		assertTrue("Saved song should not be null.",
+				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
+						.setParameter("uuid", song03.getUuid()).getResultList()
+						.size() > 0);
+		assertTrue("Saved song should not be null.",
+				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
+						.setParameter("uuid", song04.getUuid()).getResultList()
+						.size() > 0);
+		assertTrue("Saved song should not be null.",
+				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
+						.setParameter("uuid", song05.getUuid()).getResultList()
+						.size() > 0);
+		assertTrue("Saved song should not be null.",
+				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
+						.setParameter("uuid", song06.getUuid()).getResultList()
+						.size() > 0);
+		assertTrue("Saved song should not be null.",
+				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
+						.setParameter("uuid", song07.getUuid()).getResultList()
+						.size() > 0);
+		assertTrue("Saved song should not be null.",
+				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
+						.setParameter("uuid", song08.getUuid()).getResultList()
+						.size() > 0);
+		assertTrue("Saved song should not be null.",
+				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
+						.setParameter("uuid", song09.getUuid()).getResultList()
+						.size() > 0);
+		assertTrue("Saved song should not be null.",
+				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
+						.setParameter("uuid", song10.getUuid()).getResultList()
+						.size() > 0);
+		assertTrue("Saved song should not be null.",
+				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
+						.setParameter("uuid", song11.getUuid()).getResultList()
+						.size() > 0);
 	}
 
 	@After
