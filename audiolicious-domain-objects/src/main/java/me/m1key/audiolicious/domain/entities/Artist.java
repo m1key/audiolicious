@@ -49,7 +49,7 @@ public class Artist {
 	@Column(name = "UUID", unique = true, length = 36)
 	private String uuid;
 
-	@Column(name = "NAME", unique = true, length = 512)
+	@Column(name = "NAME", unique = true, length = 255)
 	private String name;
 
 	@OneToMany(mappedBy = "artist", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)

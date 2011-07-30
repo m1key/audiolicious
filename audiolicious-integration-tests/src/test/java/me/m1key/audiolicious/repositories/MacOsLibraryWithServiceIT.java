@@ -58,6 +58,8 @@ import org.junit.runner.RunWith;
 public class MacOsLibraryWithServiceIT {
 
 	private static final Long TOTAL_ARTISTS = new Long(449);
+	private static final Long TOTAL_SONGS = new Long(10732);
+	private static final Long TOTAL_VIDEOS = new Long(6);
 	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/MacOsExportedLibrary-2011-07-28.xml";
 
 	@Inject
@@ -112,12 +114,22 @@ public class MacOsLibraryWithServiceIT {
 	public void testCorrectNumberOfEverything() {
 		assertEquals("There should be the right number of artists in the DB.",
 				TOTAL_ARTISTS, totalArtists());
+		assertEquals("There should be the right number of songs in the DB.",
+				new Long(TOTAL_SONGS + TOTAL_VIDEOS), totalSongs());
 	}
 
 	private Long totalArtists() {
 		entityManager.getTransaction().begin();
 		Object howMany = entityManager.createQuery(
 				"SELECT COUNT(id) FROM Artist").getSingleResult();
+		entityManager.getTransaction().commit();
+		return (Long) howMany;
+	}
+
+	private Long totalSongs() {
+		entityManager.getTransaction().begin();
+		Object howMany = entityManager
+				.createQuery("SELECT COUNT(id) FROM Song").getSingleResult();
 		entityManager.getTransaction().commit();
 		return (Long) howMany;
 	}
