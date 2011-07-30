@@ -189,6 +189,30 @@ public class SongHibernateIT extends HibernateIT {
 		getEntityManager().getTransaction().commit();
 	}
 
+	@Test
+	public void savingAlbumShouldSaveArtist() {
+		getEntityManager().getTransaction().begin();
+		Artist artist = new Artist(ARTIST_1_NAME);
+		Album album = new Album(ARTIST_1_ALBUM_1_NAME, artist, new Rating(80));
+		Song song = new Song(ARTIST_1_ALBUM_1_SONG_1_NAME, ARTIST_1_NAME,
+				album, 1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock",
+				artist1Album1DateAdded, artist1Album1DateModified, new Rating(
+						80), 9, artist1Album1DateSkipped, 0, false, 0, 0, false);
+		getEntityManager().persist(song);
+		getEntityManager().getTransaction().commit();
+
+		assertNotNull("Artist should be persisted.",
+				getArtistByName(ARTIST_1_NAME));
+		assertNotNull(
+				"Album should be persisted.",
+				getAlbumByArtistNameAlbumName(ARTIST_1_NAME,
+						ARTIST_1_ALBUM_1_NAME));
+		assertNotNull(
+				"Song should be persisted.",
+				getSongByArtistNameAlbumNameSongName(ARTIST_1_NAME,
+						ARTIST_1_ALBUM_1_NAME, ARTIST_1_ALBUM_1_SONG_1_NAME));
+	}
+
 	private Album getAlbumByArtistNameAlbumNameInsideExistingTransaction(
 			String artistName, String albumName) {
 		Artist artist = (Artist) getEntityManager()

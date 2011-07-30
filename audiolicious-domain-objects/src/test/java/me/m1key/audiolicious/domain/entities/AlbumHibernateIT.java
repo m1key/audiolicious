@@ -149,6 +149,22 @@ public class AlbumHibernateIT extends HibernateIT {
 		getEntityManager().getTransaction().commit();
 	}
 
+	@Test
+	public void savingAlbumShouldSaveArtist() {
+		getEntityManager().getTransaction().begin();
+		Artist artist = new Artist(ARTIST_1_NAME);
+		Album album = new Album(ARTIST_1_ALBUM_2_NAME, artist, new Rating(80));
+		getEntityManager().persist(album);
+		getEntityManager().getTransaction().commit();
+
+		assertNotNull("Artist should be persisted.",
+				getArtistByName(ARTIST_1_NAME));
+		assertNotNull(
+				"Album should be persisted.",
+				getAlbumByArtistNameAlbumName(ARTIST_1_NAME,
+						ARTIST_1_ALBUM_2_NAME));
+	}
+
 	private void createAlbums() {
 		assertEquals("There should be no albums before any are created.", 0,
 				getAllAlbums().size());

@@ -105,7 +105,6 @@ public class Song {
 			boolean hasVideo, int videoHeight, int videoWidth, boolean hd) {
 		this.uuid = UUID.randomUUID().toString();
 		this.name = name;
-		this.album = album;
 		this.artistName = artistName;
 		this.composer = composer;
 		this.dateAdded = dateAdded;
@@ -120,6 +119,7 @@ public class Song {
 		this.rating = rating;
 		this.dateSkipped = dateSkipped;
 		this.skipCount = skipCount;
+		setAlbum(album);
 	}
 
 	public Song(SongTo songTo) {
