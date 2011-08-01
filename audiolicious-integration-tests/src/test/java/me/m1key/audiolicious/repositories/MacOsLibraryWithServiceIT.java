@@ -28,28 +28,64 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import me.m1key.audiolicious.commons.XmlNodeName;
+import me.m1key.audiolicious.commons.qualifiers.AggregateMapper;
+import me.m1key.audiolicious.commons.qualifiers.NoopHandler;
+import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
+import me.m1key.audiolicious.commons.qualifiers.NullArtist;
+import me.m1key.audiolicious.domain.entities.Album;
+import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
+import me.m1key.audiolicious.domain.entities.Rating;
+import me.m1key.audiolicious.domain.entities.Song;
+import me.m1key.audiolicious.domain.to.AudiobookTo;
+import me.m1key.audiolicious.domain.to.AudiobookToBuilder;
+import me.m1key.audiolicious.domain.to.PodcastTo;
+import me.m1key.audiolicious.domain.to.RatingTo;
+import me.m1key.audiolicious.domain.to.SongTo;
+import me.m1key.audiolicious.domain.to.TrackTo;
+import me.m1key.audiolicious.domain.to.TrackToType;
+import me.m1key.audiolicious.domain.to.VideoTo;
+import me.m1key.audiolicious.libraryparser.LibraryParser;
+import me.m1key.audiolicious.libraryparser.RawTrackDataCallback;
 import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParser;
+import me.m1key.audiolicious.libraryparser.XmlParseException;
 import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandler;
+import me.m1key.audiolicious.objecthandler.ObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.RawTrackDataHandler;
+import me.m1key.audiolicious.objecthandler.TrackHandler;
 import me.m1key.audiolicious.objecthandler.factories.TrackHandlersFactory;
 import me.m1key.audiolicious.objecthandler.factories.TrackMappersFactory;
 import me.m1key.audiolicious.objecthandler.handlers.NoopTrackHandler;
 import me.m1key.audiolicious.objecthandler.handlers.SongHandler;
+import me.m1key.audiolicious.objecthandler.handlers.SongService;
+import me.m1key.audiolicious.objectmapper.AggregateTrackMapper;
+import me.m1key.audiolicious.objectmapper.CannotMapTrackValuesException;
+import me.m1key.audiolicious.objectmapper.ObjectMappingException;
+import me.m1key.audiolicious.objectmapper.TrackMapper;
+import me.m1key.audiolicious.objectmapper.extractor.DataExtractor;
 import me.m1key.audiolicious.objectmapper.extractor.DefaultEnglishValuesProvider;
+import me.m1key.audiolicious.objectmapper.extractor.EnglishValuesProvider;
 import me.m1key.audiolicious.objectmapper.extractor.I18nDataExtractor;
 import me.m1key.audiolicious.objectmapper.trackmappers.AudiobookMapper;
+import me.m1key.audiolicious.objectmapper.trackmappers.NonAggregateTrackMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.SongMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapper;
+import me.m1key.audiolicious.services.AlbumRepository;
+import me.m1key.audiolicious.services.ArtistRepository;
 import me.m1key.audiolicious.services.DefaultSongService;
+import me.m1key.audiolicious.services.SongRepository;
 
-import org.jboss.arquillian.api.Deployment;
+import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ArchivePaths;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
-import org.jboss.shrinkwrap.impl.base.asset.ByteArrayAsset;
+import org.jboss.shrinkwrap.api.asset.EmptyAsset;
+import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.jboss.shrinkwrap.resolver.api.DependencyResolvers;
+import org.jboss.shrinkwrap.resolver.api.maven.MavenDependencyResolver;
+import org.jboss.shrinkwrap.resolver.api.maven.filter.ScopeFilter;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -75,24 +111,47 @@ public class MacOsLibraryWithServiceIT {
 	private EntityManager entityManager;
 
 	@Deployment
-	public static JavaArchive createTestArchive()
+	public static WebArchive createTestArchive()
 			throws IllegalArgumentException, IOException {
 		return ShrinkWrap
-				.create(MacOsLibraryWithServiceIT.class.getSimpleName()
-						+ ".jar", JavaArchive.class)
-				.addManifestResource(new ByteArrayAsset(new byte[0]),
+				.create(WebArchive.class,
+						MacOsLibraryWithServiceIT.class.getSimpleName()
+								+ ".war")
+				.addAsWebInfResource(EmptyAsset.INSTANCE,
 						ArchivePaths.create("beans.xml"))
-				.addClasses(AudiobookMapper.class,
+				.addAsResource("META-INF/persistence.xml",
+						"META-INF/persistence.xml")
+				.addClasses(AggregateMapper.class, AggregateTrackMapper.class,
+						Album.class, AlbumRepository.class, Artist.class,
+						ArtistRepository.class, AudiobookMapper.class,
+						AudiobookTo.class, AudiobookToBuilder.class,
+						CannotMapTrackValuesException.class,
+						DataExtractor.class,
 						DefaultEnglishValuesProvider.class,
 						DefaultObjectTrackDataHandler.class,
-						DefaultSongService.class, I18nDataExtractor.class,
-						JpaAlbumRepository.class, JpaArtistRepository.class,
-						JpaSongRepository.class, NoopTrackHandler.class,
-						NullEntitiesFactory.class, PodcastMapper.class,
-						RawTrackDataHandler.class, SongHandler.class,
-						SongMapper.class, TrackHandlersFactory.class,
-						TrackMappersFactory.class, VideoMapper.class,
-						VtdItunesLibraryParser.class);
+						DefaultSongService.class, EnglishValuesProvider.class,
+						I18nDataExtractor.class, JpaAlbumRepository.class,
+						JpaArtistRepository.class, JpaSongRepository.class,
+						LibraryParser.class, MacOsLibraryWithServiceIT.class,
+						NonAggregateTrackMapper.class, NoopHandler.class,
+						NoopTrackHandler.class, NullAlbum.class,
+						NullArtist.class, NullEntitiesFactory.class,
+						ObjectMappingException.class,
+						ObjectTrackDataHandler.class, PodcastMapper.class,
+						PodcastTo.class, Rating.class, RatingTo.class,
+						RawTrackDataCallback.class, RawTrackDataHandler.class,
+						Song.class, SongHandler.class, SongMapper.class,
+						SongRepository.class, SongService.class, SongTo.class,
+						TrackHandler.class, TrackHandlersFactory.class,
+						TrackMapper.class, TrackMappersFactory.class,
+						TrackTo.class, TrackToType.class, VideoMapper.class,
+						VideoTo.class, VtdItunesLibraryParser.class,
+						XmlNodeName.class, XmlParseException.class)
+				.addAsLibraries(
+						DependencyResolvers.use(MavenDependencyResolver.class)
+								.loadDependenciesFromPom("pom.xml")
+								.exclusions("org.hibernate:*")
+								.resolveAsFiles(new ScopeFilter("test")));
 	}
 
 	@Before

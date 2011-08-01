@@ -35,9 +35,16 @@ public class JpaArtistRepository implements ArtistRepository {
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	@Inject
-	@NullArtist
 	private Artist nullArtist;
+
+	// For proxying.
+	protected JpaArtistRepository() {
+	}
+
+	@Inject
+	public JpaArtistRepository(@NullArtist Artist nullArtist) {
+		this.nullArtist = nullArtist;
+	}
 
 	@Override
 	public Artist getArtist(String artistName) {
