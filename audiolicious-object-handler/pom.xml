@@ -80,13 +80,13 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.jboss.arquillian</groupId>
-			<artifactId>arquillian-junit</artifactId>
+			<groupId>org.jboss.arquillian.junit</groupId>
+			<artifactId>arquillian-junit-container</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.arquillian.container</groupId>
-			<artifactId>arquillian-weld-embedded</artifactId>
+			<artifactId>arquillian-weld-ee-embedded-1.1</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

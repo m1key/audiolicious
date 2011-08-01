@@ -25,8 +25,7 @@ import java.io.IOException;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.commons.qualifiers.AggregateMapper;
@@ -101,13 +100,8 @@ public class MacOsLibraryWithServiceIT {
 
 	@Inject
 	private DefaultObjectTrackDataHandler handler;
-	@Inject
-	private JpaSongRepository songRepository;
-	@Inject
-	private JpaAlbumRepository albumRepository;
-	@Inject
-	private JpaArtistRepository artistRepository;
 
+	@PersistenceContext
 	private EntityManager entityManager;
 
 	@Deployment
@@ -156,18 +150,8 @@ public class MacOsLibraryWithServiceIT {
 
 	@Before
 	public void setUp() throws Exception {
-		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("testPu");
-		entityManager = emf.createEntityManager();
-
-		songRepository.setEntityManager(entityManager);
-		albumRepository.setEntityManager(entityManager);
-		artistRepository.setEntityManager(entityManager);
-
-		entityManager.getTransaction().begin();
 		File xmlLibraryFile = new File(pathToFile);
 		handler.execute(xmlLibraryFile);
-		entityManager.getTransaction().commit();
 	}
 
 	@Test
@@ -184,20 +168,18 @@ public class MacOsLibraryWithServiceIT {
 		return total("Artist");
 	}
 
-	private Long total(String entityName) {
-		entityManager.getTransaction().begin();
-		Object howMany = entityManager.createQuery(
-				String.format("SELECT COUNT(id) FROM %s", entityName))
-				.getSingleResult();
-		entityManager.getTransaction().commit();
-		return (Long) howMany;
-	}
-
 	private Long totalAlbums() {
 		return total("Album");
 	}
 
 	private Long totalSongs() {
 		return total("Song");
+	}
+
+	private Long total(String entityName) {
+		Object howMany = entityManager.createQuery(
+				String.format("SELECT COUNT(id) FROM %s", entityName))
+				.getSingleResult();
+		return (Long) howMany;
 	}
 }

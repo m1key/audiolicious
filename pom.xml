@@ -35,12 +35,9 @@
 		<joda-time.version>1.6.2</joda-time.version>
 
 		<!-- CDI -->
-		<weld-core.version>1.0.1-Final</weld-core.version>
-		<weld-spi.version>1.0-SP1</weld-spi.version>
-		<javax.inject.version>1</javax.inject.version>
-		<el-api.version>2.2</el-api.version>
-		<arquillian.version>1.0.0.Alpha2</arquillian.version>
-		<cdi-api.version>1.0-SP1</cdi-api.version>
+		<weld-core.version>1.1.2.Final</weld-core.version>
+		<weld-spi.version>1.1.Beta2</weld-spi.version>
+		<arquillian.version>1.0.0.CR1</arquillian.version>
 
 		<!-- PERSISTENCE -->
 		<hibernate.version>3.6.5.Final</hibernate.version>
@@ -49,6 +46,14 @@
 		<hibernate-entitymanager.version>3.6.5.Final</hibernate-entitymanager.version>
 		<hsqldb.version>1.8.0.10</hsqldb.version>
 		<mysql.version>5.1.16</mysql.version>
+		<hibernate-validator.version>4.1.0.Final</hibernate-validator.version>
+
+		<!-- JEE -->
+		<validation-api.version>1.0.0.GA</validation-api.version>
+		<cdi-api.version>1.0-SP1</cdi-api.version>
+		<javax.inject.version>1</javax.inject.version>
+		<el-api.version>2.2</el-api.version>
+		<jboss-ejb3-api.version>3.1.0</jboss-ejb3-api.version>
 
 		<!-- MAVEN -->
 		<plugin.failsafe.version>2.8.1</plugin.failsafe.version>
@@ -167,29 +172,14 @@
 				<version>${weld-spi.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>javax.inject</groupId>
-				<artifactId>javax.inject</artifactId>
-				<version>${javax.inject.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>javax.el</groupId>
-				<artifactId>el-api</artifactId>
-				<version>${el-api.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.jboss.arquillian</groupId>
-				<artifactId>arquillian-junit</artifactId>
+				<groupId>org.jboss.arquillian.junit</groupId>
+				<artifactId>arquillian-junit-container</artifactId>
 				<version>${arquillian.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.jboss.arquillian.container</groupId>
-				<artifactId>arquillian-weld-embedded</artifactId>
+				<artifactId>arquillian-weld-ee-embedded-1.1</artifactId>
 				<version>${arquillian.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>javax.enterprise</groupId>
-				<artifactId>cdi-api</artifactId>
-				<version>${cdi-api.version}</version>
 			</dependency>
 
 			<!-- PERSISTENCE -->
@@ -209,6 +199,11 @@
 				<version>${hibernate-entitymanager.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>${hibernate-validator.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>hsqldb</groupId>
 				<artifactId>hsqldb</artifactId>
 				<version>${hsqldb.version}</version>
@@ -217,6 +212,33 @@
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
 				<version>${mysql.version}</version>
+			</dependency>
+
+			<!-- JEE -->
+			<dependency>
+				<groupId>javax.validation</groupId>
+				<artifactId>validation-api</artifactId>
+				<version>${validation-api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.inject</groupId>
+				<artifactId>javax.inject</artifactId>
+				<version>${javax.inject.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.el</groupId>
+				<artifactId>el-api</artifactId>
+				<version>${el-api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.enterprise</groupId>
+				<artifactId>cdi-api</artifactId>
+				<version>${cdi-api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jboss.ejb3</groupId>
+				<artifactId>jboss-ejb3-api</artifactId>
+				<version>${jboss-ejb3-api.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
