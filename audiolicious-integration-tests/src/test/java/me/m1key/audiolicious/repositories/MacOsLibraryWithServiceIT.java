@@ -23,6 +23,7 @@ import static org.junit.Assert.assertEquals;
 import java.io.File;
 import java.io.IOException;
 
+import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -99,7 +100,7 @@ public class MacOsLibraryWithServiceIT {
 	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/MacOsExportedLibrary-2011-07-28.xml";
 
 	@Inject
-	private DefaultObjectTrackDataHandler handler;
+	private ObjectTrackDataHandler handler;
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -115,6 +116,10 @@ public class MacOsLibraryWithServiceIT {
 						ArchivePaths.create("beans.xml"))
 				.addAsResource("META-INF/persistence.xml",
 						"META-INF/persistence.xml")
+				.addAsResource(
+						new File(
+								"../audiolicious-object-mappers/src/main/resources/englishValues.properties"),
+						"englishValues.properties")
 				.addClasses(AggregateMapper.class, AggregateTrackMapper.class,
 						Album.class, AlbumRepository.class, Artist.class,
 						ArtistRepository.class, AudiobookMapper.class,
@@ -144,8 +149,7 @@ public class MacOsLibraryWithServiceIT {
 				.addAsLibraries(
 						DependencyResolvers.use(MavenDependencyResolver.class)
 								.loadDependenciesFromPom("pom.xml")
-								.exclusions("org.hibernate:*")
-								.resolveAsFiles(new ScopeFilter("test")));
+								.resolveAsFiles(new ScopeFilter("runtime")));
 	}
 
 	@Before

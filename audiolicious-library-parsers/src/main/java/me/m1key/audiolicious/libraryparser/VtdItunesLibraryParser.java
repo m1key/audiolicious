@@ -23,7 +23,8 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.enterprise.context.RequestScoped;
+import javax.ejb.Local;
+import javax.ejb.Stateful;
 import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
@@ -38,7 +39,8 @@ import com.ximpleware.VTDNav;
 import com.ximpleware.XPathEvalException;
 import com.ximpleware.XPathParseException;
 
-@RequestScoped
+@Stateful
+@Local(LibraryParser.class)
 public class VtdItunesLibraryParser implements LibraryParser {
 
 	private static final boolean NAMESPACE_AWARE = false;

@@ -11,7 +11,7 @@
 
 	<container qualifier="jboss" default="true">
 		<protocol type="jmx-as7">
-			<property name="executionType">EMBEDDED</property>
+			<property name="executionType">REMOTE</property>
 		</protocol>
 		<configuration>
 			<property name="jbossHome">e:\Servers\jboss-as-web-7.0.0.Final</property>
