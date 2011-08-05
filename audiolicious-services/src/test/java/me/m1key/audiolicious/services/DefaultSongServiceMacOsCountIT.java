@@ -28,6 +28,7 @@ import javax.inject.Inject;
 import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
 import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParser;
 import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandler;
+import me.m1key.audiolicious.objecthandler.ObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.RawTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.factories.TrackHandlersFactory;
 import me.m1key.audiolicious.objecthandler.factories.TrackMappersFactory;
@@ -89,7 +90,8 @@ public class DefaultSongServiceMacOsCountIT {
 						DefaultEnglishValuesProvider.class,
 						DefaultObjectTrackDataHandler.class,
 						I18nDataExtractor.class, NoopTrackHandler.class,
-						NullEntitiesFactory.class, PodcastMapper.class,
+						NullEntitiesFactory.class,
+						ObjectTrackDataHandler.class, PodcastMapper.class,
 						RawTrackDataHandler.class, SongMapper.class,
 						StubAudiobookHandler.class, StubPodcastHandler.class,
 						StubSongHandler.class, StubSongRepository.class,

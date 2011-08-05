@@ -39,9 +39,9 @@ public class VtdItunesLibraryParserVariousTest {
 
 	@BeforeClass
 	public static void setUp() throws Exception {
-		stubRawTrackDataCallback = new StubRawTrackDataCallback();
+		stubRawTrackDataCallback = new StubRawTrackDataCallbackBean();
 		File file = new File(pathToFile);
-		parser = new VtdItunesLibraryParser(stubRawTrackDataCallback);
+//		parser = new VtdItunesLibraryParser(stubRawTrackDataCallback);
 		parser.process(file);
 	}
 

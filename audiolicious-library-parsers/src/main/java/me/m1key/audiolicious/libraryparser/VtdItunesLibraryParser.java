@@ -23,9 +23,9 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Stateful;
-import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
 
@@ -51,6 +51,8 @@ public class VtdItunesLibraryParser implements LibraryParser {
 
 	private File xmlFile;
 	private int tracksCount;
+
+	@EJB
 	private RawTrackDataCallback callback;
 
 	private VTDGen generator;
@@ -60,13 +62,7 @@ public class VtdItunesLibraryParser implements LibraryParser {
 	private AutoPilot trackCurrentKey;
 	private AutoPilot trackCurrentValue;
 
-	// For proxying.
-	protected VtdItunesLibraryParser() {
-	}
-
-	@Inject
-	public VtdItunesLibraryParser(RawTrackDataCallback rawTrackDataCallback) {
-		this.callback = rawTrackDataCallback;
+	public VtdItunesLibraryParser() {
 	}
 
 	@Override

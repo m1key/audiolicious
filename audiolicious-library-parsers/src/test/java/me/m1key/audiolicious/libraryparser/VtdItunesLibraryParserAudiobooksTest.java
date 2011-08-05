@@ -22,27 +22,64 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
+import javax.inject.Inject;
+
 import me.m1key.audiolicious.commons.XmlNodeName;
-import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParser;
-import me.m1key.audiolicious.libraryparser.LibraryParser;
 
-import org.junit.BeforeClass;
+import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.shrinkwrap.api.ArchivePaths;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.asset.EmptyAsset;
+import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.jboss.shrinkwrap.resolver.api.DependencyResolvers;
+import org.jboss.shrinkwrap.resolver.api.maven.MavenDependencyResolver;
+import org.jboss.shrinkwrap.resolver.api.maven.filter.ScopeFilter;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
+@RunWith(Arquillian.class)
 public class VtdItunesLibraryParserAudiobooksTest {
 
 	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/Audiobooks-2011-05-29.xml";
-	private static LibraryParser parser;
-	private static StubRawTrackDataCallback stubRawTrackDataCallback;
 
-	@BeforeClass
-	public static void setUp() throws Exception {
-		stubRawTrackDataCallback = new StubRawTrackDataCallback();
-		File file = new File(pathToFile);
-		parser = new VtdItunesLibraryParser(stubRawTrackDataCallback);
-		parser.process(file);
+	@Inject
+	private LibraryParser parser;
+	@Inject
+	private StubRawTrackDataCallback stubRawTrackDataCallback;
+
+	@Deployment
+	public static WebArchive createTestArchive()
+			throws IllegalArgumentException, IOException {
+		return ShrinkWrap
+				.create(WebArchive.class,
+						VtdItunesLibraryParserAudiobooksTest.class
+								.getSimpleName() + ".war")
+				.addAsWebInfResource(EmptyAsset.INSTANCE,
+						ArchivePaths.create("beans.xml"))
+				.addAsResource(
+						new File(
+								"../audiolicious-object-mappers/src/main/resources/englishValues.properties"),
+						"englishValues.properties")
+				.addClasses(LibraryParser.class, RawTrackDataCallback.class,
+						StubRawTrackDataCallback.class,
+						StubRawTrackDataCallbackBean.class,
+						VtdItunesLibraryParser.class, XmlNodeName.class,
+						XmlParseException.class)
+				.addAsLibraries(
+						DependencyResolvers.use(MavenDependencyResolver.class)
+								.loadDependenciesFromPom("pom.xml")
+								.resolveAsFiles(new ScopeFilter("runtime")));
+	}
+
+	@Before
+	public void setup() {
+		File libraryFile = new File(pathToFile);
+		parser.process(libraryFile);
 	}
 
 	@Test

@@ -41,7 +41,8 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ArchivePaths;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.jboss.shrinkwrap.api.asset.EmptyAsset;
+import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -65,11 +66,13 @@ public class JpaAlbumRepositoryIT {
 	public static Archive<?> createTestArchive()
 			throws IllegalArgumentException, IOException {
 		return ShrinkWrap
-				.create(JavaArchive.class,
-						JpaArtistRepositoryIT.class.getSimpleName() + ".jar")
+				.create(WebArchive.class,
+						JpaAlbumRepositoryIT.class.getSimpleName() + ".war")
 				.addAsManifestResource(
 						new File("src/test/resources/META-INF/persistence.xml"),
 						ArchivePaths.create("persistence.xml"))
+				.addAsWebInfResource(EmptyAsset.INSTANCE,
+						ArchivePaths.create("beans.xml"))
 				.addClasses(Album.class, Artist.class,
 						JpaAlbumRepository.class, NullEntitiesFactory.class);
 	}
