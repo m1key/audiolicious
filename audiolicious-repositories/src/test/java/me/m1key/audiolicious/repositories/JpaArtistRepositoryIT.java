@@ -34,7 +34,7 @@ import javax.persistence.Query;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
 
-import org.jboss.arquillian.api.Deployment;
+import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ArchivePaths;
@@ -60,9 +60,9 @@ public class JpaArtistRepositoryIT {
 	public static Archive<?> createTestArchive()
 			throws IllegalArgumentException, IOException {
 		return ShrinkWrap
-				.create(JpaArtistRepositoryIT.class.getSimpleName() + ".jar",
-						JavaArchive.class)
-				.addManifestResource(
+				.create(JavaArchive.class,
+						JpaArtistRepositoryIT.class.getSimpleName() + ".jar")
+				.addAsManifestResource(
 						new File("src/test/resources/META-INF/persistence.xml"),
 						ArchivePaths.create("persistence.xml"))
 				.addClasses(Artist.class, JpaArtistRepository.class,

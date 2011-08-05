@@ -23,7 +23,7 @@
 	<properties>
 
 		<!-- LOGGING -->
-		<slf4j.version>1.5.6</slf4j.version>
+		<slf4j.version>1.6.1</slf4j.version>
 
 		<!-- TESTING -->
 		<junit.version>4.8.2</junit.version>
@@ -35,12 +35,9 @@
 		<joda-time.version>1.6.2</joda-time.version>
 
 		<!-- CDI -->
-		<weld-core.version>1.0.1-Final</weld-core.version>
-		<weld-spi.version>1.0-SP1</weld-spi.version>
-		<javax.inject.version>1</javax.inject.version>
-		<el-api.version>2.2</el-api.version>
-		<arquillian.version>1.0.0.Alpha2</arquillian.version>
-		<cdi-api.version>1.0-SP1</cdi-api.version>
+		<weld-core.version>1.1.2.Final</weld-core.version>
+		<weld-spi.version>1.1.Beta2</weld-spi.version>
+		<arquillian.version>1.0.0.CR1</arquillian.version>
 
 		<!-- PERSISTENCE -->
 		<hibernate.version>3.6.5.Final</hibernate.version>
@@ -49,6 +46,13 @@
 		<hibernate-entitymanager.version>3.6.5.Final</hibernate-entitymanager.version>
 		<hsqldb.version>1.8.0.10</hsqldb.version>
 		<mysql.version>5.1.17</mysql.version>
+		<hibernate-validator.version>4.1.0.Final</hibernate-validator.version>
+
+		<!-- JEE -->
+		<javax.inject.version>1</javax.inject.version>
+		<el-api.version>2.2</el-api.version>
+		<cdi-api.version>1.0-SP1</cdi-api.version>
+		<jboss-javaee-web-6.0.version>2.0.0.Final</jboss-javaee-web-6.0.version>
 
 		<!-- MAVEN -->
 		<plugin.failsafe.version>2.8.1</plugin.failsafe.version>
@@ -137,6 +141,11 @@
 				<artifactId>mockito-core</artifactId>
 				<version>${mockito.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.jboss.arquillian.junit</groupId>
+				<artifactId>arquillian-junit-container</artifactId>
+				<version>${arquillian.version}</version>
+			</dependency>
 
 			<!-- UTILS -->
 			<dependency>
@@ -167,29 +176,9 @@
 				<version>${weld-spi.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>javax.inject</groupId>
-				<artifactId>javax.inject</artifactId>
-				<version>${javax.inject.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>javax.el</groupId>
-				<artifactId>el-api</artifactId>
-				<version>${el-api.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.jboss.arquillian</groupId>
-				<artifactId>arquillian-junit</artifactId>
-				<version>${arquillian.version}</version>
-			</dependency>
-			<dependency>
 				<groupId>org.jboss.arquillian.container</groupId>
-				<artifactId>arquillian-weld-embedded</artifactId>
+				<artifactId>arquillian-weld-ee-embedded-1.1</artifactId>
 				<version>${arquillian.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>javax.enterprise</groupId>
-				<artifactId>cdi-api</artifactId>
-				<version>${cdi-api.version}</version>
 			</dependency>
 
 			<!-- PERSISTENCE -->
@@ -218,6 +207,51 @@
 				<artifactId>mysql-connector-java</artifactId>
 				<version>${mysql.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>${hibernate-validator.version}</version>
+			</dependency>
+
+			<!-- JEE -->
+			<dependency>
+				<groupId>org.jboss.spec</groupId>
+				<artifactId>jboss-javaee-web-6.0</artifactId>
+				<version>${jboss-javaee-web-6.0.version}</version>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<groupId>javax.inject</groupId>
+				<artifactId>javax.inject</artifactId>
+				<version>${javax.inject.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.el</groupId>
+				<artifactId>el-api</artifactId>
+				<version>${el-api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.enterprise</groupId>
+				<artifactId>cdi-api</artifactId>
+				<version>${cdi-api.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	<repositories>
+		<repository>
+			<id>jboss-public-repository-group</id>
+			<name>JBoss Public Maven Repository Group</name>
+			<url>https://repository.jboss.org/nexus/content/groups/public-jboss/
+			</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
 </project>

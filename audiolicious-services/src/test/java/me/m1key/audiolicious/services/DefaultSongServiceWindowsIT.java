@@ -44,7 +44,7 @@ import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.SongMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapper;
 
-import org.jboss.arquillian.api.Deployment;
+import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ArchivePaths;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -70,9 +70,10 @@ public class DefaultSongServiceWindowsIT {
 	public static JavaArchive createTestArchive()
 			throws IllegalArgumentException, IOException {
 		return ShrinkWrap
-				.create(DefaultSongServiceWindowsIT.class.getSimpleName()
-						+ ".jar", JavaArchive.class)
-				.addManifestResource(
+				.create(JavaArchive.class,
+						DefaultSongServiceWindowsIT.class.getSimpleName()
+								+ ".jar")
+				.addAsManifestResource(
 						new File(
 								"src/test/resources/META-INF/handlersBeans.xml"),
 						ArchivePaths.create("beans.xml"))

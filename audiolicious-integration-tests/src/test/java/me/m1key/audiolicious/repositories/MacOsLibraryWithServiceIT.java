@@ -44,12 +44,12 @@ import me.m1key.audiolicious.objectmapper.trackmappers.SongMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapper;
 import me.m1key.audiolicious.services.DefaultSongService;
 
-import org.jboss.arquillian.api.Deployment;
+import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ArchivePaths;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
-import org.jboss.shrinkwrap.impl.base.asset.ByteArrayAsset;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -78,9 +78,10 @@ public class MacOsLibraryWithServiceIT {
 	public static JavaArchive createTestArchive()
 			throws IllegalArgumentException, IOException {
 		return ShrinkWrap
-				.create(MacOsLibraryWithServiceIT.class.getSimpleName()
-						+ ".jar", JavaArchive.class)
-				.addManifestResource(new ByteArrayAsset(new byte[0]),
+				.create(JavaArchive.class,
+						MacOsLibraryWithServiceIT.class.getSimpleName()
+								+ ".jar")
+				.addAsManifestResource(EmptyAsset.INSTANCE,
 						ArchivePaths.create("beans.xml"))
 				.addClasses(AudiobookMapper.class,
 						DefaultEnglishValuesProvider.class,
