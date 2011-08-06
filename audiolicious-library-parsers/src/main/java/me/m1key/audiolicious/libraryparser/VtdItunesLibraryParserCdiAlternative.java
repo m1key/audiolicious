@@ -23,9 +23,7 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.ejb.EJB;
-import javax.ejb.Local;
-import javax.ejb.Stateful;
+import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
 
@@ -39,9 +37,7 @@ import com.ximpleware.VTDNav;
 import com.ximpleware.XPathEvalException;
 import com.ximpleware.XPathParseException;
 
-@Stateful
-@Local(LibraryParser.class)
-public class VtdItunesLibraryParser implements LibraryParser {
+public class VtdItunesLibraryParserCdiAlternative implements LibraryParser {
 
 	private static final boolean NAMESPACE_AWARE = false;
 	private static final String SPACE = " ";
@@ -59,7 +55,7 @@ public class VtdItunesLibraryParser implements LibraryParser {
 	private AutoPilot trackCurrentKey;
 	private AutoPilot trackCurrentValue;
 
-	@EJB
+	@Inject
 	private RawTrackDataCallback callback;
 
 	@Override
@@ -221,4 +217,5 @@ public class VtdItunesLibraryParser implements LibraryParser {
 		trackCurrentKey.bind(navigator);
 		trackCurrentValue.bind(navigator);
 	}
+
 }

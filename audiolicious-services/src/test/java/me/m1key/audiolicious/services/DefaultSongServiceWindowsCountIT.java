@@ -26,7 +26,7 @@ import java.io.IOException;
 import javax.inject.Inject;
 
 import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
-import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParser;
+import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParserCdiAlternative;
 import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.RawTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.factories.TrackHandlersFactory;
@@ -95,7 +95,8 @@ public class DefaultSongServiceWindowsCountIT {
 						StubSongHandler.class, StubSongRepository.class,
 						StubTrackHandlersFactory.class, StubVideoHandler.class,
 						TrackHandlersFactory.class, TrackMappersFactory.class,
-						VideoMapper.class, VtdItunesLibraryParser.class);
+						VideoMapper.class,
+						VtdItunesLibraryParserCdiAlternative.class);
 	}
 
 	@Before

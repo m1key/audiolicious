@@ -25,8 +25,6 @@ import java.io.File;
 import java.util.Map;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
-import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParser;
-import me.m1key.audiolicious.libraryparser.LibraryParser;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -34,14 +32,15 @@ import org.junit.Test;
 public class VtdItunesLibraryParserVariousTest {
 
 	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/Fragment_1.xml";
-	private static LibraryParser parser;
-	private static StubRawTrackDataCallback stubRawTrackDataCallback;
+	private static VtdItunesLibraryParser parser;
+	private static StubRawTrackDataCallbackBean stubRawTrackDataCallback;
 
 	@BeforeClass
 	public static void setUp() throws Exception {
-		stubRawTrackDataCallback = new StubRawTrackDataCallback();
+		stubRawTrackDataCallback = new StubRawTrackDataCallbackBean();
 		File file = new File(pathToFile);
-		parser = new VtdItunesLibraryParser(stubRawTrackDataCallback);
+		parser = new VtdItunesLibraryParser();
+		parser.setCallback(stubRawTrackDataCallback);
 		parser.process(file);
 	}
 

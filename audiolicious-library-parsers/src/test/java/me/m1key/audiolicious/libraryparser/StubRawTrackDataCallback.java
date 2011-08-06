@@ -18,45 +18,17 @@
 
 package me.m1key.audiolicious.libraryparser;
 
-import static org.junit.Assert.assertNotNull;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import javax.enterprise.inject.Alternative;
-
 import me.m1key.audiolicious.commons.XmlNodeName;
-import me.m1key.audiolicious.libraryparser.RawTrackDataCallback;
 
-@Alternative
-public class StubRawTrackDataCallback implements RawTrackDataCallback {
+public interface StubRawTrackDataCallback extends RawTrackDataCallback {
 
-	private List<Map<XmlNodeName, String>> rawTrackData;
+	void feed(Map<XmlNodeName, String> trackValues);
 
-	public StubRawTrackDataCallback() {
-		rawTrackData = new ArrayList<Map<XmlNodeName, String>>();
-	}
+	List<Map<XmlNodeName, String>> getRawTrackData();
 
-	@Override
-	public void feed(Map<XmlNodeName, String> trackValues) {
-		rawTrackData.add(trackValues);
-	}
+	Map<XmlNodeName, String> getTrack(String trackId);
 
-	public List<Map<XmlNodeName, String>> getRawTrackData() {
-		return rawTrackData;
-	}
-
-	public Map<XmlNodeName, String> getTrack(String trackId) {
-		Map<XmlNodeName, String> matchingTrack = null;
-		for (Map<XmlNodeName, String> track : getRawTrackData()) {
-			if (trackId.equals(track.get(XmlNodeName.TRACK_ID))) {
-				matchingTrack = track;
-			}
-		}
-		assertNotNull(String.format(
-				"Track [%s] does not exist in the library.", trackId),
-				matchingTrack);
-		return matchingTrack;
-	}
 }

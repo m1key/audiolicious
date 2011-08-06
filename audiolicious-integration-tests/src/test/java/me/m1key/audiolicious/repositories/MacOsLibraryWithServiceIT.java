@@ -29,7 +29,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
-import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParser;
+import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParserCdiAlternative;
 import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.RawTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.factories.TrackHandlersFactory;
@@ -93,7 +93,7 @@ public class MacOsLibraryWithServiceIT {
 						RawTrackDataHandler.class, SongHandler.class,
 						SongMapper.class, TrackHandlersFactory.class,
 						TrackMappersFactory.class, VideoMapper.class,
-						VtdItunesLibraryParser.class);
+						VtdItunesLibraryParserCdiAlternative.class);
 	}
 
 	@Before

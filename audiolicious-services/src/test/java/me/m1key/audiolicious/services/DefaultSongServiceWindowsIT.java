@@ -30,7 +30,7 @@ import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
 import me.m1key.audiolicious.domain.entities.Rating;
 import me.m1key.audiolicious.domain.entities.Song;
-import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParser;
+import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParserCdiAlternative;
 import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.RawTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.factories.TrackHandlersFactory;
@@ -87,7 +87,7 @@ public class DefaultSongServiceWindowsIT {
 						StubAlbumRepository.class, StubArtistRepository.class,
 						StubSongRepository.class, TrackHandlersFactory.class,
 						TrackMappersFactory.class, VideoMapper.class,
-						VtdItunesLibraryParser.class);
+						VtdItunesLibraryParserCdiAlternative.class);
 	}
 
 	@Before

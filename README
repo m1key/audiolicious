@@ -27,6 +27,7 @@ Requirements for running:
 	* JBoss 7 AS,
 	* MySQL 5.
 A different configuration has not been tested.
+You must set your JBOSS_HOME system variable.
 
 Note on building with integration tests:
 By default (e.g. mvn clean install) basic integration tests that use in memory
