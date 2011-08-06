@@ -21,28 +21,23 @@ package me.m1key.audiolicious.objectmapper.trackmappers;
 import java.util.Date;
 import java.util.Map;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import javax.ejb.EJB;
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.domain.to.RatingTo;
 import me.m1key.audiolicious.domain.to.VideoTo;
 import me.m1key.audiolicious.objectmapper.CannotMapTrackValuesException;
+import me.m1key.audiolicious.objectmapper.TrackMapper;
 import me.m1key.audiolicious.objectmapper.extractor.DataExtractor;
 
-@ApplicationScoped
+@Stateless
+@Local(TrackMapper.class)
 public class VideoMapper extends NonAggregateTrackMapper<VideoTo> {
 
+	@EJB
 	private DataExtractor extractor;
-
-	// For proxying.
-	protected VideoMapper() {
-	}
-
-	@Inject
-	public VideoMapper(DataExtractor extractor) {
-		this.extractor = extractor;
-	}
 
 	@Override
 	public VideoTo map(Map<XmlNodeName, String> trackValues) {
@@ -108,6 +103,10 @@ public class VideoMapper extends NonAggregateTrackMapper<VideoTo> {
 	@Override
 	protected DataExtractor getDataExtractor() {
 		return extractor;
+	}
+
+	public void setDataExtractor(DataExtractor dataExtractor) {
+		this.extractor = dataExtractor;
 	}
 
 }

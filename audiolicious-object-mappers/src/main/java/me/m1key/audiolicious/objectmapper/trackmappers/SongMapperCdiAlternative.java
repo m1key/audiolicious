@@ -21,23 +21,28 @@ package me.m1key.audiolicious.objectmapper.trackmappers;
 import java.util.Date;
 import java.util.Map;
 
-import javax.ejb.EJB;
-import javax.ejb.Local;
-import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.domain.to.RatingTo;
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.objectmapper.CannotMapTrackValuesException;
-import me.m1key.audiolicious.objectmapper.TrackMapper;
 import me.m1key.audiolicious.objectmapper.extractor.DataExtractor;
 
-@Stateless
-@Local(TrackMapper.class)
-public class SongMapper extends NonAggregateTrackMapper<SongTo> {
+@ApplicationScoped
+public class SongMapperCdiAlternative extends NonAggregateTrackMapper<SongTo> {
 
-	@EJB
 	private DataExtractor extractor;
+
+	// For proxying.
+	public SongMapperCdiAlternative() {
+	}
+
+	@Inject
+	public SongMapperCdiAlternative(DataExtractor extractor) {
+		this.extractor = extractor;
+	}
 
 	@Override
 	public SongTo map(Map<XmlNodeName, String> trackValues) {
@@ -125,10 +130,6 @@ public class SongMapper extends NonAggregateTrackMapper<SongTo> {
 	@Override
 	protected DataExtractor getDataExtractor() {
 		return extractor;
-	}
-
-	public void setDataExtractor(DataExtractor extractor) {
-		this.extractor = extractor;
 	}
 
 }

@@ -38,10 +38,10 @@ import me.m1key.audiolicious.objecthandler.handlers.NoopTrackHandler;
 import me.m1key.audiolicious.objecthandler.handlers.SongHandler;
 import me.m1key.audiolicious.objectmapper.extractor.DefaultEnglishValuesProviderCdiAlternative;
 import me.m1key.audiolicious.objectmapper.extractor.I18nDataExtractorCdiAlternative;
-import me.m1key.audiolicious.objectmapper.trackmappers.AudiobookMapper;
-import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapper;
-import me.m1key.audiolicious.objectmapper.trackmappers.SongMapper;
-import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapper;
+import me.m1key.audiolicious.objectmapper.trackmappers.AudiobookMapperCdiAlternative;
+import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapperCdiAlternative;
+import me.m1key.audiolicious.objectmapper.trackmappers.SongMapperCdiAlternative;
+import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapperCdiAlternative;
 import me.m1key.audiolicious.services.DefaultSongService;
 
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -83,17 +83,19 @@ public class MacOsLibraryWithServiceIT {
 								+ ".jar")
 				.addAsManifestResource(EmptyAsset.INSTANCE,
 						ArchivePaths.create("beans.xml"))
-				.addClasses(AudiobookMapper.class,
+				.addClasses(AudiobookMapperCdiAlternative.class,
 						DefaultEnglishValuesProviderCdiAlternative.class,
 						DefaultObjectTrackDataHandler.class,
 						DefaultSongService.class,
 						I18nDataExtractorCdiAlternative.class,
 						JpaAlbumRepository.class, JpaArtistRepository.class,
 						JpaSongRepository.class, NoopTrackHandler.class,
-						NullEntitiesFactory.class, PodcastMapper.class,
+						NullEntitiesFactory.class,
+						PodcastMapperCdiAlternative.class,
 						RawTrackDataHandler.class, SongHandler.class,
-						SongMapper.class, TrackHandlersFactory.class,
-						TrackMappersFactory.class, VideoMapper.class,
+						SongMapperCdiAlternative.class,
+						TrackHandlersFactory.class, TrackMappersFactory.class,
+						VideoMapperCdiAlternative.class,
 						VtdItunesLibraryParserCdiAlternative.class);
 	}
 

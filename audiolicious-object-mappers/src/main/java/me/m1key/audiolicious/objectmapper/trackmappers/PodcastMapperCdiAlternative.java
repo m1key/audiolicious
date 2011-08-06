@@ -21,26 +21,31 @@ package me.m1key.audiolicious.objectmapper.trackmappers;
 import java.util.Date;
 import java.util.Map;
 
-import javax.ejb.EJB;
-import javax.ejb.Local;
-import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
+import me.m1key.audiolicious.domain.to.PodcastTo;
 import me.m1key.audiolicious.domain.to.RatingTo;
-import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.objectmapper.CannotMapTrackValuesException;
-import me.m1key.audiolicious.objectmapper.TrackMapper;
 import me.m1key.audiolicious.objectmapper.extractor.DataExtractor;
 
-@Stateless
-@Local(TrackMapper.class)
-public class SongMapper extends NonAggregateTrackMapper<SongTo> {
+@ApplicationScoped
+public class PodcastMapperCdiAlternative extends NonAggregateTrackMapper<PodcastTo> {
 
-	@EJB
 	private DataExtractor extractor;
 
+	// For proxying.
+	protected PodcastMapperCdiAlternative() {
+	}
+
+	@Inject
+	public PodcastMapperCdiAlternative(DataExtractor extractor) {
+		this.extractor = extractor;
+	}
+
 	@Override
-	public SongTo map(Map<XmlNodeName, String> trackValues) {
+	public PodcastTo map(Map<XmlNodeName, String> trackValues) {
 		if (!canMap(trackValues)) {
 			throw new CannotMapTrackValuesException(this, trackValues);
 		}
@@ -56,17 +61,11 @@ public class SongMapper extends NonAggregateTrackMapper<SongTo> {
 				.extractString(trackValues, XmlNodeName.ARTIST);
 		String genre = extractor.extractString(trackValues, XmlNodeName.GENRE);
 		String name = extractor.extractString(trackValues, XmlNodeName.NAME);
-		RatingTo rating = extractor.extractRating(trackValues,
-				XmlNodeName.RATING);
-		boolean albumRatingComputed = extractor.extractBoolean(trackValues,
-				XmlNodeName.ALBUM_RATING_COMPUTED);
-		RatingTo albumRating = extractor.extractRating(trackValues,
-				XmlNodeName.ALBUM_RATING);
+		RatingTo rating = extractor
+				.extractRating(trackValues, XmlNodeName.RATING);
 		int playCount = extractor.extractInt(trackValues,
 				XmlNodeName.PLAY_COUNT);
 		int year = extractor.extractInt(trackValues, XmlNodeName.YEAR);
-		boolean musicVideo = extractor.extractBoolean(trackValues,
-				XmlNodeName.MUSIC_VIDEO);
 		boolean hasVideo = extractor.extractBoolean(trackValues,
 				XmlNodeName.HAS_VIDEO);
 		int videoHeight = extractor.extractInt(trackValues,
@@ -74,19 +73,10 @@ public class SongMapper extends NonAggregateTrackMapper<SongTo> {
 		int videoWidth = extractor.extractInt(trackValues,
 				XmlNodeName.VIDEO_WIDTH);
 		boolean hd = extractor.extractBoolean(trackValues, XmlNodeName.HD);
-		String composer = extractor.extractString(trackValues,
-				XmlNodeName.COMPOSER);
-		Date skipDate = extractor.extractDate(trackValues,
-				XmlNodeName.SKIP_DATE);
-		int skipCount = extractor.extractInt(trackValues,
-				XmlNodeName.SKIP_COUNT);
-		boolean compilation = extractor.extractBoolean(trackValues,
-				XmlNodeName.COMPILATION);
 
-		return new SongTo(name, album, artist, albumArtist, year, composer,
-				genre, compilation, dateAdded, dateModified, rating, playCount,
-				skipDate, skipCount, albumRatingComputed, albumRating,
-				hasVideo, videoHeight, videoWidth, hd, musicVideo);
+		return new PodcastTo(name, album, artist, albumArtist, year,
+				genre, dateAdded, dateModified, rating, playCount, hasVideo, videoHeight,
+				videoWidth, hd);
 	}
 
 	@Override
@@ -95,7 +85,7 @@ public class SongMapper extends NonAggregateTrackMapper<SongTo> {
 			return false;
 		}
 
-		if (isPodcast(trackValues)) {
+		if (fileFolderCountNotEquals(trackValues, "4")) {
 			return false;
 		}
 
@@ -103,32 +93,20 @@ public class SongMapper extends NonAggregateTrackMapper<SongTo> {
 			return false;
 		}
 
-		if (isMovie(trackValues)) {
-			return false;
+		if (genreEquals(trackValues, "Podcast")) {
+			return true;
 		}
 
-		if (fileFolderCountNotEquals(trackValues, "4")) {
-			return false;
+		if (isPodcast(trackValues)) {
+			return true;
 		}
 
-		if (genreEquals(trackValues, "Audiobook")) {
-			return false;
-		}
-
-		if (kindContains(trackValues, "Audible")) {
-			return false;
-		}
-
-		return true;
+		return false;
 	}
 
 	@Override
 	protected DataExtractor getDataExtractor() {
 		return extractor;
-	}
-
-	public void setDataExtractor(DataExtractor extractor) {
-		this.extractor = extractor;
 	}
 
 }

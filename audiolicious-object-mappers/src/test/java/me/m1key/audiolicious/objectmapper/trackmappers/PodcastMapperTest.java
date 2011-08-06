@@ -30,10 +30,8 @@ import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.domain.to.PodcastTo;
 import me.m1key.audiolicious.domain.to.RatingTo;
 import me.m1key.audiolicious.domain.to.TrackToType;
-import me.m1key.audiolicious.objectmapper.TrackMapper;
 import me.m1key.audiolicious.objectmapper.extractor.DefaultEnglishValuesProvider;
 import me.m1key.audiolicious.objectmapper.extractor.I18nDataExtractor;
-import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapper;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -42,14 +40,15 @@ public class PodcastMapperTest {
 
 	private static final String TRUE = "true";
 	private static final String FALSE = "false";
-	private TrackMapper<PodcastTo> podcastMapper;
+	private PodcastMapper podcastMapper;
 
 	@Before
 	public void setup() {
 		I18nDataExtractor dataExtractor = new I18nDataExtractor();
 		dataExtractor
 				.setEnglishValuesProvider(new DefaultEnglishValuesProvider());
-		podcastMapper = new PodcastMapper(dataExtractor);
+		podcastMapper = new PodcastMapper();
+		podcastMapper.setDataExtractor(dataExtractor);
 	}
 
 	@Test

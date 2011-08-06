@@ -34,10 +34,10 @@ import me.m1key.audiolicious.objecthandler.factories.TrackMappersFactory;
 import me.m1key.audiolicious.objecthandler.handlers.NoopTrackHandler;
 import me.m1key.audiolicious.objectmapper.extractor.DefaultEnglishValuesProviderCdiAlternative;
 import me.m1key.audiolicious.objectmapper.extractor.I18nDataExtractorCdiAlternative;
-import me.m1key.audiolicious.objectmapper.trackmappers.AudiobookMapper;
-import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapper;
-import me.m1key.audiolicious.objectmapper.trackmappers.SongMapper;
-import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapper;
+import me.m1key.audiolicious.objectmapper.trackmappers.AudiobookMapperCdiAlternative;
+import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapperCdiAlternative;
+import me.m1key.audiolicious.objectmapper.trackmappers.SongMapperCdiAlternative;
+import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapperCdiAlternative;
 import me.m1key.audiolicious.services.handlers.StubAudiobookHandler;
 import me.m1key.audiolicious.services.handlers.StubPodcastHandler;
 import me.m1key.audiolicious.services.handlers.StubSongHandler;
@@ -85,18 +85,19 @@ public class DefaultSongServiceWindowsCountIT {
 						new File(
 								"src/test/resources/META-INF/stubHandlersBeans.xml"),
 						ArchivePaths.create("beans.xml"))
-				.addClasses(AudiobookMapper.class,
+				.addClasses(AudiobookMapperCdiAlternative.class,
 						DefaultEnglishValuesProviderCdiAlternative.class,
 						DefaultObjectTrackDataHandler.class,
 						I18nDataExtractorCdiAlternative.class,
 						NoopTrackHandler.class, NullEntitiesFactory.class,
-						PodcastMapper.class, RawTrackDataHandler.class,
-						SongMapper.class, StubAudiobookHandler.class,
-						StubPodcastHandler.class, StubSongHandler.class,
-						StubSongRepository.class,
+						PodcastMapperCdiAlternative.class,
+						RawTrackDataHandler.class,
+						SongMapperCdiAlternative.class,
+						StubAudiobookHandler.class, StubPodcastHandler.class,
+						StubSongHandler.class, StubSongRepository.class,
 						StubTrackHandlersFactory.class, StubVideoHandler.class,
 						TrackHandlersFactory.class, TrackMappersFactory.class,
-						VideoMapper.class,
+						VideoMapperCdiAlternative.class,
 						VtdItunesLibraryParserCdiAlternative.class);
 	}
 
