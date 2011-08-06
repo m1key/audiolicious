@@ -20,6 +20,8 @@ package me.m1key.audiolicious.objectmapper;
 
 import java.util.Map;
 
+import javax.inject.Inject;
+
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.domain.to.TrackTo;
 
@@ -27,6 +29,7 @@ public class AggregateTrackMapperCdiAlternative extends TrackMapper<TrackTo> {
 
 	private Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> mappers;
 
+	@Inject
 	public AggregateTrackMapperCdiAlternative(
 			Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> mappers) {
 		this.mappers = mappers;

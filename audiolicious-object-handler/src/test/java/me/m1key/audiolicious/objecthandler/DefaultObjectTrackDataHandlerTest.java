@@ -36,8 +36,6 @@ import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.domain.to.VideoTo;
 import me.m1key.audiolicious.domain.to.VideoToBuilder;
 import me.m1key.audiolicious.libraryparser.LibraryParser;
-import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandler;
-import me.m1key.audiolicious.objecthandler.TrackHandler;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -63,8 +61,9 @@ public class DefaultObjectTrackDataHandlerTest {
 
 	@Before
 	public void setup() {
-		handler = new DefaultObjectTrackDataHandler(libraryParser,
-				getTrackHandlers());
+		handler = new DefaultObjectTrackDataHandler();
+		handler.setLibraryParser(libraryParser);
+		handler.setHandlers(getTrackHandlers());
 	}
 
 	@Test

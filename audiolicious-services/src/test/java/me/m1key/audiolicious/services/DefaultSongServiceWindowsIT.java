@@ -31,12 +31,12 @@ import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
 import me.m1key.audiolicious.domain.entities.Rating;
 import me.m1key.audiolicious.domain.entities.Song;
 import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParserCdiAlternative;
-import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandler;
-import me.m1key.audiolicious.objecthandler.RawTrackDataHandler;
-import me.m1key.audiolicious.objecthandler.factories.TrackHandlersFactory;
-import me.m1key.audiolicious.objecthandler.factories.TrackMappersFactory;
-import me.m1key.audiolicious.objecthandler.handlers.NoopTrackHandler;
-import me.m1key.audiolicious.objecthandler.handlers.SongHandler;
+import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandlerCdiAlternative;
+import me.m1key.audiolicious.objecthandler.RawTrackDataHandlerCdiAlternative;
+import me.m1key.audiolicious.objecthandler.factories.TrackHandlersFactoryCdiAlternative;
+import me.m1key.audiolicious.objecthandler.factories.TrackMappersFactoryCdiAlternative;
+import me.m1key.audiolicious.objecthandler.handlers.NoopTrackHandlerCdiAlternative;
+import me.m1key.audiolicious.objecthandler.handlers.SongHandlerCdiAlternative;
 import me.m1key.audiolicious.objectmapper.extractor.DefaultEnglishValuesProviderCdiAlternative;
 import me.m1key.audiolicious.objectmapper.extractor.I18nDataExtractorCdiAlternative;
 import me.m1key.audiolicious.objectmapper.trackmappers.AudiobookMapperCdiAlternative;
@@ -58,7 +58,7 @@ public class DefaultSongServiceWindowsIT {
 
 	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/WindowsExportedLibrary-2011-06-18.xml";
 	@Inject
-	private DefaultObjectTrackDataHandler handler;
+	private DefaultObjectTrackDataHandlerCdiAlternative handler;
 	@Inject
 	private StubSongRepository stubSongRepository;
 	@Inject
@@ -79,15 +79,15 @@ public class DefaultSongServiceWindowsIT {
 						ArchivePaths.create("beans.xml"))
 				.addClasses(AudiobookMapperCdiAlternative.class,
 						DefaultEnglishValuesProviderCdiAlternative.class,
-						DefaultObjectTrackDataHandler.class,
+						DefaultObjectTrackDataHandlerCdiAlternative.class,
 						DefaultSongService.class,
 						I18nDataExtractorCdiAlternative.class,
-						NoopTrackHandler.class, NullEntitiesFactory.class,
-						PodcastMapperCdiAlternative.class, RawTrackDataHandler.class,
-						SongHandler.class, SongMapperCdiAlternative.class,
+						NoopTrackHandlerCdiAlternative.class, NullEntitiesFactory.class,
+						PodcastMapperCdiAlternative.class, RawTrackDataHandlerCdiAlternative.class,
+						SongHandlerCdiAlternative.class, SongMapperCdiAlternative.class,
 						StubAlbumRepository.class, StubArtistRepository.class,
-						StubSongRepository.class, TrackHandlersFactory.class,
-						TrackMappersFactory.class, VideoMapperCdiAlternative.class,
+						StubSongRepository.class, TrackHandlersFactoryCdiAlternative.class,
+						TrackMappersFactoryCdiAlternative.class, VideoMapperCdiAlternative.class,
 						VtdItunesLibraryParserCdiAlternative.class);
 	}
 

@@ -26,7 +26,6 @@ import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.domain.to.SongToBuilder;
 import me.m1key.audiolicious.domain.to.VideoTo;
 import me.m1key.audiolicious.domain.to.VideoToBuilder;
-import me.m1key.audiolicious.objecthandler.handlers.NoopTrackHandler;
 
 import org.junit.Before;
 import org.junit.Test;

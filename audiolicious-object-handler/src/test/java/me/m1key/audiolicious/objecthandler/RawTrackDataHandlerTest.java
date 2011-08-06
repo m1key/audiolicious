@@ -35,14 +35,12 @@ import me.m1key.audiolicious.domain.to.SongToBuilder;
 import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.domain.to.VideoTo;
 import me.m1key.audiolicious.domain.to.VideoToBuilder;
-import me.m1key.audiolicious.objecthandler.ObjectTrackDataHandler;
-import me.m1key.audiolicious.objecthandler.RawTrackDataHandler;
-import me.m1key.audiolicious.objectmapper.AggregateTrackMapperCdiAlternative;
+import me.m1key.audiolicious.objectmapper.AggregateTrackMapper;
 import me.m1key.audiolicious.objectmapper.TrackMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.AudiobookMapper;
-import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapperCdiAlternative;
-import me.m1key.audiolicious.objectmapper.trackmappers.SongMapperCdiAlternative;
-import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapperCdiAlternative;
+import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapper;
+import me.m1key.audiolicious.objectmapper.trackmappers.SongMapper;
+import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapper;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -62,18 +60,19 @@ public class RawTrackDataHandlerTest {
 	@Mock
 	private AudiobookMapper audiobookMapper;
 	@Mock
-	private PodcastMapperCdiAlternative podcastMapper;
+	private PodcastMapper podcastMapper;
 	@Mock
-	private SongMapperCdiAlternative songMapper;
+	private SongMapper songMapper;
 	@Mock
-	private VideoMapperCdiAlternative videoMapper;
+	private VideoMapper videoMapper;
 
 	@Before
 	public void setup() {
 		receivedTrackValues = new HashMap<XmlNodeName, String>();
 		aggregateMapper = createAggregateMapper();
-		handler = new RawTrackDataHandler(aggregateMapper,
-				objectTrackDataHandler);
+		handler = new RawTrackDataHandler();
+		handler.setMapper(aggregateMapper);
+		handler.setObjectTrackDataHandler(objectTrackDataHandler);
 	}
 
 	@Test
@@ -126,7 +125,9 @@ public class RawTrackDataHandlerTest {
 
 	private TrackMapper<TrackTo> createAggregateMapper() {
 		Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> mappers = getAllKnownTracksMappers();
-		return new AggregateTrackMapperCdiAlternative(mappers);
+		AggregateTrackMapper aggregateTrackMapper = new AggregateTrackMapper();
+		aggregateTrackMapper.setMappers(mappers);
+		return aggregateTrackMapper;
 	}
 
 	private Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> getAllKnownTracksMappers() {

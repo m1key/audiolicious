@@ -18,29 +18,27 @@
 
 package me.m1key.audiolicious.objecthandler.handlers;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import javax.ejb.EJB;
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
 
-@ApplicationScoped
+@Stateless
+@Local(TrackHandler.class)
 public class SongHandler implements TrackHandler<SongTo> {
 
+	@EJB
 	private SongService songService;
-
-	// For proxying.
-	protected SongHandler() {
-	}
-
-	@Inject
-	public SongHandler(SongService songService) {
-		this.songService = songService;
-	}
 
 	@Override
 	public void handle(SongTo songTo) {
 		songService.persist(songTo);
+	}
+
+	public void setSongService(SongService songService) {
+		this.songService = songService;
 	}
 
 }

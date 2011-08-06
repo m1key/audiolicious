@@ -18,24 +18,29 @@
 
 package me.m1key.audiolicious.objecthandler.handlers;
 
-import javax.ejb.Local;
-import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 
-import me.m1key.audiolicious.domain.to.TrackTo;
+import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+@ApplicationScoped
+public class SongHandlerCdiAlternative implements TrackHandler<SongTo> {
 
-@Stateless
-@Local(TrackHandler.class)
-public class NoopTrackHandler implements TrackHandler<TrackTo> {
+	private SongService songService;
 
-	private static Logger log = LoggerFactory.getLogger(NoopTrackHandler.class);
+	// For proxying.
+	protected SongHandlerCdiAlternative() {
+	}
+
+	@Inject
+	public SongHandlerCdiAlternative(SongService songService) {
+		this.songService = songService;
+	}
 
 	@Override
-	public void handle(TrackTo track) {
-		log.warn("Ignoring track [{}].", track);
+	public void handle(SongTo songTo) {
+		songService.persist(songTo);
 	}
 
 }

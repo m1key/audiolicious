@@ -21,45 +21,41 @@ package me.m1key.audiolicious.objecthandler.factories;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.ejb.EJB;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
 
-import me.m1key.audiolicious.commons.qualifiers.AggregateMapper;
+import me.m1key.audiolicious.commons.qualifiers.NoopHandler;
 import me.m1key.audiolicious.domain.to.AudiobookTo;
 import me.m1key.audiolicious.domain.to.PodcastTo;
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.domain.to.VideoTo;
-import me.m1key.audiolicious.objectmapper.AggregateTrackMapperCdiAlternative;
-import me.m1key.audiolicious.objectmapper.TrackMapper;
+import me.m1key.audiolicious.objecthandler.TrackHandler;
 
 @ApplicationScoped
-public class TrackMappersFactory {
+public class TrackHandlersFactoryCdiAlternative {
 
-	@EJB
-	private TrackMapper<AudiobookTo> audiobookMapper;
-	@EJB
-	private TrackMapper<PodcastTo> podcastMapper;
-	@EJB
-	private TrackMapper<SongTo> songMapper;
-	@EJB
-	private TrackMapper<VideoTo> videoMapper;
+	@Inject
+	@NoopHandler
+	private TrackHandler<TrackTo> audiobookHandler;
+	@Inject
+	@NoopHandler
+	private TrackHandler<TrackTo> podcastHandler;
+	@Inject
+	private TrackHandler<SongTo> songHandler;
+	@Inject
+	@NoopHandler
+	private TrackHandler<TrackTo> videoHandler;
 
 	@Produces
-	@AggregateMapper
-	public TrackMapper<TrackTo> getAggregateTrackMapper() {
-		Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> mappers = getAllKnownTracksMappers();
-		return new AggregateTrackMapperCdiAlternative(mappers);
-	}
-
-	private Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> getAllKnownTracksMappers() {
-		Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> mappers = new HashMap<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>>();
-		mappers.put(AudiobookTo.class, audiobookMapper);
-		mappers.put(PodcastTo.class, podcastMapper);
-		mappers.put(SongTo.class, songMapper);
-		mappers.put(VideoTo.class, videoMapper);
-		return mappers;
+	public Map<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>> getTrackHandlers() {
+		Map<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>> handlers = new HashMap<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>>();
+		handlers.put(AudiobookTo.class, audiobookHandler);
+		handlers.put(PodcastTo.class, podcastHandler);
+		handlers.put(SongTo.class, songHandler);
+		handlers.put(VideoTo.class, videoHandler);
+		return handlers;
 	}
 
 }

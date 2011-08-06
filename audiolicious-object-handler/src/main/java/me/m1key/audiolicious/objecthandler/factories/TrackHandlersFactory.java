@@ -21,9 +21,9 @@ package me.m1key.audiolicious.objecthandler.factories;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.qualifiers.NoopHandler;
 import me.m1key.audiolicious.domain.to.AudiobookTo;
@@ -36,15 +36,15 @@ import me.m1key.audiolicious.objecthandler.TrackHandler;
 @ApplicationScoped
 public class TrackHandlersFactory {
 
-	@Inject
+	@EJB
 	@NoopHandler
 	private TrackHandler<TrackTo> audiobookHandler;
-	@Inject
+	@EJB
 	@NoopHandler
 	private TrackHandler<TrackTo> podcastHandler;
-	@Inject
+	@EJB
 	private TrackHandler<SongTo> songHandler;
-	@Inject
+	@EJB
 	@NoopHandler
 	private TrackHandler<TrackTo> videoHandler;
 

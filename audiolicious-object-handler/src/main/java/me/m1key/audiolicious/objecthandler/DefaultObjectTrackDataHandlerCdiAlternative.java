@@ -21,19 +21,29 @@ package me.m1key.audiolicious.objecthandler;
 import java.io.File;
 import java.util.Map;
 
-import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 
 import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.libraryparser.LibraryParser;
 
 @RequestScoped
-public class DefaultObjectTrackDataHandler implements ObjectTrackDataHandler {
+public class DefaultObjectTrackDataHandlerCdiAlternative implements ObjectTrackDataHandler {
 
-	@EJB
 	private LibraryParser libraryParser;
-	@EJB
 	private Map<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>> handlers;
+
+	// For proxying.
+	protected DefaultObjectTrackDataHandlerCdiAlternative() {
+	}
+
+	@Inject
+	public DefaultObjectTrackDataHandlerCdiAlternative(
+			LibraryParser libraryParser,
+			Map<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>> handlers) {
+		this.libraryParser = libraryParser;
+		this.handlers = handlers;
+	}
 
 	@Override
 	public void execute(File libraryFile) {
@@ -45,14 +55,5 @@ public class DefaultObjectTrackDataHandler implements ObjectTrackDataHandler {
 	public void handle(TrackTo track) {
 		TrackHandler g = handlers.get(track.getClass());
 		g.handle(track);
-	}
-
-	public void setHandlers(
-			Map<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>> handlers) {
-		this.handlers = handlers;
-	}
-
-	public void setLibraryParser(LibraryParser libraryParser) {
-		this.libraryParser = libraryParser;
 	}
 }

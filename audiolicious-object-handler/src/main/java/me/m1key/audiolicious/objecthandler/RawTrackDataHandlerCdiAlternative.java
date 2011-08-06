@@ -20,37 +20,37 @@ package me.m1key.audiolicious.objecthandler;
 
 import java.util.Map;
 
-import javax.ejb.EJB;
-import javax.ejb.Local;
-import javax.ejb.Stateful;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
+import me.m1key.audiolicious.commons.qualifiers.AggregateMapper;
 import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.libraryparser.RawTrackDataCallback;
 import me.m1key.audiolicious.objectmapper.TrackMapper;
 
-@Stateful
-@Local(RawTrackDataCallback.class)
-public class RawTrackDataHandler implements RawTrackDataCallback {
+@RequestScoped
+public class RawTrackDataHandlerCdiAlternative implements RawTrackDataCallback {
 
-	@EJB
 	private TrackMapper<? extends TrackTo> mapper;
-	@EJB
 	private ObjectTrackDataHandler objectTrackDataHandler;
+
+	// For proxying.
+	protected RawTrackDataHandlerCdiAlternative() {
+	}
+
+	@Inject
+	public RawTrackDataHandlerCdiAlternative(
+			@AggregateMapper TrackMapper<? extends TrackTo> mapper,
+			ObjectTrackDataHandler objectTrackDataHandler) {
+		this.mapper = mapper;
+		this.objectTrackDataHandler = objectTrackDataHandler;
+	}
 
 	@Override
 	public void feed(Map<XmlNodeName, String> receivedTrackValues) {
 		TrackTo track = mapper.map(receivedTrackValues);
 		objectTrackDataHandler.handle(track);
-	}
-
-	public void setMapper(TrackMapper<? extends TrackTo> mapper) {
-		this.mapper = mapper;
-	}
-
-	public void setObjectTrackDataHandler(
-			ObjectTrackDataHandler objectTrackDataHandler) {
-		this.objectTrackDataHandler = objectTrackDataHandler;
 	}
 
 }

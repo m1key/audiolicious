@@ -18,20 +18,21 @@
 
 package me.m1key.audiolicious.objecthandler.handlers;
 
-import javax.ejb.Local;
-import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 
+import me.m1key.audiolicious.commons.qualifiers.NoopHandler;
 import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Stateless
-@Local(TrackHandler.class)
-public class NoopTrackHandler implements TrackHandler<TrackTo> {
+@NoopHandler
+@ApplicationScoped
+public class NoopTrackHandlerCdiAlternative implements TrackHandler<TrackTo> {
 
-	private static Logger log = LoggerFactory.getLogger(NoopTrackHandler.class);
+	private static Logger log = LoggerFactory
+			.getLogger(NoopTrackHandlerCdiAlternative.class);
 
 	@Override
 	public void handle(TrackTo track) {
