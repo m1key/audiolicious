@@ -18,9 +18,7 @@
 
 package me.m1key.audiolicious.services;
 
-import javax.ejb.EJB;
-import javax.ejb.Local;
-import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
@@ -32,15 +30,11 @@ import me.m1key.audiolicious.domain.entities.Song;
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.objecthandler.handlers.SongService;
 
-@Stateless
-@Local(SongService.class)
-public class DefaultSongService implements SongService {
+@ApplicationScoped
+public class DefaultSongServiceCdiAlternative implements SongService {
 
-	@EJB
 	private SongRepository songRepository;
-	@EJB
 	private AlbumRepository albumRepository;
-	@EJB
 	private ArtistRepository artistRepository;
 
 	@Inject
@@ -49,6 +43,18 @@ public class DefaultSongService implements SongService {
 	@Inject
 	@NullArtist
 	private Artist nullArtist;
+
+	// For proxying.
+	protected DefaultSongServiceCdiAlternative() {
+	}
+
+	@Inject
+	public DefaultSongServiceCdiAlternative(ArtistRepository artistRepository,
+			AlbumRepository albumRepository, SongRepository songRepository) {
+		this.artistRepository = artistRepository;
+		this.albumRepository = albumRepository;
+		this.songRepository = songRepository;
+	}
 
 	@Override
 	public void persist(SongTo songTo) {
@@ -90,17 +96,5 @@ public class DefaultSongService implements SongService {
 
 	private Album getAlbumByName(Artist artist, String albumName) {
 		return albumRepository.getAlbum(artist, albumName);
-	}
-
-	public void setAlbumRepository(AlbumRepository albumRepository) {
-		this.albumRepository = albumRepository;
-	}
-
-	public void setArtistRepository(ArtistRepository artistRepository) {
-		this.artistRepository = artistRepository;
-	}
-
-	public void setSongRepository(SongRepository songRepository) {
-		this.songRepository = songRepository;
 	}
 }

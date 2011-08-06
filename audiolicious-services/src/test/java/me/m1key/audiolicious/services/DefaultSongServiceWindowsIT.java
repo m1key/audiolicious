@@ -80,7 +80,7 @@ public class DefaultSongServiceWindowsIT {
 				.addClasses(AudiobookMapperCdiAlternative.class,
 						DefaultEnglishValuesProviderCdiAlternative.class,
 						DefaultObjectTrackDataHandlerCdiAlternative.class,
-						DefaultSongService.class,
+						DefaultSongServiceCdiAlternative.class,
 						I18nDataExtractorCdiAlternative.class,
 						NoopTrackHandlerCdiAlternative.class, NullEntitiesFactory.class,
 						PodcastMapperCdiAlternative.class, RawTrackDataHandlerCdiAlternative.class,

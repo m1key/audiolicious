@@ -42,7 +42,7 @@ import me.m1key.audiolicious.objectmapper.trackmappers.AudiobookMapperCdiAlterna
 import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapperCdiAlternative;
 import me.m1key.audiolicious.objectmapper.trackmappers.SongMapperCdiAlternative;
 import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapperCdiAlternative;
-import me.m1key.audiolicious.services.DefaultSongService;
+import me.m1key.audiolicious.services.DefaultSongServiceCdiAlternative;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -86,7 +86,7 @@ public class MacOsLibraryWithServiceIT {
 				.addClasses(AudiobookMapperCdiAlternative.class,
 						DefaultEnglishValuesProviderCdiAlternative.class,
 						DefaultObjectTrackDataHandlerCdiAlternative.class,
-						DefaultSongService.class,
+						DefaultSongServiceCdiAlternative.class,
 						I18nDataExtractorCdiAlternative.class,
 						JpaAlbumRepository.class, JpaArtistRepository.class,
 						JpaSongRepository.class, NoopTrackHandlerCdiAlternative.class,
