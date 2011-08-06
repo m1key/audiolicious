@@ -22,6 +22,13 @@ Requirements for building:
 At the moment of writing this document VTD was not available from Maven
 repositories, so it must be downloaded and installed manually. It can be
 obtained from here: http://vtd-xml.sourceforge.net/
+There's three ways of building:
+	* mvn clean install
+	* mvn clean install -Pintegration
+	* mvn clean install -PentireFlow
+The first one will run just unit tests. The second one unit and integration
+tests. The third one will launch only unit tests and an entire-flow EJB test
+with full library, on JBoss 7.
 
 Requirements for running:
 	* JBoss 7 AS,

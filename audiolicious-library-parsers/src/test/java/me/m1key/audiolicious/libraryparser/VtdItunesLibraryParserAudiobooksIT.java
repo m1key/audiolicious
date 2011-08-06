@@ -42,7 +42,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(Arquillian.class)
-public class VtdItunesLibraryParserAudiobooksTest {
+public class VtdItunesLibraryParserAudiobooksIT {
 
 	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/Audiobooks-2011-05-29.xml";
 
@@ -56,7 +56,7 @@ public class VtdItunesLibraryParserAudiobooksTest {
 			throws IllegalArgumentException, IOException {
 		return ShrinkWrap
 				.create(WebArchive.class,
-						VtdItunesLibraryParserAudiobooksTest.class
+						VtdItunesLibraryParserAudiobooksIT.class
 								.getSimpleName() + ".war")
 				.addAsWebInfResource(EmptyAsset.INSTANCE,
 						ArchivePaths.create("beans.xml"))
