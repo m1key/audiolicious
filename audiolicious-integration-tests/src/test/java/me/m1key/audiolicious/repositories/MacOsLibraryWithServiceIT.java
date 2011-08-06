@@ -66,11 +66,11 @@ public class MacOsLibraryWithServiceIT {
 	@Inject
 	private DefaultObjectTrackDataHandlerCdiAlternative handler;
 	@Inject
-	private JpaSongRepository songRepository;
+	private JpaSongRepositoryCdiAlternative songRepository;
 	@Inject
-	private JpaAlbumRepository albumRepository;
+	private JpaAlbumRepositoryCdiAlternative albumRepository;
 	@Inject
-	private JpaArtistRepository artistRepository;
+	private JpaArtistRepositoryCdiAlternative artistRepository;
 
 	private EntityManager entityManager;
 
@@ -88,8 +88,8 @@ public class MacOsLibraryWithServiceIT {
 						DefaultObjectTrackDataHandlerCdiAlternative.class,
 						DefaultSongServiceCdiAlternative.class,
 						I18nDataExtractorCdiAlternative.class,
-						JpaAlbumRepository.class, JpaArtistRepository.class,
-						JpaSongRepository.class, NoopTrackHandlerCdiAlternative.class,
+						JpaAlbumRepositoryCdiAlternative.class, JpaArtistRepositoryCdiAlternative.class,
+						JpaSongRepositoryCdiAlternative.class, NoopTrackHandlerCdiAlternative.class,
 						NullEntitiesFactory.class,
 						PodcastMapperCdiAlternative.class,
 						RawTrackDataHandlerCdiAlternative.class, SongHandlerCdiAlternative.class,

@@ -20,8 +20,7 @@ package me.m1key.audiolicious.repositories;
 
 import java.util.List;
 
-import javax.ejb.Local;
-import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -31,9 +30,8 @@ import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.services.AlbumRepository;
 
-@Stateless
-@Local(AlbumRepository.class)
-public class JpaAlbumRepository implements AlbumRepository {
+@ApplicationScoped
+public class JpaAlbumRepositoryCdiAlternative implements AlbumRepository {
 
 	@PersistenceContext
 	private EntityManager entityManager;

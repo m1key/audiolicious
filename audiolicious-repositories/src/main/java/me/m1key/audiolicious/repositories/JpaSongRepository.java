@@ -18,14 +18,16 @@
 
 package me.m1key.audiolicious.repositories;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import me.m1key.audiolicious.domain.entities.Song;
 import me.m1key.audiolicious.services.SongRepository;
 
-@ApplicationScoped
+@Stateless
+@Local(SongRepository.class)
 public class JpaSongRepository implements SongRepository {
 
 	@PersistenceContext

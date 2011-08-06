@@ -18,54 +18,25 @@
 
 package me.m1key.audiolicious.repositories;
 
-import java.util.List;
-
-import javax.ejb.Local;
-import javax.ejb.Stateless;
-import javax.inject.Inject;
+import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import me.m1key.audiolicious.commons.qualifiers.NullArtist;
-import me.m1key.audiolicious.domain.entities.Artist;
-import me.m1key.audiolicious.services.ArtistRepository;
+import me.m1key.audiolicious.domain.entities.Song;
+import me.m1key.audiolicious.services.SongRepository;
 
-@Stateless
-@Local(ArtistRepository.class)
-public class JpaArtistRepository implements ArtistRepository {
+@ApplicationScoped
+public class JpaSongRepositoryCdiAlternative implements SongRepository {
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	@Inject
-	@NullArtist
-	private Artist nullArtist;
-
 	@Override
-	public Artist getArtist(String artistName) {
-		@SuppressWarnings("unchecked")
-		List<Artist> artistObjects = entityManager
-				.createQuery("from Artist a where a.name = :name")
-				.setParameter("name", artistName).getResultList();
-
-		if (artistNotFound(artistObjects)) {
-			return nullArtist;
-		} else {
-			return artistObjects.get(0);
-		}
-	}
-
-	@Override
-	public void createArtist(Artist artist) {
-		entityManager.persist(artist);
-	}
-
-	private boolean artistNotFound(List<Artist> artistObjects) {
-		return artistObjects.isEmpty();
+	public void save(Song song) {
+		entityManager.persist(song);
 	}
 
 	void setEntityManager(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
-
 }

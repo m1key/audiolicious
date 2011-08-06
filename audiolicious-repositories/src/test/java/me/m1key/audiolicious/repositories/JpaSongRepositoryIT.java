@@ -21,12 +21,9 @@ package me.m1key.audiolicious.repositories;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -34,22 +31,13 @@ import javax.persistence.Query;
 
 import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
-import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
 import me.m1key.audiolicious.domain.entities.Rating;
 import me.m1key.audiolicious.domain.entities.Song;
 
-import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.Archive;
-import org.jboss.shrinkwrap.api.ArchivePaths;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-@RunWith(Arquillian.class)
 public class JpaSongRepositoryIT {
 
 	private static final String ARTIST_NAME = "Ozzy Osbourne";
@@ -70,26 +58,12 @@ public class JpaSongRepositoryIT {
 	private Date albumDateModified = new Date();
 	private Date albumDateSkipped = new Date();
 
-	@Inject
 	private JpaSongRepository jpaSongRepository;
-
 	private EntityManager entityManager;
-
-	@Deployment
-	public static Archive<?> createTestArchive()
-			throws IllegalArgumentException, IOException {
-		return ShrinkWrap
-				.create(JavaArchive.class,
-						JpaSongRepositoryIT.class.getSimpleName() + ".jar")
-				.addAsManifestResource(
-						new File("src/test/resources/META-INF/persistence.xml"),
-						ArchivePaths.create("persistence.xml"))
-				.addClasses(Album.class, Artist.class, JpaSongRepository.class,
-						NullEntitiesFactory.class, Song.class);
-	}
 
 	@Before
 	public void setup() {
+		jpaSongRepository = new JpaSongRepository();
 		EntityManagerFactory emf = Persistence
 				.createEntityManagerFactory("testPu");
 		entityManager = emf.createEntityManager();

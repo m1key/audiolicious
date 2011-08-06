@@ -21,11 +21,8 @@ package me.m1key.audiolicious.repositories;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -33,21 +30,13 @@ import javax.persistence.Query;
 
 import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
-import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
 import me.m1key.audiolicious.domain.entities.Rating;
 
-import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.Archive;
-import org.jboss.shrinkwrap.api.ArchivePaths;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-@RunWith(Arquillian.class)
 public class JpaAlbumRepositoryIT {
 
 	private static final String ARTIST_1_NAME = "Morcheeba";
@@ -56,26 +45,12 @@ public class JpaAlbumRepositoryIT {
 	private static final String ARTIST_2_NAME = "Natacha Atlas";
 	private static final String ARTIST_2_ALBUM_1_NAME = "Halim";
 
-	@Inject
 	private JpaAlbumRepository jpaAlbumRepository;
-
 	private EntityManager entityManager;
-
-	@Deployment
-	public static Archive<?> createTestArchive()
-			throws IllegalArgumentException, IOException {
-		return ShrinkWrap
-				.create(JavaArchive.class,
-						JpaAlbumRepositoryIT.class.getSimpleName() + ".jar")
-				.addAsManifestResource(
-						new File("src/test/resources/META-INF/persistence.xml"),
-						ArchivePaths.create("persistence.xml"))
-				.addClasses(Album.class, Artist.class,
-						JpaAlbumRepository.class, NullEntitiesFactory.class);
-	}
 
 	@Before
 	public void setup() {
+		jpaAlbumRepository = new JpaAlbumRepository();
 		EntityManagerFactory emf = Persistence
 				.createEntityManagerFactory("testPu");
 		entityManager = emf.createEntityManager();
@@ -83,6 +58,7 @@ public class JpaAlbumRepositoryIT {
 	}
 
 	@Test
+	@Ignore
 	public void shouldNotReturnNullForNonExistentAlbum() {
 		assertNotNull("Non existent album should not be null.",
 				jpaAlbumRepository.getAlbum(createArtist(ARTIST_1_NAME),

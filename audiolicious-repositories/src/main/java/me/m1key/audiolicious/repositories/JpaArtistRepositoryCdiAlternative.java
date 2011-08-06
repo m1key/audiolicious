@@ -20,55 +20,50 @@ package me.m1key.audiolicious.repositories;
 
 import java.util.List;
 
-import javax.ejb.Local;
-import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
-import me.m1key.audiolicious.domain.entities.Album;
+import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.domain.entities.Artist;
-import me.m1key.audiolicious.services.AlbumRepository;
+import me.m1key.audiolicious.services.ArtistRepository;
 
-@Stateless
-@Local(AlbumRepository.class)
-public class JpaAlbumRepository implements AlbumRepository {
+@ApplicationScoped
+public class JpaArtistRepositoryCdiAlternative implements ArtistRepository {
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
 	@Inject
-	@NullAlbum
-	private Album nullAlbum;
+	@NullArtist
+	private Artist nullArtist;
 
 	@Override
-	public Album getAlbum(Artist artist, String albumName) {
+	public Artist getArtist(String artistName) {
 		@SuppressWarnings("unchecked")
-		List<Album> albumObjects = entityManager
-				.createQuery(
-						"FROM Album a WHERE a.name = :name AND a.artist = :artist")
-				.setParameter("name", albumName).setParameter("artist", artist)
-				.getResultList();
+		List<Artist> artistObjects = entityManager
+				.createQuery("from Artist a where a.name = :name")
+				.setParameter("name", artistName).getResultList();
 
-		if (albumNotFound(albumObjects)) {
-			return nullAlbum;
+		if (artistNotFound(artistObjects)) {
+			return nullArtist;
 		} else {
-			return albumObjects.get(0);
+			return artistObjects.get(0);
 		}
 	}
 
-	private boolean albumNotFound(List<Album> artistObjects) {
+	@Override
+	public void createArtist(Artist artist) {
+		entityManager.persist(artist);
+	}
+
+	private boolean artistNotFound(List<Artist> artistObjects) {
 		return artistObjects.isEmpty();
 	}
 
 	void setEntityManager(EntityManager entityManager) {
 		this.entityManager = entityManager;
-	}
-
-	@Override
-	public void createAlbum(Album album) {
-		entityManager.persist(album);
 	}
 
 }
