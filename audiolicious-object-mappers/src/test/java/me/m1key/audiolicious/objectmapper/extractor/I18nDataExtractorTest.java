@@ -28,22 +28,20 @@ import java.util.Map;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.domain.to.RatingTo;
-import me.m1key.audiolicious.objectmapper.extractor.DataExtractor;
-import me.m1key.audiolicious.objectmapper.extractor.DefaultEnglishValuesProvider;
-import me.m1key.audiolicious.objectmapper.extractor.I18nDataExtractor;
 
 import org.junit.Before;
 import org.junit.Test;
 
 public class I18nDataExtractorTest {
 
-	private DataExtractor dataExtractor;
+	private I18nDataExtractor dataExtractor;
 	private Map<XmlNodeName, String> trackValues;
 
 	@Before
 	public void setup() {
-		dataExtractor = new I18nDataExtractor(
-				new DefaultEnglishValuesProvider());
+		dataExtractor = new I18nDataExtractor();
+		dataExtractor
+				.setEnglishValuesProvider(new DefaultEnglishValuesProvider());
 		trackValues = new HashMap<XmlNodeName, String>();
 	}
 
@@ -77,8 +75,7 @@ public class I18nDataExtractorTest {
 
 	@Test
 	public void shouldExtractNullDateWhenKeyNotPresent() {
-		assertNull(dataExtractor
-				.extractDate(trackValues, XmlNodeName.COMPOSER));
+		assertNull(dataExtractor.extractDate(trackValues, XmlNodeName.COMPOSER));
 	}
 
 	@Test

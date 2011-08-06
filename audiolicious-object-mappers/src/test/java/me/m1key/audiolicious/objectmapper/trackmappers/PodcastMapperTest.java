@@ -46,8 +46,10 @@ public class PodcastMapperTest {
 
 	@Before
 	public void setup() {
-		podcastMapper = new PodcastMapper(new I18nDataExtractor(
-				new DefaultEnglishValuesProvider()));
+		I18nDataExtractor dataExtractor = new I18nDataExtractor();
+		dataExtractor
+				.setEnglishValuesProvider(new DefaultEnglishValuesProvider());
+		podcastMapper = new PodcastMapper(dataExtractor);
 	}
 
 	@Test

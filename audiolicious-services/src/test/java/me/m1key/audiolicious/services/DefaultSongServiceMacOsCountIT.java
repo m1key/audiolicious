@@ -32,8 +32,8 @@ import me.m1key.audiolicious.objecthandler.RawTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.factories.TrackHandlersFactory;
 import me.m1key.audiolicious.objecthandler.factories.TrackMappersFactory;
 import me.m1key.audiolicious.objecthandler.handlers.NoopTrackHandler;
-import me.m1key.audiolicious.objectmapper.extractor.DefaultEnglishValuesProvider;
-import me.m1key.audiolicious.objectmapper.extractor.I18nDataExtractor;
+import me.m1key.audiolicious.objectmapper.extractor.DefaultEnglishValuesProviderCdiAlternative;
+import me.m1key.audiolicious.objectmapper.extractor.I18nDataExtractorCdiAlternative;
 import me.m1key.audiolicious.objectmapper.trackmappers.AudiobookMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.SongMapper;
@@ -86,16 +86,18 @@ public class DefaultSongServiceMacOsCountIT {
 								"src/test/resources/META-INF/stubHandlersBeans.xml"),
 						ArchivePaths.create("beans.xml"))
 				.addClasses(AudiobookMapper.class,
-						DefaultEnglishValuesProvider.class,
+						DefaultEnglishValuesProviderCdiAlternative.class,
 						DefaultObjectTrackDataHandler.class,
-						I18nDataExtractor.class, NoopTrackHandler.class,
-						NullEntitiesFactory.class, PodcastMapper.class,
-						RawTrackDataHandler.class, SongMapper.class,
-						StubAudiobookHandler.class, StubPodcastHandler.class,
-						StubSongHandler.class, StubSongRepository.class,
+						I18nDataExtractorCdiAlternative.class,
+						NoopTrackHandler.class, NullEntitiesFactory.class,
+						PodcastMapper.class, RawTrackDataHandler.class,
+						SongMapper.class, StubAudiobookHandler.class,
+						StubPodcastHandler.class, StubSongHandler.class,
+						StubSongRepository.class,
 						StubTrackHandlersFactory.class, StubVideoHandler.class,
 						TrackHandlersFactory.class, TrackMappersFactory.class,
-						VideoMapper.class, VtdItunesLibraryParserCdiAlternative.class);
+						VideoMapper.class,
+						VtdItunesLibraryParserCdiAlternative.class);
 	}
 
 	@Before

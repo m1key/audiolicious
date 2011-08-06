@@ -46,8 +46,10 @@ public class AudiobookMapperTest {
 
 	@Before
 	public void setup() {
-		audiobookMapper = new AudiobookMapper(new I18nDataExtractor(
-				new DefaultEnglishValuesProvider()));
+		I18nDataExtractor dataExtractor = new I18nDataExtractor();
+		dataExtractor
+				.setEnglishValuesProvider(new DefaultEnglishValuesProvider());
+		audiobookMapper = new AudiobookMapper(dataExtractor);
 	}
 
 	@Test

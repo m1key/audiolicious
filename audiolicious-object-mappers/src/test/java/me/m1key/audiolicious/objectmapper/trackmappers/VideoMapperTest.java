@@ -46,8 +46,10 @@ public class VideoMapperTest {
 
 	@Before
 	public void setup() {
-		videoMapper = new VideoMapper(new I18nDataExtractor(
-				new DefaultEnglishValuesProvider()));
+		I18nDataExtractor dataExtractor = new I18nDataExtractor();
+		dataExtractor
+				.setEnglishValuesProvider(new DefaultEnglishValuesProvider());
+		videoMapper = new VideoMapper(dataExtractor);
 	}
 
 	@Test

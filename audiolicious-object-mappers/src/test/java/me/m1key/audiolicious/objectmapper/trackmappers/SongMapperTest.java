@@ -46,8 +46,10 @@ public class SongMapperTest {
 
 	@Before
 	public void setup() {
-		songMapper = new SongMapper(new I18nDataExtractor(
-				new DefaultEnglishValuesProvider()));
+		I18nDataExtractor dataExtractor = new I18nDataExtractor();
+		dataExtractor
+				.setEnglishValuesProvider(new DefaultEnglishValuesProvider());
+		songMapper = new SongMapper(dataExtractor);
 	}
 
 	@Test

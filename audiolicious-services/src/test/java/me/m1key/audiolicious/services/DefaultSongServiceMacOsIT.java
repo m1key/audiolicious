@@ -37,8 +37,8 @@ import me.m1key.audiolicious.objecthandler.factories.TrackHandlersFactory;
 import me.m1key.audiolicious.objecthandler.factories.TrackMappersFactory;
 import me.m1key.audiolicious.objecthandler.handlers.NoopTrackHandler;
 import me.m1key.audiolicious.objecthandler.handlers.SongHandler;
-import me.m1key.audiolicious.objectmapper.extractor.DefaultEnglishValuesProvider;
-import me.m1key.audiolicious.objectmapper.extractor.I18nDataExtractor;
+import me.m1key.audiolicious.objectmapper.extractor.DefaultEnglishValuesProviderCdiAlternative;
+import me.m1key.audiolicious.objectmapper.extractor.I18nDataExtractorCdiAlternative;
 import me.m1key.audiolicious.objectmapper.trackmappers.AudiobookMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.SongMapper;
@@ -79,9 +79,10 @@ public class DefaultSongServiceMacOsIT {
 								"src/test/resources/META-INF/handlersBeans.xml"),
 						ArchivePaths.create("beans.xml"))
 				.addClasses(AudiobookMapper.class,
-						DefaultEnglishValuesProvider.class,
+						DefaultEnglishValuesProviderCdiAlternative.class,
 						DefaultObjectTrackDataHandler.class,
-						DefaultSongService.class, I18nDataExtractor.class,
+						DefaultSongService.class,
+						I18nDataExtractorCdiAlternative.class,
 						NoopTrackHandler.class, NullEntitiesFactory.class,
 						PodcastMapper.class, RawTrackDataHandler.class,
 						SongHandler.class, SongMapper.class,

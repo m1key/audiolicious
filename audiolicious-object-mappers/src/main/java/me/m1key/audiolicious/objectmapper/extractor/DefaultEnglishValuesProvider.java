@@ -20,8 +20,13 @@ package me.m1key.audiolicious.objectmapper.extractor;
 
 import java.util.ResourceBundle;
 
+import javax.ejb.Local;
+import javax.ejb.Stateless;
+
 import me.m1key.audiolicious.commons.XmlNodeName;
 
+@Stateless
+@Local(EnglishValuesProvider.class)
 public class DefaultEnglishValuesProvider implements EnglishValuesProvider {
 
 	private ResourceBundle resourceBundle;
@@ -41,8 +46,7 @@ public class DefaultEnglishValuesProvider implements EnglishValuesProvider {
 		}
 	}
 
-	private String toKey(XmlNodeName xmlNodeName,
-			String possiblyNonEnglishValue) {
+	private String toKey(XmlNodeName xmlNodeName, String possiblyNonEnglishValue) {
 		return String.format("%s.%s", xmlNodeName, possiblyNonEnglishValue);
 	}
 

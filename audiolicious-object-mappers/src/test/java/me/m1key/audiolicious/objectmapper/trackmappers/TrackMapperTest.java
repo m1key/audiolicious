@@ -45,8 +45,10 @@ public class TrackMapperTest {
 	@Before
 	public void setup() {
 		Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> mappers = new HashMap<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>>();
-		mappers.put(SongTo.class, new SongMapper(new I18nDataExtractor(
-				new DefaultEnglishValuesProvider())));
+		I18nDataExtractor dataExtractor = new I18nDataExtractor();
+		dataExtractor
+				.setEnglishValuesProvider(new DefaultEnglishValuesProvider());
+		mappers.put(SongTo.class, new SongMapper(dataExtractor));
 		trackMapper = new AggregateTrackMapper(mappers);
 	}
 
