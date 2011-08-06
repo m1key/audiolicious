@@ -20,19 +20,17 @@ package me.m1key.audiolicious.objectmapper;
 
 import java.util.Map;
 
-import javax.ejb.Local;
-import javax.ejb.Stateless;
-import javax.inject.Inject;
-
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.domain.to.TrackTo;
 
-@Stateless
-@Local(TrackMapper.class)
-public class AggregateTrackMapper extends TrackMapper<TrackTo> {
+public class AggregateTrackMapperCdiAlternative extends TrackMapper<TrackTo> {
 
-	@Inject
 	private Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> mappers;
+
+	public AggregateTrackMapperCdiAlternative(
+			Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> mappers) {
+		this.mappers = mappers;
+	}
 
 	@Override
 	public TrackTo map(Map<XmlNodeName, String> trackValues) {
@@ -56,10 +54,5 @@ public class AggregateTrackMapper extends TrackMapper<TrackTo> {
 		}
 
 		return false;
-	}
-
-	public void setMappers(
-			Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> mappers) {
-		this.mappers = mappers;
 	}
 }

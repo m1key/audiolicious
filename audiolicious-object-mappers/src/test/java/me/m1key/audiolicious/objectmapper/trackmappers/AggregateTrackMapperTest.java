@@ -31,7 +31,6 @@ import me.m1key.audiolicious.objectmapper.AggregateTrackMapper;
 import me.m1key.audiolicious.objectmapper.TrackMapper;
 import me.m1key.audiolicious.objectmapper.extractor.DefaultEnglishValuesProvider;
 import me.m1key.audiolicious.objectmapper.extractor.I18nDataExtractor;
-import me.m1key.audiolicious.objectmapper.trackmappers.SongMapperCdiAlternative;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -49,7 +48,8 @@ public class AggregateTrackMapperTest {
 		dataExtractor
 				.setEnglishValuesProvider(new DefaultEnglishValuesProvider());
 		mappers.put(SongTo.class, new SongMapperCdiAlternative(dataExtractor));
-		trackMapper = new AggregateTrackMapper(mappers);
+		trackMapper = new AggregateTrackMapper();
+		trackMapper.setMappers(mappers);
 	}
 
 	@Test

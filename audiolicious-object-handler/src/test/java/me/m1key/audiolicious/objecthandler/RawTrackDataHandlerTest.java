@@ -37,7 +37,7 @@ import me.m1key.audiolicious.domain.to.VideoTo;
 import me.m1key.audiolicious.domain.to.VideoToBuilder;
 import me.m1key.audiolicious.objecthandler.ObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.RawTrackDataHandler;
-import me.m1key.audiolicious.objectmapper.AggregateTrackMapper;
+import me.m1key.audiolicious.objectmapper.AggregateTrackMapperCdiAlternative;
 import me.m1key.audiolicious.objectmapper.TrackMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.AudiobookMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapperCdiAlternative;
@@ -126,7 +126,7 @@ public class RawTrackDataHandlerTest {
 
 	private TrackMapper<TrackTo> createAggregateMapper() {
 		Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> mappers = getAllKnownTracksMappers();
-		return new AggregateTrackMapper(mappers);
+		return new AggregateTrackMapperCdiAlternative(mappers);
 	}
 
 	private Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> getAllKnownTracksMappers() {
