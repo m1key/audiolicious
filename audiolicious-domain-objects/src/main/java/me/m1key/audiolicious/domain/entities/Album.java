@@ -57,8 +57,7 @@ public class Album {
 	@Embedded
 	private Rating rating;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = {
-			CascadeType.PERSIST, CascadeType.MERGE })
+	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = { CascadeType.MERGE })
 	private Artist artist;
 
 	@OneToMany(mappedBy = "album", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)

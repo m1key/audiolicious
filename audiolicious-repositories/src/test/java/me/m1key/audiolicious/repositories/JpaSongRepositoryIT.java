@@ -18,26 +18,39 @@
 
 package me.m1key.audiolicious.repositories;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
+import java.io.IOException;
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.inject.Inject;
 
+import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
+import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
+import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
 import me.m1key.audiolicious.domain.entities.Rating;
 import me.m1key.audiolicious.domain.entities.Song;
+import me.m1key.audiolicious.domain.to.RatingTo;
+import me.m1key.audiolicious.domain.to.SongTo;
+import me.m1key.audiolicious.domain.to.TrackTo;
+import me.m1key.audiolicious.services.SongRepository;
 
+import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.shrinkwrap.api.ArchivePaths;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.asset.EmptyAsset;
+import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.jboss.shrinkwrap.resolver.api.DependencyResolvers;
+import org.jboss.shrinkwrap.resolver.api.maven.MavenDependencyResolver;
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
+@RunWith(Arquillian.class)
 public class JpaSongRepositoryIT {
 
 	private static final String ARTIST_NAME = "Ozzy Osbourne";
@@ -58,49 +71,60 @@ public class JpaSongRepositoryIT {
 	private Date albumDateModified = new Date();
 	private Date albumDateSkipped = new Date();
 
-	private JpaSongRepository jpaSongRepository;
-	private EntityManager entityManager;
+	@Inject
+	private SongRepository jpaSongRepository;
+	@Inject
+	private TestHelperBean testHelperBean;
 
-	@Before
-	public void setup() {
-		jpaSongRepository = new JpaSongRepository();
-		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("testPu");
-		entityManager = emf.createEntityManager();
-		jpaSongRepository.setEntityManager(entityManager);
+	@Deployment
+	public static WebArchive createTestArchive()
+			throws IllegalArgumentException, IOException {
+		return ShrinkWrap
+				.create(WebArchive.class,
+						JpaSongRepositoryIT.class.getSimpleName() + ".war")
+				.addAsWebInfResource(EmptyAsset.INSTANCE,
+						ArchivePaths.create("beans.xml"))
+				.addAsResource("META-INF/persistence.xml",
+						"META-INF/persistence.xml")
+				.addClasses(Album.class, Artist.class, JpaSongRepository.class,
+						NullAlbum.class, NullArtist.class,
+						NullEntitiesFactory.class, Rating.class,
+						RatingTo.class, Song.class, SongRepository.class,
+						SongTo.class, TestHelperBean.class, TrackTo.class)
+				.addAsLibraries(
+						DependencyResolvers
+								.use(MavenDependencyResolver.class)
+								.artifacts("org.slf4j:slf4j-api:1.6.1",
+										"commons-lang:commons-lang:2.6")
+								.resolveAsFiles());
 	}
 
 	@Test
 	public void shouldCreateAndRetrieveSong() {
-		assertFalse(
-				"There should be no songs before any are created.",
-				entityManager.createQuery("FROM Song").getResultList().size() > 0);
+		assertEquals("There should be no songs before any are created.",
+				new Integer(0), testHelperBean.totalSongs());
 
-		entityManager.getTransaction().begin();
-		Artist artist = new Artist(ARTIST_NAME);
-		Album album = new Album(ALBUM_NAME, artist, new Rating(80));
+		Artist artist = testHelperBean.createArtist(ARTIST_NAME);
+		Album album = testHelperBean.createAlbum(ALBUM_NAME, artist,
+				new Rating(80));
 		Song song = new Song(SONG_1_NAME, ARTIST_NAME, album, 1988,
 				"Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", albumDateAdded,
 				albumDateModified, new Rating(80), 9, albumDateSkipped, 0,
 				false, 0, 0, false);
 		jpaSongRepository.save(song);
-		entityManager.getTransaction().commit();
 
-		assertTrue("Saved song should not be null.",
-				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
-						.setParameter("uuid", song.getUuid()).getResultList()
-						.size() > 0);
+		assertNotNull("Saved song should not be null.",
+				testHelperBean.getSongByUuid(song.getUuid()));
 	}
 
 	@Test
 	public void shouldCreateAndRetrieveAllSongs() {
-		assertFalse(
-				"There should be no songs before any are created.",
-				entityManager.createQuery("FROM Song").getResultList().size() > 0);
+		assertEquals("There should be no songs before any are created.",
+				new Integer(0), testHelperBean.totalSongs());
 
-		entityManager.getTransaction().begin();
-		Artist artist = new Artist(ARTIST_NAME);
-		Album album = new Album(ALBUM_NAME, artist, new Rating(80));
+		Artist artist = testHelperBean.createArtist(ARTIST_NAME);
+		Album album = testHelperBean.createAlbum(ALBUM_NAME, artist,
+				new Rating(80));
 		Song song01 = new Song(SONG_1_NAME, ARTIST_NAME, album, 1991, "",
 				"Rock", albumDateAdded, albumDateModified, new Rating(100), 9,
 				albumDateSkipped, 0, false, 0, 0, false);
@@ -145,63 +169,34 @@ public class JpaSongRepositoryIT {
 		jpaSongRepository.save(song09);
 		jpaSongRepository.save(song10);
 		jpaSongRepository.save(song11);
-		entityManager.getTransaction().commit();
 
-		assertTrue("Saved song should not be null.",
-				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
-						.setParameter("uuid", song01.getUuid()).getResultList()
-						.size() > 0);
-		assertTrue("Saved song should not be null.",
-				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
-						.setParameter("uuid", song02.getUuid()).getResultList()
-						.size() > 0);
-		assertTrue("Saved song should not be null.",
-				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
-						.setParameter("uuid", song03.getUuid()).getResultList()
-						.size() > 0);
-		assertTrue("Saved song should not be null.",
-				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
-						.setParameter("uuid", song04.getUuid()).getResultList()
-						.size() > 0);
-		assertTrue("Saved song should not be null.",
-				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
-						.setParameter("uuid", song05.getUuid()).getResultList()
-						.size() > 0);
-		assertTrue("Saved song should not be null.",
-				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
-						.setParameter("uuid", song06.getUuid()).getResultList()
-						.size() > 0);
-		assertTrue("Saved song should not be null.",
-				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
-						.setParameter("uuid", song07.getUuid()).getResultList()
-						.size() > 0);
-		assertTrue("Saved song should not be null.",
-				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
-						.setParameter("uuid", song08.getUuid()).getResultList()
-						.size() > 0);
-		assertTrue("Saved song should not be null.",
-				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
-						.setParameter("uuid", song09.getUuid()).getResultList()
-						.size() > 0);
-		assertTrue("Saved song should not be null.",
-				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
-						.setParameter("uuid", song10.getUuid()).getResultList()
-						.size() > 0);
-		assertTrue("Saved song should not be null.",
-				entityManager.createQuery("FROM Song WHERE uuid = :uuid")
-						.setParameter("uuid", song11.getUuid()).getResultList()
-						.size() > 0);
+		assertNotNull("Saved song should not be null.",
+				testHelperBean.getSongByUuid(song01.getUuid()));
+		assertNotNull("Saved song should not be null.",
+				testHelperBean.getSongByUuid(song02.getUuid()));
+		assertNotNull("Saved song should not be null.",
+				testHelperBean.getSongByUuid(song03.getUuid()));
+		assertNotNull("Saved song should not be null.",
+				testHelperBean.getSongByUuid(song04.getUuid()));
+		assertNotNull("Saved song should not be null.",
+				testHelperBean.getSongByUuid(song05.getUuid()));
+		assertNotNull("Saved song should not be null.",
+				testHelperBean.getSongByUuid(song06.getUuid()));
+		assertNotNull("Saved song should not be null.",
+				testHelperBean.getSongByUuid(song07.getUuid()));
+		assertNotNull("Saved song should not be null.",
+				testHelperBean.getSongByUuid(song08.getUuid()));
+		assertNotNull("Saved song should not be null.",
+				testHelperBean.getSongByUuid(song09.getUuid()));
+		assertNotNull("Saved song should not be null.",
+				testHelperBean.getSongByUuid(song10.getUuid()));
+		assertNotNull("Saved song should not be null.",
+				testHelperBean.getSongByUuid(song11.getUuid()));
 	}
 
 	@After
 	public void clearTestData() {
-		entityManager.getTransaction().begin();
-		Query select = entityManager.createQuery("FROM Artist");
-		List<?> allArtists = select.getResultList();
-		for (Object artist : allArtists) {
-			entityManager.remove(artist);
-		}
-		entityManager.getTransaction().commit();
+		testHelperBean.deleteAllArtists();
 	}
 
 }

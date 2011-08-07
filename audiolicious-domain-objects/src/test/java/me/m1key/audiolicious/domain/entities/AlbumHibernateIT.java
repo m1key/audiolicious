@@ -153,6 +153,7 @@ public class AlbumHibernateIT extends HibernateIT {
 	public void savingAlbumShouldSaveArtist() {
 		getEntityManager().getTransaction().begin();
 		Artist artist = new Artist(ARTIST_1_NAME);
+		getEntityManager().persist(artist);
 		Album album = new Album(ARTIST_1_ALBUM_2_NAME, artist, new Rating(80));
 		getEntityManager().persist(album);
 		getEntityManager().getTransaction().commit();
@@ -172,6 +173,7 @@ public class AlbumHibernateIT extends HibernateIT {
 		getEntityManager().getTransaction().begin();
 
 		Artist artist1 = new Artist(ARTIST_1_NAME);
+		getEntityManager().persist(artist1);
 		artist1Album1 = new Album(ARTIST_1_ALBUM_1_NAME, artist1,
 				new Rating(80));
 		getEntityManager().persist(artist1Album1);
@@ -180,6 +182,7 @@ public class AlbumHibernateIT extends HibernateIT {
 		getEntityManager().persist(artist1Album2);
 
 		Artist artist2 = new Artist(ARTIST_2_NAME);
+		getEntityManager().persist(artist2);
 		Album artist2Album1 = new Album(ARTIST_2_ALBUM_1_NAME, artist2,
 				new Rating(80));
 		getEntityManager().persist(artist2Album1);

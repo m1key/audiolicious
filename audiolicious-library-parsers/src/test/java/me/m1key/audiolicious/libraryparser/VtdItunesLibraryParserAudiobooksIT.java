@@ -60,10 +60,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 								.getSimpleName() + ".war")
 				.addAsWebInfResource(EmptyAsset.INSTANCE,
 						ArchivePaths.create("beans.xml"))
-				.addAsResource(
-						new File(
-								"../audiolicious-object-mappers/src/main/resources/englishValues.properties"),
-						"englishValues.properties")
 				.addClasses(LibraryParser.class, RawTrackDataCallback.class,
 						StubRawTrackDataCallback.class,
 						StubRawTrackDataCallbackBean.class,
@@ -72,7 +68,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 				.addAsLibraries(
 						DependencyResolvers
 								.use(MavenDependencyResolver.class)
-								.loadDependenciesFromPom("pom.xml")
 								.artifacts("com.ximpleware:vtd-xml:2.10",
 										"org.slf4j:slf4j-api:1.6.1",
 										"commons-lang:commons-lang:2.6")

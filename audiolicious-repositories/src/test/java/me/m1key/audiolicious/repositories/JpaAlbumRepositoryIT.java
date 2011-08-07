@@ -21,22 +21,35 @@ package me.m1key.audiolicious.repositories;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.util.List;
+import java.io.IOException;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.inject.Inject;
 
+import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
+import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
+import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
 import me.m1key.audiolicious.domain.entities.Rating;
+import me.m1key.audiolicious.domain.entities.Song;
+import me.m1key.audiolicious.domain.to.RatingTo;
+import me.m1key.audiolicious.domain.to.SongTo;
+import me.m1key.audiolicious.domain.to.TrackTo;
+import me.m1key.audiolicious.services.AlbumRepository;
 
+import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.shrinkwrap.api.ArchivePaths;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.asset.EmptyAsset;
+import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.jboss.shrinkwrap.resolver.api.DependencyResolvers;
+import org.jboss.shrinkwrap.resolver.api.maven.MavenDependencyResolver;
 import org.junit.After;
-import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
+@RunWith(Arquillian.class)
 public class JpaAlbumRepositoryIT {
 
 	private static final String ARTIST_1_NAME = "Morcheeba";
@@ -45,34 +58,47 @@ public class JpaAlbumRepositoryIT {
 	private static final String ARTIST_2_NAME = "Natacha Atlas";
 	private static final String ARTIST_2_ALBUM_1_NAME = "Halim";
 
-	private JpaAlbumRepository jpaAlbumRepository;
-	private EntityManager entityManager;
+	@Inject
+	private AlbumRepository jpaAlbumRepository;
+	@Inject
+	private TestHelperBean testHelperBean;
 
-	@Before
-	public void setup() {
-		jpaAlbumRepository = new JpaAlbumRepository();
-		EntityManagerFactory emf = Persistence
-				.createEntityManagerFactory("testPu");
-		entityManager = emf.createEntityManager();
-		jpaAlbumRepository.setEntityManager(entityManager);
+	@Deployment
+	public static WebArchive createTestArchive()
+			throws IllegalArgumentException, IOException {
+		return ShrinkWrap
+				.create(WebArchive.class,
+						JpaAlbumRepositoryIT.class.getSimpleName() + ".war")
+				.addAsWebInfResource(EmptyAsset.INSTANCE,
+						ArchivePaths.create("beans.xml"))
+				.addAsResource("META-INF/persistence.xml",
+						"META-INF/persistence.xml")
+				.addClasses(Album.class, AlbumRepository.class, Artist.class,
+						JpaAlbumRepository.class, NullAlbum.class,
+						NullArtist.class, NullEntitiesFactory.class,
+						Rating.class, RatingTo.class, Song.class, SongTo.class,
+						TestHelperBean.class, TrackTo.class)
+				.addAsLibraries(
+						DependencyResolvers
+								.use(MavenDependencyResolver.class)
+								.artifacts("org.slf4j:slf4j-api:1.6.1",
+										"commons-lang:commons-lang:2.6")
+								.resolveAsFiles());
 	}
 
 	@Test
-	@Ignore
 	public void shouldNotReturnNullForNonExistentAlbum() {
 		assertNotNull("Non existent album should not be null.",
-				jpaAlbumRepository.getAlbum(createArtist(ARTIST_1_NAME),
+				jpaAlbumRepository.getAlbum(
+						testHelperBean.createArtist(ARTIST_1_NAME),
 						"nonexistentartist"));
 	}
 
 	@Test
 	public void shouldSaveAndRetrieveAlbum() {
-		entityManager.getTransaction().begin();
-		Artist artist = new Artist(ARTIST_1_NAME);
+		Artist artist = testHelperBean.createArtist(ARTIST_1_NAME);
 		Album album = new Album(ARTIST_1_ALBUM_1_NAME, artist, new Rating(80));
 		jpaAlbumRepository.createAlbum(album);
-
-		entityManager.getTransaction().commit();
 
 		Album retrievedAlbum = jpaAlbumRepository.getAlbum(artist,
 				ARTIST_1_ALBUM_1_NAME);
@@ -83,9 +109,7 @@ public class JpaAlbumRepositoryIT {
 
 	@Test
 	public void shouldReturnCorrectAlbum() {
-		entityManager.getTransaction().begin();
-
-		Artist artist1 = new Artist(ARTIST_1_NAME);
+		Artist artist1 = testHelperBean.createArtist(ARTIST_1_NAME);
 		Album artist1Album1 = new Album(ARTIST_1_ALBUM_1_NAME, artist1,
 				new Rating(80));
 		jpaAlbumRepository.createAlbum(artist1Album1);
@@ -93,14 +117,14 @@ public class JpaAlbumRepositoryIT {
 				new Rating(80));
 		jpaAlbumRepository.createAlbum(artist1Album2);
 
-		Artist artist2 = new Artist(ARTIST_2_NAME);
+		Artist artist2 = testHelperBean.createArtist(ARTIST_2_NAME);
 		Album artist2Album1 = new Album(ARTIST_2_ALBUM_1_NAME, artist2,
 				new Rating(80));
+		jpaAlbumRepository.createAlbum(artist2Album1);
 		Album artist2Album2WithTheSameNameAsArist1Album1 = new Album(
 				ARTIST_1_ALBUM_1_NAME, artist2, new Rating(80));
-		jpaAlbumRepository.createAlbum(artist2Album1);
-
-		entityManager.getTransaction().commit();
+		jpaAlbumRepository
+				.createAlbum(artist2Album2WithTheSameNameAsArist1Album1);
 
 		assertEquals("Created and retrieved by name album should be the same.",
 				artist1Album1,
@@ -118,29 +142,7 @@ public class JpaAlbumRepositoryIT {
 
 	@After
 	public void clearTestData() {
-		deleteAllArtists();
-	}
-
-	private Artist createArtist(String artistName) {
-		entityManager.getTransaction().begin();
-		entityManager.persist(new Artist(artistName));
-		entityManager.getTransaction().commit();
-
-		@SuppressWarnings("unchecked")
-		List<Artist> artistObjects = entityManager
-				.createQuery("from Artist a where a.name = :name")
-				.setParameter("name", artistName).getResultList();
-		return artistObjects.get(0);
-	}
-
-	private void deleteAllArtists() {
-		entityManager.getTransaction().begin();
-		Query select = entityManager.createQuery("FROM Artist");
-		List<?> allArtists = select.getResultList();
-		for (Object artist : allArtists) {
-			entityManager.remove(artist);
-		}
-		entityManager.getTransaction().commit();
+		testHelperBean.deleteAllArtists();
 	}
 
 }

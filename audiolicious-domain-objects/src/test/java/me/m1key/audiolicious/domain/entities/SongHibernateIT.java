@@ -193,7 +193,9 @@ public class SongHibernateIT extends HibernateIT {
 	public void savingAlbumShouldSaveArtist() {
 		getEntityManager().getTransaction().begin();
 		Artist artist = new Artist(ARTIST_1_NAME);
+		getEntityManager().persist(artist);
 		Album album = new Album(ARTIST_1_ALBUM_1_NAME, artist, new Rating(80));
+		getEntityManager().persist(album);
 		Song song = new Song(ARTIST_1_ALBUM_1_SONG_1_NAME, ARTIST_1_NAME,
 				album, 1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock",
 				artist1Album1DateAdded, artist1Album1DateModified, new Rating(
@@ -308,6 +310,7 @@ public class SongHibernateIT extends HibernateIT {
 		getEntityManager().getTransaction().begin();
 
 		Artist artist1 = new Artist(ARTIST_1_NAME);
+		getEntityManager().persist(artist1);
 		Album artist1Album1 = new Album(ARTIST_1_ALBUM_1_NAME, artist1,
 				new Rating(80));
 		addSongsToAlbum1(artist1Album1);
@@ -318,6 +321,7 @@ public class SongHibernateIT extends HibernateIT {
 		getEntityManager().persist(artist1Album2);
 
 		Artist artist2 = new Artist(ARTIST_2_NAME);
+		getEntityManager().persist(artist2);
 		Album artist2Album1 = new Album(ARTIST_2_ALBUM_1_NAME, artist2,
 				new Rating(80));
 		addSongsToAlbum3(artist2Album1);

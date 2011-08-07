@@ -95,9 +95,12 @@ public class Song {
 	@Embedded
 	private Rating rating;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = {
-			CascadeType.PERSIST, CascadeType.MERGE })
+	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = { CascadeType.MERGE })
 	private Album album;
+
+	// For proxying.
+	protected Song() {
+	}
 
 	public Song(String name, String artistName, Album album, int year,
 			String composer, String genre, Date dateAdded, Date dateModified,
