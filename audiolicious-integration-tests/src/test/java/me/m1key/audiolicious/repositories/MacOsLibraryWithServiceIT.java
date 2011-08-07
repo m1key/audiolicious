@@ -22,11 +22,13 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
 import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParserCdiAlternative;
@@ -50,6 +52,7 @@ import org.jboss.shrinkwrap.api.ArchivePaths;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -88,13 +91,17 @@ public class MacOsLibraryWithServiceIT {
 						DefaultObjectTrackDataHandlerCdiAlternative.class,
 						DefaultSongServiceCdiAlternative.class,
 						I18nDataExtractorCdiAlternative.class,
-						JpaAlbumRepositoryCdiAlternative.class, JpaArtistRepositoryCdiAlternative.class,
-						JpaSongRepositoryCdiAlternative.class, NoopTrackHandlerCdiAlternative.class,
+						JpaAlbumRepositoryCdiAlternative.class,
+						JpaArtistRepositoryCdiAlternative.class,
+						JpaSongRepositoryCdiAlternative.class,
+						NoopTrackHandlerCdiAlternative.class,
 						NullEntitiesFactory.class,
 						PodcastMapperCdiAlternative.class,
-						RawTrackDataHandlerCdiAlternative.class, SongHandlerCdiAlternative.class,
+						RawTrackDataHandlerCdiAlternative.class,
+						SongHandlerCdiAlternative.class,
 						SongMapperCdiAlternative.class,
-						TrackHandlersFactoryCdiAlternative.class, TrackMappersFactoryCdiAlternative.class,
+						TrackHandlersFactoryCdiAlternative.class,
+						TrackMappersFactoryCdiAlternative.class,
 						VideoMapperCdiAlternative.class,
 						VtdItunesLibraryParserCdiAlternative.class);
 	}
@@ -104,6 +111,9 @@ public class MacOsLibraryWithServiceIT {
 		EntityManagerFactory emf = Persistence
 				.createEntityManagerFactory("testPu");
 		entityManager = emf.createEntityManager();
+
+		assertEquals("There should be no artists before the test.",
+				new Long(0), totalArtists());
 
 		songRepository.setEntityManager(entityManager);
 		albumRepository.setEntityManager(entityManager);
@@ -123,6 +133,15 @@ public class MacOsLibraryWithServiceIT {
 				TOTAL_ALBUMS, totalAlbums());
 		assertEquals("There should be the right number of songs in the DB.",
 				new Long(TOTAL_SONGS + TOTAL_VIDEOS), totalSongs());
+	}
+
+	@After
+	public void cleanup() {
+		Query select = entityManager.createQuery("FROM Artist");
+		List<?> allArtists = select.getResultList();
+		for (Object artist : allArtists) {
+			entityManager.remove(artist);
+		}
 	}
 
 	private Long totalArtists() {
