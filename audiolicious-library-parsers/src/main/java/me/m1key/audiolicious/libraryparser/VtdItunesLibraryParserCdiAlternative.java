@@ -23,6 +23,7 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
@@ -37,13 +38,14 @@ import com.ximpleware.VTDNav;
 import com.ximpleware.XPathEvalException;
 import com.ximpleware.XPathParseException;
 
+@RequestScoped
 public class VtdItunesLibraryParserCdiAlternative implements LibraryParser {
 
 	private static final boolean NAMESPACE_AWARE = false;
 	private static final String SPACE = " ";
 	private static final String UNDERSCORE = "_";
 	private static Logger log = LoggerFactory
-			.getLogger(VtdItunesLibraryParser.class);
+			.getLogger(VtdItunesLibraryParserCdiAlternative.class);
 
 	private File xmlFile;
 	private int tracksCount;

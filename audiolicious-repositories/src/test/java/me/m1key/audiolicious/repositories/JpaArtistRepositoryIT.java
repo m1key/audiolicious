@@ -58,7 +58,7 @@ public class JpaArtistRepositoryIT {
 	@Inject
 	private ArtistRepository jpaArtistRepository;
 	@Inject
-	private TestHelperBean testHelperBean;
+	private RepositoriesTestHelperBean testHelperBean;
 
 	@Deployment
 	public static WebArchive createTestArchive()
@@ -68,17 +68,19 @@ public class JpaArtistRepositoryIT {
 						JpaArtistRepositoryIT.class.getSimpleName() + ".war")
 				.addAsWebInfResource(EmptyAsset.INSTANCE,
 						ArchivePaths.create("beans.xml"))
+				.addAsResource("log4j.xml", "log4j.xml")
 				.addAsResource("META-INF/persistence.xml",
 						"META-INF/persistence.xml")
 				.addClasses(Album.class, Artist.class, ArtistRepository.class,
 						JpaArtistRepository.class, NullAlbum.class,
 						NullArtist.class, NullEntitiesFactory.class,
 						Rating.class, RatingTo.class, Song.class, SongTo.class,
-						TestHelperBean.class, TrackTo.class)
+						RepositoriesTestHelperBean.class, TrackTo.class)
 				.addAsLibraries(
 						DependencyResolvers
 								.use(MavenDependencyResolver.class)
 								.artifacts("org.slf4j:slf4j-api:1.6.1",
+										"org.slf4j:slf4j-log4j12:1.6.1",
 										"commons-lang:commons-lang:2.6")
 								.resolveAsFiles());
 	}

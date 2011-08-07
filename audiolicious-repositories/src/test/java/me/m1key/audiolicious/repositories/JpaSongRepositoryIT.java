@@ -74,7 +74,7 @@ public class JpaSongRepositoryIT {
 	@Inject
 	private SongRepository jpaSongRepository;
 	@Inject
-	private TestHelperBean testHelperBean;
+	private RepositoriesTestHelperBean testHelperBean;
 
 	@Deployment
 	public static WebArchive createTestArchive()
@@ -84,17 +84,20 @@ public class JpaSongRepositoryIT {
 						JpaSongRepositoryIT.class.getSimpleName() + ".war")
 				.addAsWebInfResource(EmptyAsset.INSTANCE,
 						ArchivePaths.create("beans.xml"))
+				.addAsResource("log4j.xml", "log4j.xml")
 				.addAsResource("META-INF/persistence.xml",
 						"META-INF/persistence.xml")
 				.addClasses(Album.class, Artist.class, JpaSongRepository.class,
 						NullAlbum.class, NullArtist.class,
 						NullEntitiesFactory.class, Rating.class,
 						RatingTo.class, Song.class, SongRepository.class,
-						SongTo.class, TestHelperBean.class, TrackTo.class)
+						SongTo.class, RepositoriesTestHelperBean.class,
+						TrackTo.class)
 				.addAsLibraries(
 						DependencyResolvers
 								.use(MavenDependencyResolver.class)
 								.artifacts("org.slf4j:slf4j-api:1.6.1",
+										"org.slf4j:slf4j-log4j12:1.6.1",
 										"commons-lang:commons-lang:2.6")
 								.resolveAsFiles());
 	}
@@ -102,7 +105,7 @@ public class JpaSongRepositoryIT {
 	@Test
 	public void shouldCreateAndRetrieveSong() {
 		assertEquals("There should be no songs before any are created.",
-				new Integer(0), testHelperBean.totalSongs());
+				new Long(0), testHelperBean.totalSongs());
 
 		Artist artist = testHelperBean.createArtist(ARTIST_NAME);
 		Album album = testHelperBean.createAlbum(ALBUM_NAME, artist,
@@ -120,7 +123,7 @@ public class JpaSongRepositoryIT {
 	@Test
 	public void shouldCreateAndRetrieveAllSongs() {
 		assertEquals("There should be no songs before any are created.",
-				new Integer(0), testHelperBean.totalSongs());
+				new Long(0), testHelperBean.totalSongs());
 
 		Artist artist = testHelperBean.createArtist(ARTIST_NAME);
 		Album album = testHelperBean.createAlbum(ALBUM_NAME, artist,

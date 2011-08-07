@@ -31,7 +31,7 @@ import me.m1key.audiolicious.domain.entities.Rating;
 import me.m1key.audiolicious.domain.entities.Song;
 
 @Stateless
-public class TestHelperBean {
+public class RepositoriesTestHelperBean {
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -52,10 +52,6 @@ public class TestHelperBean {
 		for (Object artist : allArtists) {
 			entityManager.remove(artist);
 		}
-	}
-
-	public Integer totalSongs() {
-		return entityManager.createQuery("FROM Song").getResultList().size();
 	}
 
 	public Album createAlbum(String albumName, Artist artist, Rating rating) {
@@ -80,5 +76,16 @@ public class TestHelperBean {
 					.createQuery("FROM Song WHERE uuid = :uuid")
 					.setParameter("uuid", uuid).getResultList().get(0);
 		}
+	}
+
+	public Long totalSongs() {
+		return total("Song");
+	}
+
+	private Long total(String entityName) {
+		Object howMany = entityManager.createQuery(
+				String.format("SELECT COUNT(id) FROM %s", entityName))
+				.getSingleResult();
+		return (Long) howMany;
 	}
 }
