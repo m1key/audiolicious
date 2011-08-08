@@ -19,14 +19,11 @@
 package me.m1key.audiolicious.services;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Alternative;
 
 import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.Rating;
-import me.m1key.audiolicious.services.AlbumRepository;
 
-@Alternative
 @ApplicationScoped
 public class StubAlbumRepository implements AlbumRepository {
 

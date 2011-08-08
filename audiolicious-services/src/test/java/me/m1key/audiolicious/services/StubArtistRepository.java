@@ -19,12 +19,9 @@
 package me.m1key.audiolicious.services;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Alternative;
 
 import me.m1key.audiolicious.domain.entities.Artist;
-import me.m1key.audiolicious.services.ArtistRepository;
 
-@Alternative
 @ApplicationScoped
 public class StubArtistRepository implements ArtistRepository {
 

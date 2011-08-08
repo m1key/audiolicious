@@ -22,12 +22,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Alternative;
 
 import me.m1key.audiolicious.domain.entities.Song;
-import me.m1key.audiolicious.services.SongRepository;
 
-@Alternative
 @ApplicationScoped
 public class StubSongRepository implements SongRepository {
 	private Map<String, Integer> songsPerAlbum;

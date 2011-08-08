@@ -26,20 +26,46 @@ import java.io.IOException;
 
 import javax.inject.Inject;
 
+import me.m1key.audiolicious.commons.XmlNodeName;
+import me.m1key.audiolicious.commons.qualifiers.AggregateMapper;
+import me.m1key.audiolicious.commons.qualifiers.NoopHandler;
+import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
+import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.domain.entities.Album;
+import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
 import me.m1key.audiolicious.domain.entities.Rating;
 import me.m1key.audiolicious.domain.entities.Song;
+import me.m1key.audiolicious.domain.to.AudiobookTo;
+import me.m1key.audiolicious.domain.to.PodcastTo;
+import me.m1key.audiolicious.domain.to.RatingTo;
+import me.m1key.audiolicious.domain.to.SongTo;
+import me.m1key.audiolicious.domain.to.TrackTo;
+import me.m1key.audiolicious.domain.to.TrackToType;
+import me.m1key.audiolicious.domain.to.VideoTo;
+import me.m1key.audiolicious.libraryparser.LibraryParser;
+import me.m1key.audiolicious.libraryparser.RawTrackDataCallback;
 import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParserCdiAlternative;
+import me.m1key.audiolicious.libraryparser.XmlParseException;
 import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandlerCdiAlternative;
+import me.m1key.audiolicious.objecthandler.ObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.RawTrackDataHandlerCdiAlternative;
+import me.m1key.audiolicious.objecthandler.TrackHandler;
 import me.m1key.audiolicious.objecthandler.factories.TrackHandlersFactoryCdiAlternative;
 import me.m1key.audiolicious.objecthandler.factories.TrackMappersFactoryCdiAlternative;
 import me.m1key.audiolicious.objecthandler.handlers.NoopTrackHandlerCdiAlternative;
 import me.m1key.audiolicious.objecthandler.handlers.SongHandlerCdiAlternative;
+import me.m1key.audiolicious.objecthandler.handlers.SongService;
+import me.m1key.audiolicious.objectmapper.AggregateTrackMapperCdiAlternative;
+import me.m1key.audiolicious.objectmapper.CannotMapTrackValuesException;
+import me.m1key.audiolicious.objectmapper.ObjectMappingException;
+import me.m1key.audiolicious.objectmapper.TrackMapper;
+import me.m1key.audiolicious.objectmapper.extractor.DataExtractor;
 import me.m1key.audiolicious.objectmapper.extractor.DefaultEnglishValuesProviderCdiAlternative;
+import me.m1key.audiolicious.objectmapper.extractor.EnglishValuesProvider;
 import me.m1key.audiolicious.objectmapper.extractor.I18nDataExtractorCdiAlternative;
 import me.m1key.audiolicious.objectmapper.trackmappers.AudiobookMapperCdiAlternative;
+import me.m1key.audiolicious.objectmapper.trackmappers.NonAggregateTrackMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapperCdiAlternative;
 import me.m1key.audiolicious.objectmapper.trackmappers.SongMapperCdiAlternative;
 import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapperCdiAlternative;
@@ -48,7 +74,10 @@ import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ArchivePaths;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.jboss.shrinkwrap.api.asset.EmptyAsset;
+import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.jboss.shrinkwrap.resolver.api.DependencyResolvers;
+import org.jboss.shrinkwrap.resolver.api.maven.MavenDependencyResolver;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -67,28 +96,62 @@ public class DefaultSongServiceWindowsIT {
 	private static boolean handlerHasNotRunYet = true;
 
 	@Deployment
-	public static JavaArchive createTestArchive()
+	public static WebArchive createTestArchive()
 			throws IllegalArgumentException, IOException {
 		return ShrinkWrap
-				.create(JavaArchive.class,
+				.create(WebArchive.class,
 						DefaultSongServiceWindowsIT.class.getSimpleName()
-								+ ".jar")
-				.addAsManifestResource(
+								+ ".war")
+				.addAsResource(
 						new File(
-								"src/test/resources/META-INF/handlersBeans.xml"),
+								"../audiolicious-object-mappers/src/main/resources/englishValues.properties"),
+						"englishValues.properties")
+				.addAsWebInfResource(EmptyAsset.INSTANCE,
 						ArchivePaths.create("beans.xml"))
-				.addClasses(AudiobookMapperCdiAlternative.class,
+				.addAsResource("log4j.xml", "log4j.xml")
+				.addClasses(AggregateMapper.class,
+						AggregateTrackMapperCdiAlternative.class, Album.class,
+						AlbumRepository.class, Artist.class,
+						ArtistRepository.class, AudiobookTo.class,
+						AudiobookMapperCdiAlternative.class,
+						CannotMapTrackValuesException.class,
+						DataExtractor.class,
 						DefaultEnglishValuesProviderCdiAlternative.class,
 						DefaultObjectTrackDataHandlerCdiAlternative.class,
 						DefaultSongServiceCdiAlternative.class,
+						EnglishValuesProvider.class,
 						I18nDataExtractorCdiAlternative.class,
-						NoopTrackHandlerCdiAlternative.class, NullEntitiesFactory.class,
-						PodcastMapperCdiAlternative.class, RawTrackDataHandlerCdiAlternative.class,
-						SongHandlerCdiAlternative.class, SongMapperCdiAlternative.class,
+						LibraryParser.class, NonAggregateTrackMapper.class,
+						NoopHandler.class,
+						NoopTrackHandlerCdiAlternative.class, NullAlbum.class,
+						NullArtist.class, NullEntitiesFactory.class,
+						ObjectMappingException.class,
+						ObjectTrackDataHandler.class,
+						PodcastMapperCdiAlternative.class, PodcastTo.class,
+						Rating.class, RatingTo.class,
+						RawTrackDataCallback.class,
+						RawTrackDataHandlerCdiAlternative.class, Song.class,
+						SongHandlerCdiAlternative.class,
+						SongMapperCdiAlternative.class, SongRepository.class,
+						SongService.class, SongTo.class,
 						StubAlbumRepository.class, StubArtistRepository.class,
-						StubSongRepository.class, TrackHandlersFactoryCdiAlternative.class,
-						TrackMappersFactoryCdiAlternative.class, VideoMapperCdiAlternative.class,
-						VtdItunesLibraryParserCdiAlternative.class);
+						StubSongRepository.class, TrackHandler.class,
+						TrackHandlersFactoryCdiAlternative.class,
+						TrackMapper.class,
+						TrackMappersFactoryCdiAlternative.class, TrackTo.class,
+						TrackToType.class, VideoMapperCdiAlternative.class,
+						VideoTo.class,
+						VtdItunesLibraryParserCdiAlternative.class,
+						XmlNodeName.class, XmlParseException.class)
+				.addAsLibraries(
+						DependencyResolvers
+								.use(MavenDependencyResolver.class)
+								.artifacts("com.ximpleware:vtd-xml:2.10",
+										"joda-time:joda-time:1.6.2",
+										"org.slf4j:slf4j-api:1.6.1",
+										"org.slf4j:slf4j-log4j12:1.6.1",
+										"commons-lang:commons-lang:2.6")
+								.resolveAsFiles());
 	}
 
 	@Before
