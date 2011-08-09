@@ -23,10 +23,10 @@ import java.util.Map;
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.domain.to.TrackTo;
 
-public abstract class TrackMapper<T extends TrackTo> {
+public interface TrackMapper<T extends TrackTo> {
 
-	public abstract T map(Map<XmlNodeName, String> trackValues);
+	T map(Map<XmlNodeName, String> trackValues);
 
-	public abstract boolean canMap(Map<XmlNodeName, String> trackValues);
+	boolean canMap(Map<XmlNodeName, String> trackValues);
 
 }

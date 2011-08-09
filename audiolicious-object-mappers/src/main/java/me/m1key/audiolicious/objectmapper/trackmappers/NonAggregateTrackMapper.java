@@ -25,7 +25,7 @@ import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.objectmapper.TrackMapper;
 import me.m1key.audiolicious.objectmapper.extractor.DataExtractor;
 
-public abstract class NonAggregateTrackMapper<T extends TrackTo> extends
+public abstract class NonAggregateTrackMapper<T extends TrackTo> implements
 		TrackMapper<T> {
 
 	protected abstract DataExtractor getDataExtractor();

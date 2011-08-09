@@ -29,7 +29,7 @@ import me.m1key.audiolicious.domain.to.TrackTo;
 
 @Stateless
 @Local(TrackMapper.class)
-public class AggregateTrackMapper extends TrackMapper<TrackTo> {
+public class AggregateTrackMapper implements TrackMapper<TrackTo> {
 
 	@Inject
 	private Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> mappers;
