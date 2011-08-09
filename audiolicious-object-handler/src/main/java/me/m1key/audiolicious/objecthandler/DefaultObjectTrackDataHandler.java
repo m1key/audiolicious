@@ -21,18 +21,20 @@ package me.m1key.audiolicious.objecthandler;
 import java.io.File;
 import java.util.Map;
 
-import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
+import javax.ejb.Local;
+import javax.ejb.Stateful;
+import javax.inject.Inject;
 
 import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.libraryparser.LibraryParser;
 
-@RequestScoped
+@Stateful
+@Local(ObjectTrackDataHandler.class)
 public class DefaultObjectTrackDataHandler implements ObjectTrackDataHandler {
 
-	@EJB
+	@Inject
 	private LibraryParser libraryParser;
-	@EJB
+	@Inject
 	private Map<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>> handlers;
 
 	@Override

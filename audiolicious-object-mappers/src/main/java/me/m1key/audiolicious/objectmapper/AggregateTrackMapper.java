@@ -18,48 +18,8 @@
 
 package me.m1key.audiolicious.objectmapper;
 
-import java.util.Map;
-
-import javax.ejb.Local;
-import javax.ejb.Stateless;
-import javax.inject.Inject;
-
-import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.domain.to.TrackTo;
 
-@Stateless
-@Local(TrackMapper.class)
-public class AggregateTrackMapper implements TrackMapper<TrackTo> {
+public interface AggregateTrackMapper extends TrackMapper<TrackTo> {
 
-	@Inject
-	private Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> mappers;
-
-	@Override
-	public TrackTo map(Map<XmlNodeName, String> trackValues) {
-		for (Class<? extends TrackTo> mapperKey : mappers.keySet()) {
-			TrackMapper<? extends TrackTo> mapper = mappers.get(mapperKey);
-			if (mapper.canMap(trackValues)) {
-				return mapper.map(trackValues);
-			}
-		}
-
-		throw new ObjectMappingException(trackValues);
-	}
-
-	@Override
-	public boolean canMap(Map<XmlNodeName, String> trackValues) {
-		for (Class<? extends TrackTo> mapperKey : mappers.keySet()) {
-			TrackMapper<? extends TrackTo> mapper = mappers.get(mapperKey);
-			if (mapper.canMap(trackValues)) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	public void setMappers(
-			Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> mappers) {
-		this.mappers = mappers;
-	}
 }
