@@ -46,7 +46,7 @@ import me.m1key.audiolicious.libraryparser.LibraryParser;
 import me.m1key.audiolicious.libraryparser.RawTrackDataCallback;
 import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParserCdiAlternative;
 import me.m1key.audiolicious.libraryparser.XmlParseException;
-import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandlerCdiAlternative;
+import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.ObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.RawTrackDataHandlerCdiAlternative;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
@@ -96,7 +96,7 @@ public class MacOsLibraryWithServiceIT {
 	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/MacOsExportedLibrary-2011-07-28.xml";
 
 	@Inject
-	private DefaultObjectTrackDataHandlerCdiAlternative handler;
+	private ObjectTrackDataHandler handler;
 	@Inject
 	private TestHelperBean testHelperBean;
 
@@ -124,7 +124,7 @@ public class MacOsLibraryWithServiceIT {
 						CannotMapTrackValuesException.class,
 						DataExtractor.class,
 						DefaultEnglishValuesProviderCdiAlternative.class,
-						DefaultObjectTrackDataHandlerCdiAlternative.class,
+						DefaultObjectTrackDataHandler.class,
 						DefaultSongService.class, EnglishValuesProvider.class,
 						I18nDataExtractorCdiAlternative.class,
 						JpaAlbumRepository.class, JpaArtistRepository.class,

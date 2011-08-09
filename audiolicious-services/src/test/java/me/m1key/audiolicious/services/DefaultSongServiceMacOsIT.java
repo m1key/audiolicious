@@ -48,7 +48,6 @@ import me.m1key.audiolicious.libraryparser.RawTrackDataCallback;
 import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParserCdiAlternative;
 import me.m1key.audiolicious.libraryparser.XmlParseException;
 import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandler;
-import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandlerCdiAlternative;
 import me.m1key.audiolicious.objecthandler.ObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.RawTrackDataHandlerCdiAlternative;
 import me.m1key.audiolicious.objecthandler.TrackHandler;

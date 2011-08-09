@@ -46,7 +46,7 @@ import me.m1key.audiolicious.libraryparser.LibraryParser;
 import me.m1key.audiolicious.libraryparser.RawTrackDataCallback;
 import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParserCdiAlternative;
 import me.m1key.audiolicious.libraryparser.XmlParseException;
-import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandlerCdiAlternative;
+import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.ObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.RawTrackDataHandlerCdiAlternative;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
@@ -95,7 +95,7 @@ public class DefaultSongServiceWindowsCountIT {
 	private static final int TOTAL_VIDEOS = 0;
 
 	@Inject
-	private DefaultObjectTrackDataHandlerCdiAlternative handler;
+	private ObjectTrackDataHandler handler;
 	@Inject
 	private StubSongHandler songHandler;
 	@Inject
@@ -127,7 +127,7 @@ public class DefaultSongServiceWindowsCountIT {
 						CannotMapTrackValuesException.class,
 						DataExtractor.class,
 						DefaultEnglishValuesProviderCdiAlternative.class,
-						DefaultObjectTrackDataHandlerCdiAlternative.class,
+						DefaultObjectTrackDataHandler.class,
 						DefaultSongServiceCdiAlternative.class,
 						EnglishValuesProvider.class,
 						I18nDataExtractorCdiAlternative.class,
