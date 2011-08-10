@@ -35,6 +35,7 @@ import me.m1key.audiolicious.domain.to.SongToBuilder;
 import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.domain.to.VideoTo;
 import me.m1key.audiolicious.domain.to.VideoToBuilder;
+import me.m1key.audiolicious.objectmapper.AggregateTrackMapper;
 import me.m1key.audiolicious.objectmapper.AggregateTrackMapperBean;
 import me.m1key.audiolicious.objectmapper.TrackMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.AudiobookMapper;
@@ -52,7 +53,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class RawTrackDataHandlerTest {
 
 	private RawTrackDataHandler handler;
-	private TrackMapper<TrackTo> aggregateMapper;
+	private AggregateTrackMapper aggregateMapper;
 	private Map<XmlNodeName, String> receivedTrackValues;
 
 	@Mock
@@ -123,7 +124,7 @@ public class RawTrackDataHandlerTest {
 		verify(objectTrackDataHandler, times(1)).handle(video);
 	}
 
-	private TrackMapper<TrackTo> createAggregateMapper() {
+	private AggregateTrackMapper createAggregateMapper() {
 		Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> mappers = getAllKnownTracksMappers();
 		AggregateTrackMapperBean aggregateTrackMapper = new AggregateTrackMapperBean();
 		aggregateTrackMapper.setMappers(mappers);

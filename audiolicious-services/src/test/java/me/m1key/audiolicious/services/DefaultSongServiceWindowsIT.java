@@ -27,7 +27,6 @@ import java.io.IOException;
 import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
-import me.m1key.audiolicious.commons.qualifiers.AggregateMapper;
 import me.m1key.audiolicious.commons.qualifiers.NoopHandler;
 import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
@@ -49,14 +48,15 @@ import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParserCdiAlternative;
 import me.m1key.audiolicious.libraryparser.XmlParseException;
 import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.ObjectTrackDataHandler;
-import me.m1key.audiolicious.objecthandler.RawTrackDataHandlerCdiAlternative;
+import me.m1key.audiolicious.objecthandler.RawTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
 import me.m1key.audiolicious.objecthandler.factories.TrackHandlersFactoryCdiAlternative;
 import me.m1key.audiolicious.objecthandler.factories.TrackMappersFactoryCdiAlternative;
 import me.m1key.audiolicious.objecthandler.handlers.NoopTrackHandlerCdiAlternative;
 import me.m1key.audiolicious.objecthandler.handlers.SongHandlerCdiAlternative;
 import me.m1key.audiolicious.objecthandler.handlers.SongService;
-import me.m1key.audiolicious.objectmapper.AggregateTrackMapperCdiAlternative;
+import me.m1key.audiolicious.objectmapper.AggregateTrackMapper;
+import me.m1key.audiolicious.objectmapper.AggregateTrackMapperBean;
 import me.m1key.audiolicious.objectmapper.CannotMapTrackValuesException;
 import me.m1key.audiolicious.objectmapper.ObjectMappingException;
 import me.m1key.audiolicious.objectmapper.TrackMapper;
@@ -109,8 +109,8 @@ public class DefaultSongServiceWindowsIT {
 				.addAsWebInfResource(EmptyAsset.INSTANCE,
 						ArchivePaths.create("beans.xml"))
 				.addAsResource("log4j.xml", "log4j.xml")
-				.addClasses(AggregateMapper.class,
-						AggregateTrackMapperCdiAlternative.class, Album.class,
+				.addClasses(AggregateTrackMapper.class,
+						AggregateTrackMapperBean.class, Album.class,
 						AlbumRepository.class, Artist.class,
 						ArtistRepository.class, AudiobookTo.class,
 						AudiobookMapperCdiAlternative.class,
@@ -129,9 +129,8 @@ public class DefaultSongServiceWindowsIT {
 						ObjectTrackDataHandler.class,
 						PodcastMapperCdiAlternative.class, PodcastTo.class,
 						Rating.class, RatingTo.class,
-						RawTrackDataCallback.class,
-						RawTrackDataHandlerCdiAlternative.class, Song.class,
-						SongHandlerCdiAlternative.class,
+						RawTrackDataCallback.class, RawTrackDataHandler.class,
+						Song.class, SongHandlerCdiAlternative.class,
 						SongMapperCdiAlternative.class, SongRepository.class,
 						SongService.class, SongTo.class,
 						StubAlbumRepository.class, StubArtistRepository.class,

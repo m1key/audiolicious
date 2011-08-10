@@ -27,14 +27,14 @@ import javax.ejb.Stateful;
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.libraryparser.RawTrackDataCallback;
-import me.m1key.audiolicious.objectmapper.TrackMapper;
+import me.m1key.audiolicious.objectmapper.AggregateTrackMapper;
 
 @Stateful
 @Local(RawTrackDataCallback.class)
 public class RawTrackDataHandler implements RawTrackDataCallback {
 
 	@EJB
-	private TrackMapper<? extends TrackTo> mapper;
+	private AggregateTrackMapper mapper;
 	@EJB
 	private ObjectTrackDataHandler objectTrackDataHandler;
 
@@ -44,7 +44,7 @@ public class RawTrackDataHandler implements RawTrackDataCallback {
 		objectTrackDataHandler.handle(track);
 	}
 
-	public void setMapper(TrackMapper<? extends TrackTo> mapper) {
+	public void setMapper(AggregateTrackMapper mapper) {
 		this.mapper = mapper;
 	}
 

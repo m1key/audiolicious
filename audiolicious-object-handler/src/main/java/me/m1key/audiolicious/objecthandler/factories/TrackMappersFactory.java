@@ -31,7 +31,6 @@ import me.m1key.audiolicious.domain.to.PodcastTo;
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.domain.to.VideoTo;
-import me.m1key.audiolicious.objectmapper.AggregateTrackMapperCdiAlternative;
 import me.m1key.audiolicious.objectmapper.TrackMapper;
 
 @ApplicationScoped
@@ -48,9 +47,8 @@ public class TrackMappersFactory {
 
 	@Produces
 	@AggregateMapper
-	public TrackMapper<TrackTo> getAggregateTrackMapper() {
-		Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> mappers = getAllKnownTracksMappers();
-		return new AggregateTrackMapperCdiAlternative(mappers);
+	public Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> getAggregateTrackMapper() {
+		return getAllKnownTracksMappers();
 	}
 
 	private Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> getAllKnownTracksMappers() {
