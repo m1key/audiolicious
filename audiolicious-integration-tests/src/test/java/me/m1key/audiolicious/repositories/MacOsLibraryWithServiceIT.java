@@ -60,9 +60,9 @@ import me.m1key.audiolicious.objectmapper.CannotMapTrackValuesException;
 import me.m1key.audiolicious.objectmapper.ObjectMappingException;
 import me.m1key.audiolicious.objectmapper.TrackMapper;
 import me.m1key.audiolicious.objectmapper.extractor.DataExtractor;
-import me.m1key.audiolicious.objectmapper.extractor.DefaultEnglishValuesProviderCdiAlternative;
+import me.m1key.audiolicious.objectmapper.extractor.DefaultEnglishValuesProvider;
 import me.m1key.audiolicious.objectmapper.extractor.EnglishValuesProvider;
-import me.m1key.audiolicious.objectmapper.extractor.I18nDataExtractorCdiAlternative;
+import me.m1key.audiolicious.objectmapper.extractor.I18nDataExtractor;
 import me.m1key.audiolicious.objectmapper.trackmappers.AudiobookMapperCdiAlternative;
 import me.m1key.audiolicious.objectmapper.trackmappers.NonAggregateTrackMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapperCdiAlternative;
@@ -123,13 +123,13 @@ public class MacOsLibraryWithServiceIT {
 						AudiobookMapperCdiAlternative.class,
 						CannotMapTrackValuesException.class,
 						DataExtractor.class,
-						DefaultEnglishValuesProviderCdiAlternative.class,
+						DefaultEnglishValuesProvider.class,
 						DefaultObjectTrackDataHandler.class,
 						DefaultSongService.class, EnglishValuesProvider.class,
-						I18nDataExtractorCdiAlternative.class,
-						JpaAlbumRepository.class, JpaArtistRepository.class,
-						JpaSongRepository.class, LibraryParser.class,
-						NonAggregateTrackMapper.class, NoopHandler.class,
+						I18nDataExtractor.class, JpaAlbumRepository.class,
+						JpaArtistRepository.class, JpaSongRepository.class,
+						LibraryParser.class, NonAggregateTrackMapper.class,
+						NoopHandler.class,
 						NoopTrackHandlerCdiAlternative.class, NullAlbum.class,
 						NullArtist.class, NullEntitiesFactory.class,
 						ObjectMappingException.class,
