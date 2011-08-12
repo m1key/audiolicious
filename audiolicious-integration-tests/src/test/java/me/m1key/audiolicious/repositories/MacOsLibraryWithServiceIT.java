@@ -43,7 +43,7 @@ import me.m1key.audiolicious.domain.to.TrackToType;
 import me.m1key.audiolicious.domain.to.VideoTo;
 import me.m1key.audiolicious.libraryparser.LibraryParser;
 import me.m1key.audiolicious.libraryparser.RawTrackDataCallback;
-import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParserCdiAlternative;
+import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParser;
 import me.m1key.audiolicious.libraryparser.XmlParseException;
 import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.ObjectTrackDataHandler;
@@ -70,7 +70,9 @@ import me.m1key.audiolicious.objectmapper.trackmappers.SongMapperCdiAlternative;
 import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapperCdiAlternative;
 import me.m1key.audiolicious.services.AlbumRepository;
 import me.m1key.audiolicious.services.ArtistRepository;
+import me.m1key.audiolicious.services.DefaultLibraryImporter;
 import me.m1key.audiolicious.services.DefaultSongService;
+import me.m1key.audiolicious.services.LibraryImporter;
 import me.m1key.audiolicious.services.SongRepository;
 
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -96,7 +98,7 @@ public class MacOsLibraryWithServiceIT {
 	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/MacOsExportedLibrary-2011-07-28.xml";
 
 	@Inject
-	private ObjectTrackDataHandler handler;
+	private LibraryImporter libraryImporter;
 	@Inject
 	private TestHelperBean testHelperBean;
 
@@ -124,12 +126,13 @@ public class MacOsLibraryWithServiceIT {
 						CannotMapTrackValuesException.class,
 						DataExtractor.class,
 						DefaultEnglishValuesProvider.class,
+						DefaultLibraryImporter.class,
 						DefaultObjectTrackDataHandler.class,
 						DefaultSongService.class, EnglishValuesProvider.class,
 						I18nDataExtractor.class, JpaAlbumRepository.class,
 						JpaArtistRepository.class, JpaSongRepository.class,
-						LibraryParser.class, NonAggregateTrackMapper.class,
-						NoopHandler.class,
+						LibraryImporter.class, LibraryParser.class,
+						NonAggregateTrackMapper.class, NoopHandler.class,
 						NoopTrackHandlerCdiAlternative.class, NullAlbum.class,
 						NullArtist.class, NullEntitiesFactory.class,
 						ObjectMappingException.class,
@@ -145,8 +148,7 @@ public class MacOsLibraryWithServiceIT {
 						TrackMapper.class,
 						TrackMappersFactoryCdiAlternative.class, TrackTo.class,
 						TrackToType.class, VideoMapperCdiAlternative.class,
-						VideoTo.class,
-						VtdItunesLibraryParserCdiAlternative.class,
+						VideoTo.class, VtdItunesLibraryParser.class,
 						XmlNodeName.class, XmlParseException.class)
 				.addAsLibraries(
 						DependencyResolvers
@@ -165,7 +167,7 @@ public class MacOsLibraryWithServiceIT {
 				new Long(0), testHelperBean.totalArtists());
 
 		File xmlLibraryFile = new File(pathToFile);
-		handler.execute(xmlLibraryFile);
+		libraryImporter.importLibrary(xmlLibraryFile);
 	}
 
 	@Test

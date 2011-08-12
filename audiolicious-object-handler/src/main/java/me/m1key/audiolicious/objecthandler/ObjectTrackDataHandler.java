@@ -18,13 +18,9 @@
 
 package me.m1key.audiolicious.objecthandler;
 
-import java.io.File;
-
 import me.m1key.audiolicious.domain.to.TrackTo;
 
 public interface ObjectTrackDataHandler {
-
-	void execute(File libraryFile);
 
 	void handle(TrackTo track);
 

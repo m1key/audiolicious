@@ -43,7 +43,7 @@ import me.m1key.audiolicious.domain.to.TrackToType;
 import me.m1key.audiolicious.domain.to.VideoTo;
 import me.m1key.audiolicious.libraryparser.LibraryParser;
 import me.m1key.audiolicious.libraryparser.RawTrackDataCallback;
-import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParserCdiAlternative;
+import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParser;
 import me.m1key.audiolicious.libraryparser.XmlParseException;
 import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.ObjectTrackDataHandler;
@@ -95,7 +95,7 @@ public class DefaultSongServiceMacOsCountIT {
 	private static final int TOTAL_VIDEOS = 1;
 
 	@Inject
-	private ObjectTrackDataHandler handler;
+	private LibraryImporter importer;
 	@Inject
 	private StubSongHandler songHandler;
 	@Inject
@@ -127,11 +127,12 @@ public class DefaultSongServiceMacOsCountIT {
 						CannotMapTrackValuesException.class,
 						DataExtractor.class,
 						DefaultEnglishValuesProvider.class,
+						DefaultLibraryImporter.class,
 						DefaultObjectTrackDataHandler.class,
 						DefaultSongServiceCdiAlternative.class,
 						EnglishValuesProvider.class, I18nDataExtractor.class,
-						LibraryParser.class, NonAggregateTrackMapper.class,
-						NoopHandler.class,
+						LibraryImporter.class, LibraryParser.class,
+						NonAggregateTrackMapper.class, NoopHandler.class,
 						NoopTrackHandlerCdiAlternative.class, NullAlbum.class,
 						NullArtist.class, NullEntitiesFactory.class,
 						ObjectMappingException.class,
@@ -148,8 +149,7 @@ public class DefaultSongServiceMacOsCountIT {
 						TrackHandler.class, TrackMapper.class,
 						TrackMappersFactoryCdiAlternative.class, TrackTo.class,
 						TrackToType.class, VideoMapperCdiAlternative.class,
-						VideoTo.class,
-						VtdItunesLibraryParserCdiAlternative.class,
+						VideoTo.class, VtdItunesLibraryParser.class,
 						XmlNodeName.class, XmlParseException.class)
 				.addAsLibraries(
 						DependencyResolvers
@@ -165,7 +165,7 @@ public class DefaultSongServiceMacOsCountIT {
 	@Before
 	public void setUp() throws Exception {
 		File xmlLibraryFile = new File(pathToFile);
-		handler.execute(xmlLibraryFile);
+		importer.importLibrary(xmlLibraryFile);
 	}
 
 	@Test

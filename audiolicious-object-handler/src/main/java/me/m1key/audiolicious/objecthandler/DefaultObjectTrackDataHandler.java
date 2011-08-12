@@ -18,7 +18,6 @@
 
 package me.m1key.audiolicious.objecthandler;
 
-import java.io.File;
 import java.util.Map;
 
 import javax.ejb.Local;
@@ -26,21 +25,12 @@ import javax.ejb.Stateful;
 import javax.inject.Inject;
 
 import me.m1key.audiolicious.domain.to.TrackTo;
-import me.m1key.audiolicious.libraryparser.LibraryParser;
 
 @Stateful
 @Local(ObjectTrackDataHandler.class)
 public class DefaultObjectTrackDataHandler implements ObjectTrackDataHandler {
-
-	@Inject
-	private LibraryParser libraryParser;
 	@Inject
 	private Map<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>> handlers;
-
-	@Override
-	public void execute(File libraryFile) {
-		libraryParser.process(libraryFile);
-	}
 
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -52,9 +42,5 @@ public class DefaultObjectTrackDataHandler implements ObjectTrackDataHandler {
 	public void setHandlers(
 			Map<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>> handlers) {
 		this.handlers = handlers;
-	}
-
-	public void setLibraryParser(LibraryParser libraryParser) {
-		this.libraryParser = libraryParser;
 	}
 }

@@ -46,6 +46,10 @@
 			<artifactId>audiolicious-object-handler</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>me.m1key.audiolicious</groupId>
+			<artifactId>audiolicious-library-parsers</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<scope>provided</scope>
@@ -79,11 +83,6 @@
 		<dependency>
 			<groupId>me.m1key.audiolicious</groupId>
 			<artifactId>audiolicious-object-mappers</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>me.m1key.audiolicious</groupId>
-			<artifactId>audiolicious-library-parsers</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
