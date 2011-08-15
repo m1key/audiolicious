@@ -21,9 +21,9 @@ package me.m1key.audiolicious.objecthandler.factories;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.ejb.EJB;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.qualifiers.AggregateMapper;
 import me.m1key.audiolicious.domain.to.AudiobookTo;
@@ -32,18 +32,24 @@ import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.domain.to.VideoTo;
 import me.m1key.audiolicious.objectmapper.TrackMapper;
+import me.m1key.audiolicious.objectmapper.trackmappers.AudiobookMapper;
+import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapper;
+import me.m1key.audiolicious.objectmapper.trackmappers.SongMapper;
+import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapper;
 
 @ApplicationScoped
 public class TrackMappersFactory {
 
-	@EJB
-	private TrackMapper<AudiobookTo> audiobookMapper;
-	@EJB
-	private TrackMapper<PodcastTo> podcastMapper;
-	@EJB
-	private TrackMapper<SongTo> songMapper;
-	@EJB
-	private TrackMapper<VideoTo> videoMapper;
+	// TODO: Replace @Inject with @EJB when fix for AS7-1269 released.
+
+	@Inject
+	private AudiobookMapper audiobookMapper;
+	@Inject
+	private PodcastMapper podcastMapper;
+	@Inject
+	private SongMapper songMapper;
+	@Inject
+	private VideoMapper videoMapper;
 
 	@Produces
 	@AggregateMapper

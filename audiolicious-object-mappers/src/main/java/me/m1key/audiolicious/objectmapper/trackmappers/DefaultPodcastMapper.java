@@ -21,28 +21,24 @@ package me.m1key.audiolicious.objectmapper.trackmappers;
 import java.util.Date;
 import java.util.Map;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import javax.ejb.EJB;
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.domain.to.PodcastTo;
 import me.m1key.audiolicious.domain.to.RatingTo;
 import me.m1key.audiolicious.objectmapper.CannotMapTrackValuesException;
+import me.m1key.audiolicious.objectmapper.TrackMapper;
 import me.m1key.audiolicious.objectmapper.extractor.DataExtractor;
 
-@ApplicationScoped
-public class PodcastMapperCdiAlternative extends NonAggregateTrackMapper<PodcastTo> {
+@Stateless
+@Local({PodcastMapper.class, TrackMapper.class})
+public class DefaultPodcastMapper extends NonAggregateTrackMapper<PodcastTo>
+		implements PodcastMapper {
 
+	@EJB
 	private DataExtractor extractor;
-
-	// For proxying.
-	protected PodcastMapperCdiAlternative() {
-	}
-
-	@Inject
-	public PodcastMapperCdiAlternative(DataExtractor extractor) {
-		this.extractor = extractor;
-	}
 
 	@Override
 	public PodcastTo map(Map<XmlNodeName, String> trackValues) {
@@ -61,8 +57,8 @@ public class PodcastMapperCdiAlternative extends NonAggregateTrackMapper<Podcast
 				.extractString(trackValues, XmlNodeName.ARTIST);
 		String genre = extractor.extractString(trackValues, XmlNodeName.GENRE);
 		String name = extractor.extractString(trackValues, XmlNodeName.NAME);
-		RatingTo rating = extractor
-				.extractRating(trackValues, XmlNodeName.RATING);
+		RatingTo rating = extractor.extractRating(trackValues,
+				XmlNodeName.RATING);
 		int playCount = extractor.extractInt(trackValues,
 				XmlNodeName.PLAY_COUNT);
 		int year = extractor.extractInt(trackValues, XmlNodeName.YEAR);
@@ -74,9 +70,9 @@ public class PodcastMapperCdiAlternative extends NonAggregateTrackMapper<Podcast
 				XmlNodeName.VIDEO_WIDTH);
 		boolean hd = extractor.extractBoolean(trackValues, XmlNodeName.HD);
 
-		return new PodcastTo(name, album, artist, albumArtist, year,
-				genre, dateAdded, dateModified, rating, playCount, hasVideo, videoHeight,
-				videoWidth, hd);
+		return new PodcastTo(name, album, artist, albumArtist, year, genre,
+				dateAdded, dateModified, rating, playCount, hasVideo,
+				videoHeight, videoWidth, hd);
 	}
 
 	@Override
@@ -107,6 +103,10 @@ public class PodcastMapperCdiAlternative extends NonAggregateTrackMapper<Podcast
 	@Override
 	protected DataExtractor getDataExtractor() {
 		return extractor;
+	}
+
+	public void setDataExtractor(DataExtractor dataExtractor) {
+		this.extractor = dataExtractor;
 	}
 
 }

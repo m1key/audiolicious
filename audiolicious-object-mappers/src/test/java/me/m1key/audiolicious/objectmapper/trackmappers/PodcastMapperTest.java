@@ -40,14 +40,14 @@ public class PodcastMapperTest {
 
 	private static final String TRUE = "true";
 	private static final String FALSE = "false";
-	private PodcastMapper podcastMapper;
+	private DefaultPodcastMapper podcastMapper;
 
 	@Before
 	public void setup() {
 		I18nDataExtractor dataExtractor = new I18nDataExtractor();
 		dataExtractor
 				.setEnglishValuesProvider(new DefaultEnglishValuesProvider());
-		podcastMapper = new PodcastMapper();
+		podcastMapper = new DefaultPodcastMapper();
 		podcastMapper.setDataExtractor(dataExtractor);
 	}
 

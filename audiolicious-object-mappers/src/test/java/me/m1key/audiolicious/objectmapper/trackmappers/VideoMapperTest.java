@@ -40,14 +40,14 @@ public class VideoMapperTest {
 
 	private static final String TRUE = "true";
 	private static final String FALSE = "false";
-	private VideoMapper videoMapper;
+	private DefaultVideoMapper videoMapper;
 
 	@Before
 	public void setup() {
 		I18nDataExtractor dataExtractor = new I18nDataExtractor();
 		dataExtractor
 				.setEnglishValuesProvider(new DefaultEnglishValuesProvider());
-		videoMapper = new VideoMapper();
+		videoMapper = new DefaultVideoMapper();
 		videoMapper.setDataExtractor(dataExtractor);
 	}
 

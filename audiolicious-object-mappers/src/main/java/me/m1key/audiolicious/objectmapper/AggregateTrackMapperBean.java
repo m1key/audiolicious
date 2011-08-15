@@ -25,6 +25,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
+import me.m1key.audiolicious.commons.qualifiers.AggregateMapper;
 import me.m1key.audiolicious.domain.to.TrackTo;
 
 @Stateless
@@ -32,6 +33,7 @@ import me.m1key.audiolicious.domain.to.TrackTo;
 public class AggregateTrackMapperBean implements AggregateTrackMapper {
 
 	@Inject
+	@AggregateMapper
 	private Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> mappers;
 
 	@Override

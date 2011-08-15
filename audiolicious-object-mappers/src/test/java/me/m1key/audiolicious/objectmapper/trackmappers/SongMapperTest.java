@@ -40,14 +40,14 @@ public class SongMapperTest {
 
 	private static final String TRUE = "true";
 	private static final String FALSE = "false";
-	private SongMapper songMapper;
+	private DefaultSongMapper songMapper;
 
 	@Before
 	public void setup() {
 		I18nDataExtractor dataExtractor = new I18nDataExtractor();
 		dataExtractor
 				.setEnglishValuesProvider(new DefaultEnglishValuesProvider());
-		songMapper = new SongMapper();
+		songMapper = new DefaultSongMapper();
 		songMapper.setDataExtractor(dataExtractor);
 	}
 

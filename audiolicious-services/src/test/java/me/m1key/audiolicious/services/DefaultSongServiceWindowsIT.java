@@ -51,7 +51,7 @@ import me.m1key.audiolicious.objecthandler.ObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.RawTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
 import me.m1key.audiolicious.objecthandler.factories.TrackHandlersFactoryCdiAlternative;
-import me.m1key.audiolicious.objecthandler.factories.TrackMappersFactoryCdiAlternative;
+import me.m1key.audiolicious.objecthandler.factories.TrackMappersFactory;
 import me.m1key.audiolicious.objecthandler.handlers.NoopTrackHandlerCdiAlternative;
 import me.m1key.audiolicious.objecthandler.handlers.SongHandlerCdiAlternative;
 import me.m1key.audiolicious.objecthandler.handlers.SongService;
@@ -64,11 +64,15 @@ import me.m1key.audiolicious.objectmapper.extractor.DataExtractor;
 import me.m1key.audiolicious.objectmapper.extractor.DefaultEnglishValuesProvider;
 import me.m1key.audiolicious.objectmapper.extractor.EnglishValuesProvider;
 import me.m1key.audiolicious.objectmapper.extractor.I18nDataExtractor;
-import me.m1key.audiolicious.objectmapper.trackmappers.AudiobookMapperCdiAlternative;
+import me.m1key.audiolicious.objectmapper.trackmappers.AudiobookMapper;
+import me.m1key.audiolicious.objectmapper.trackmappers.DefaultAudiobookMapper;
+import me.m1key.audiolicious.objectmapper.trackmappers.DefaultPodcastMapper;
+import me.m1key.audiolicious.objectmapper.trackmappers.DefaultSongMapper;
+import me.m1key.audiolicious.objectmapper.trackmappers.DefaultVideoMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.NonAggregateTrackMapper;
-import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapperCdiAlternative;
-import me.m1key.audiolicious.objectmapper.trackmappers.SongMapperCdiAlternative;
-import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapperCdiAlternative;
+import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapper;
+import me.m1key.audiolicious.objectmapper.trackmappers.SongMapper;
+import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapper;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -114,9 +118,11 @@ public class DefaultSongServiceWindowsIT {
 						AggregateTrackMapperBean.class, Album.class,
 						AlbumRepository.class, Artist.class,
 						ArtistRepository.class, AudiobookTo.class,
-						AudiobookMapperCdiAlternative.class,
+						AudiobookMapper.class,
 						CannotMapTrackValuesException.class,
-						DataExtractor.class,
+						DataExtractor.class, DefaultAudiobookMapper.class,
+						DefaultPodcastMapper.class, DefaultSongMapper.class,
+						DefaultVideoMapper.class,
 						DefaultEnglishValuesProvider.class,
 						DefaultLibraryImporter.class,
 						DefaultObjectTrackDataHandler.class,
@@ -127,19 +133,17 @@ public class DefaultSongServiceWindowsIT {
 						NoopTrackHandlerCdiAlternative.class, NullAlbum.class,
 						NullArtist.class, NullEntitiesFactory.class,
 						ObjectMappingException.class,
-						ObjectTrackDataHandler.class,
-						PodcastMapperCdiAlternative.class, PodcastTo.class,
-						Rating.class, RatingTo.class,
+						ObjectTrackDataHandler.class, PodcastMapper.class,
+						PodcastTo.class, Rating.class, RatingTo.class,
 						RawTrackDataCallback.class, RawTrackDataHandler.class,
 						Song.class, SongHandlerCdiAlternative.class,
-						SongMapperCdiAlternative.class, SongRepository.class,
+						SongMapper.class, SongRepository.class,
 						SongService.class, SongTo.class,
 						StubAlbumRepository.class, StubArtistRepository.class,
 						StubSongRepository.class, TrackHandler.class,
 						TrackHandlersFactoryCdiAlternative.class,
-						TrackMapper.class,
-						TrackMappersFactoryCdiAlternative.class, TrackTo.class,
-						TrackToType.class, VideoMapperCdiAlternative.class,
+						TrackMapper.class, TrackMappersFactory.class,
+						TrackTo.class, TrackToType.class, VideoMapper.class,
 						VideoTo.class, VtdItunesLibraryParser.class,
 						XmlNodeName.class, XmlParseException.class)
 				.addAsLibraries(

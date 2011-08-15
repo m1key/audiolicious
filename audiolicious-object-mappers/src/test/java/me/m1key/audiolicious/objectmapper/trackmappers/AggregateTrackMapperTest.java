@@ -47,7 +47,9 @@ public class AggregateTrackMapperTest {
 		I18nDataExtractor dataExtractor = new I18nDataExtractor();
 		dataExtractor
 				.setEnglishValuesProvider(new DefaultEnglishValuesProvider());
-		mappers.put(SongTo.class, new SongMapperCdiAlternative(dataExtractor));
+		DefaultSongMapper songMapper = new DefaultSongMapper();
+		songMapper.setDataExtractor(dataExtractor);
+		mappers.put(SongTo.class, songMapper);
 		trackMapper = new AggregateTrackMapperBean();
 		trackMapper.setMappers(mappers);
 	}

@@ -38,10 +38,10 @@ import me.m1key.audiolicious.domain.to.VideoToBuilder;
 import me.m1key.audiolicious.objectmapper.AggregateTrackMapper;
 import me.m1key.audiolicious.objectmapper.AggregateTrackMapperBean;
 import me.m1key.audiolicious.objectmapper.TrackMapper;
-import me.m1key.audiolicious.objectmapper.trackmappers.AudiobookMapper;
-import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapper;
-import me.m1key.audiolicious.objectmapper.trackmappers.SongMapper;
-import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapper;
+import me.m1key.audiolicious.objectmapper.trackmappers.DefaultAudiobookMapper;
+import me.m1key.audiolicious.objectmapper.trackmappers.DefaultPodcastMapper;
+import me.m1key.audiolicious.objectmapper.trackmappers.DefaultSongMapper;
+import me.m1key.audiolicious.objectmapper.trackmappers.DefaultVideoMapper;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -59,13 +59,13 @@ public class RawTrackDataHandlerTest {
 	@Mock
 	private ObjectTrackDataHandler objectTrackDataHandler;
 	@Mock
-	private AudiobookMapper audiobookMapper;
+	private DefaultAudiobookMapper audiobookMapper;
 	@Mock
-	private PodcastMapper podcastMapper;
+	private DefaultPodcastMapper podcastMapper;
 	@Mock
-	private SongMapper songMapper;
+	private DefaultSongMapper songMapper;
 	@Mock
-	private VideoMapper videoMapper;
+	private DefaultVideoMapper videoMapper;
 
 	@Before
 	public void setup() {

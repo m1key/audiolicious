@@ -40,11 +40,11 @@ public class AudiobookMapperTest {
 
 	private static final String TRUE = "true";
 	private static final String FALSE = "false";
-	private AudiobookMapper audiobookMapper;
+	private DefaultAudiobookMapper audiobookMapper;
 
 	@Before
 	public void setup() {
-		audiobookMapper = new AudiobookMapper();
+		audiobookMapper = new DefaultAudiobookMapper();
 		I18nDataExtractor dataExtractor = new I18nDataExtractor();
 		dataExtractor
 				.setEnglishValuesProvider(new DefaultEnglishValuesProvider());
