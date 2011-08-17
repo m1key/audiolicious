@@ -21,12 +21,15 @@ package me.m1key.audiolicious.services;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.ejb.Local;
+import javax.ejb.Singleton;
 
 import me.m1key.audiolicious.domain.entities.Song;
 
-@ApplicationScoped
+@Singleton
+@Local({ SongRepository.class, StubSongRepository.class })
 public class StubSongRepository implements SongRepository {
+
 	private Map<String, Integer> songsPerAlbum;
 	private Map<String, Integer> albumsPerArtist;
 

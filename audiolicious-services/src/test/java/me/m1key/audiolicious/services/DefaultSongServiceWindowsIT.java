@@ -27,7 +27,6 @@ import java.io.IOException;
 import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
-import me.m1key.audiolicious.commons.qualifiers.NoopHandler;
 import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.domain.entities.Album;
@@ -50,11 +49,16 @@ import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.ObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.RawTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
-import me.m1key.audiolicious.objecthandler.factories.TrackHandlersFactoryCdiAlternative;
+import me.m1key.audiolicious.objecthandler.factories.TrackHandlersFactory;
 import me.m1key.audiolicious.objecthandler.factories.TrackMappersFactory;
-import me.m1key.audiolicious.objecthandler.handlers.NoopTrackHandlerCdiAlternative;
-import me.m1key.audiolicious.objecthandler.handlers.SongHandlerCdiAlternative;
+import me.m1key.audiolicious.objecthandler.handlers.AudiobookHandler;
+import me.m1key.audiolicious.objecthandler.handlers.DefaultNoopTrackHandler;
+import me.m1key.audiolicious.objecthandler.handlers.DefaultSongHandler;
+import me.m1key.audiolicious.objecthandler.handlers.NoopTrackHandler;
+import me.m1key.audiolicious.objecthandler.handlers.PodcastHandler;
+import me.m1key.audiolicious.objecthandler.handlers.SongHandler;
 import me.m1key.audiolicious.objecthandler.handlers.SongService;
+import me.m1key.audiolicious.objecthandler.handlers.VideoHandler;
 import me.m1key.audiolicious.objectmapper.AggregateTrackMapper;
 import me.m1key.audiolicious.objectmapper.AggregateTrackMapperBean;
 import me.m1key.audiolicious.objectmapper.CannotMapTrackValuesException;
@@ -117,35 +121,36 @@ public class DefaultSongServiceWindowsIT {
 				.addClasses(AggregateTrackMapper.class,
 						AggregateTrackMapperBean.class, Album.class,
 						AlbumRepository.class, Artist.class,
-						ArtistRepository.class, AudiobookTo.class,
-						AudiobookMapper.class,
+						ArtistRepository.class, AudiobookHandler.class,
+						AudiobookMapper.class, AudiobookTo.class,
 						CannotMapTrackValuesException.class,
-						DataExtractor.class, DefaultAudiobookMapper.class,
-						DefaultPodcastMapper.class, DefaultSongMapper.class,
-						DefaultVideoMapper.class,
+						DefaultAudiobookMapper.class, DataExtractor.class,
 						DefaultEnglishValuesProvider.class,
 						DefaultLibraryImporter.class,
+						DefaultNoopTrackHandler.class,
 						DefaultObjectTrackDataHandler.class,
-						DefaultSongServiceCdiAlternative.class,
-						EnglishValuesProvider.class, I18nDataExtractor.class,
-						LibraryImporter.class, LibraryParser.class,
-						NonAggregateTrackMapper.class, NoopHandler.class,
-						NoopTrackHandlerCdiAlternative.class, NullAlbum.class,
+						DefaultPodcastMapper.class, DefaultSongHandler.class,
+						DefaultSongMapper.class, DefaultSongService.class,
+						DefaultVideoMapper.class, EnglishValuesProvider.class,
+						I18nDataExtractor.class, LibraryImporter.class,
+						LibraryParser.class, NonAggregateTrackMapper.class,
+						NoopTrackHandler.class, NullAlbum.class,
 						NullArtist.class, NullEntitiesFactory.class,
 						ObjectMappingException.class,
-						ObjectTrackDataHandler.class, PodcastMapper.class,
-						PodcastTo.class, Rating.class, RatingTo.class,
-						RawTrackDataCallback.class, RawTrackDataHandler.class,
-						Song.class, SongHandlerCdiAlternative.class,
-						SongMapper.class, SongRepository.class,
-						SongService.class, SongTo.class,
+						ObjectTrackDataHandler.class, PodcastHandler.class,
+						PodcastMapper.class, PodcastTo.class, Rating.class,
+						RatingTo.class, RawTrackDataCallback.class,
+						RawTrackDataHandler.class, Song.class,
+						SongHandler.class, SongMapper.class,
+						SongRepository.class, SongService.class, SongTo.class,
 						StubAlbumRepository.class, StubArtistRepository.class,
 						StubSongRepository.class, TrackHandler.class,
-						TrackHandlersFactoryCdiAlternative.class,
-						TrackMapper.class, TrackMappersFactory.class,
-						TrackTo.class, TrackToType.class, VideoMapper.class,
-						VideoTo.class, VtdItunesLibraryParser.class,
-						XmlNodeName.class, XmlParseException.class)
+						TrackHandlersFactory.class, TrackMapper.class,
+						TrackMappersFactory.class, TrackTo.class,
+						TrackToType.class, VideoHandler.class,
+						VideoMapper.class, VideoTo.class,
+						VtdItunesLibraryParser.class, XmlNodeName.class,
+						XmlParseException.class)
 				.addAsLibraries(
 						DependencyResolvers
 								.use(MavenDependencyResolver.class)

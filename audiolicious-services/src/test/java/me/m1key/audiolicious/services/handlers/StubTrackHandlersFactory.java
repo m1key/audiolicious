@@ -13,18 +13,24 @@ import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.domain.to.VideoTo;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
+import me.m1key.audiolicious.objecthandler.handlers.AudiobookHandler;
+import me.m1key.audiolicious.objecthandler.handlers.PodcastHandler;
+import me.m1key.audiolicious.objecthandler.handlers.SongHandler;
+import me.m1key.audiolicious.objecthandler.handlers.VideoHandler;
 
 @ApplicationScoped
 public class StubTrackHandlersFactory {
 
+	// TODO: Replace @Inject with @EJB when fix for AS7-1269 released.
+
 	@Inject
-	private TrackHandler<AudiobookTo> audiobookHandler;
+	private AudiobookHandler audiobookHandler;
 	@Inject
-	private TrackHandler<PodcastTo> podcastHandler;
+	private PodcastHandler podcastHandler;
 	@Inject
-	private TrackHandler<SongTo> songHandler;
+	private SongHandler songHandler;
 	@Inject
-	private TrackHandler<VideoTo> videoHandler;
+	private VideoHandler videoHandler;
 
 	@Produces
 	public Map<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>> getTrackHandlers() {

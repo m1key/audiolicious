@@ -29,6 +29,7 @@ import me.m1key.audiolicious.domain.to.TrackTo;
 @Stateful
 @Local(ObjectTrackDataHandler.class)
 public class DefaultObjectTrackDataHandler implements ObjectTrackDataHandler {
+
 	@Inject
 	private Map<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>> handlers;
 

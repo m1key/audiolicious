@@ -16,23 +16,28 @@
  * along with this program.  If not, see http://www.m1key.me
  */
 
-package me.m1key.audiolicious.services;
+package me.m1key.audiolicious.objecthandler.handlers;
 
 import javax.ejb.Local;
-import javax.ejb.Singleton;
+import javax.ejb.Stateless;
 
-import me.m1key.audiolicious.domain.entities.Artist;
+import me.m1key.audiolicious.domain.to.TrackTo;
+import me.m1key.audiolicious.objecthandler.TrackHandler;
 
-@Singleton
-@Local(ArtistRepository.class)
-public class StubArtistRepository implements ArtistRepository {
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@Stateless
+@Local({ AudiobookHandler.class, PodcastHandler.class, TrackHandler.class,
+		VideoHandler.class })
+public class DefaultNoopTrackHandler implements TrackHandler<TrackTo> {
+
+	private static Logger log = LoggerFactory
+			.getLogger(DefaultNoopTrackHandler.class);
 
 	@Override
-	public Artist getArtist(String artistName) {
-		return new Artist(artistName);
+	public void handle(TrackTo track) {
+		log.warn("Ignoring track [{}].", track);
 	}
 
-	@Override
-	public void createArtist(Artist artist) {
-	}
 }

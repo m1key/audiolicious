@@ -1,12 +1,15 @@
 package me.m1key.audiolicious.services.handlers;
 
-import javax.enterprise.context.RequestScoped;
+import javax.ejb.Local;
+import javax.ejb.Singleton;
 
 import me.m1key.audiolicious.domain.to.VideoTo;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
+import me.m1key.audiolicious.objecthandler.handlers.VideoHandler;
 
-@RequestScoped
-public class StubVideoHandler implements TrackHandler<VideoTo> {
+@Singleton
+@Local({ StubVideoHandler.class, TrackHandler.class, VideoHandler.class })
+public class StubVideoHandler implements VideoHandler {
 
 	private int count;
 

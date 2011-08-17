@@ -18,13 +18,15 @@
 
 package me.m1key.audiolicious.services;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.ejb.Local;
+import javax.ejb.Singleton;
 
 import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.Rating;
 
-@ApplicationScoped
+@Singleton
+@Local({ AlbumRepository.class, StubAlbumRepository.class })
 public class StubAlbumRepository implements AlbumRepository {
 
 	private Album monsterMagnetSpineOfGod;

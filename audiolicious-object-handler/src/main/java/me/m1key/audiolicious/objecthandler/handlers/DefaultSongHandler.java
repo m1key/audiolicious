@@ -16,23 +16,29 @@
  * along with this program.  If not, see http://www.m1key.me
  */
 
-package me.m1key.audiolicious.services;
+package me.m1key.audiolicious.objecthandler.handlers;
 
+import javax.ejb.EJB;
 import javax.ejb.Local;
-import javax.ejb.Singleton;
+import javax.ejb.Stateless;
 
-import me.m1key.audiolicious.domain.entities.Artist;
+import me.m1key.audiolicious.domain.to.SongTo;
+import me.m1key.audiolicious.objecthandler.TrackHandler;
 
-@Singleton
-@Local(ArtistRepository.class)
-public class StubArtistRepository implements ArtistRepository {
+@Stateless
+@Local({ SongHandler.class, TrackHandler.class })
+public class DefaultSongHandler implements SongHandler {
+
+	@EJB
+	private SongService songService;
 
 	@Override
-	public Artist getArtist(String artistName) {
-		return new Artist(artistName);
+	public void handle(SongTo songTo) {
+		songService.persist(songTo);
 	}
 
-	@Override
-	public void createArtist(Artist artist) {
+	public void setSongService(SongService songService) {
+		this.songService = songService;
 	}
+
 }

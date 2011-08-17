@@ -1,12 +1,15 @@
 package me.m1key.audiolicious.services.handlers;
 
-import javax.enterprise.context.RequestScoped;
+import javax.ejb.Local;
+import javax.ejb.Singleton;
 
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
+import me.m1key.audiolicious.objecthandler.handlers.SongHandler;
 
-@RequestScoped
-public class StubSongHandler implements TrackHandler<SongTo> {
+@Singleton
+@Local({ SongHandler.class, TrackHandler.class, StubSongHandler.class })
+public class StubSongHandler implements SongHandler {
 
 	private int count;
 

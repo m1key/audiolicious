@@ -32,11 +32,11 @@ import org.junit.Test;
 
 public class NoopTrackHandlerTest {
 
-	private NoopTrackHandler handler;
+	private DefaultNoopTrackHandler handler;
 
 	@Before
 	public void setup() {
-		handler = new NoopTrackHandler();
+		handler = new DefaultNoopTrackHandler();
 	}
 
 	@Test
