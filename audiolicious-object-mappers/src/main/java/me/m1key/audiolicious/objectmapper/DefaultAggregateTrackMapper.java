@@ -34,12 +34,13 @@ public class DefaultAggregateTrackMapper implements AggregateTrackMapper {
 
 	@Inject
 	@AggregateMapper
-	private Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> mappers;
+	private Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> mappersThemselves;
 
 	@Override
 	public TrackTo map(Map<XmlNodeName, String> trackValues) {
-		for (Class<? extends TrackTo> mapperKey : mappers.keySet()) {
-			TrackMapper<? extends TrackTo> mapper = mappers.get(mapperKey);
+		for (Class<? extends TrackTo> mapperKey : mappersThemselves.keySet()) {
+			TrackMapper<? extends TrackTo> mapper = mappersThemselves
+					.get(mapperKey);
 			if (mapper.canMap(trackValues)) {
 				return mapper.map(trackValues);
 			}
@@ -50,8 +51,9 @@ public class DefaultAggregateTrackMapper implements AggregateTrackMapper {
 
 	@Override
 	public boolean canMap(Map<XmlNodeName, String> trackValues) {
-		for (Class<? extends TrackTo> mapperKey : mappers.keySet()) {
-			TrackMapper<? extends TrackTo> mapper = mappers.get(mapperKey);
+		for (Class<? extends TrackTo> mapperKey : mappersThemselves.keySet()) {
+			TrackMapper<? extends TrackTo> mapper = mappersThemselves
+					.get(mapperKey);
 			if (mapper.canMap(trackValues)) {
 				return true;
 			}
@@ -62,6 +64,6 @@ public class DefaultAggregateTrackMapper implements AggregateTrackMapper {
 
 	public void setMappers(
 			Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> mappers) {
-		this.mappers = mappers;
+		this.mappersThemselves = mappers;
 	}
 }
