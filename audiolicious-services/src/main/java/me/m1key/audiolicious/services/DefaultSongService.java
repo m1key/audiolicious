@@ -91,16 +91,4 @@ public class DefaultSongService implements SongService {
 	private Album getAlbumByName(Artist artist, String albumName) {
 		return albumRepository.getAlbum(artist, albumName);
 	}
-
-	public void setAlbumRepository(AlbumRepository albumRepository) {
-		this.albumRepository = albumRepository;
-	}
-
-	public void setArtistRepository(ArtistRepository artistRepository) {
-		this.artistRepository = artistRepository;
-	}
-
-	public void setSongRepository(SongRepository songRepository) {
-		this.songRepository = songRepository;
-	}
 }

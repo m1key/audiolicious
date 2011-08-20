@@ -62,10 +62,6 @@ public class JpaAlbumRepository implements AlbumRepository {
 		return artistObjects.isEmpty();
 	}
 
-	void setEntityManager(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
-
 	@Override
 	public void createAlbum(Album album) {
 		entityManager.persist(album);

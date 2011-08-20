@@ -37,8 +37,4 @@ public class JpaSongRepository implements SongRepository {
 	public void save(Song song) {
 		entityManager.persist(song);
 	}
-
-	void setEntityManager(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
 }

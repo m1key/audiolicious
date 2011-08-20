@@ -64,8 +64,4 @@ public class JpaArtistRepository implements ArtistRepository {
 		return artistObjects.isEmpty();
 	}
 
-	void setEntityManager(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
-
 }
