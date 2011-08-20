@@ -38,6 +38,8 @@ You must set your JBOSS_HOME system variable.
 
 Note on building with integration tests:
 By default (e.g. mvn clean install) basic integration tests that use in memory
-HSQLDB will run.More comprehensive tests will run if `integration` parameter is
+HSQLDB will run. More comprehensive tests will run if `integration` parameter is
 set (e.g. mvn clean install -Dintegration). That requires a MySQL database
 running with a schema called audiolicious_test.
+
+See SETUP for more details.

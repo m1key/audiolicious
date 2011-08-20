@@ -1,0 +1,125 @@
+AUDIOLICIOUS
+
+by Michal Huniewicz
+www.m1key.me
+
+Steb-by-step setup to build the application.
+
+Prerequisites:
+	* Git (if you don't have the sources),
+	* JBoss 7.0.0.Final (Web),
+	* MySql 5,
+	* Maven 3,
+	* VTD XML 2.10.
+
+1. Check out the sources.
+	git clone git://github.com/m1key/audiolicious.git
+
+2. Download and unpack JBoss 7.
+	http://www.jboss.org/jbossas/downloads/
+	
+3. Download MySQL 5.
+	http://dev.mysql.com/downloads/
+
+4. Download Maven 3.
+	http://maven.apache.org/download.html
+
+5. Download VTD XML and install it to your M2 repository.
+	http://sourceforge.net/projects/vtd-xml/files/
+	com.ximpleware:vtd-xml:2.10
+
+6. Set up your JBOSS_HOME variable to point to your JBoss directory.
+
+7. Add MySQL to JBoss 7 as a module.
+	Create folder modules/com/mysql/main.
+	Add file module.xml with the following content.
+	
+	<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~ JBoss, Home of Professional Open Source.
+  ~ Copyright 2010, Red Hat, Inc., and individual contributors
+  ~ as indicated by the @author tags. See the copyright.txt file in the
+  ~ distribution for a full listing of individual contributors.
+  ~
+  ~ This is free software; you can redistribute it and/or modify it
+  ~ under the terms of the GNU Lesser General Public License as
+  ~ published by the Free Software Foundation; either version 2.1 of
+  ~ the License, or (at your option) any later version.
+  ~
+  ~ This software is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+  ~ Lesser General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU Lesser General Public
+  ~ License along with this software; if not, write to the Free
+  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+  -->
+
+<module xmlns="urn:jboss:module:1.0" name="com.mysql">
+    <resources>
+        <resource-root path="mysql-connector-java-5.1.17.jar"/>
+    </resources>
+
+    <dependencies>
+	    <module name="javax.api"/>
+		<module name="javax.transaction.api"/>
+    </dependencies>
+</module>
+
+8. In the same folder, add file mysql-connector-java-5.1.17.jar.
+	http://www.mysql.com/downloads/connector/j/
+
+9. Add driver definition to standalone/configuration/standalone.xml.
+
+                    <driver name="com.mysql" module="com.mysql">
+                        <xa-datasource-class>
+                            com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
+                        </xa-datasource-class>
+                    </driver>
+
+10. Add data source definition to standalone/configuration/standalone.xml.
+
+				<datasource jndi-name="java:jboss/datasources/AudioliciousTestDS" pool-name="AudioliciousTestDS" enabled="true" jta="true" use-java-context="true" use-ccm="true">
+                    <connection-url>
+                        jdbc:mysql://localhost:3306/audiolicious_test
+                    </connection-url>
+                    <driver>
+                        com.mysql
+                    </driver>
+                    <transaction-isolation>
+                        TRANSACTION_READ_COMMITTED
+                    </transaction-isolation>
+                    <pool>
+                        <min-pool-size>
+                            10
+                        </min-pool-size>
+                        <max-pool-size>
+                            100
+                        </max-pool-size>
+                        <prefill>
+                            true
+                        </prefill>
+                        <use-strict-min>
+                            false
+                        </use-strict-min>
+                        <flush-strategy>
+                            FailingConnectionOnly
+                        </flush-strategy>
+                    </pool>
+                    <security>
+                        <user-name>
+                            root
+                        </user-name>
+                        <password>
+                            
+                        </password>
+                    </security>
+                </datasource>
+
+11. Modify transaction timeout value to 3600.
+	<coordinator-environment default-timeout="3600"/>
+
+12. In MySQL, create audiolicious_test schema.
