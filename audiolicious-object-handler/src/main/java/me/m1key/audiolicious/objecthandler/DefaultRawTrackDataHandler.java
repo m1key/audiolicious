@@ -22,16 +22,16 @@ import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
-import javax.ejb.Stateful;
+import javax.ejb.Singleton;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.domain.to.TrackTo;
-import me.m1key.audiolicious.libraryparser.RawTrackDataCallback;
+import me.m1key.audiolicious.libraryparser.RawTrackDataHandler;
 import me.m1key.audiolicious.objectmapper.AggregateTrackMapper;
 
-@Stateful
-@Local(RawTrackDataCallback.class)
-public class RawTrackDataHandler implements RawTrackDataCallback {
+@Singleton
+@Local(RawTrackDataHandler.class)
+public class DefaultRawTrackDataHandler implements RawTrackDataHandler {
 
 	@EJB
 	private AggregateTrackMapper mapper;
@@ -39,8 +39,8 @@ public class RawTrackDataHandler implements RawTrackDataCallback {
 	private ObjectTrackDataHandler objectTrackDataHandler;
 
 	@Override
-	public void feed(Map<XmlNodeName, String> receivedTrackValues) {
-		TrackTo track = mapper.map(receivedTrackValues);
+	public void handle(Map<XmlNodeName, String> rawTrackData) {
+		TrackTo track = mapper.map(rawTrackData);
 		objectTrackDataHandler.handle(track);
 	}
 

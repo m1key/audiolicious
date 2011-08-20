@@ -49,7 +49,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 	@Inject
 	private LibraryParser parser;
 	@Inject
-	private StubRawTrackDataCallback stubRawTrackDataCallback;
+	private StubRawTrackDataHandler stubRawTrackDataHandler;
 
 	@Deployment
 	public static WebArchive createTestArchive()
@@ -60,17 +60,16 @@ public class VtdItunesLibraryParserAudiobooksIT {
 								.getSimpleName() + ".war")
 				.addAsWebInfResource(EmptyAsset.INSTANCE,
 						ArchivePaths.create("beans.xml"))
-				.addClasses(LibraryParser.class, RawTrackDataCallback.class,
-						StubRawTrackDataCallback.class,
-						StubRawTrackDataCallbackBean.class,
+				.addClasses(LibraryParser.class, RawTrackDataHandler.class,
+						StubRawTrackDataHandler.class,
+						StubRawTrackDataHandlerImpl.class,
 						VtdItunesLibraryParser.class, XmlNodeName.class,
 						XmlParseException.class)
 				.addAsLibraries(
 						DependencyResolvers
 								.use(MavenDependencyResolver.class)
 								.artifacts("com.ximpleware:vtd-xml:2.10",
-										"org.slf4j:slf4j-api:1.6.1",
-										"commons-lang:commons-lang:2.6")
+										"org.slf4j:slf4j-api:1.6.1")
 								.resolveAsFiles());
 	}
 
@@ -82,13 +81,12 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectNumberOfTracks() {
-		assertEquals(30, parser.getTracksCount());
-		assertEquals(30, stubRawTrackDataCallback.getRawTrackData().size());
+		assertEquals(30, stubRawTrackDataHandler.getRawTrackData().size());
 	}
 
 	@Test
 	public void testAudiobooksCorrectAudiobook01() {
-		Map<XmlNodeName, String> audiobook01 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook01 = stubRawTrackDataHandler
 				.getTrack("18246");
 		assertEquals("18246", audiobook01.get(XmlNodeName.TRACK_ID));
 		assertEquals("All Quiet on the Western Front (Unabridged)",
@@ -129,7 +127,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook02() {
-		Map<XmlNodeName, String> audiobook02 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook02 = stubRawTrackDataHandler
 				.getTrack("19264");
 		assertEquals(
 				"At Home: A Short History of Private Life (Unabridged) Part 1",
@@ -167,7 +165,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook03() {
-		Map<XmlNodeName, String> audiobook03 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook03 = stubRawTrackDataHandler
 				.getTrack("19266");
 		assertEquals(
 				"At Home: A Short History of Private Life (Unabridged) Part 2",
@@ -205,7 +203,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook04() {
-		Map<XmlNodeName, String> audiobook04 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook04 = stubRawTrackDataHandler
 				.getTrack("20052");
 		assertEquals("Blade Runner (Unabridged), Part 1",
 				audiobook04.get(XmlNodeName.NAME));
@@ -242,7 +240,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook05() {
-		Map<XmlNodeName, String> audiobook05 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook05 = stubRawTrackDataHandler
 				.getTrack("20054");
 		assertEquals("Blade Runner (Unabridged), Part 2",
 				audiobook05.get(XmlNodeName.NAME));
@@ -279,7 +277,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook06() {
-		Map<XmlNodeName, String> audiobook06 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook06 = stubRawTrackDataHandler
 				.getTrack("20852");
 		assertEquals("Dune (Unabridged), Part 1",
 				audiobook06.get(XmlNodeName.NAME));
@@ -312,7 +310,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook07() {
-		Map<XmlNodeName, String> audiobook07 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook07 = stubRawTrackDataHandler
 				.getTrack("20854");
 		assertEquals("Dune (Unabridged), Part 2",
 				audiobook07.get(XmlNodeName.NAME));
@@ -345,7 +343,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook08() {
-		Map<XmlNodeName, String> audiobook08 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook08 = stubRawTrackDataHandler
 				.getTrack("20856");
 		assertEquals("Dune (Unabridged), Part 3",
 				audiobook08.get(XmlNodeName.NAME));
@@ -378,7 +376,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook09() {
-		Map<XmlNodeName, String> audiobook09 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook09 = stubRawTrackDataHandler
 				.getTrack("20116");
 		assertEquals("Farsi Persian Phase 1, Unit 01-05: Learn to Speak and "
 				+ "Understand Farsi Persian with Pimsleur Language Programs",
@@ -420,7 +418,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook10() {
-		Map<XmlNodeName, String> audiobook10 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook10 = stubRawTrackDataHandler
 				.getTrack("13100");
 		assertEquals(
 				"The Feynman Lectures On Physics: Volume 1, Quantum Mechanics "
@@ -472,7 +470,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook11() {
-		Map<XmlNodeName, String> audiobook11 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook11 = stubRawTrackDataHandler
 				.getTrack("13102");
 		assertEquals(
 				"The Feynman Lectures On Physics: Volume 1, Quantum Mechanics "
@@ -524,7 +522,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook12() {
-		Map<XmlNodeName, String> audiobook12 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook12 = stubRawTrackDataHandler
 				.getTrack("13104");
 		assertEquals(
 				"The Feynman Lectures On Physics: Volume 1, Quantum Mechanics "
@@ -576,7 +574,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook13() {
-		Map<XmlNodeName, String> audiobook13 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook13 = stubRawTrackDataHandler
 				.getTrack("14526");
 		assertEquals("Jabberwocky (Unabridged)",
 				audiobook13.get(XmlNodeName.NAME));
@@ -617,7 +615,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook14() {
-		Map<XmlNodeName, String> audiobook14 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook14 = stubRawTrackDataHandler
 				.getTrack("17084");
 		assertEquals("The Kite Runner (Unabridged), Part 1",
 				audiobook14.get(XmlNodeName.NAME));
@@ -662,7 +660,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook15() {
-		Map<XmlNodeName, String> audiobook15 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook15 = stubRawTrackDataHandler
 				.getTrack("17086");
 		assertEquals("The Kite Runner (Unabridged), Part 2",
 				audiobook15.get(XmlNodeName.NAME));
@@ -707,7 +705,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook16() {
-		Map<XmlNodeName, String> audiobook16 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook16 = stubRawTrackDataHandler
 				.getTrack("18044");
 		assertEquals("Letters from the Earth (Unabridged)",
 				audiobook16.get(XmlNodeName.NAME));
@@ -747,7 +745,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook17() {
-		Map<XmlNodeName, String> audiobook17 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook17 = stubRawTrackDataHandler
 				.getTrack("12994");
 		assertEquals("The Raven (Unabridged)",
 				audiobook17.get(XmlNodeName.NAME));
@@ -792,7 +790,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook18() {
-		Map<XmlNodeName, String> audiobook18 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook18 = stubRawTrackDataHandler
 				.getTrack("1160");
 		assertEquals("The Rubaiyat (Unabridged)",
 				audiobook18.get(XmlNodeName.NAME));
@@ -844,7 +842,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook19() {
-		Map<XmlNodeName, String> audiobook19 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook19 = stubRawTrackDataHandler
 				.getTrack("16460");
 		assertEquals("Sluga Bozy", audiobook19.get(XmlNodeName.NAME));
 		assertEquals("Jacek Piekara", audiobook19.get(XmlNodeName.ARTIST));
@@ -878,7 +876,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook20() {
-		Map<XmlNodeName, String> audiobook20 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook20 = stubRawTrackDataHandler
 				.getTrack("18122");
 		assertEquals("The Sun Also Rises (Unabridged) Part 1 of 4",
 				audiobook20.get(XmlNodeName.NAME));
@@ -922,7 +920,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook21() {
-		Map<XmlNodeName, String> audiobook21 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook21 = stubRawTrackDataHandler
 				.getTrack("18124");
 		assertEquals("The Sun Also Rises (Unabridged) Part 2 of 4",
 				audiobook21.get(XmlNodeName.NAME));
@@ -966,7 +964,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook22() {
-		Map<XmlNodeName, String> audiobook22 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook22 = stubRawTrackDataHandler
 				.getTrack("18126");
 		assertEquals("The Sun Also Rises (Unabridged) Part 3 of 4",
 				audiobook22.get(XmlNodeName.NAME));
@@ -1010,7 +1008,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook23() {
-		Map<XmlNodeName, String> audiobook23 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook23 = stubRawTrackDataHandler
 				.getTrack("18128");
 		assertEquals("The Sun Also Rises (Unabridged) Part 4 of 4",
 				audiobook23.get(XmlNodeName.NAME));
@@ -1054,7 +1052,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook24() {
-		Map<XmlNodeName, String> audiobook24 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook24 = stubRawTrackDataHandler
 				.getTrack("17010");
 		assertEquals(
 				"Surely You're Joking, Mr. Feynman! (Unabridged) Part 1 of 6",
@@ -1096,7 +1094,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook25() {
-		Map<XmlNodeName, String> audiobook25 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook25 = stubRawTrackDataHandler
 				.getTrack("17012");
 		assertEquals(
 				"Surely You're Joking, Mr. Feynman! (Unabridged) Part 2 of 6",
@@ -1138,7 +1136,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook26() {
-		Map<XmlNodeName, String> audiobook26 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook26 = stubRawTrackDataHandler
 				.getTrack("17014");
 		assertEquals(
 				"Surely You're Joking, Mr. Feynman! (Unabridged) Part 3 of 6",
@@ -1180,7 +1178,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook27() {
-		Map<XmlNodeName, String> audiobook27 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook27 = stubRawTrackDataHandler
 				.getTrack("17016");
 		assertEquals(
 				"Surely You're Joking, Mr. Feynman! (Unabridged) Part 4 of 6",
@@ -1222,7 +1220,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook28() {
-		Map<XmlNodeName, String> audiobook28 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook28 = stubRawTrackDataHandler
 				.getTrack("17018");
 		assertEquals(
 				"Surely You're Joking, Mr. Feynman! (Unabridged) Part 5 of 6",
@@ -1264,7 +1262,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook29() {
-		Map<XmlNodeName, String> audiobook29 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook29 = stubRawTrackDataHandler
 				.getTrack("17020");
 		assertEquals(
 				"Surely You're Joking, Mr. Feynman! (Unabridged) Part 6 of 6",
@@ -1306,7 +1304,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	@Test
 	public void testAudiobooksCorrectAudiobook30() {
-		Map<XmlNodeName, String> audiobook30 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> audiobook30 = stubRawTrackDataHandler
 				.getTrack("12992");
 		assertEquals("2001: a Space Odyssey (Unabridged)",
 				audiobook30.get(XmlNodeName.NAME));

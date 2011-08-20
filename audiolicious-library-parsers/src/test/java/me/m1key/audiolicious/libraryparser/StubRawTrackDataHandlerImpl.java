@@ -30,17 +30,17 @@ import javax.ejb.Stateless;
 import me.m1key.audiolicious.commons.XmlNodeName;
 
 @Stateless
-@Local({ StubRawTrackDataCallback.class, RawTrackDataCallback.class })
-public class StubRawTrackDataCallbackBean implements RawTrackDataCallback {
+@Local({ StubRawTrackDataHandler.class, RawTrackDataHandler.class })
+public class StubRawTrackDataHandlerImpl implements StubRawTrackDataHandler {
 
 	private List<Map<XmlNodeName, String>> rawTrackData;
 
-	public StubRawTrackDataCallbackBean() {
+	public StubRawTrackDataHandlerImpl() {
 		rawTrackData = new ArrayList<Map<XmlNodeName, String>>();
 	}
 
 	@Override
-	public void feed(Map<XmlNodeName, String> trackValues) {
+	public void handle(Map<XmlNodeName, String> trackValues) {
 		rawTrackData.add(trackValues);
 	}
 

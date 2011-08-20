@@ -24,6 +24,4 @@ public interface LibraryParser {
 
 	void process(File libraryFile);
 
-	int getTracksCount();
-
 }

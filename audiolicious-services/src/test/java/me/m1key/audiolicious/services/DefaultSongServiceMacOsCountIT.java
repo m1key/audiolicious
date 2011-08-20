@@ -41,12 +41,12 @@ import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.domain.to.TrackToType;
 import me.m1key.audiolicious.domain.to.VideoTo;
 import me.m1key.audiolicious.libraryparser.LibraryParser;
-import me.m1key.audiolicious.libraryparser.RawTrackDataCallback;
+import me.m1key.audiolicious.libraryparser.RawTrackDataHandler;
 import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParser;
 import me.m1key.audiolicious.libraryparser.XmlParseException;
 import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.ObjectTrackDataHandler;
-import me.m1key.audiolicious.objecthandler.RawTrackDataHandler;
+import me.m1key.audiolicious.objecthandler.DefaultRawTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
 import me.m1key.audiolicious.objecthandler.factories.TrackMappersFactory;
 import me.m1key.audiolicious.objecthandler.handlers.AudiobookHandler;
@@ -144,8 +144,8 @@ public class DefaultSongServiceMacOsCountIT {
 						ObjectMappingException.class,
 						ObjectTrackDataHandler.class, PodcastHandler.class,
 						PodcastMapper.class, PodcastTo.class, Rating.class,
-						RatingTo.class, RawTrackDataCallback.class,
-						RawTrackDataHandler.class, Song.class,
+						RatingTo.class, RawTrackDataHandler.class,
+						DefaultRawTrackDataHandler.class, Song.class,
 						SongHandler.class, SongMapper.class,
 						SongRepository.class, SongService.class, SongTo.class,
 						StubAlbumRepository.class, StubArtistRepository.class,

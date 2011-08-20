@@ -52,7 +52,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class RawTrackDataHandlerTest {
 
-	private RawTrackDataHandler handler;
+	private DefaultRawTrackDataHandler handler;
 	private AggregateTrackMapper aggregateMapper;
 	private Map<XmlNodeName, String> receivedTrackValues;
 
@@ -71,7 +71,7 @@ public class RawTrackDataHandlerTest {
 	public void setup() {
 		receivedTrackValues = new HashMap<XmlNodeName, String>();
 		aggregateMapper = createAggregateMapper();
-		handler = new RawTrackDataHandler();
+		handler = new DefaultRawTrackDataHandler();
 		handler.setMapper(aggregateMapper);
 		handler.setObjectTrackDataHandler(objectTrackDataHandler);
 	}
@@ -83,7 +83,7 @@ public class RawTrackDataHandlerTest {
 		when(audiobookMapper.canMap(receivedTrackValues)).thenReturn(true);
 		when(audiobookMapper.map(receivedTrackValues)).thenReturn(audiobook);
 
-		handler.feed(receivedTrackValues);
+		handler.handle(receivedTrackValues);
 
 		verify(objectTrackDataHandler, times(1)).handle(audiobook);
 	}
@@ -95,7 +95,7 @@ public class RawTrackDataHandlerTest {
 		when(podcastMapper.canMap(receivedTrackValues)).thenReturn(true);
 		when(podcastMapper.map(receivedTrackValues)).thenReturn(podcast);
 
-		handler.feed(receivedTrackValues);
+		handler.handle(receivedTrackValues);
 
 		verify(objectTrackDataHandler, times(1)).handle(podcast);
 	}
@@ -107,7 +107,7 @@ public class RawTrackDataHandlerTest {
 		when(songMapper.canMap(receivedTrackValues)).thenReturn(true);
 		when(songMapper.map(receivedTrackValues)).thenReturn(song);
 
-		handler.feed(receivedTrackValues);
+		handler.handle(receivedTrackValues);
 
 		verify(objectTrackDataHandler, times(1)).handle(song);
 	}
@@ -119,7 +119,7 @@ public class RawTrackDataHandlerTest {
 		when(videoMapper.canMap(receivedTrackValues)).thenReturn(true);
 		when(videoMapper.map(receivedTrackValues)).thenReturn(video);
 
-		handler.feed(receivedTrackValues);
+		handler.handle(receivedTrackValues);
 
 		verify(objectTrackDataHandler, times(1)).handle(video);
 	}

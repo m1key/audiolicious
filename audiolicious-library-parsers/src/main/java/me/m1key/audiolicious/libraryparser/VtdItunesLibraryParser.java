@@ -50,7 +50,6 @@ public class VtdItunesLibraryParser implements LibraryParser {
 			.getLogger(VtdItunesLibraryParser.class);
 
 	private File xmlFile;
-	private int tracksCount;
 
 	private VTDGen generator;
 	private VTDNav navigator;
@@ -60,29 +59,22 @@ public class VtdItunesLibraryParser implements LibraryParser {
 	private AutoPilot trackCurrentValue;
 
 	@EJB
-	private RawTrackDataCallback callback;
+	private RawTrackDataHandler rawTrackDataHandler;
 
 	@Override
 	public void process(File xmlFile) {
 		setXmlFile(xmlFile);
 		initialiseXPathProcessing();
 		verifyCanParseFile();
-		resetTracksCount();
 		bindNavigator();
 
 		while (hasTrack()) {
-			callback.feed(extractTrackValues());
-			tracksCount++;
+			rawTrackDataHandler.handle(extractTrackValues());
 		}
 	}
 
-	@Override
-	public int getTracksCount() {
-		return tracksCount;
-	}
-
-	public void setCallback(RawTrackDataCallback callback) {
-		this.callback = callback;
+	public void setCallback(RawTrackDataHandler callback) {
+		this.rawTrackDataHandler = callback;
 	}
 
 	private void setXmlFile(File xmlFile) {
@@ -157,10 +149,6 @@ public class VtdItunesLibraryParser implements LibraryParser {
 			return false;
 		}
 		return true;
-	}
-
-	private void resetTracksCount() {
-		tracksCount = 0;
 	}
 
 	private String extractTrackKeyStringValue() {

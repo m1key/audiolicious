@@ -33,26 +33,25 @@ public class VtdItunesLibraryParserVariousTest {
 
 	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/Fragment_1.xml";
 	private static VtdItunesLibraryParser parser;
-	private static StubRawTrackDataCallbackBean stubRawTrackDataCallback;
+	private static StubRawTrackDataHandler stubRawTrackDataHandler;
 
 	@BeforeClass
 	public static void setUp() throws Exception {
-		stubRawTrackDataCallback = new StubRawTrackDataCallbackBean();
+		stubRawTrackDataHandler = new StubRawTrackDataHandlerImpl();
 		File file = new File(pathToFile);
 		parser = new VtdItunesLibraryParser();
-		parser.setCallback(stubRawTrackDataCallback);
+		parser.setCallback(stubRawTrackDataHandler);
 		parser.process(file);
 	}
 
 	@Test
 	public void testTracksCorrectNumberOfTracks() {
-		assertEquals(10, parser.getTracksCount());
-		assertEquals(10, stubRawTrackDataCallback.getRawTrackData().size());
+		assertEquals(10, stubRawTrackDataHandler.getRawTrackData().size());
 	}
 
 	@Test
 	public void testVariousCorrect01() {
-		Map<XmlNodeName, String> track01 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> track01 = stubRawTrackDataHandler
 				.getTrack("18925");
 		assertEquals("The Kite Runner", track01.get(XmlNodeName.NAME));
 		assertEquals("Marc Forster", track01.get(XmlNodeName.ARTIST));
@@ -98,7 +97,7 @@ public class VtdItunesLibraryParserVariousTest {
 
 	@Test
 	public void testVariousCorrect02() {
-		Map<XmlNodeName, String> track02 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> track02 = stubRawTrackDataHandler
 				.getTrack("12985");
 		assertEquals("Tree Ring Science and Tomorrow's Water",
 				track02.get(XmlNodeName.NAME));
@@ -138,7 +137,7 @@ public class VtdItunesLibraryParserVariousTest {
 
 	@Test
 	public void testVariousCorrect03() {
-		Map<XmlNodeName, String> track03 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> track03 = stubRawTrackDataHandler
 				.getTrack("1160");
 		assertEquals("The Rubaiyat (Unabridged)", track03.get(XmlNodeName.NAME));
 		assertEquals("Omar Khayyam", track03.get(XmlNodeName.ARTIST));
@@ -187,7 +186,7 @@ public class VtdItunesLibraryParserVariousTest {
 
 	@Test
 	public void testVariousCorrect04() {
-		Map<XmlNodeName, String> track04 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> track04 = stubRawTrackDataHandler
 				.getTrack("1162");
 		assertEquals("Revelations", track04.get(XmlNodeName.NAME));
 		assertEquals("Audioslave", track04.get(XmlNodeName.ARTIST));
@@ -231,7 +230,7 @@ public class VtdItunesLibraryParserVariousTest {
 
 	@Test
 	public void testVariousCorrect05() {
-		Map<XmlNodeName, String> track05 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> track05 = stubRawTrackDataHandler
 				.getTrack("1164");
 		assertEquals("One and the Same", track05.get(XmlNodeName.NAME));
 		assertEquals("Audioslave", track05.get(XmlNodeName.ARTIST));
@@ -275,7 +274,7 @@ public class VtdItunesLibraryParserVariousTest {
 
 	@Test
 	public void testVariousCorrect06() {
-		Map<XmlNodeName, String> track06 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> track06 = stubRawTrackDataHandler
 				.getTrack("1166");
 		assertEquals("Sound of a Gun", track06.get(XmlNodeName.NAME));
 		assertEquals("Audioslave", track06.get(XmlNodeName.ARTIST));
@@ -319,7 +318,7 @@ public class VtdItunesLibraryParserVariousTest {
 
 	@Test
 	public void testVariousCorrect07() {
-		Map<XmlNodeName, String> track07 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> track07 = stubRawTrackDataHandler
 				.getTrack("1168");
 		assertEquals("Until We Fall", track07.get(XmlNodeName.NAME));
 		assertEquals("Audioslave", track07.get(XmlNodeName.ARTIST));
@@ -363,7 +362,7 @@ public class VtdItunesLibraryParserVariousTest {
 
 	@Test
 	public void testVariousCorrect08() {
-		Map<XmlNodeName, String> track08 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> track08 = stubRawTrackDataHandler
 				.getTrack("1170");
 		assertEquals("Original Fire", track08.get(XmlNodeName.NAME));
 		assertEquals("Audioslave", track08.get(XmlNodeName.ARTIST));
@@ -407,7 +406,7 @@ public class VtdItunesLibraryParserVariousTest {
 
 	@Test
 	public void testVariousCorrect09() {
-		Map<XmlNodeName, String> track09 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> track09 = stubRawTrackDataHandler
 				.getTrack("3100");
 		assertEquals("4 Way Diablo", track09.get(XmlNodeName.NAME));
 		assertEquals("Monster Magnet", track09.get(XmlNodeName.ARTIST));
@@ -452,7 +451,7 @@ public class VtdItunesLibraryParserVariousTest {
 
 	@Test
 	public void testVariousCorrect10() {
-		Map<XmlNodeName, String> track10 = stubRawTrackDataCallback
+		Map<XmlNodeName, String> track10 = stubRawTrackDataHandler
 				.getTrack("19058");
 		assertEquals("Plundered My Soul (Stones In Exile Version)",
 				track10.get(XmlNodeName.NAME));
