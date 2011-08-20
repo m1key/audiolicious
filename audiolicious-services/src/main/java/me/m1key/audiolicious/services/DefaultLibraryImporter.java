@@ -23,6 +23,8 @@ import java.io.File;
 import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 
 import me.m1key.audiolicious.libraryparser.LibraryParser;
 
@@ -34,6 +36,7 @@ public class DefaultLibraryImporter implements LibraryImporter {
 	private LibraryParser libraryParser;
 
 	@Override
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void importLibrary(File libraryFile) {
 		libraryParser.process(libraryFile);
 	}
