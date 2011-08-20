@@ -47,7 +47,6 @@
 		</hibernate-jpa-2.0-api.version>
 		<hibernate-entitymanager.version>3.6.5.Final</hibernate-entitymanager.version>
 		<hsqldb.version>1.8.0.10</hsqldb.version>
-		<mysql.version>5.1.17</mysql.version>
 		<hibernate-validator.version>4.1.0.Final</hibernate-validator.version>
 
 		<!-- JEE -->
@@ -218,11 +217,6 @@
 				<groupId>hsqldb</groupId>
 				<artifactId>hsqldb</artifactId>
 				<version>${hsqldb.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>mysql</groupId>
-				<artifactId>mysql-connector-java</artifactId>
-				<version>${mysql.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.hibernate</groupId>
