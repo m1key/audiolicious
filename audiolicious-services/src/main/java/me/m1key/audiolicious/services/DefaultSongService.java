@@ -20,7 +20,7 @@ package me.m1key.audiolicious.services;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
 import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
@@ -32,7 +32,7 @@ import me.m1key.audiolicious.domain.entities.Song;
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.objecthandler.handlers.SongService;
 
-@Stateless
+@Singleton
 @Local(SongService.class)
 public class DefaultSongService implements SongService {
 
@@ -51,7 +51,7 @@ public class DefaultSongService implements SongService {
 	private Artist nullArtist;
 
 	@Override
-	public void persist(SongTo songTo) {
+	public void addSong(SongTo songTo) {
 		Artist artist = getOrCreateArtistByName(getAlbumArtistName(songTo));
 		Album album = getOrCreateAlbum(songTo, artist);
 

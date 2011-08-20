@@ -21,16 +21,16 @@ package me.m1key.audiolicious.objectmapper;
 import java.util.Map;
 
 import javax.ejb.Local;
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
 import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.commons.qualifiers.AggregateMapper;
 import me.m1key.audiolicious.domain.to.TrackTo;
 
-@Stateless
+@Singleton
 @Local(AggregateTrackMapper.class)
-public class AggregateTrackMapperBean implements AggregateTrackMapper {
+public class DefaultAggregateTrackMapper implements AggregateTrackMapper {
 
 	@Inject
 	@AggregateMapper

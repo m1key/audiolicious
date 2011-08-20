@@ -21,27 +21,23 @@ package me.m1key.audiolicious.objecthandler;
 import java.util.Map;
 
 import javax.ejb.Local;
-import javax.ejb.Stateful;
+import javax.ejb.Singleton;
 import javax.inject.Inject;
 
 import me.m1key.audiolicious.domain.to.TrackTo;
 
-@Stateful
+@Singleton
 @Local(ObjectTrackDataHandler.class)
 public class DefaultObjectTrackDataHandler implements ObjectTrackDataHandler {
 
 	@Inject
-	private Map<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>> handlers;
+	private Map<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>> handlersForAllKnownTos;
 
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void handle(TrackTo track) {
-		TrackHandler g = handlers.get(track.getClass());
-		g.handle(track);
-	}
-
-	public void setHandlers(
-			Map<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>> handlers) {
-		this.handlers = handlers;
+		TrackHandler handlerForThisTo = handlersForAllKnownTos.get(track
+				.getClass());
+		handlerForThisTo.handle(track);
 	}
 }

@@ -19,7 +19,7 @@
 package me.m1key.audiolicious.objecthandler.handlers;
 
 import javax.ejb.Local;
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
 
 import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
@@ -27,7 +27,7 @@ import me.m1key.audiolicious.objecthandler.TrackHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Stateless
+@Singleton
 @Local({ AudiobookHandler.class, PodcastHandler.class, TrackHandler.class,
 		VideoHandler.class })
 public class DefaultNoopTrackHandler implements TrackHandler<TrackTo> {

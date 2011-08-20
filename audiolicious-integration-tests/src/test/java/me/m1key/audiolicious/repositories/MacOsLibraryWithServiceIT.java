@@ -59,7 +59,7 @@ import me.m1key.audiolicious.objecthandler.handlers.SongHandler;
 import me.m1key.audiolicious.objecthandler.handlers.SongService;
 import me.m1key.audiolicious.objecthandler.handlers.VideoHandler;
 import me.m1key.audiolicious.objectmapper.AggregateTrackMapper;
-import me.m1key.audiolicious.objectmapper.AggregateTrackMapperBean;
+import me.m1key.audiolicious.objectmapper.DefaultAggregateTrackMapper;
 import me.m1key.audiolicious.objectmapper.CannotMapTrackValuesException;
 import me.m1key.audiolicious.objectmapper.ObjectMappingException;
 import me.m1key.audiolicious.objectmapper.TrackMapper;
@@ -127,7 +127,7 @@ public class MacOsLibraryWithServiceIT {
 						"META-INF/persistence.xml")
 				.addAsResource("log4j.xml", "log4j.xml")
 				.addClasses(AggregateTrackMapper.class,
-						AggregateTrackMapperBean.class, Album.class,
+						DefaultAggregateTrackMapper.class, Album.class,
 						AlbumRepository.class, Artist.class,
 						ArtistRepository.class, AudiobookHandler.class,
 						AudiobookMapper.class, AudiobookTo.class,

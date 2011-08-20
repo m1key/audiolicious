@@ -23,7 +23,7 @@ import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.domain.to.PodcastTo;
@@ -32,8 +32,8 @@ import me.m1key.audiolicious.objectmapper.CannotMapTrackValuesException;
 import me.m1key.audiolicious.objectmapper.TrackMapper;
 import me.m1key.audiolicious.objectmapper.extractor.DataExtractor;
 
-@Stateless
-@Local({PodcastMapper.class, TrackMapper.class})
+@Singleton
+@Local({ PodcastMapper.class, TrackMapper.class })
 public class DefaultPodcastMapper extends NonAggregateTrackMapper<PodcastTo>
 		implements PodcastMapper {
 

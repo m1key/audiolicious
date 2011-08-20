@@ -22,13 +22,13 @@ import java.io.File;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 
 import me.m1key.audiolicious.libraryparser.LibraryParser;
 
-@Stateless
+@Singleton
 @Local(LibraryImporter.class)
 public class DefaultLibraryImporter implements LibraryImporter {
 

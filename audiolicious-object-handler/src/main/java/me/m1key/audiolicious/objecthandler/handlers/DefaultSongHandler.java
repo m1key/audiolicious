@@ -20,12 +20,12 @@ package me.m1key.audiolicious.objecthandler.handlers;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
 
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
 
-@Stateless
+@Singleton
 @Local({ SongHandler.class, TrackHandler.class })
 public class DefaultSongHandler implements SongHandler {
 
@@ -34,11 +34,7 @@ public class DefaultSongHandler implements SongHandler {
 
 	@Override
 	public void handle(SongTo songTo) {
-		songService.persist(songTo);
-	}
-
-	public void setSongService(SongService songService) {
-		this.songService = songService;
+		songService.addSong(songTo);
 	}
 
 }

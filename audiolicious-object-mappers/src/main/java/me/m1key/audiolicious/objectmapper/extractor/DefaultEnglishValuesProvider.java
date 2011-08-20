@@ -21,11 +21,11 @@ package me.m1key.audiolicious.objectmapper.extractor;
 import java.util.ResourceBundle;
 
 import javax.ejb.Local;
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
 
-@Stateless
+@Singleton
 @Local(EnglishValuesProvider.class)
 public class DefaultEnglishValuesProvider implements EnglishValuesProvider {
 

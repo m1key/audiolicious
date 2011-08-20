@@ -23,7 +23,7 @@ import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.domain.to.RatingTo;
@@ -32,7 +32,7 @@ import me.m1key.audiolicious.objectmapper.CannotMapTrackValuesException;
 import me.m1key.audiolicious.objectmapper.TrackMapper;
 import me.m1key.audiolicious.objectmapper.extractor.DataExtractor;
 
-@Stateless
+@Singleton
 @Local({ VideoMapper.class, TrackMapper.class })
 public class DefaultVideoMapper extends NonAggregateTrackMapper<VideoTo>
 		implements VideoMapper {

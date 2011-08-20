@@ -19,14 +19,14 @@
 package me.m1key.audiolicious.repositories;
 
 import javax.ejb.Local;
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import me.m1key.audiolicious.domain.entities.Song;
 import me.m1key.audiolicious.services.SongRepository;
 
-@Stateless
+@Singleton
 @Local(SongRepository.class)
 public class JpaSongRepository implements SongRepository {
 

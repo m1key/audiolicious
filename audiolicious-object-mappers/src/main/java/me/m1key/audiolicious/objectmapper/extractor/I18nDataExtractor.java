@@ -23,7 +23,7 @@ import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.domain.to.RatingTo;
@@ -31,7 +31,7 @@ import me.m1key.audiolicious.domain.to.RatingTo;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
 
-@Stateless
+@Singleton
 @Local(DataExtractor.class)
 public class I18nDataExtractor implements DataExtractor {
 

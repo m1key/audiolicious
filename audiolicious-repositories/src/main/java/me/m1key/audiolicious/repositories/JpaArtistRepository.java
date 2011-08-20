@@ -21,7 +21,7 @@ package me.m1key.audiolicious.repositories;
 import java.util.List;
 
 import javax.ejb.Local;
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -30,7 +30,7 @@ import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.services.ArtistRepository;
 
-@Stateless
+@Singleton
 @Local(ArtistRepository.class)
 public class JpaArtistRepository implements ArtistRepository {
 

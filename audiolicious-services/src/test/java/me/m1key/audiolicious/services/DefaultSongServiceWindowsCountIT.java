@@ -55,7 +55,7 @@ import me.m1key.audiolicious.objecthandler.handlers.SongHandler;
 import me.m1key.audiolicious.objecthandler.handlers.SongService;
 import me.m1key.audiolicious.objecthandler.handlers.VideoHandler;
 import me.m1key.audiolicious.objectmapper.AggregateTrackMapper;
-import me.m1key.audiolicious.objectmapper.AggregateTrackMapperBean;
+import me.m1key.audiolicious.objectmapper.DefaultAggregateTrackMapper;
 import me.m1key.audiolicious.objectmapper.CannotMapTrackValuesException;
 import me.m1key.audiolicious.objectmapper.ObjectMappingException;
 import me.m1key.audiolicious.objectmapper.TrackMapper;
@@ -125,27 +125,28 @@ public class DefaultSongServiceWindowsCountIT {
 				.addAsWebInfResource(EmptyAsset.INSTANCE,
 						ArchivePaths.create("beans.xml"))
 				.addAsResource("log4j.xml", "log4j.xml")
-				.addClasses(AggregateTrackMapper.class,
-						AggregateTrackMapperBean.class, Album.class,
+				.addClasses(AggregateTrackMapper.class, Album.class,
 						AlbumRepository.class, Artist.class,
 						ArtistRepository.class, AudiobookHandler.class,
 						AudiobookMapper.class, AudiobookTo.class,
 						CannotMapTrackValuesException.class,
-						DataExtractor.class, DefaultAudiobookMapper.class,
+						DataExtractor.class, DefaultAggregateTrackMapper.class,
+						DefaultAudiobookMapper.class,
 						DefaultEnglishValuesProvider.class,
 						DefaultLibraryImporter.class,
 						DefaultObjectTrackDataHandler.class,
-						DefaultPodcastMapper.class, DefaultSongMapper.class,
-						DefaultSongService.class, DefaultVideoMapper.class,
-						EnglishValuesProvider.class, I18nDataExtractor.class,
-						LibraryImporter.class, LibraryParser.class,
-						NonAggregateTrackMapper.class, NullAlbum.class,
-						NullArtist.class, NullEntitiesFactory.class,
+						DefaultPodcastMapper.class,
+						DefaultRawTrackDataHandler.class,
+						DefaultSongMapper.class, DefaultSongService.class,
+						DefaultVideoMapper.class, EnglishValuesProvider.class,
+						I18nDataExtractor.class, LibraryImporter.class,
+						LibraryParser.class, NonAggregateTrackMapper.class,
+						NullAlbum.class, NullArtist.class,
+						NullEntitiesFactory.class,
 						ObjectMappingException.class,
 						ObjectTrackDataHandler.class, PodcastHandler.class,
 						PodcastMapper.class, PodcastTo.class, Rating.class,
-						RatingTo.class, RawTrackDataHandler.class,
-						DefaultRawTrackDataHandler.class, Song.class,
+						RatingTo.class, RawTrackDataHandler.class, Song.class,
 						SongHandler.class, SongMapper.class,
 						SongRepository.class, SongService.class, SongTo.class,
 						StubAlbumRepository.class, StubArtistRepository.class,

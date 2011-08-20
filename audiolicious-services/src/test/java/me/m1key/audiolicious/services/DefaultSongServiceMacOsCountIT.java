@@ -45,8 +45,8 @@ import me.m1key.audiolicious.libraryparser.RawTrackDataHandler;
 import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParser;
 import me.m1key.audiolicious.libraryparser.XmlParseException;
 import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandler;
-import me.m1key.audiolicious.objecthandler.ObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.DefaultRawTrackDataHandler;
+import me.m1key.audiolicious.objecthandler.ObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
 import me.m1key.audiolicious.objecthandler.factories.TrackMappersFactory;
 import me.m1key.audiolicious.objecthandler.handlers.AudiobookHandler;
@@ -55,8 +55,8 @@ import me.m1key.audiolicious.objecthandler.handlers.SongHandler;
 import me.m1key.audiolicious.objecthandler.handlers.SongService;
 import me.m1key.audiolicious.objecthandler.handlers.VideoHandler;
 import me.m1key.audiolicious.objectmapper.AggregateTrackMapper;
-import me.m1key.audiolicious.objectmapper.AggregateTrackMapperBean;
 import me.m1key.audiolicious.objectmapper.CannotMapTrackValuesException;
+import me.m1key.audiolicious.objectmapper.DefaultAggregateTrackMapper;
 import me.m1key.audiolicious.objectmapper.ObjectMappingException;
 import me.m1key.audiolicious.objectmapper.TrackMapper;
 import me.m1key.audiolicious.objectmapper.extractor.DataExtractor;
@@ -125,13 +125,13 @@ public class DefaultSongServiceMacOsCountIT {
 				.addAsWebInfResource(EmptyAsset.INSTANCE,
 						ArchivePaths.create("beans.xml"))
 				.addAsResource("log4j.xml", "log4j.xml")
-				.addClasses(AggregateTrackMapper.class,
-						AggregateTrackMapperBean.class, Album.class,
+				.addClasses(AggregateTrackMapper.class, Album.class,
 						AlbumRepository.class, Artist.class,
 						ArtistRepository.class, AudiobookHandler.class,
 						AudiobookMapper.class, AudiobookTo.class,
 						CannotMapTrackValuesException.class,
-						DataExtractor.class, DefaultAudiobookMapper.class,
+						DataExtractor.class, DefaultAggregateTrackMapper.class,
+						DefaultAudiobookMapper.class,
 						DefaultEnglishValuesProvider.class,
 						DefaultLibraryImporter.class,
 						DefaultObjectTrackDataHandler.class,

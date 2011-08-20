@@ -36,7 +36,7 @@ import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.domain.to.VideoTo;
 import me.m1key.audiolicious.domain.to.VideoToBuilder;
 import me.m1key.audiolicious.objectmapper.AggregateTrackMapper;
-import me.m1key.audiolicious.objectmapper.AggregateTrackMapperBean;
+import me.m1key.audiolicious.objectmapper.DefaultAggregateTrackMapper;
 import me.m1key.audiolicious.objectmapper.TrackMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.DefaultAudiobookMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.DefaultPodcastMapper;
@@ -126,7 +126,7 @@ public class RawTrackDataHandlerTest {
 
 	private AggregateTrackMapper createAggregateMapper() {
 		Map<Class<? extends TrackTo>, TrackMapper<? extends TrackTo>> mappers = getAllKnownTracksMappers();
-		AggregateTrackMapperBean aggregateTrackMapper = new AggregateTrackMapperBean();
+		DefaultAggregateTrackMapper aggregateTrackMapper = new DefaultAggregateTrackMapper();
 		aggregateTrackMapper.setMappers(mappers);
 		return aggregateTrackMapper;
 	}

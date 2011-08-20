@@ -27,7 +27,7 @@ import java.util.Map;
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.domain.to.TrackTo;
-import me.m1key.audiolicious.objectmapper.AggregateTrackMapperBean;
+import me.m1key.audiolicious.objectmapper.DefaultAggregateTrackMapper;
 import me.m1key.audiolicious.objectmapper.TrackMapper;
 import me.m1key.audiolicious.objectmapper.extractor.DefaultEnglishValuesProvider;
 import me.m1key.audiolicious.objectmapper.extractor.I18nDataExtractor;
@@ -39,7 +39,7 @@ public class AggregateTrackMapperTest {
 
 	private static final String FALSE = "false";
 
-	private AggregateTrackMapperBean trackMapper;
+	private DefaultAggregateTrackMapper trackMapper;
 
 	@Before
 	public void setup() {
@@ -50,7 +50,7 @@ public class AggregateTrackMapperTest {
 		DefaultSongMapper songMapper = new DefaultSongMapper();
 		songMapper.setDataExtractor(dataExtractor);
 		mappers.put(SongTo.class, songMapper);
-		trackMapper = new AggregateTrackMapperBean();
+		trackMapper = new DefaultAggregateTrackMapper();
 		trackMapper.setMappers(mappers);
 	}
 
