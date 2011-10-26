@@ -194,44 +194,44 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testCorrectNumberOfSongsInKornIssues() {
-		assertEquals(new Integer(16),
+		assertEquals(Integer.valueOf(16),
 				songRepository.getNumberOfSongs("Korn", "Issues"));
 	}
 
 	@Test
 	public void testCorrectNumberOfSongsInMarilynMansonMechanicalAnimals() {
-		assertEquals(new Integer(14), songRepository.getNumberOfSongs(
+		assertEquals(Integer.valueOf(14), songRepository.getNumberOfSongs(
 				"Marilyn Manson", "Mechanical Animals"));
 	}
 
 	@Test
 	public void testCorrectNumberOfSongsInVariousArtistsTheRoughGuideToTheMusicOfTheSahara() {
-		assertEquals(new Integer(13),
+		assertEquals(Integer.valueOf(13),
 				songRepository.getNumberOfSongs("Various Artists",
 						"The Rough Guide To The Music Of The Sahara"));
 	}
 
 	@Test
 	public void testCorrectNumberOfSongsInBerlinerPhilharmonikerWagnerDeRingDerNibelungen() {
-		assertEquals(new Integer(189), songRepository.getNumberOfSongs(
+		assertEquals(Integer.valueOf(189), songRepository.getNumberOfSongs(
 				"Berliner Philharmoniker & Herbert von Karajan",
 				"Wagner: Der Ring der Nibelungen (iTunes)"));
 	}
 
 	@Test
 	public void testCorrectNumberOfSongsInTheRollingStonesExileOnMainSt() {
-		assertEquals(new Integer(30), songRepository.getNumberOfSongs(
+		assertEquals(Integer.valueOf(30), songRepository.getNumberOfSongs(
 				"The Rolling Stones", "Exile On Main St"));
 	}
 
 	@Test
 	public void testCorrectNumberOfAlbums() {
-		assertEquals(new Integer(704), songRepository.getNumberOfAlbums());
+		assertEquals(Integer.valueOf(704), songRepository.getNumberOfAlbums());
 	}
 
 	@Test
 	public void testCorrectNumberOfArtists() {
-		assertEquals(new Integer(449), songRepository.getNumberOfArtists());
+		assertEquals(Integer.valueOf(449), songRepository.getNumberOfArtists());
 	}
 
 	@Test

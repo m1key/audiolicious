@@ -37,10 +37,10 @@ public class ArtistHibernateIT extends HibernateIT {
 	@Test
 	public void shouldHaveCorrectNumberOfArtists() {
 		assertEquals("There should be no artists before none are created.",
-				new Integer(0), numberOfArtists());
+				Integer.valueOf(0), numberOfArtists());
 		createArtists();
 		assertEquals("There should be three artists after three are created.",
-				new Integer(3), numberOfArtists());
+				Integer.valueOf(3), numberOfArtists());
 	}
 
 	@Test(expected = PersistenceException.class)
@@ -55,7 +55,7 @@ public class ArtistHibernateIT extends HibernateIT {
 	@Test
 	public void shouldReturnArtistByName() {
 		assertEquals("There should be no artists before none are created.",
-				new Integer(0), numberOfArtists());
+				Integer.valueOf(0), numberOfArtists());
 		createArtists();
 		assertTrue(String.format("Should return artist [%s].", ARTIST_1_NAME),
 				artistsContainByName(ARTIST_1_NAME));
@@ -64,15 +64,15 @@ public class ArtistHibernateIT extends HibernateIT {
 	@Test
 	public void shouldDeleteOnlyOneArtistByName() {
 		assertEquals("There should be no artists before none are created.",
-				new Integer(0), numberOfArtists());
+				Integer.valueOf(0), numberOfArtists());
 		createArtists();
 		assertEquals("There should be three artists after three are created.",
-				new Integer(3), numberOfArtists());
+				Integer.valueOf(3), numberOfArtists());
 		assertTrue(String.format("Should return artist [%s].", ARTIST_1_NAME),
 				artistsContainByName(ARTIST_1_NAME));
 		deleteArtistByName(ARTIST_1_NAME);
 		assertEquals("There should be two artists after one has been deleted.",
-				new Integer(2), numberOfArtists());
+				Integer.valueOf(2), numberOfArtists());
 		assertFalse(String.format(
 				"Should not return artist [%s] after it was deleted.",
 				ARTIST_1_NAME), artistsContainByName(ARTIST_1_NAME));
@@ -81,15 +81,15 @@ public class ArtistHibernateIT extends HibernateIT {
 	@Test
 	public void shouldDeleteOnlyOneArtistByUuid() {
 		assertEquals("There should be no artists before none are created.",
-				new Integer(0), numberOfArtists());
+				Integer.valueOf(0), numberOfArtists());
 		createArtists();
 		assertEquals("There should be three artists after three are created.",
-				new Integer(3), numberOfArtists());
+				Integer.valueOf(3), numberOfArtists());
 		assertTrue(String.format("Should return artist [%s].", ARTIST_1_NAME),
 				artistsContainByName(ARTIST_1_NAME));
 		deleteArtistByUuid(artist1.getUuid());
 		assertEquals("There should be two artists after one has been deleted.",
-				new Integer(2), numberOfArtists());
+				Integer.valueOf(2), numberOfArtists());
 		assertFalse(String.format(
 				"Should not return artist [%s] after it was deleted.",
 				ARTIST_1_NAME), artistsContainByName(ARTIST_1_NAME));

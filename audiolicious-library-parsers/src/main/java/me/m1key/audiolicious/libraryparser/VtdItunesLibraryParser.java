@@ -185,7 +185,7 @@ public class VtdItunesLibraryParser implements LibraryParser {
 	}
 
 	private boolean isBooleanNode(String currentValue) {
-		return currentValue == "";
+		return "".equals(currentValue);
 	}
 
 	private boolean trackHasValue() throws XPathEvalException, NavException {

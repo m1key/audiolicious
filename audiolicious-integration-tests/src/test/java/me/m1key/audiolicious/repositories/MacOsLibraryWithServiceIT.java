@@ -99,10 +99,10 @@ import org.junit.runner.RunWith;
 @RunWith(Arquillian.class)
 public class MacOsLibraryWithServiceIT {
 
-	private static final Long TOTAL_ARTISTS = new Long(449);
-	private static final Long TOTAL_ALBUMS = new Long(704);
-	private static final Long TOTAL_SONGS = new Long(10732);
-	private static final Long TOTAL_VIDEOS = new Long(6);
+	private static final Long TOTAL_ARTISTS = Long.valueOf(449);
+	private static final Long TOTAL_ALBUMS = Long.valueOf(704);
+	private static final Long TOTAL_SONGS = Long.valueOf(10732);
+	private static final Long TOTAL_VIDEOS = Long.valueOf(6);
 	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/MacOsExportedLibrary-2011-07-28.xml";
 
 	@Inject
@@ -174,7 +174,7 @@ public class MacOsLibraryWithServiceIT {
 	@Before
 	public void setUp() throws Exception {
 		assertEquals("There should be no artists before the test.",
-				new Long(0), testHelperBean.totalArtists());
+				Long.valueOf(0), testHelperBean.totalArtists());
 
 		File xmlLibraryFile = new File(pathToFile);
 		libraryImporter.importLibrary(xmlLibraryFile);
@@ -187,7 +187,7 @@ public class MacOsLibraryWithServiceIT {
 		assertEquals("There should be the right number of albums in the DB.",
 				TOTAL_ALBUMS, testHelperBean.totalAlbums());
 		assertEquals("There should be the right number of songs in the DB.",
-				new Long(TOTAL_SONGS + TOTAL_VIDEOS),
+				Long.valueOf(TOTAL_SONGS + TOTAL_VIDEOS),
 				testHelperBean.totalSongs());
 	}
 

@@ -794,44 +794,44 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testCorrectNumberOfSongsInKornIssues() {
-		assertEquals(new Integer(16),
+		assertEquals(Integer.valueOf(16),
 				stubSongRepository.getNumberOfSongs("Korn", "Issues"));
 	}
 
 	@Test
 	public void testCorrectNumberOfSongsInMarilynMansonMechanicalAnimals() {
-		assertEquals(new Integer(14), stubSongRepository.getNumberOfSongs(
+		assertEquals(Integer.valueOf(14), stubSongRepository.getNumberOfSongs(
 				"Marilyn Manson", "Mechanical Animals"));
 	}
 
 	@Test
 	public void testCorrectNumberOfSongsInVariousArtistsTheRoughGuideToTheMusicOfTheSahara() {
-		assertEquals(new Integer(13),
+		assertEquals(Integer.valueOf(13),
 				stubSongRepository.getNumberOfSongs("Various Artists",
 						"The Rough Guide To The Music Of The Sahara"));
 	}
 
 	@Test
 	public void testCorrectNumberOfSongsInBerlinerPhilharmonikerWagnerDeRingDerNibelungen() {
-		assertEquals(new Integer(189), stubSongRepository.getNumberOfSongs(
+		assertEquals(Integer.valueOf(189), stubSongRepository.getNumberOfSongs(
 				"Berliner Philharmoniker & Herbert von Karajan",
 				"Wagner: Der Ring der Nibelungen (iTunes)"));
 	}
 
 	@Test
 	public void testCorrectNumberOfAlbums() {
-		assertEquals(new Integer(674), stubSongRepository.getNumberOfAlbums());
+		assertEquals(Integer.valueOf(674), stubSongRepository.getNumberOfAlbums());
 	}
 
 	@Test
 	public void testCorrectNumberOfSongsInTheRollingStonesExileOnMainSt() {
-		assertEquals(new Integer(30), stubSongRepository.getNumberOfSongs(
+		assertEquals(Integer.valueOf(30), stubSongRepository.getNumberOfSongs(
 				"The Rolling Stones", "Exile On Main St"));
 	}
 
 	@Test
 	public void testCorrectNumberOfArtists() {
-		assertEquals(new Integer(422), stubSongRepository.getNumberOfArtists());
+		assertEquals(Integer.valueOf(422), stubSongRepository.getNumberOfArtists());
 	}
 
 	private Song getSongByTitle(Album album, String songName) {
