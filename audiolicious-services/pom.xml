@@ -6,7 +6,6 @@
 		<groupId>me.m1key.audiolicious</groupId>
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
-	<groupId>me.m1key.audiolicious</groupId>
 	<artifactId>audiolicious-services</artifactId>
 	<name>Audiolicious Services</name>
 	<description>Audiolicious Services provide services for managing songs, albums and artists.</description>

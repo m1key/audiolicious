@@ -6,7 +6,6 @@
 		<groupId>me.m1key.audiolicious</groupId>
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
-	<groupId>me.m1key.audiolicious</groupId>
 	<artifactId>audiolicious-integration-tests</artifactId>
 	<name>Audiolicious Integration Tests</name>
 	<description>Integration tests that require `integration` parameter to

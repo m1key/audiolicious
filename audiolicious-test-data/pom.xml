@@ -6,7 +6,6 @@
 		<groupId>me.m1key.audiolicious</groupId>
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
-	<groupId>me.m1key.audiolicious</groupId>
 	<artifactId>audiolicious-test-data</artifactId>
 	<name>Audiolicious Test Data</name>
 	<description>Test data for all modules.</description>
