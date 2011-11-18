@@ -7,7 +7,7 @@ Steb-by-step setup to build the application.
 
 Prerequisites:
 	* Git (if you don't have the sources),
-	* JBoss 7.0.0.Final (Web),
+	* JBoss 7.0.2.Final (Web),
 	* MySql 5,
 	* Maven 3,
 	* VTD XML 2.10.
