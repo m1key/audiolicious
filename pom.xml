@@ -19,6 +19,7 @@
 		<module>audiolicious-services</module>
 		<module>audiolicious-repositories</module>
 		<module>audiolicious-integration-tests</module>
+		<module>audiolicious-web</module>
 	</modules>
 	<properties>
 
