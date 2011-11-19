@@ -1,0 +1,19 @@
+body {
+	font: 62.5% "Trebuchet MS", sans-serif;
+	margin: 50px;
+	padding: 0px;
+	text-align: center;
+}
+
+div#content {
+	width: 1000px;
+	margin: 0px auto;
+	text-align: left;
+	padding: 15px;
+	border: 1px dashed #333;
+	background-color: #eee;
+}
+
+div.spacer {
+	height: 40px;
+}

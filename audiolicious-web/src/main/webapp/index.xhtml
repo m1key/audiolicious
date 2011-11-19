@@ -8,16 +8,55 @@
 	xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<title>Audiolicious</title>
+	<link type="text/css" href="css/basic.css" rel="stylesheet" />
 </h:head>
 <h:body>
 	<h1>Audiolicious</h1>
 
-	<rich:panel>
-		<f:facet name="header">
-			<h:outputText value="Audiolicious" />
-		</f:facet>
-		<h:outputText value="Welcome to Audiolicious!" />
+	<div id="content">
 
-	</rich:panel>
+		<rich:panel>
+			<f:facet name="header">
+				<h:outputText value="Upload New Library" />
+			</f:facet>
+			<h:outputText value="(TODO)" />
+		</rich:panel>
+
+		<div class="spacer" />
+
+		<rich:panel>
+			<f:facet name="header">
+				<h:outputText value="Latest Library" />
+			</f:facet>
+			<h:outputText value="(TODO)" />
+		</rich:panel>
+
+		<div class="spacer" />
+
+		<rich:dataTable value="#{librariesBean.latestLibraries}" var="library"
+			rows="5">
+			<f:facet name="header">
+				<h:outputText value="Latest 5 Libraries" />
+			</f:facet>
+
+			<rich:column>
+				<f:facet name="header">Library UUID</f:facet>
+				<h:outputText value="#{library.uuid}" />
+			</rich:column>
+
+			<rich:column>
+				<f:facet name="header">Uploaded</f:facet>
+				<h:outputText value="#{library.uploadTime}">
+					<f:convertDateTime dateStyle="long" />
+				</h:outputText>
+			</rich:column>
+
+			<f:facet name="footer">
+				<h:outputText value="()TODO link to all)" />
+			</f:facet>
+		</rich:dataTable>
+
+	</div>
+
 </h:body>
 </html>
