@@ -55,6 +55,10 @@
 		<el-api.version>2.2</el-api.version>
 		<cdi-api.version>1.0-SP1</cdi-api.version>
 		<jboss-javaee-web-6.0.version>2.0.0.Final</jboss-javaee-web-6.0.version>
+		<jboss-jsf.version>2.0.0.Beta1</jboss-jsf.version>
+
+		<!-- WEB -->
+		<org.richfaces.bom.version>4.0.0.Final</org.richfaces.bom.version>
 
 		<!-- MAVEN -->
 		<plugin.surefire.version>2.9</plugin.surefire.version>
@@ -246,6 +250,20 @@
 				<groupId>javax.enterprise</groupId>
 				<artifactId>cdi-api</artifactId>
 				<version>${cdi-api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jboss.spec.javax.faces</groupId>
+				<artifactId>jboss-jsf-api_2.1_spec</artifactId>
+				<version>${jboss-jsf.version}</version>
+			</dependency>
+
+			<!-- WEB -->
+			<dependency>
+				<groupId>org.richfaces</groupId>
+				<artifactId>richfaces-bom</artifactId>
+				<version>${org.richfaces.bom.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
