@@ -7,17 +7,19 @@
 	xmlns:rich="http://richfaces.org/rich"
 	xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
-	<title>Audiolicious</title>
+	<title><h:outputText value="#{msg['index.title']}" /></title>
 	<link type="text/css" href="css/basic.css" rel="stylesheet" />
 </h:head>
 <h:body>
-	<h1>Audiolicious</h1>
+	<h1>
+		<h:outputText value="#{msg['index.h1']}" />
+	</h1>
 
 	<div id="content">
 
 		<rich:panel>
 			<f:facet name="header">
-				<h:outputText value="Upload New Library" />
+				<h:outputText value="#{msg['index.upload.header']}" />
 			</f:facet>
 			<h:outputText value="(TODO)" />
 		</rich:panel>
@@ -26,7 +28,7 @@
 
 		<rich:panel>
 			<f:facet name="header">
-				<h:outputText value="Latest Library" />
+				<h:outputText value="#{msg['index.latestLibrary.header']}" />
 			</f:facet>
 			<h:outputText value="(TODO)" />
 		</rich:panel>
@@ -36,23 +38,27 @@
 		<rich:dataTable value="#{librariesBean.latestLibraries}" var="library"
 			rows="5">
 			<f:facet name="header">
-				<h:outputText value="Latest 5 Libraries" />
+				<h:outputText value="#{msg['index.latestLibraries.header']}" />
 			</f:facet>
 
 			<rich:column>
-				<f:facet name="header">Library UUID</f:facet>
+				<f:facet name="header">
+					<h:outputText value="#{msg['index.latestLibraries.column.uuid']}" />
+				</f:facet>
 				<h:outputText value="#{library.uuid}" />
 			</rich:column>
 
 			<rich:column>
-				<f:facet name="header">Uploaded</f:facet>
+				<f:facet name="header">
+					<h:outputText value="#{msg['index.latestLibraries.column.uploaded']}" />
+				</f:facet>
 				<h:outputText value="#{library.uploadTime}">
 					<f:convertDateTime dateStyle="long" />
 				</h:outputText>
 			</rich:column>
 
 			<f:facet name="footer">
-				<h:outputText value="()TODO link to all)" />
+				<h:outputText value="(TODO link to all)" />
 			</f:facet>
 		</rich:dataTable>
 
