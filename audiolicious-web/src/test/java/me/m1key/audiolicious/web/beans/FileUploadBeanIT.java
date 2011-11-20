@@ -1,3 +1,21 @@
+/* 
+ * Audiolicious - Your Music Library Statistics
+ * Copyright (C) 2011, Michal Huniewicz
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see http://www.m1key.me
+ */
+
 package me.m1key.audiolicious.web.beans;
 
 import static org.junit.Assert.assertFalse;
@@ -5,6 +23,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIPanel;
@@ -30,6 +49,9 @@ public class FileUploadBeanIT {
 	private FileUploadBean uploadBean;
 	@Inject
 	private StubConsumptionBean stubConsumptionBean;
+	@Inject
+	private StubLibrarySaveBean stubLibrarySaveBean;
+
 	private FileUploadEvent fileUploadEvent;
 
 	@Deployment
@@ -41,8 +63,10 @@ public class FileUploadBeanIT {
 				.addAsWebInfResource(
 						new File("src/test/resources/WEB-INF/beans.xml"),
 						ArchivePaths.create("beans.xml"))
-				.addClasses(ConsumptionBean.class, FileUploadBean.class,
-						FileUploadEvent.class, StubConsumptionBean.class,
+				.addClasses(AudioliciousConfigurationException.class,
+						ConsumptionBean.class, FileUploadBean.class,
+						FileUploadEvent.class, LibrarySaveBean.class,
+						StubConsumptionBean.class, StubLibrarySaveBean.class,
 						UploadedFile.class)
 				.addAsLibraries(
 						DependencyResolvers.use(MavenDependencyResolver.class)
@@ -53,14 +77,46 @@ public class FileUploadBeanIT {
 	@Before
 	public void setup() {
 		UIComponent component = new UIPanel();
-		fileUploadEvent = new FileUploadEvent(component, null);
+		UploadedFile uploadedFile = new StubUploadedFile();
+		fileUploadEvent = new FileUploadEvent(component, uploadedFile);
 	}
 
 	@Test
 	public void shouldCallConsumptionBean() throws Exception {
 		assertFalse(stubConsumptionBean.hasConsumeBeenCalled());
+		assertFalse(stubLibrarySaveBean.hasSaveBeenCalled());
 		uploadBean.listener(fileUploadEvent);
 		assertTrue(stubConsumptionBean.hasConsumeBeenCalled());
+		assertTrue(stubLibrarySaveBean.hasSaveBeenCalled());
+	}
+
+	private static class StubUploadedFile implements UploadedFile {
+
+		@Override
+		public String getContentType() {
+			return null;
+		}
+
+		@Override
+		public byte[] getData() {
+			return null;
+		}
+
+		@Override
+		public InputStream getInputStream() {
+			return null;
+		}
+
+		@Override
+		public String getName() {
+			return null;
+		}
+
+		@Override
+		public long getSize() {
+			return 0;
+		}
+
 	}
 
 }

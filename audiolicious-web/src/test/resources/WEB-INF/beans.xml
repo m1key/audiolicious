@@ -2,5 +2,6 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/beans_1_0.xsd">
 	<alternatives>
 		<class>me.m1key.audiolicious.web.beans.StubConsumptionBean</class>
+		<class>me.m1key.audiolicious.web.beans.StubLibrarySaveBean</class>
 	</alternatives>
 </beans>

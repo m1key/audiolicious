@@ -123,3 +123,6 @@ Prerequisites:
 	<coordinator-environment default-timeout="3600"/>
 
 12. In MySQL, create audiolicious_test schema.
+
+13. Set your ADLCS_DUMP environment variable to point to a folder where
+	Audiolicious Web will write temporary library files.

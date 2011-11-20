@@ -23,8 +23,6 @@
 package me.m1key.audiolicious.web.beans;
 
 import java.io.File;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -48,18 +46,16 @@ public class FileUploadBean {
 
 	@Inject
 	private ConsumptionBean consumer;
+	@Inject
+	private LibrarySaveBean saver;
 	private ArrayList<UploadedFile> files = new ArrayList<UploadedFile>();
-
-	public void paint(OutputStream stream, Object object) throws IOException {
-		stream.write(getFiles().get((Integer) object).getData());
-		stream.close();
-	}
 
 	public void listener(FileUploadEvent event) throws Exception {
 		log.info("Received file upload event [{}].", event);
 		UploadedFile uploadedFile = event.getUploadedFile();
 		String libraryUuid = UUID.randomUUID().toString();
-		File savedLibraryFile = saveFile(uploadedFile);
+		File savedLibraryFile = saver.save(uploadedFile.getInputStream(),
+				libraryUuid);
 		consumer.consume(savedLibraryFile, libraryUuid);
 		files.add(uploadedFile);
 	}
@@ -77,10 +73,6 @@ public class FileUploadBean {
 		}
 	}
 
-	public long getTimeStamp() {
-		return System.currentTimeMillis();
-	}
-
 	public ArrayList<UploadedFile> getFiles() {
 		return files;
 	}
@@ -88,10 +80,4 @@ public class FileUploadBean {
 	public void setFiles(ArrayList<UploadedFile> files) {
 		this.files = files;
 	}
-
-	private File saveFile(UploadedFile uploadedFile) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
