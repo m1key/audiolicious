@@ -18,17 +18,20 @@
 
 package me.m1key.audiolicious.domain.entities;
 
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import me.m1key.audiolicious.domain.to.SongTo;
@@ -59,23 +62,8 @@ public class Song {
 	@Column(name = "COMPOSER", length = 512)
 	private String composer;
 
-	@Column(name = "DATE_ADDED")
-	private Date dateAdded;
-
-	@Column(name = "DATE_MODIFIED")
-	private Date dateModified;
-
-	@Column(name = "DATE_SKIPPED")
-	private Date dateSkipped;
-
-	@Column(name = "SKIP_COUNT")
-	private int skipCount;
-
 	@Column(name = "GENRE", length = 128)
 	private String genre;
-
-	@Column(name = "PLAY_COUNT")
-	private int playCount;
 
 	@Column(name = "YEAR")
 	private int year;
@@ -92,37 +80,32 @@ public class Song {
 	@Column(name = "HD")
 	private boolean hd;
 
-	@Embedded
-	private Rating rating;
-
 	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = { CascadeType.MERGE })
 	private Album album;
+
+	@OneToMany(mappedBy = "song", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private Set<Stat> stats;
 
 	// For proxying.
 	protected Song() {
 	}
 
 	public Song(String name, String artistName, Album album, int year,
-			String composer, String genre, Date dateAdded, Date dateModified,
-			Rating rating, int playCount, Date dateSkipped, int skipCount,
-			boolean hasVideo, int videoHeight, int videoWidth, boolean hd) {
+			String composer, String genre, boolean hasVideo, int videoHeight,
+			int videoWidth, boolean hd) {
 		this.uuid = UUID.randomUUID().toString();
 		this.name = name;
 		this.artistName = artistName;
 		this.composer = composer;
-		this.dateAdded = dateAdded;
-		this.dateModified = dateModified;
 		this.genre = genre;
-		this.playCount = playCount;
 		this.year = year;
 		this.hasVideo = hasVideo;
 		this.videoHeight = videoHeight;
 		this.videoWidth = videoWidth;
 		this.hd = hd;
-		this.rating = rating;
-		this.dateSkipped = dateSkipped;
-		this.skipCount = skipCount;
 		setAlbum(album);
+
+		stats = new HashSet<Stat>();
 	}
 
 	public Song(SongTo songTo) {
@@ -130,18 +113,14 @@ public class Song {
 		this.name = songTo.getName();
 		this.artistName = songTo.getArtist();
 		this.composer = songTo.getComposer();
-		this.dateAdded = songTo.getDateAdded();
-		this.dateModified = songTo.getDateModified();
 		this.genre = songTo.getGenre();
-		this.playCount = songTo.getPlayCount();
 		this.year = songTo.getYear();
 		this.hasVideo = songTo.isHasVideo();
 		this.videoHeight = songTo.getVideoHeight();
 		this.videoWidth = songTo.getVideoWidth();
 		this.hd = songTo.isHd();
-		this.rating = new Rating(songTo.getRating());
-		this.dateSkipped = songTo.getSkipDate();
-		this.skipCount = songTo.getSkipCount();
+
+		stats = new HashSet<Stat>();
 	}
 
 	public String getUuid() {
@@ -164,20 +143,8 @@ public class Song {
 		return album;
 	}
 
-	public Date getDateAdded() {
-		return dateAdded;
-	}
-
-	public Date getDateModified() {
-		return dateModified;
-	}
-
 	public String getGenre() {
 		return genre;
-	}
-
-	public int getPlayCount() {
-		return playCount;
 	}
 
 	public int getVideoHeight() {
@@ -200,22 +167,24 @@ public class Song {
 		return hd;
 	}
 
-	public Rating getRating() {
-		return rating;
-	}
-
-	public int getSkipCount() {
-		return skipCount;
-	}
-
-	public Date getDateSkipped() {
-		return dateSkipped;
-	}
-
 	public void setAlbum(Album album) {
 		removeFromCurrentAlbum();
 		this.album = album;
 		album.addSong(this);
+	}
+
+	public void addStat(SongTo songTo) {
+		stats.add(new Stat(this, songTo));
+	}
+
+	public void addStat(Date dateAdded, Date dateModified, Date dateSkipped,
+			int skipCount, Rating rating, int played) {
+		stats.add(new Stat(this, dateAdded, dateModified, dateSkipped,
+				skipCount, rating, played));
+	}
+
+	public Set<Stat> getStats() {
+		return Collections.unmodifiableSet(stats);
 	}
 
 	private void removeFromCurrentAlbum() {
@@ -227,11 +196,9 @@ public class Song {
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder().append(uuid).append(name)
-				.append(artistName).append(composer).append(dateAdded)
-				.append(dateModified).append(genre).append(playCount)
-				.append(year).append(hasVideo).append(videoHeight)
-				.append(videoWidth).append(hd).append(rating)
-				.append(dateSkipped).append(skipCount).toHashCode();
+				.append(artistName).append(composer).append(genre).append(year)
+				.append(hasVideo).append(videoHeight).append(videoWidth)
+				.append(hd).toHashCode();
 	}
 
 	@Override
@@ -243,32 +210,21 @@ public class Song {
 				.append(name, castOther.name)
 				.append(artistName, castOther.artistName)
 				.append(composer, castOther.composer)
-				.append(dateAdded, castOther.dateAdded)
-				.append(dateModified, castOther.dateModified)
-				.append(genre, castOther.genre)
-				.append(playCount, castOther.playCount)
-				.append(year, castOther.year)
+				.append(genre, castOther.genre).append(year, castOther.year)
 				.append(hasVideo, castOther.hasVideo)
 				.append(videoHeight, castOther.videoHeight)
 				.append(videoWidth, castOther.videoWidth)
-				.append(skipCount, castOther.skipCount)
-				.append(hd, castOther.hd).append(rating, castOther.rating)
-				.isEquals();
+				.append(hd, castOther.hd).isEquals();
 	}
 
 	@Override
 	public String toString() {
 		return new ToStringBuilder(this).append("uuid", uuid)
 				.append("name", name).append("artistName", artistName)
-				.append("composer", composer).append("dateAdded", dateAdded)
-				.append("dateModified", dateModified).append("genre", genre)
-				.append("playCount", playCount).append("year", year)
-				.append("hasVideo", hasVideo)
+				.append("composer", composer).append("genre", genre)
+				.append("year", year).append("hasVideo", hasVideo)
 				.append("videoHeight", videoHeight)
-				.append("videoWidth", videoWidth).append("hd", hd)
-				.append("dateSkipped", dateSkipped)
-				.append("skipCount", skipCount).append("rating", rating)
-				.toString();
+				.append("videoWidth", videoWidth).append("hd", hd).toString();
 	}
 
 }

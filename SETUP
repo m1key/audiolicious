@@ -119,8 +119,8 @@ Prerequisites:
                     </security>
                 </datasource>
 
-11. Modify transaction timeout value to 3600.
-	<coordinator-environment default-timeout="3600"/>
+11. Modify transaction timeout value to 14400.
+	<coordinator-environment default-timeout="14400"/>
 
 12. In MySQL, create audiolicious_test schema.
 

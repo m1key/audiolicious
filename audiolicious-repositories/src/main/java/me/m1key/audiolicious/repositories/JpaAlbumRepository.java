@@ -58,8 +58,8 @@ public class JpaAlbumRepository implements AlbumRepository {
 		}
 	}
 
-	private boolean albumNotFound(List<Album> artistObjects) {
-		return artistObjects.isEmpty();
+	private boolean albumNotFound(List<Album> albumObjects) {
+		return albumObjects.isEmpty();
 	}
 
 	@Override

@@ -176,8 +176,14 @@ public abstract class HibernateIT {
 	}
 
 	@SuppressWarnings("unchecked")
-	protected List<Album> getAllSongs() {
+	protected List<Song> getAllSongs() {
 		Query select = getEntityManager().createQuery("FROM Song");
+		return select.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	protected List<Stat> getAllStats() {
+		Query select = getEntityManager().createQuery("FROM Stat");
 		return select.getResultList();
 	}
 

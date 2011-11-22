@@ -18,11 +18,16 @@
 
 package me.m1key.audiolicious.repositories;
 
+import java.util.List;
+
 import javax.ejb.Local;
 import javax.ejb.Singleton;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import me.m1key.audiolicious.commons.qualifiers.NullSong;
+import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Song;
 import me.m1key.audiolicious.services.SongRepository;
 
@@ -33,8 +38,32 @@ public class JpaSongRepository implements SongRepository {
 	@PersistenceContext
 	private EntityManager entityManager;
 
+	@Inject
+	@NullSong
+	private Song nullSong;
+
 	@Override
 	public void save(Song song) {
 		entityManager.persist(song);
+	}
+
+	@Override
+	public Song getSong(Album album, String songName) {
+		@SuppressWarnings("unchecked")
+		List<Song> songObjects = entityManager
+				.createQuery(
+						"FROM Song s WHERE s.name = :name AND s.album = :album")
+				.setParameter("name", songName).setParameter("album", album)
+				.getResultList();
+
+		if (songNotFound(songObjects)) {
+			return nullSong;
+		} else {
+			return songObjects.get(0);
+		}
+	}
+
+	private boolean songNotFound(List<Song> songObjects) {
+		return songObjects.isEmpty();
 	}
 }

@@ -16,15 +16,19 @@
  * along with this program.  If not, see http://www.m1key.me
  */
 
-package me.m1key.audiolicious.services;
+package me.m1key.audiolicious.commons.qualifiers;
 
-import me.m1key.audiolicious.domain.entities.Album;
-import me.m1key.audiolicious.domain.entities.Song;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-public interface SongRepository {
+import javax.inject.Qualifier;
 
-	void save(Song song);
-
-	Song getSong(Album album, String songName);
+@Qualifier
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER,
+        ElementType.TYPE })
+public @interface NullSong {
 
 }

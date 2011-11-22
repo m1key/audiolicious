@@ -22,17 +22,18 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
-import java.util.Date;
 
 import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
+import me.m1key.audiolicious.commons.qualifiers.NullSong;
 import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
 import me.m1key.audiolicious.domain.entities.Rating;
 import me.m1key.audiolicious.domain.entities.Song;
+import me.m1key.audiolicious.domain.entities.Stat;
 import me.m1key.audiolicious.domain.to.RatingTo;
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.domain.to.TrackTo;
@@ -67,10 +68,6 @@ public class JpaSongRepositoryIT {
 	private static final String SONG_10_NAME = "The Liar";
 	private static final String SONG_11_NAME = "Miracle Man [Live]";
 
-	private Date albumDateAdded = new Date();
-	private Date albumDateModified = new Date();
-	private Date albumDateSkipped = new Date();
-
 	@Inject
 	private SongRepository jpaSongRepository;
 	@Inject
@@ -88,11 +85,11 @@ public class JpaSongRepositoryIT {
 				.addAsResource("META-INF/persistence.xml",
 						"META-INF/persistence.xml")
 				.addClasses(Album.class, Artist.class, JpaSongRepository.class,
-						NullAlbum.class, NullArtist.class,
+						NullAlbum.class, NullArtist.class, NullSong.class,
 						NullEntitiesFactory.class, Rating.class,
 						RatingTo.class, Song.class, SongRepository.class,
-						SongTo.class, RepositoriesTestHelperBean.class,
-						TrackTo.class)
+						SongTo.class, Stat.class,
+						RepositoriesTestHelperBean.class, TrackTo.class)
 				.addAsLibraries(
 						DependencyResolvers
 								.use(MavenDependencyResolver.class)
@@ -111,9 +108,8 @@ public class JpaSongRepositoryIT {
 		Album album = testHelperBean.createAlbum(ALBUM_NAME, artist,
 				new Rating(80));
 		Song song = new Song(SONG_1_NAME, ARTIST_NAME, album, 1988,
-				"Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", albumDateAdded,
-				albumDateModified, new Rating(80), 9, albumDateSkipped, 0,
-				false, 0, 0, false);
+				"Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0, 0,
+				false);
 		jpaSongRepository.save(song);
 
 		assertNotNull("Saved song should not be null.",
@@ -129,38 +125,27 @@ public class JpaSongRepositoryIT {
 		Album album = testHelperBean.createAlbum(ALBUM_NAME, artist,
 				new Rating(80));
 		Song song01 = new Song(SONG_1_NAME, ARTIST_NAME, album, 1991, "",
-				"Rock", albumDateAdded, albumDateModified, new Rating(100), 9,
-				albumDateSkipped, 0, false, 0, 0, false);
+				"Rock", false, 0, 0, false);
 		Song song02 = new Song(SONG_2_NAME, ARTIST_NAME, album, 1991, "",
-				"Rock", albumDateAdded, albumDateModified, new Rating(80), 1,
-				albumDateSkipped, 0, false, 0, 0, false);
+				"Rock", false, 0, 0, false);
 		Song song03 = new Song(SONG_3_NAME, ARTIST_NAME, album, 1991, "",
-				"Rock", albumDateAdded, albumDateModified, new Rating(60), 8,
-				albumDateSkipped, 0, false, 0, 0, false);
+				"Rock", false, 0, 0, false);
 		Song song04 = new Song(SONG_4_NAME, ARTIST_NAME, album, 1991, "",
-				"Rock", albumDateAdded, albumDateModified, new Rating(80), 76,
-				albumDateSkipped, 0, false, 0, 0, false);
+				"Rock", false, 0, 0, false);
 		Song song05 = new Song(SONG_5_NAME, ARTIST_NAME, album, 1991, "",
-				"Rock", albumDateAdded, albumDateModified, new Rating(100), 11,
-				albumDateSkipped, 0, false, 0, 0, false);
+				"Rock", false, 0, 0, false);
 		Song song06 = new Song(SONG_6_NAME, ARTIST_NAME, album, 1991, "",
-				"Rock", albumDateAdded, albumDateModified, new Rating(60), 2,
-				albumDateSkipped, 0, false, 0, 0, false);
+				"Rock", false, 0, 0, false);
 		Song song07 = new Song(SONG_7_NAME, ARTIST_NAME, album, 1991, "",
-				"Rock", albumDateAdded, albumDateModified, new Rating(100), 21,
-				albumDateSkipped, 0, false, 0, 0, false);
+				"Rock", false, 0, 0, false);
 		Song song08 = new Song(SONG_8_NAME, ARTIST_NAME, album, 1991, "",
-				"Rock", albumDateAdded, albumDateModified, new Rating(60), 0,
-				albumDateSkipped, 0, false, 0, 0, false);
+				"Rock", false, 0, 0, false);
 		Song song09 = new Song(SONG_9_NAME, ARTIST_NAME, album, 1991, "",
-				"Rock", albumDateAdded, albumDateModified, new Rating(80), 1,
-				albumDateSkipped, 0, false, 0, 0, false);
+				"Rock", false, 0, 0, false);
 		Song song10 = new Song(SONG_10_NAME, ARTIST_NAME, album, 1991, "",
-				"Rock", albumDateAdded, albumDateModified, new Rating(80), 14,
-				albumDateSkipped, 0, false, 0, 0, false);
+				"Rock", false, 0, 0, false);
 		Song song11 = new Song(SONG_11_NAME, ARTIST_NAME, album, 1991, "",
-				"Rock", albumDateAdded, albumDateModified, new Rating(60), 2,
-				albumDateSkipped, 0, false, 0, 0, false);
+				"Rock", false, 0, 0, false);
 		jpaSongRepository.save(song01);
 		jpaSongRepository.save(song02);
 		jpaSongRepository.save(song03);

@@ -20,13 +20,6 @@ package me.m1key.audiolicious.domain.entities;
 
 import static org.junit.Assert.assertFalse;
 
-import java.util.Date;
-
-import me.m1key.audiolicious.domain.entities.Album;
-import me.m1key.audiolicious.domain.entities.Artist;
-import me.m1key.audiolicious.domain.entities.Rating;
-import me.m1key.audiolicious.domain.entities.Song;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -42,169 +35,109 @@ public class SongTest {
 
 	@Test
 	public void testNotEquals1() {
-		Date dateAdded = new Date();
-		Date dateModified = new Date();
-		Date skipDate = new Date();
 		Song song1 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		Song song2 = new Song("Invisible2", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		assertFalse(song1.equals(song2));
 	}
 
 	@Test
 	public void testNotEquals2() {
-		Date dateAdded = new Date();
-		Date dateModified = new Date();
-		Date skipDate = new Date();
 		Song song1 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		Song song2 = new Song("Invisible", "Dio2", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		assertFalse(song1.equals(song2));
 	}
 
 	@Test
 	public void testNotEquals3() {
-		Date dateAdded = new Date();
-		Date dateModified = new Date();
-		Date skipDate = new Date();
 		Song song1 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		Song song2 = new Song("Invisible", "Dio", album, 1984,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		assertFalse(song1.equals(song2));
 	}
 
 	@Test
 	public void testNotEquals4() {
-		Date dateAdded = new Date();
-		Date dateModified = new Date();
-		Date skipDate = new Date();
 		Song song1 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		Song song2 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio2", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio2", "Rock", false, 0, 0, false);
 		assertFalse(song1.equals(song2));
 	}
 
 	@Test
 	public void testNotEquals5() {
-		Date dateAdded = new Date();
-		Date dateModified = new Date();
-		Date skipDate = new Date();
 		Song song1 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		Song song2 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock2", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock2", false, 0, 0, false);
 		assertFalse(song1.equals(song2));
 	}
 
 	@Test
 	public void testNotEquals6() {
-		Date dateAdded = new Date();
-		Date dateModified = new Date();
-		Date skipDate = new Date();
 		Song song1 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		Song song2 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(99), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		assertFalse(song1.equals(song2));
 	}
 
 	@Test
 	public void testNotEquals7() {
-		Date dateAdded = new Date();
-		Date dateModified = new Date();
-		Date skipDate = new Date();
 		Song song1 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		Song song2 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 99, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		assertFalse(song1.equals(song2));
 	}
 
 	@Test
 	public void testNotEquals8() {
-		Date dateAdded = new Date();
-		Date dateModified = new Date();
-		Date skipDate = new Date();
 		Song song1 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		Song song2 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 1, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		assertFalse(song1.equals(song2));
 	}
 
 	@Test
 	public void testNotEquals9() {
-		Date dateAdded = new Date();
-		Date dateModified = new Date();
-		Date skipDate = new Date();
 		Song song1 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		Song song2 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, true, 0, 0, false);
+				"Ronnie James Dio", "Rock", true, 0, 0, false);
 		assertFalse(song1.equals(song2));
 	}
 
 	@Test
 	public void testNotEquals10() {
-		Date dateAdded = new Date();
-		Date dateModified = new Date();
-		Date skipDate = new Date();
 		Song song1 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		Song song2 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 1, 0, false);
+				"Ronnie James Dio", "Rock", false, 1, 0, false);
 		assertFalse(song1.equals(song2));
 	}
 
 	@Test
 	public void testNotEquals11() {
-		Date dateAdded = new Date();
-		Date dateModified = new Date();
-		Date skipDate = new Date();
 		Song song1 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		Song song2 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 1, false);
+				"Ronnie James Dio", "Rock", false, 0, 1, false);
 		assertFalse(song1.equals(song2));
 	}
 
 	@Test
 	public void testNotEquals12() {
-		Date dateAdded = new Date();
-		Date dateModified = new Date();
-		Date skipDate = new Date();
 		Song song1 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		Song song2 = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, true);
+				"Ronnie James Dio", "Rock", false, 0, 0, true);
 		assertFalse(song1.equals(song2));
 	}
 

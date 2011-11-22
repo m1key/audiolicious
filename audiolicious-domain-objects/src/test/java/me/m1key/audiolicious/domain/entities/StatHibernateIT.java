@@ -1,33 +1,14 @@
-/* 
- * Audiolicious - Your Music Library Statistics
- * Copyright (C) 2011, Michal Huniewicz
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see http://www.m1key.me
- */
-
 package me.m1key.audiolicious.domain.entities;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Set;
+import java.util.Date;
 
 import org.junit.Test;
 
-public class SongHibernateIT extends HibernateIT {
+public class StatHibernateIT extends HibernateIT {
 
 	private static final String ARTIST_1_NAME = "Ozzy Osbourne";
 	private static final String ARTIST_1_ALBUM_1_NAME = "No Rest for the Wicked";
@@ -70,23 +51,33 @@ public class SongHibernateIT extends HibernateIT {
 	private static final String ARTIST_2_ALBUM_1_SONG_10_NAME = "No Hassle Night";
 	private static final String ARTIST_2_ALBUM_1_SONG_11_NAME = "Will There Be Enough Water?";
 
+	private Date artist1Album1DateAdded = new Date();
+	private Date artist1Album1DateModified = new Date();
+	private Date artist1Album1DateSkipped = new Date();
+	private Date artist1Album2DateAdded = new Date();
+	private Date artist1Album2DateModified = new Date();
+	private Date artist1Album2DateSkipped = new Date();
+	private Date artist2Album1DateAdded = new Date();
+	private Date artist2Album1DateModified = new Date();
+	private Date artist2Album1DateSkipped = new Date();
+
 	@Test
-	public void shouldHaveCorrectNumberOfArtistsAlbumsAndSongs() {
-		createArtistsAlbumsAndSongs();
+	public void shouldHaveCorrectNumberOfArtistsAlbumsSongsAndStats() {
+		createArtistsAlbumsSongsAndStats();
 	}
 
 	@Test
-	public void whenAllArtistsRemovedThereShouldBeNoSongs() {
-		createArtistsAlbumsAndSongs();
+	public void whenAllArtistsRemovedThereShouldBeNoStats() {
+		createArtistsAlbumsSongsAndStats();
 
 		deleteAllArtists();
-		assertEquals("There should be no songs after all artists removed.", 0,
-				getAllSongs().size());
+		assertEquals("There should be no stats after all artists removed.", 0,
+				getAllStats().size());
 	}
 
 	@Test
-	public void shouldDeleteOnlyOneArtistAndAllOfItsSongsAndAlbums() {
-		createArtistsAlbumsAndSongs();
+	public void shouldDeleteOnlyOneArtistAndAllOfItsStatsSongsAndAlbums() {
+		createArtistsAlbumsSongsAndStats();
 
 		deleteArtistByName(ARTIST_1_NAME);
 
@@ -98,148 +89,45 @@ public class SongHibernateIT extends HibernateIT {
 		assertEquals(
 				"There should be 11 songs after one artist has been deleted.",
 				11, getAllSongs().size());
+		assertEquals(
+				"There should be 11 stats after one artist has been deleted.",
+				11, getAllStats().size());
 	}
 
 	@Test
-	public void shouldReturnValidSong05FromAlbum1Artist2() {
-		createArtistsAlbumsAndSongs();
+	public void shouldReturnValidSong05StatFromAlbum1Artist2() {
+		createArtistsAlbumsSongsAndStats();
 
 		Song song = getSongByArtistNameAlbumNameSongName(ARTIST_2_NAME,
 				ARTIST_2_ALBUM_1_NAME, ARTIST_2_ALBUM_1_SONG_5_NAME);
 
 		assertNotNull(String.format("Song [%s] should not be null.",
 				ARTIST_2_ALBUM_1_SONG_5_NAME), song);
-		assertEquals(
-				String.format(
-						"Song [%s] album should equal album it was requested with.",
-						ARTIST_2_ALBUM_1_SONG_5_NAME),
-				song.getAlbum(),
-				getAlbumByArtistNameAlbumName(ARTIST_2_NAME,
-						ARTIST_2_ALBUM_1_NAME));
-		assertEquals(
-				String.format(
-						"Song [%s] album artist should equal artist it was requested with.",
-						ARTIST_2_ALBUM_1_SONG_5_NAME), song.getArtistName(),
-				ARTIST_2_NAME);
+
+		assertTrue("There should be at least one stat for this song.", song
+				.getStats().iterator().hasNext());
+
+		Stat stat = song.getStats().iterator().next();
+
+		assertEquals(String.format("Song [%s] date added should be correct.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), stat.getDateAdded(),
+				artist2Album1DateAdded);
 		assertEquals(String.format(
-				"Song [%s] composer should be an empty string.",
-				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getComposer(), "");
-		assertEquals(String.format("Song [%s] genre should be correct.",
-				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getGenre(), "Alternative");
-		assertEquals(String.format("Song [%s] name should be correct.",
-				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getName(),
-				ARTIST_2_ALBUM_1_SONG_5_NAME);
-		assertEquals(String.format(
-				"Song [%s] should have video height count equal 0.",
-				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getVideoHeight(), 0);
-		assertEquals(String.format(
-				"Song [%s] should have video width count equal 0.",
-				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getVideoWidth(), 0);
-		assertEquals(String.format("Song [%s] should have year equal 2009.",
-				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getYear(), 2009);
-		assertNotNull(String.format("Song [%s] UUID should not be null.",
-				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getUuid());
-		assertFalse(String.format("Song [%s] HD should be false.",
-				ARTIST_2_ALBUM_1_SONG_5_NAME), song.isHd());
-		assertFalse(String.format("Song [%s] should have no video.",
-				ARTIST_2_ALBUM_1_SONG_5_NAME), song.hasVideo());
+				"Song [%s] date modified should be correct.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), stat.getDateModified(),
+				artist2Album1DateModified);
+		assertEquals(String.format("Song [%s] date skipped should be correct.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), stat.getDateSkipped(),
+				artist2Album1DateSkipped);
+		assertEquals(String.format("Song [%s] should have play count equal 9.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), stat.getPlayCount(), 9);
+		assertEquals(String.format("Song [%s] should have rating equal 80.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), stat.getRating(), new Rating(80));
+		assertEquals(String.format("Song [%s] should have skip count equal 0.",
+				ARTIST_2_ALBUM_1_SONG_5_NAME), stat.getSkipCount(), 0);
 	}
 
-	@Test
-	public void testGetSongs() {
-		createArtistsAlbumsAndSongs();
-
-		getEntityManager().getTransaction().begin();
-
-		Album album = getAlbumByArtistNameAlbumNameInsideExistingTransaction(
-				ARTIST_1_NAME, ARTIST_1_ALBUM_1_NAME);
-
-		Set<Song> songs = getAndVerifyAlbumSongs(album, 11);
-
-		verifySong1Correct(album, songs);
-		verifySong2Correct(album, songs);
-
-		getEntityManager().getTransaction().commit();
-	}
-
-	@Test
-	public void savingAlbumShouldSaveArtist() {
-		getEntityManager().getTransaction().begin();
-		Artist artist = new Artist(ARTIST_1_NAME);
-		getEntityManager().persist(artist);
-		Album album = new Album(ARTIST_1_ALBUM_1_NAME, artist, new Rating(80));
-		getEntityManager().persist(album);
-		Song song = new Song(ARTIST_1_ALBUM_1_SONG_1_NAME, ARTIST_1_NAME,
-				album, 1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock",
-				false, 0, 0, false);
-		getEntityManager().persist(song);
-		getEntityManager().getTransaction().commit();
-
-		assertNotNull("Artist should be persisted.",
-				getArtistByName(ARTIST_1_NAME));
-		assertNotNull(
-				"Album should be persisted.",
-				getAlbumByArtistNameAlbumName(ARTIST_1_NAME,
-						ARTIST_1_ALBUM_1_NAME));
-		assertNotNull(
-				"Song should be persisted.",
-				getSongByArtistNameAlbumNameSongName(ARTIST_1_NAME,
-						ARTIST_1_ALBUM_1_NAME, ARTIST_1_ALBUM_1_SONG_1_NAME));
-	}
-
-	private Album getAlbumByArtistNameAlbumNameInsideExistingTransaction(
-			String artistName, String albumName) {
-		Artist artist = (Artist) getEntityManager()
-				.createQuery("FROM Artist WHERE name = :name")
-				.setParameter("name", artistName).getResultList().get(0);
-		Album album = (Album) getEntityManager()
-				.createQuery(
-						"FROM Album WHERE artist = :artist AND name = :name")
-				.setParameter("artist", artist).setParameter("name", albumName)
-				.getResultList().get(0);
-		return album;
-	}
-
-	private Set<Song> getAndVerifyAlbumSongs(Album album,
-			int expectedNumberOfSongs) {
-		Set<Song> songs = album.getSongs();
-		assertNotNull("Songs obtained via getter should not be null.", songs);
-		assertEquals(String.format(
-				"There should be [%s] songs obtained via getter.",
-				expectedNumberOfSongs), expectedNumberOfSongs, songs.size());
-		return songs;
-	}
-
-	private void verifySong1Correct(Album album, Set<Song> songs) {
-		Song song1 = getSong(songs, ARTIST_1_ALBUM_1_SONG_1_NAME);
-		assertNotNull(String.format("Song [%s] should not be null.",
-				ARTIST_1_ALBUM_1_SONG_1_NAME), song1);
-		assertFalse(String.format("Song [%s] should not have video.",
-				ARTIST_1_ALBUM_1_SONG_1_NAME), song1.hasVideo());
-		assertEquals("song1.getAlbum() should equal album.", song1.getAlbum(),
-				album);
-	}
-
-	private void verifySong2Correct(Album album, Set<Song> songs) {
-		Song song2 = getSong(songs, ARTIST_1_ALBUM_1_SONG_2_NAME);
-		assertNotNull(String.format("Song [%s] should not be null.",
-				ARTIST_1_ALBUM_1_SONG_2_NAME), song2);
-		assertTrue(String.format("Song [%s] should have video.",
-				ARTIST_1_ALBUM_1_SONG_2_NAME), song2.hasVideo());
-		assertEquals("song2.getAlbum() should equal album.", song2.getAlbum(),
-				album);
-	}
-
-	private Song getSong(Set<Song> songs, String songName) {
-		for (Song song : songs) {
-			if (song.getName().equals(songName)) {
-				return song;
-			}
-		}
-		return null;
-	}
-
-	private void createArtistsAlbumsAndSongs() {
+	private void createArtistsAlbumsSongsAndStats() {
 		assertEquals("There should be no albums before any are created.", 0,
 				getAllAlbums().size());
 
@@ -322,6 +210,29 @@ public class SongHibernateIT extends HibernateIT {
 				artist1Album1, 1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne",
 				"Rock", false, 0, 0, false);
 
+		song01.addStat(artist1Album1DateAdded, artist1Album1DateModified,
+				artist1Album1DateSkipped, 0, new Rating(80), 12);
+		song02.addStat(artist1Album1DateAdded, artist1Album1DateModified,
+				artist1Album1DateSkipped, 0, new Rating(80), 3);
+		song03.addStat(artist1Album1DateAdded, artist1Album1DateModified,
+				artist1Album1DateSkipped, 0, new Rating(80), 4);
+		song04.addStat(artist1Album1DateAdded, artist1Album1DateModified,
+				artist1Album1DateSkipped, 0, new Rating(80), 8);
+		song05.addStat(artist1Album1DateAdded, artist1Album1DateModified,
+				artist1Album1DateSkipped, 0, new Rating(80), 91);
+		song06.addStat(artist1Album1DateAdded, artist1Album1DateModified,
+				artist1Album1DateSkipped, 0, new Rating(80), 11);
+		song07.addStat(artist1Album1DateAdded, artist1Album1DateModified,
+				artist1Album1DateSkipped, 0, new Rating(80), 1);
+		song08.addStat(artist1Album1DateAdded, artist1Album1DateModified,
+				artist1Album1DateSkipped, 0, new Rating(80), 2);
+		song09.addStat(artist1Album1DateAdded, artist1Album1DateModified,
+				artist1Album1DateSkipped, 0, new Rating(80), 5);
+		song10.addStat(artist1Album1DateAdded, artist1Album1DateModified,
+				artist1Album1DateSkipped, 0, new Rating(80), 6);
+		song11.addStat(artist1Album1DateAdded, artist1Album1DateModified,
+				artist1Album1DateSkipped, 0, new Rating(80), 7);
+
 		artist1Album1.addSong(song01);
 		artist1Album1.addSong(song02);
 		artist1Album1.addSong(song03);
@@ -364,6 +275,33 @@ public class SongHibernateIT extends HibernateIT {
 		Song song13 = new Song(ARTIST_1_ALBUM_2_SONG_13_NAME, ARTIST_1_NAME,
 				artist1Album2, 1991, "", "Rock", false, 0, 0, false);
 
+		song01.addStat(artist1Album2DateAdded, artist1Album2DateModified,
+				artist1Album2DateSkipped, 0, new Rating(80), 19);
+		song02.addStat(artist1Album2DateAdded, artist1Album2DateModified,
+				artist1Album2DateSkipped, 0, new Rating(80), 29);
+		song03.addStat(artist1Album2DateAdded, artist1Album2DateModified,
+				artist1Album2DateSkipped, 0, new Rating(80), 39);
+		song04.addStat(artist1Album2DateAdded, artist1Album2DateModified,
+				artist1Album2DateSkipped, 0, new Rating(80), 49);
+		song05.addStat(artist1Album2DateAdded, artist1Album2DateModified,
+				artist1Album2DateSkipped, 0, new Rating(80), 59);
+		song06.addStat(artist1Album2DateAdded, artist1Album2DateModified,
+				artist1Album2DateSkipped, 0, new Rating(80), 69);
+		song07.addStat(artist1Album2DateAdded, artist1Album2DateModified,
+				artist1Album2DateSkipped, 0, new Rating(80), 79);
+		song08.addStat(artist1Album2DateAdded, artist1Album2DateModified,
+				artist1Album2DateSkipped, 0, new Rating(80), 89);
+		song09.addStat(artist1Album2DateAdded, artist1Album2DateModified,
+				artist1Album2DateSkipped, 0, new Rating(80), 99);
+		song10.addStat(artist1Album2DateAdded, artist1Album2DateModified,
+				artist1Album2DateSkipped, 0, new Rating(80), 100);
+		song11.addStat(artist1Album2DateAdded, artist1Album2DateModified,
+				artist1Album2DateSkipped, 0, new Rating(80), 101);
+		song12.addStat(artist1Album2DateAdded, artist1Album2DateModified,
+				artist1Album2DateSkipped, 0, new Rating(80), 109);
+		song13.addStat(artist1Album2DateAdded, artist1Album2DateModified,
+				artist1Album2DateSkipped, 0, new Rating(80), 119);
+
 		artist1Album2.addSong(song01);
 		artist1Album2.addSong(song02);
 		artist1Album2.addSong(song03);
@@ -404,6 +342,29 @@ public class SongHibernateIT extends HibernateIT {
 		Song song11 = new Song(ARTIST_2_ALBUM_1_SONG_11_NAME, ARTIST_2_NAME,
 				artist2Album1, 2009, "", "Alternative", false, 0, 0, false);
 
+		song01.addStat(artist2Album1DateAdded, artist2Album1DateModified,
+				artist2Album1DateSkipped, 0, new Rating(80), 19);
+		song02.addStat(artist2Album1DateAdded, artist2Album1DateModified,
+				artist2Album1DateSkipped, 0, new Rating(80), 29);
+		song03.addStat(artist2Album1DateAdded, artist2Album1DateModified,
+				artist2Album1DateSkipped, 0, new Rating(80), 39);
+		song04.addStat(artist2Album1DateAdded, artist2Album1DateModified,
+				artist2Album1DateSkipped, 0, new Rating(80), 49);
+		song05.addStat(artist2Album1DateAdded, artist2Album1DateModified,
+				artist2Album1DateSkipped, 0, new Rating(80), 9);
+		song06.addStat(artist2Album1DateAdded, artist2Album1DateModified,
+				artist2Album1DateSkipped, 0, new Rating(80), 59);
+		song07.addStat(artist2Album1DateAdded, artist2Album1DateModified,
+				artist2Album1DateSkipped, 0, new Rating(80), 69);
+		song08.addStat(artist2Album1DateAdded, artist2Album1DateModified,
+				artist2Album1DateSkipped, 0, new Rating(80), 79);
+		song09.addStat(artist2Album1DateAdded, artist2Album1DateModified,
+				artist2Album1DateSkipped, 0, new Rating(80), 89);
+		song10.addStat(artist2Album1DateAdded, artist2Album1DateModified,
+				artist2Album1DateSkipped, 0, new Rating(80), 99);
+		song11.addStat(artist2Album1DateAdded, artist2Album1DateModified,
+				artist2Album1DateSkipped, 0, new Rating(80), 109);
+
 		artist2Album1.addSong(song01);
 		artist2Album1.addSong(song02);
 		artist2Album1.addSong(song03);
@@ -416,4 +377,5 @@ public class SongHibernateIT extends HibernateIT {
 		artist2Album1.addSong(song10);
 		artist2Album1.addSong(song11);
 	}
+
 }

@@ -27,11 +27,13 @@ import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
+import me.m1key.audiolicious.commons.qualifiers.NullSong;
 import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
 import me.m1key.audiolicious.domain.entities.Rating;
 import me.m1key.audiolicious.domain.entities.Song;
+import me.m1key.audiolicious.domain.entities.Stat;
 import me.m1key.audiolicious.domain.to.RatingTo;
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.domain.to.TrackTo;
@@ -76,8 +78,9 @@ public class JpaAlbumRepositoryIT {
 						"META-INF/persistence.xml")
 				.addClasses(Album.class, AlbumRepository.class, Artist.class,
 						JpaAlbumRepository.class, NullAlbum.class,
-						NullArtist.class, NullEntitiesFactory.class,
-						Rating.class, RatingTo.class, Song.class, SongTo.class,
+						NullArtist.class, NullSong.class,
+						NullEntitiesFactory.class, Rating.class,
+						RatingTo.class, Song.class, SongTo.class, Stat.class,
 						RepositoriesTestHelperBean.class, TrackTo.class)
 				.addAsLibraries(
 						DependencyResolvers

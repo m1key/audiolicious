@@ -22,13 +22,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Date;
-
-import me.m1key.audiolicious.domain.entities.Album;
-import me.m1key.audiolicious.domain.entities.Artist;
-import me.m1key.audiolicious.domain.entities.Rating;
-import me.m1key.audiolicious.domain.entities.Song;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -50,28 +43,20 @@ public class AlbumTest {
 
 	@Test
 	public void testSongBelongsToAlbum() {
-		Date dateAdded = new Date();
-		Date dateModified = new Date();
-		Date skipDate = new Date();
 		Album album = new Album("Holy Diver", artist, new Rating(100));
 		Song song = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		album.addSong(song);
 		assertTrue(album.getSongs().contains(song));
 	}
 
 	@Test
 	public void testSongBelongsToOnlyOneAlbum() {
-		Date dateAdded = new Date();
-		Date dateModified = new Date();
-		Date skipDate = new Date();
 		Album album1 = new Album("Holy Diver", artist, new Rating(100));
 		Album album2 = new Album("Strange Highways", artist, new Rating(100));
 		Album album = new Album("Holy Diver", artist, new Rating(100));
 		Song song = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		album1.addSong(song);
 		album2.addSong(song);
 		assertFalse(album1.getSongs().contains(song));
@@ -81,13 +66,9 @@ public class AlbumTest {
 
 	@Test(expected = UnsupportedOperationException.class)
 	public void testCannotModifySongsSet() {
-		Date dateAdded = new Date();
-		Date dateModified = new Date();
-		Date skipDate = new Date();
 		Album album = new Album("Holy Diver", artist, new Rating(100));
 		Song song = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", dateAdded, dateModified,
-				new Rating(100), 100, skipDate, 0, false, 0, 0, false);
+				"Ronnie James Dio", "Rock", false, 0, 0, false);
 		album.getSongs().add(song);
 	}
 

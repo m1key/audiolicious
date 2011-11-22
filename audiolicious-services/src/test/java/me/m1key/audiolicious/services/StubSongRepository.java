@@ -19,50 +19,64 @@
 package me.m1key.audiolicious.services;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import javax.ejb.Local;
 import javax.ejb.Singleton;
+import javax.inject.Inject;
 
+import me.m1key.audiolicious.commons.qualifiers.NullSong;
+import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Song;
 
 @Singleton
 @Local({ SongRepository.class, StubSongRepository.class })
 public class StubSongRepository implements SongRepository {
 
-	private Map<String, Integer> songsPerAlbum;
-	private Map<String, Integer> albumsPerArtist;
+	@Inject
+	@NullSong
+	private Song nullSong;
+
+	private Map<String, Integer> numberOfSongsPerAlbum;
+	private Map<String, Integer> numberOfAlbumsPerArtist;
+	private Map<Album, Set<Song>> songsPerAlbum;
 
 	public StubSongRepository() {
-		songsPerAlbum = new HashMap<String, Integer>();
-		albumsPerArtist = new HashMap<String, Integer>();
+		numberOfSongsPerAlbum = new HashMap<String, Integer>();
+		numberOfAlbumsPerArtist = new HashMap<String, Integer>();
+		songsPerAlbum = new HashMap<Album, Set<Song>>();
 	}
 
 	@Override
 	public void save(Song song) {
 		countSongsPerAlbum(song);
 		countAlbumsPerArtist(song);
+		addSongToAlbum(song);
 	}
 
 	public Integer getNumberOfSongs(String artist, String albumName) {
-		return songsPerAlbum.get(createArtistAlbumKey(artist, albumName));
+		return numberOfSongsPerAlbum
+				.get(createArtistAlbumKey(artist, albumName));
 	}
 
 	public Integer getNumberOfAlbums() {
-		return songsPerAlbum.size();
+		return numberOfSongsPerAlbum.size();
 	}
 
 	public Integer getNumberOfArtists() {
-		return albumsPerArtist.size();
+		return numberOfAlbumsPerArtist.size();
 	}
 
 	private void countAlbumsPerArtist(Song song) {
 		String albumArtist = song.getAlbum().getArtist().getName();
-		if (albumsPerArtist.containsKey(albumArtist)) {
-			Integer albumsPerThisArtist = albumsPerArtist.get(albumArtist);
-			albumsPerArtist.put(albumArtist, ++albumsPerThisArtist);
+		if (numberOfAlbumsPerArtist.containsKey(albumArtist)) {
+			Integer albumsPerThisArtist = numberOfAlbumsPerArtist
+					.get(albumArtist);
+			numberOfAlbumsPerArtist.put(albumArtist, ++albumsPerThisArtist);
 		} else {
-			albumsPerArtist.put(albumArtist, 1);
+			numberOfAlbumsPerArtist.put(albumArtist, 1);
 		}
 	}
 
@@ -70,11 +84,11 @@ public class StubSongRepository implements SongRepository {
 		String key = createArtistAlbumKey(
 				song.getAlbum().getArtist().getName(), song.getAlbum()
 						.getName());
-		if (songsPerAlbum.containsKey(key)) {
-			Integer songsPerThisAlbum = songsPerAlbum.get(key);
-			songsPerAlbum.put(key, ++songsPerThisAlbum);
+		if (numberOfSongsPerAlbum.containsKey(key)) {
+			Integer songsPerThisAlbum = numberOfSongsPerAlbum.get(key);
+			numberOfSongsPerAlbum.put(key, ++songsPerThisAlbum);
 		} else {
-			songsPerAlbum.put(key, 1);
+			numberOfSongsPerAlbum.put(key, 1);
 		}
 	}
 
@@ -82,4 +96,26 @@ public class StubSongRepository implements SongRepository {
 		return String.format("%s___%s", artist, albumName);
 	}
 
+	private void addSongToAlbum(Song song) {
+		Set<Song> songsForThisAlbum = songsPerAlbum.get(song.getAlbum());
+		if (songsForThisAlbum == null) {
+			songsForThisAlbum = new HashSet<Song>();
+			songsPerAlbum.put(song.getAlbum(), songsForThisAlbum);
+		}
+
+		songsForThisAlbum.add(song);
+	}
+
+	@Override
+	public Song getSong(Album album, String songName) {
+		Set<Song> songsForThisAlbum = songsPerAlbum.get(album);
+		if (songsForThisAlbum != null) {
+			for (Song song : songsForThisAlbum) {
+				if (song.getName().equals(songName)) {
+					return song;
+				}
+			}
+		}
+		return nullSong;
+	}
 }

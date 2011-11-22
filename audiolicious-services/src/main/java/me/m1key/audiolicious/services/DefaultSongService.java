@@ -25,6 +25,7 @@ import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
+import me.m1key.audiolicious.commons.qualifiers.NullSong;
 import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.Rating;
@@ -49,14 +50,19 @@ public class DefaultSongService implements SongService {
 	@Inject
 	@NullArtist
 	private Artist nullArtist;
+	@Inject
+	@NullSong
+	private Song nullSong;
 
 	@Override
 	public void addSong(SongTo songTo) {
 		Artist artist = getOrCreateArtistByName(getAlbumArtistName(songTo));
 		Album album = getOrCreateAlbum(songTo, artist);
+		Song song = getOrCreateSong(songTo, album);
 
-		Song song = new Song(songTo);
 		song.setAlbum(album);
+		song.addStat(songTo);
+
 		songRepository.save(song);
 	}
 
@@ -90,5 +96,13 @@ public class DefaultSongService implements SongService {
 
 	private Album getAlbumByName(Artist artist, String albumName) {
 		return albumRepository.getAlbum(artist, albumName);
+	}
+
+	private Song getOrCreateSong(SongTo songTo, Album album) {
+		Song song = songRepository.getSong(album, songTo.getName());
+		if (song.equals(nullSong)) {
+			song = new Song(songTo);
+		}
+		return song;
 	}
 }
