@@ -32,7 +32,7 @@ public class StubAudiobookHandler implements AudiobookHandler {
 	private int count;
 
 	@Override
-	public void handle(AudiobookTo track) {
+	public void handle(AudiobookTo track, String libraryUuid) {
 		count++;
 	}
 

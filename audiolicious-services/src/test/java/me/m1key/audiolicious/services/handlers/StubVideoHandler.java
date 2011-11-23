@@ -32,7 +32,7 @@ public class StubVideoHandler implements VideoHandler {
 	private int count;
 
 	@Override
-	public void handle(VideoTo track) {
+	public void handle(VideoTo track, String libraryUuid) {
 		count++;
 	}
 

@@ -26,6 +26,8 @@ import javax.ejb.Singleton;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 
+import me.m1key.audiolicious.domain.entities.Library;
+import me.m1key.audiolicious.domain.to.LibraryTo;
 import me.m1key.audiolicious.libraryparser.LibraryParser;
 
 @Singleton
@@ -34,11 +36,15 @@ public class DefaultLibraryImporter implements LibraryImporter {
 
 	@EJB
 	private LibraryParser libraryParser;
+	@EJB
+	private LibraryService libraryService;
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public void importLibrary(File libraryFile) {
-		libraryParser.process(libraryFile);
+	public LibraryTo importLibrary(File libraryFile) {
+		Library library = libraryService.createLibrary();
+		libraryParser.process(libraryFile, library.getUuid());
+		return new LibraryTo(library);
 	}
 
 }

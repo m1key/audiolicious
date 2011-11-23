@@ -36,7 +36,7 @@ public class DefaultNoopTrackHandler implements TrackHandler<TrackTo> {
 			.getLogger(DefaultNoopTrackHandler.class);
 
 	@Override
-	public void handle(TrackTo track) {
+	public void handle(TrackTo track, String libraryUuid) {
 		log.warn("Ignoring track [{}].", track);
 	}
 

@@ -28,12 +28,17 @@ import javax.inject.Inject;
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
+import me.m1key.audiolicious.commons.qualifiers.NullLibrary;
+import me.m1key.audiolicious.commons.qualifiers.NullSong;
 import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
+import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
 import me.m1key.audiolicious.domain.entities.Rating;
 import me.m1key.audiolicious.domain.entities.Song;
+import me.m1key.audiolicious.domain.entities.Stat;
 import me.m1key.audiolicious.domain.to.AudiobookTo;
+import me.m1key.audiolicious.domain.to.LibraryTo;
 import me.m1key.audiolicious.domain.to.PodcastTo;
 import me.m1key.audiolicious.domain.to.RatingTo;
 import me.m1key.audiolicious.domain.to.SongTo;
@@ -134,23 +139,27 @@ public class DefaultSongServiceWindowsCountIT {
 						DefaultAudiobookMapper.class,
 						DefaultEnglishValuesProvider.class,
 						DefaultLibraryImporter.class,
+						DefaultLibraryService.class,
 						DefaultObjectTrackDataHandler.class,
 						DefaultPodcastMapper.class,
 						DefaultRawTrackDataHandler.class,
 						DefaultSongMapper.class, DefaultSongService.class,
 						DefaultVideoMapper.class, EnglishValuesProvider.class,
-						I18nDataExtractor.class, LibraryImporter.class,
-						LibraryParser.class, NonAggregateTrackMapper.class,
+						I18nDataExtractor.class, Library.class,
+						LibraryImporter.class, LibraryParser.class,
+						LibraryService.class, LibraryRepository.class,
+						LibraryTo.class, NonAggregateTrackMapper.class,
 						NullAlbum.class, NullArtist.class,
-						NullEntitiesFactory.class,
-						ObjectMappingException.class,
+						NullEntitiesFactory.class, NullLibrary.class,
+						NullSong.class, ObjectMappingException.class,
 						ObjectTrackDataHandler.class, PodcastHandler.class,
 						PodcastMapper.class, PodcastTo.class, Rating.class,
 						RatingTo.class, RawTrackDataHandler.class, Song.class,
 						SongHandler.class, SongMapper.class,
 						SongRepository.class, SongService.class, SongTo.class,
-						StubAlbumRepository.class, StubArtistRepository.class,
-						StubAudiobookHandler.class, StubPodcastHandler.class,
+						Stat.class, StubAlbumRepository.class,
+						StubArtistRepository.class, StubAudiobookHandler.class,
+						StubLibraryRepository.class, StubPodcastHandler.class,
 						StubSongHandler.class, StubSongRepository.class,
 						StubTrackHandlersFactory.class, StubVideoHandler.class,
 						TrackHandler.class, TrackMapper.class,

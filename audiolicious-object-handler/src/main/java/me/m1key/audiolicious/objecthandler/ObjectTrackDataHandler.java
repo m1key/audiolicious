@@ -22,6 +22,6 @@ import me.m1key.audiolicious.domain.to.TrackTo;
 
 public interface ObjectTrackDataHandler {
 
-	void handle(TrackTo track);
+	void handle(TrackTo track, String libraryUuid);
 
 }

@@ -33,8 +33,8 @@ public class DefaultSongHandler implements SongHandler {
 	private SongService songService;
 
 	@Override
-	public void handle(SongTo songTo) {
-		songService.addSong(songTo);
+	public void handle(SongTo songTo, String libraryUuid) {
+		songService.addSong(songTo, libraryUuid);
 	}
 
 }

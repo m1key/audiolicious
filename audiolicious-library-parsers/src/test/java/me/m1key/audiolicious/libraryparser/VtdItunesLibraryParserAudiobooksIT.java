@@ -24,6 +24,7 @@ import static org.junit.Assert.assertNull;
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.inject.Inject;
 
@@ -45,6 +46,8 @@ import org.junit.runner.RunWith;
 public class VtdItunesLibraryParserAudiobooksIT {
 
 	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/Audiobooks-2011-05-29.xml";
+
+	private static final String LIBRARY_UUID = UUID.randomUUID().toString();
 
 	@Inject
 	private LibraryParser parser;
@@ -76,7 +79,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 	@Before
 	public void setup() {
 		File libraryFile = new File(pathToFile);
-		parser.process(libraryFile);
+		parser.process(libraryFile, LIBRARY_UUID);
 	}
 
 	@Test

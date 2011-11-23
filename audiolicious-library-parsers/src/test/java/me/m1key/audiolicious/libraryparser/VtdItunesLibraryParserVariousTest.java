@@ -23,6 +23,7 @@ import static org.junit.Assert.assertNull;
 
 import java.io.File;
 import java.util.Map;
+import java.util.UUID;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
 
@@ -32,6 +33,7 @@ import org.junit.Test;
 public class VtdItunesLibraryParserVariousTest {
 
 	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/Fragment_1.xml";
+	private static final String LIBRARY_UUID = UUID.randomUUID().toString();
 	private static VtdItunesLibraryParser parser;
 	private static StubRawTrackDataHandler stubRawTrackDataHandler;
 
@@ -41,7 +43,7 @@ public class VtdItunesLibraryParserVariousTest {
 		File file = new File(pathToFile);
 		parser = new VtdItunesLibraryParser();
 		parser.setCallback(stubRawTrackDataHandler);
-		parser.process(file);
+		parser.process(file, LIBRARY_UUID);
 	}
 
 	@Test

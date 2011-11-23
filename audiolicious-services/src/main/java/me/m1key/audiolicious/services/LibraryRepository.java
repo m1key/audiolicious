@@ -16,28 +16,14 @@
  * along with this program.  If not, see http://www.m1key.me
  */
 
-package me.m1key.audiolicious.objecthandler;
+package me.m1key.audiolicious.services;
 
-import java.util.Map;
+import me.m1key.audiolicious.domain.entities.Library;
 
-import javax.ejb.Local;
-import javax.ejb.Singleton;
-import javax.inject.Inject;
+public interface LibraryRepository {
 
-import me.m1key.audiolicious.domain.to.TrackTo;
+	Library getByUuid(String libraryUuid);
 
-@Singleton
-@Local(ObjectTrackDataHandler.class)
-public class DefaultObjectTrackDataHandler implements ObjectTrackDataHandler {
+	void save(Library library);
 
-	@Inject
-	private Map<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>> handlersForAllKnownTos;
-
-	@Override
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void handle(TrackTo track, String libraryUuid) {
-		TrackHandler handlerForThisTo = handlersForAllKnownTos.get(track
-				.getClass());
-		handlerForThisTo.handle(track, libraryUuid);
-	}
 }

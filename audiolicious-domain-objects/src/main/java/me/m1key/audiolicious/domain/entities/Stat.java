@@ -66,12 +66,17 @@ public class Stat {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	private Song song;
 
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	private Library library;
+
 	// For proxying.
 	protected Stat() {
 	}
 
-	protected Stat(Song song, Date dateAdded, Date dateModified,
-			Date dateSkipped, int skipCount, Rating rating, int playCount) {
+	protected Stat(Library library, Song song, Date dateAdded,
+			Date dateModified, Date dateSkipped, int skipCount, Rating rating,
+			int playCount) {
+		this.library = library;
 		this.song = song;
 		this.dateAdded = dateAdded;
 		this.dateModified = dateModified;
@@ -81,7 +86,8 @@ public class Stat {
 		this.playCount = playCount;
 	}
 
-	protected Stat(Song song, SongTo songTo) {
+	protected Stat(Library library, Song song, SongTo songTo) {
+		this.library = library;
 		this.song = song;
 		this.dateAdded = songTo.getDateAdded();
 		this.dateModified = songTo.getDateModified();
@@ -117,6 +123,14 @@ public class Stat {
 
 	public Song getSong() {
 		return song;
+	}
+
+	public Library getLibrary() {
+		return library;
+	}
+
+	public void setLibrary(Library library) {
+		this.library = library;
 	}
 
 	@Override

@@ -61,6 +61,8 @@ public class StatHibernateIT extends HibernateIT {
 	private Date artist2Album1DateModified = new Date();
 	private Date artist2Album1DateSkipped = new Date();
 
+	private Library library = new Library(new Date());
+
 	@Test
 	public void shouldHaveCorrectNumberOfArtistsAlbumsSongsAndStats() {
 		createArtistsAlbumsSongsAndStats();
@@ -132,6 +134,8 @@ public class StatHibernateIT extends HibernateIT {
 				getAllAlbums().size());
 
 		getEntityManager().getTransaction().begin();
+
+		getEntityManager().persist(library);
 
 		Artist artist1 = new Artist(ARTIST_1_NAME);
 		getEntityManager().persist(artist1);
@@ -210,28 +214,39 @@ public class StatHibernateIT extends HibernateIT {
 				artist1Album1, 1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne",
 				"Rock", false, 0, 0, false);
 
-		song01.addStat(artist1Album1DateAdded, artist1Album1DateModified,
-				artist1Album1DateSkipped, 0, new Rating(80), 12);
-		song02.addStat(artist1Album1DateAdded, artist1Album1DateModified,
-				artist1Album1DateSkipped, 0, new Rating(80), 3);
-		song03.addStat(artist1Album1DateAdded, artist1Album1DateModified,
-				artist1Album1DateSkipped, 0, new Rating(80), 4);
-		song04.addStat(artist1Album1DateAdded, artist1Album1DateModified,
-				artist1Album1DateSkipped, 0, new Rating(80), 8);
-		song05.addStat(artist1Album1DateAdded, artist1Album1DateModified,
-				artist1Album1DateSkipped, 0, new Rating(80), 91);
-		song06.addStat(artist1Album1DateAdded, artist1Album1DateModified,
-				artist1Album1DateSkipped, 0, new Rating(80), 11);
-		song07.addStat(artist1Album1DateAdded, artist1Album1DateModified,
-				artist1Album1DateSkipped, 0, new Rating(80), 1);
-		song08.addStat(artist1Album1DateAdded, artist1Album1DateModified,
-				artist1Album1DateSkipped, 0, new Rating(80), 2);
-		song09.addStat(artist1Album1DateAdded, artist1Album1DateModified,
-				artist1Album1DateSkipped, 0, new Rating(80), 5);
-		song10.addStat(artist1Album1DateAdded, artist1Album1DateModified,
-				artist1Album1DateSkipped, 0, new Rating(80), 6);
-		song11.addStat(artist1Album1DateAdded, artist1Album1DateModified,
-				artist1Album1DateSkipped, 0, new Rating(80), 7);
+		song01.addStat(library, artist1Album1DateAdded,
+				artist1Album1DateModified, artist1Album1DateSkipped, 0,
+				new Rating(80), 12);
+		song02.addStat(library, artist1Album1DateAdded,
+				artist1Album1DateModified, artist1Album1DateSkipped, 0,
+				new Rating(80), 3);
+		song03.addStat(library, artist1Album1DateAdded,
+				artist1Album1DateModified, artist1Album1DateSkipped, 0,
+				new Rating(80), 4);
+		song04.addStat(library, artist1Album1DateAdded,
+				artist1Album1DateModified, artist1Album1DateSkipped, 0,
+				new Rating(80), 8);
+		song05.addStat(library, artist1Album1DateAdded,
+				artist1Album1DateModified, artist1Album1DateSkipped, 0,
+				new Rating(80), 91);
+		song06.addStat(library, artist1Album1DateAdded,
+				artist1Album1DateModified, artist1Album1DateSkipped, 0,
+				new Rating(80), 11);
+		song07.addStat(library, artist1Album1DateAdded,
+				artist1Album1DateModified, artist1Album1DateSkipped, 0,
+				new Rating(80), 1);
+		song08.addStat(library, artist1Album1DateAdded,
+				artist1Album1DateModified, artist1Album1DateSkipped, 0,
+				new Rating(80), 2);
+		song09.addStat(library, artist1Album1DateAdded,
+				artist1Album1DateModified, artist1Album1DateSkipped, 0,
+				new Rating(80), 5);
+		song10.addStat(library, artist1Album1DateAdded,
+				artist1Album1DateModified, artist1Album1DateSkipped, 0,
+				new Rating(80), 6);
+		song11.addStat(library, artist1Album1DateAdded,
+				artist1Album1DateModified, artist1Album1DateSkipped, 0,
+				new Rating(80), 7);
 
 		artist1Album1.addSong(song01);
 		artist1Album1.addSong(song02);
@@ -275,32 +290,45 @@ public class StatHibernateIT extends HibernateIT {
 		Song song13 = new Song(ARTIST_1_ALBUM_2_SONG_13_NAME, ARTIST_1_NAME,
 				artist1Album2, 1991, "", "Rock", false, 0, 0, false);
 
-		song01.addStat(artist1Album2DateAdded, artist1Album2DateModified,
-				artist1Album2DateSkipped, 0, new Rating(80), 19);
-		song02.addStat(artist1Album2DateAdded, artist1Album2DateModified,
-				artist1Album2DateSkipped, 0, new Rating(80), 29);
-		song03.addStat(artist1Album2DateAdded, artist1Album2DateModified,
-				artist1Album2DateSkipped, 0, new Rating(80), 39);
-		song04.addStat(artist1Album2DateAdded, artist1Album2DateModified,
-				artist1Album2DateSkipped, 0, new Rating(80), 49);
-		song05.addStat(artist1Album2DateAdded, artist1Album2DateModified,
-				artist1Album2DateSkipped, 0, new Rating(80), 59);
-		song06.addStat(artist1Album2DateAdded, artist1Album2DateModified,
-				artist1Album2DateSkipped, 0, new Rating(80), 69);
-		song07.addStat(artist1Album2DateAdded, artist1Album2DateModified,
-				artist1Album2DateSkipped, 0, new Rating(80), 79);
-		song08.addStat(artist1Album2DateAdded, artist1Album2DateModified,
-				artist1Album2DateSkipped, 0, new Rating(80), 89);
-		song09.addStat(artist1Album2DateAdded, artist1Album2DateModified,
-				artist1Album2DateSkipped, 0, new Rating(80), 99);
-		song10.addStat(artist1Album2DateAdded, artist1Album2DateModified,
-				artist1Album2DateSkipped, 0, new Rating(80), 100);
-		song11.addStat(artist1Album2DateAdded, artist1Album2DateModified,
-				artist1Album2DateSkipped, 0, new Rating(80), 101);
-		song12.addStat(artist1Album2DateAdded, artist1Album2DateModified,
-				artist1Album2DateSkipped, 0, new Rating(80), 109);
-		song13.addStat(artist1Album2DateAdded, artist1Album2DateModified,
-				artist1Album2DateSkipped, 0, new Rating(80), 119);
+		song01.addStat(library, artist1Album2DateAdded,
+				artist1Album2DateModified, artist1Album2DateSkipped, 0,
+				new Rating(80), 19);
+		song02.addStat(library, artist1Album2DateAdded,
+				artist1Album2DateModified, artist1Album2DateSkipped, 0,
+				new Rating(80), 29);
+		song03.addStat(library, artist1Album2DateAdded,
+				artist1Album2DateModified, artist1Album2DateSkipped, 0,
+				new Rating(80), 39);
+		song04.addStat(library, artist1Album2DateAdded,
+				artist1Album2DateModified, artist1Album2DateSkipped, 0,
+				new Rating(80), 49);
+		song05.addStat(library, artist1Album2DateAdded,
+				artist1Album2DateModified, artist1Album2DateSkipped, 0,
+				new Rating(80), 59);
+		song06.addStat(library, artist1Album2DateAdded,
+				artist1Album2DateModified, artist1Album2DateSkipped, 0,
+				new Rating(80), 69);
+		song07.addStat(library, artist1Album2DateAdded,
+				artist1Album2DateModified, artist1Album2DateSkipped, 0,
+				new Rating(80), 79);
+		song08.addStat(library, artist1Album2DateAdded,
+				artist1Album2DateModified, artist1Album2DateSkipped, 0,
+				new Rating(80), 89);
+		song09.addStat(library, artist1Album2DateAdded,
+				artist1Album2DateModified, artist1Album2DateSkipped, 0,
+				new Rating(80), 99);
+		song10.addStat(library, artist1Album2DateAdded,
+				artist1Album2DateModified, artist1Album2DateSkipped, 0,
+				new Rating(80), 100);
+		song11.addStat(library, artist1Album2DateAdded,
+				artist1Album2DateModified, artist1Album2DateSkipped, 0,
+				new Rating(80), 101);
+		song12.addStat(library, artist1Album2DateAdded,
+				artist1Album2DateModified, artist1Album2DateSkipped, 0,
+				new Rating(80), 109);
+		song13.addStat(library, artist1Album2DateAdded,
+				artist1Album2DateModified, artist1Album2DateSkipped, 0,
+				new Rating(80), 119);
 
 		artist1Album2.addSong(song01);
 		artist1Album2.addSong(song02);
@@ -342,28 +370,39 @@ public class StatHibernateIT extends HibernateIT {
 		Song song11 = new Song(ARTIST_2_ALBUM_1_SONG_11_NAME, ARTIST_2_NAME,
 				artist2Album1, 2009, "", "Alternative", false, 0, 0, false);
 
-		song01.addStat(artist2Album1DateAdded, artist2Album1DateModified,
-				artist2Album1DateSkipped, 0, new Rating(80), 19);
-		song02.addStat(artist2Album1DateAdded, artist2Album1DateModified,
-				artist2Album1DateSkipped, 0, new Rating(80), 29);
-		song03.addStat(artist2Album1DateAdded, artist2Album1DateModified,
-				artist2Album1DateSkipped, 0, new Rating(80), 39);
-		song04.addStat(artist2Album1DateAdded, artist2Album1DateModified,
-				artist2Album1DateSkipped, 0, new Rating(80), 49);
-		song05.addStat(artist2Album1DateAdded, artist2Album1DateModified,
-				artist2Album1DateSkipped, 0, new Rating(80), 9);
-		song06.addStat(artist2Album1DateAdded, artist2Album1DateModified,
-				artist2Album1DateSkipped, 0, new Rating(80), 59);
-		song07.addStat(artist2Album1DateAdded, artist2Album1DateModified,
-				artist2Album1DateSkipped, 0, new Rating(80), 69);
-		song08.addStat(artist2Album1DateAdded, artist2Album1DateModified,
-				artist2Album1DateSkipped, 0, new Rating(80), 79);
-		song09.addStat(artist2Album1DateAdded, artist2Album1DateModified,
-				artist2Album1DateSkipped, 0, new Rating(80), 89);
-		song10.addStat(artist2Album1DateAdded, artist2Album1DateModified,
-				artist2Album1DateSkipped, 0, new Rating(80), 99);
-		song11.addStat(artist2Album1DateAdded, artist2Album1DateModified,
-				artist2Album1DateSkipped, 0, new Rating(80), 109);
+		song01.addStat(library, artist2Album1DateAdded,
+				artist2Album1DateModified, artist2Album1DateSkipped, 0,
+				new Rating(80), 19);
+		song02.addStat(library, artist2Album1DateAdded,
+				artist2Album1DateModified, artist2Album1DateSkipped, 0,
+				new Rating(80), 29);
+		song03.addStat(library, artist2Album1DateAdded,
+				artist2Album1DateModified, artist2Album1DateSkipped, 0,
+				new Rating(80), 39);
+		song04.addStat(library, artist2Album1DateAdded,
+				artist2Album1DateModified, artist2Album1DateSkipped, 0,
+				new Rating(80), 49);
+		song05.addStat(library, artist2Album1DateAdded,
+				artist2Album1DateModified, artist2Album1DateSkipped, 0,
+				new Rating(80), 9);
+		song06.addStat(library, artist2Album1DateAdded,
+				artist2Album1DateModified, artist2Album1DateSkipped, 0,
+				new Rating(80), 59);
+		song07.addStat(library, artist2Album1DateAdded,
+				artist2Album1DateModified, artist2Album1DateSkipped, 0,
+				new Rating(80), 69);
+		song08.addStat(library, artist2Album1DateAdded,
+				artist2Album1DateModified, artist2Album1DateSkipped, 0,
+				new Rating(80), 79);
+		song09.addStat(library, artist2Album1DateAdded,
+				artist2Album1DateModified, artist2Album1DateSkipped, 0,
+				new Rating(80), 89);
+		song10.addStat(library, artist2Album1DateAdded,
+				artist2Album1DateModified, artist2Album1DateSkipped, 0,
+				new Rating(80), 99);
+		song11.addStat(library, artist2Album1DateAdded,
+				artist2Album1DateModified, artist2Album1DateSkipped, 0,
+				new Rating(80), 109);
 
 		artist2Album1.addSong(song01);
 		artist2Album1.addSong(song02);

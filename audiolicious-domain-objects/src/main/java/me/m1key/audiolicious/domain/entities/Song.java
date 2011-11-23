@@ -173,13 +173,13 @@ public class Song {
 		album.addSong(this);
 	}
 
-	public void addStat(SongTo songTo) {
-		stats.add(new Stat(this, songTo));
+	public void addStat(SongTo songTo, Library library) {
+		stats.add(new Stat(library, this, songTo));
 	}
 
-	public void addStat(Date dateAdded, Date dateModified, Date dateSkipped,
-			int skipCount, Rating rating, int played) {
-		stats.add(new Stat(this, dateAdded, dateModified, dateSkipped,
+	public void addStat(Library library, Date dateAdded, Date dateModified,
+			Date dateSkipped, int skipCount, Rating rating, int played) {
+		stats.add(new Stat(library, this, dateAdded, dateModified, dateSkipped,
 				skipCount, rating, played));
 	}
 

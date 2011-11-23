@@ -16,28 +16,19 @@
  * along with this program.  If not, see http://www.m1key.me
  */
 
-package me.m1key.audiolicious.objecthandler;
+package me.m1key.audiolicious.commons.qualifiers;
 
-import java.util.Map;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-import javax.ejb.Local;
-import javax.ejb.Singleton;
-import javax.inject.Inject;
+import javax.inject.Qualifier;
 
-import me.m1key.audiolicious.domain.to.TrackTo;
+@Qualifier
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER,
+        ElementType.TYPE })
+public @interface NullLibrary {
 
-@Singleton
-@Local(ObjectTrackDataHandler.class)
-public class DefaultObjectTrackDataHandler implements ObjectTrackDataHandler {
-
-	@Inject
-	private Map<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>> handlersForAllKnownTos;
-
-	@Override
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void handle(TrackTo track, String libraryUuid) {
-		TrackHandler handlerForThisTo = handlersForAllKnownTos.get(track
-				.getClass());
-		handlerForThisTo.handle(track, libraryUuid);
-	}
 }

@@ -28,14 +28,17 @@ import javax.inject.Inject;
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
+import me.m1key.audiolicious.commons.qualifiers.NullLibrary;
 import me.m1key.audiolicious.commons.qualifiers.NullSong;
 import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
+import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
 import me.m1key.audiolicious.domain.entities.Rating;
 import me.m1key.audiolicious.domain.entities.Song;
 import me.m1key.audiolicious.domain.entities.Stat;
 import me.m1key.audiolicious.domain.to.AudiobookTo;
+import me.m1key.audiolicious.domain.to.LibraryTo;
 import me.m1key.audiolicious.domain.to.PodcastTo;
 import me.m1key.audiolicious.domain.to.RatingTo;
 import me.m1key.audiolicious.domain.to.SongTo;
@@ -81,8 +84,11 @@ import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapper;
 import me.m1key.audiolicious.services.AlbumRepository;
 import me.m1key.audiolicious.services.ArtistRepository;
 import me.m1key.audiolicious.services.DefaultLibraryImporter;
+import me.m1key.audiolicious.services.DefaultLibraryService;
 import me.m1key.audiolicious.services.DefaultSongService;
 import me.m1key.audiolicious.services.LibraryImporter;
+import me.m1key.audiolicious.services.LibraryRepository;
+import me.m1key.audiolicious.services.LibraryService;
 import me.m1key.audiolicious.services.SongRepository;
 
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -135,6 +141,7 @@ public class MacOsLibraryWithServiceIT {
 						CannotMapTrackValuesException.class,
 						DataExtractor.class, DefaultAggregateTrackMapper.class,
 						DefaultAudiobookMapper.class,
+						DefaultLibraryService.class,
 						DefaultNoopTrackHandler.class,
 						DefaultPodcastMapper.class, DefaultSongMapper.class,
 						DefaultVideoMapper.class,
@@ -145,12 +152,14 @@ public class MacOsLibraryWithServiceIT {
 						DefaultSongHandler.class, DefaultSongService.class,
 						EnglishValuesProvider.class, I18nDataExtractor.class,
 						JpaAlbumRepository.class, JpaArtistRepository.class,
-						JpaSongRepository.class, LibraryImporter.class,
-						LibraryParser.class, NonAggregateTrackMapper.class,
-						NoopTrackHandler.class, NullAlbum.class,
-						NullArtist.class, NullSong.class,
-						NullEntitiesFactory.class,
-						ObjectMappingException.class,
+						JpaLibraryRepository.class, JpaSongRepository.class,
+						Library.class, LibraryImporter.class,
+						LibraryParser.class, LibraryService.class,
+						LibraryRepository.class, LibraryTo.class,
+						NonAggregateTrackMapper.class, NoopTrackHandler.class,
+						NullAlbum.class, NullArtist.class,
+						NullEntitiesFactory.class, NullLibrary.class,
+						NullSong.class, ObjectMappingException.class,
 						ObjectTrackDataHandler.class, PodcastHandler.class,
 						PodcastMapper.class, PodcastTo.class, Rating.class,
 						RatingTo.class, RawTrackDataHandler.class, Song.class,

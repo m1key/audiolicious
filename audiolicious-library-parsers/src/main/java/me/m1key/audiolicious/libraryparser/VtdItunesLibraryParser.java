@@ -62,14 +62,14 @@ public class VtdItunesLibraryParser implements LibraryParser {
 	private RawTrackDataHandler rawTrackDataHandler;
 
 	@Override
-	public void process(File xmlFile) {
+	public void process(File xmlFile, String libraryUuid) {
 		setXmlFile(xmlFile);
 		initialiseXPathProcessing();
 		verifyCanParseFile();
 		bindNavigator();
 
 		while (hasTrack()) {
-			rawTrackDataHandler.handle(extractTrackValues());
+			rawTrackDataHandler.handle(extractTrackValues(), libraryUuid);
 		}
 	}
 

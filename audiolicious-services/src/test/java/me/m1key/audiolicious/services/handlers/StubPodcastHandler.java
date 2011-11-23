@@ -32,7 +32,7 @@ public class StubPodcastHandler implements PodcastHandler {
 	private int count;
 
 	@Override
-	public void handle(PodcastTo track) {
+	public void handle(PodcastTo track, String libraryUuid) {
 		count++;
 	}
 

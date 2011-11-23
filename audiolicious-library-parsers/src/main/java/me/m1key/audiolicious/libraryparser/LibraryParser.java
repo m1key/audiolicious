@@ -22,6 +22,6 @@ import java.io.File;
 
 public interface LibraryParser {
 
-	void process(File libraryFile);
+	void process(File libraryFile, String libraryUuid);
 
 }

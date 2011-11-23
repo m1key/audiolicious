@@ -18,6 +18,8 @@
 
 package me.m1key.audiolicious.objecthandler.handlers;
 
+import java.util.UUID;
+
 import me.m1key.audiolicious.domain.to.AudiobookTo;
 import me.m1key.audiolicious.domain.to.AudiobookToBuilder;
 import me.m1key.audiolicious.domain.to.PodcastTo;
@@ -32,6 +34,8 @@ import org.junit.Test;
 
 public class NoopTrackHandlerTest {
 
+	private static final String LIBRARY_UUID = UUID.randomUUID().toString();
+
 	private DefaultNoopTrackHandler handler;
 
 	@Before
@@ -41,30 +45,30 @@ public class NoopTrackHandlerTest {
 
 	@Test
 	public void canHandleNull() {
-		handler.handle(null);
+		handler.handle(null, LIBRARY_UUID);
 	}
 
 	@Test
 	public void canHandleAudiobookTo() {
 		AudiobookTo audiobookTo = new AudiobookToBuilder("Invisible").build();
-		handler.handle(audiobookTo);
+		handler.handle(audiobookTo, LIBRARY_UUID);
 	}
 
 	@Test
 	public void canHandlePodcastTo() {
 		PodcastTo podcastTo = new PodcastToBuilder("Invisible").build();
-		handler.handle(podcastTo);
+		handler.handle(podcastTo, LIBRARY_UUID);
 	}
 
 	@Test
 	public void canHandleSongTo() {
 		SongTo songTo = new SongToBuilder("Invisible").build();
-		handler.handle(songTo);
+		handler.handle(songTo, LIBRARY_UUID);
 	}
 
 	@Test
 	public void canHandleVideoTo() {
 		VideoTo videoTo = new VideoToBuilder("Invisible").build();
-		handler.handle(videoTo);
+		handler.handle(videoTo, LIBRARY_UUID);
 	}
 }

@@ -39,9 +39,9 @@ public class DefaultRawTrackDataHandler implements RawTrackDataHandler {
 	private ObjectTrackDataHandler objectTrackDataHandler;
 
 	@Override
-	public void handle(Map<XmlNodeName, String> rawTrackData) {
+	public void handle(Map<XmlNodeName, String> rawTrackData, String libraryUuid) {
 		TrackTo track = mapper.map(rawTrackData);
-		objectTrackDataHandler.handle(track);
+		objectTrackDataHandler.handle(track, libraryUuid);
 	}
 
 	public void setMapper(AggregateTrackMapper mapper) {

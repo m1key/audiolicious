@@ -40,7 +40,7 @@ public class StubRawTrackDataHandlerImpl implements StubRawTrackDataHandler {
 	}
 
 	@Override
-	public void handle(Map<XmlNodeName, String> trackValues) {
+	public void handle(Map<XmlNodeName, String> trackValues, String libraryUuid) {
 		rawTrackData.add(trackValues);
 	}
 

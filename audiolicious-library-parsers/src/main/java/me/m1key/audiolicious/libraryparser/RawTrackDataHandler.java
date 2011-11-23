@@ -24,6 +24,6 @@ import me.m1key.audiolicious.commons.XmlNodeName;
 
 public interface RawTrackDataHandler {
 
-	void handle(Map<XmlNodeName, String> trackValues);
+	void handle(Map<XmlNodeName, String> trackValues, String libraryUuid);
 
 }

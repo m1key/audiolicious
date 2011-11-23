@@ -1,0 +1,92 @@
+/* 
+ * Audiolicious - Your Music Library Statistics
+ * Copyright (C) 2011, Michal Huniewicz
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see http://www.m1key.me
+ */
+
+package me.m1key.audiolicious.domain.entities;
+
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity(name = "Library")
+@Table(name = "LIBRARIES")
+public class Library {
+
+	@SuppressWarnings("unused")
+	@Id
+	@GeneratedValue
+	@Column(name = "ARTIST_ID")
+	private Long id;
+
+	@Column(name = "UUID", unique = true, length = 36)
+	private String uuid;
+
+	@Column(name = "DATE_ADDED")
+	private Date dateAdded;
+
+	@OneToMany(mappedBy = "library", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private Set<Stat> stats;
+
+	// For proxying.
+	protected Library() {
+	}
+
+	Library(String uuid) {
+		this.uuid = uuid;
+		this.dateAdded = new Date();
+	}
+
+	public Library(Date dateAdded) {
+		stats = new HashSet<Stat>();
+
+		this.uuid = UUID.randomUUID().toString();
+		this.dateAdded = dateAdded;
+	}
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public Date getDateAdded() {
+		return dateAdded;
+	}
+
+	public void addStat(Stat stat) {
+		if (stat.getLibrary() != this) {
+			stat.setLibrary(this);
+		}
+		if (!stats.contains(stat)) {
+			stats.add(stat);
+		}
+	}
+
+	public Set<Stat> getStats() {
+		return Collections.unmodifiableSet(stats);
+	}
+
+}

@@ -28,6 +28,7 @@ import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.commons.qualifiers.NullSong;
 import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
+import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.entities.Rating;
 import me.m1key.audiolicious.domain.entities.Song;
 import me.m1key.audiolicious.domain.to.SongTo;
@@ -43,6 +44,8 @@ public class DefaultSongService implements SongService {
 	private AlbumRepository albumRepository;
 	@EJB
 	private ArtistRepository artistRepository;
+	@EJB
+	private LibraryService libraryService;
 
 	@Inject
 	@NullAlbum
@@ -55,13 +58,15 @@ public class DefaultSongService implements SongService {
 	private Song nullSong;
 
 	@Override
-	public void addSong(SongTo songTo) {
+	public void addSong(SongTo songTo, String libraryUuid) {
 		Artist artist = getOrCreateArtistByName(getAlbumArtistName(songTo));
 		Album album = getOrCreateAlbum(songTo, artist);
 		Song song = getOrCreateSong(songTo, album);
 
 		song.setAlbum(album);
-		song.addStat(songTo);
+
+		Library library = libraryService.getByUuid(libraryUuid);
+		song.addStat(songTo, library);
 
 		songRepository.save(song);
 	}

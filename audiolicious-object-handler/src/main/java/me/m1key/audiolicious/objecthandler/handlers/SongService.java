@@ -22,6 +22,6 @@ import me.m1key.audiolicious.domain.to.SongTo;
 
 public interface SongService {
 
-	void addSong(SongTo songTo);
+	void addSong(SongTo songTo, String libraryUuid);
 
 }

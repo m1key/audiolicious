@@ -20,8 +20,10 @@ package me.m1key.audiolicious.services;
 
 import java.io.File;
 
+import me.m1key.audiolicious.domain.to.LibraryTo;
+
 public interface LibraryImporter {
 
-	void importLibrary(File libraryFile);
+	LibraryTo importLibrary(File libraryFile);
 
 }

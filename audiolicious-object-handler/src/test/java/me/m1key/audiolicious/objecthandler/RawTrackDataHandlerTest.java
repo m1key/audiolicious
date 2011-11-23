@@ -24,6 +24,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.domain.to.AudiobookTo;
@@ -51,7 +52,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class RawTrackDataHandlerTest {
-
 	private DefaultRawTrackDataHandler handler;
 	private AggregateTrackMapper aggregateMapper;
 	private Map<XmlNodeName, String> receivedTrackValues;
@@ -66,6 +66,8 @@ public class RawTrackDataHandlerTest {
 	private DefaultSongMapper songMapper;
 	@Mock
 	private DefaultVideoMapper videoMapper;
+
+	private static final String LIBRARY_UUID = UUID.randomUUID().toString();
 
 	@Before
 	public void setup() {
@@ -83,9 +85,10 @@ public class RawTrackDataHandlerTest {
 		when(audiobookMapper.canMap(receivedTrackValues)).thenReturn(true);
 		when(audiobookMapper.map(receivedTrackValues)).thenReturn(audiobook);
 
-		handler.handle(receivedTrackValues);
+		handler.handle(receivedTrackValues, LIBRARY_UUID);
 
-		verify(objectTrackDataHandler, times(1)).handle(audiobook);
+		verify(objectTrackDataHandler, times(1))
+				.handle(audiobook, LIBRARY_UUID);
 	}
 
 	@Test
@@ -95,9 +98,9 @@ public class RawTrackDataHandlerTest {
 		when(podcastMapper.canMap(receivedTrackValues)).thenReturn(true);
 		when(podcastMapper.map(receivedTrackValues)).thenReturn(podcast);
 
-		handler.handle(receivedTrackValues);
+		handler.handle(receivedTrackValues, LIBRARY_UUID);
 
-		verify(objectTrackDataHandler, times(1)).handle(podcast);
+		verify(objectTrackDataHandler, times(1)).handle(podcast, LIBRARY_UUID);
 	}
 
 	@Test
@@ -107,9 +110,9 @@ public class RawTrackDataHandlerTest {
 		when(songMapper.canMap(receivedTrackValues)).thenReturn(true);
 		when(songMapper.map(receivedTrackValues)).thenReturn(song);
 
-		handler.handle(receivedTrackValues);
+		handler.handle(receivedTrackValues, LIBRARY_UUID);
 
-		verify(objectTrackDataHandler, times(1)).handle(song);
+		verify(objectTrackDataHandler, times(1)).handle(song, LIBRARY_UUID);
 	}
 
 	@Test
@@ -119,9 +122,9 @@ public class RawTrackDataHandlerTest {
 		when(videoMapper.canMap(receivedTrackValues)).thenReturn(true);
 		when(videoMapper.map(receivedTrackValues)).thenReturn(video);
 
-		handler.handle(receivedTrackValues);
+		handler.handle(receivedTrackValues, LIBRARY_UUID);
 
-		verify(objectTrackDataHandler, times(1)).handle(video);
+		verify(objectTrackDataHandler, times(1)).handle(video, LIBRARY_UUID);
 	}
 
 	private AggregateTrackMapper createAggregateMapper() {

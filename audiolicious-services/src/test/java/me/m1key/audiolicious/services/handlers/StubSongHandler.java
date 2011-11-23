@@ -32,7 +32,7 @@ public class StubSongHandler implements SongHandler {
 	private int count;
 
 	@Override
-	public void handle(SongTo track) {
+	public void handle(SongTo track, String libraryUuid) {
 		count++;
 	}
 
