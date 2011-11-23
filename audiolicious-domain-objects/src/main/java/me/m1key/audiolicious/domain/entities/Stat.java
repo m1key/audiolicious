@@ -19,6 +19,7 @@
 package me.m1key.audiolicious.domain.entities;
 
 import java.util.Date;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -44,6 +45,9 @@ public class Stat {
 	@GeneratedValue
 	@Column(name = "ARTIST_ID")
 	private Long id;
+
+	@Column(name = "UUID", unique = true, length = 36)
+	private String uuid;
 
 	@Column(name = "DATE_ADDED")
 	private Date dateAdded;
@@ -76,6 +80,7 @@ public class Stat {
 	protected Stat(Library library, Song song, Date dateAdded,
 			Date dateModified, Date dateSkipped, int skipCount, Rating rating,
 			int playCount) {
+		this.uuid = UUID.randomUUID().toString();
 		this.library = library;
 		this.song = song;
 		this.dateAdded = dateAdded;
@@ -87,6 +92,7 @@ public class Stat {
 	}
 
 	protected Stat(Library library, Song song, SongTo songTo) {
+		this.uuid = UUID.randomUUID().toString();
 		this.library = library;
 		this.song = song;
 		this.dateAdded = songTo.getDateAdded();
@@ -135,9 +141,7 @@ public class Stat {
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(dateAdded).append(dateModified)
-				.append(playCount).append(rating).append(dateSkipped)
-				.append(skipCount).toHashCode();
+		return new HashCodeBuilder().append(uuid).toHashCode();
 	}
 
 	@Override
@@ -145,17 +149,13 @@ public class Stat {
 		if (!(other instanceof Stat))
 			return false;
 		Stat castOther = (Stat) other;
-		return new EqualsBuilder().append(dateAdded, castOther.dateAdded)
-				.append(dateModified, castOther.dateModified)
-				.append(dateSkipped, castOther.dateSkipped)
-				.append(playCount, castOther.playCount)
-				.append(skipCount, castOther.skipCount)
-				.append(rating, castOther.rating).isEquals();
+		return new EqualsBuilder().append(uuid, castOther.uuid).isEquals();
 	}
 
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this).append("dateAdded", dateAdded)
+		return new ToStringBuilder(this).append("uuid", uuid)
+				.append("dateAdded", dateAdded)
 				.append("dateModified", dateModified)
 				.append("playCount", playCount)
 				.append("dateSkipped", dateSkipped)
