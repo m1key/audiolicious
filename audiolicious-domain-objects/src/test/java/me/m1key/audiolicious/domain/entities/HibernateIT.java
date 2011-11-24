@@ -67,6 +67,7 @@ public abstract class HibernateIT {
 	@After
 	public void clearTestData() {
 		deleteAllArtists();
+		deleteAllLibraries();
 	}
 
 	protected EntityManager getEntityManager() {
@@ -79,10 +80,36 @@ public abstract class HibernateIT {
 
 	protected void deleteAllArtists() {
 		List<Artist> allArtists = getAllArtists();
+		List<Library> allLibraries = getAllLibraries();
 
 		getEntityManager().getTransaction().begin();
+		clearStatsOnAllLibraries(allLibraries);
+		removeAllArtists(allArtists);
+		getEntityManager().getTransaction().commit();
+	}
+
+	private void removeAllArtists(List<Artist> allArtists) {
 		for (Artist artist : allArtists) {
 			getEntityManager().remove(artist);
+		}
+	}
+
+	private void clearStatsOnAllLibraries(List<Library> allLibraries) {
+		for (Library library : allLibraries) {
+			library.clearStats();
+		}
+	}
+
+	protected void deleteAllLibraries() {
+		List<Library> allLibraries = getAllLibraries();
+		List<Song> songs = getAllSongs();
+
+		getEntityManager().getTransaction().begin();
+		for (Song song : songs) {
+			song.clearStats();
+		}
+		for (Library library : allLibraries) {
+			getEntityManager().remove(library);
 		}
 		getEntityManager().getTransaction().commit();
 	}
@@ -93,9 +120,22 @@ public abstract class HibernateIT {
 		return select.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
+	protected List<Library> getAllLibraries() {
+		Query select = getEntityManager().createQuery("FROM Library");
+		return select.getResultList();
+	}
+
 	protected void deleteArtistByName(String artistName) {
 		Artist artistToDelete = getArtistByName(artistName);
 		getEntityManager().getTransaction().begin();
+		for (Album album : artistToDelete.getAlbums()) {
+			for (Song song : album.getSongs()) {
+				for(Stat stat : song.getStats()) {
+					stat.removeFromLibrary();
+				}
+			}
+		}
 		getEntityManager().remove(artistToDelete);
 		getEntityManager().getTransaction().commit();
 	}

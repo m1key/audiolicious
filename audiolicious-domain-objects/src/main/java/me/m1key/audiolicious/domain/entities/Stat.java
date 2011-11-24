@@ -43,7 +43,7 @@ public class Stat {
 	@SuppressWarnings("unused")
 	@Id
 	@GeneratedValue
-	@Column(name = "ARTIST_ID")
+	@Column(name = "STAT_ID")
 	private Long id;
 
 	@Column(name = "UUID", unique = true, length = 36)
@@ -89,6 +89,8 @@ public class Stat {
 		this.skipCount = skipCount;
 		this.rating = rating;
 		this.playCount = playCount;
+
+		library.addStat(this);
 	}
 
 	protected Stat(Library library, Song song, SongTo songTo) {
@@ -101,6 +103,8 @@ public class Stat {
 		this.rating = new Rating(songTo.getRating());
 		this.dateSkipped = songTo.getSkipDate();
 		this.skipCount = songTo.getSkipCount();
+
+		library.addStat(this);
 	}
 
 	public Date getDateAdded() {
@@ -161,5 +165,9 @@ public class Stat {
 				.append("dateSkipped", dateSkipped)
 				.append("skipCount", skipCount).append("rating", rating)
 				.toString();
+	}
+
+	public void removeFromLibrary() {
+		library.remove(this);
 	}
 }

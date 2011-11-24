@@ -10,7 +10,7 @@ public class StatTest {
 
 	@Test
 	public void testNotEquals() {
-		Library library = new Library();
+		Library library = new Library(new Date());
 		Song song = new Song();
 		Date dateAdded = new Date();
 		Date dateModified = new Date();

@@ -40,7 +40,7 @@ public class Library {
 	@SuppressWarnings("unused")
 	@Id
 	@GeneratedValue
-	@Column(name = "ARTIST_ID")
+	@Column(name = "LIBRARY_ID")
 	private Long id;
 
 	@Column(name = "UUID", unique = true, length = 36)
@@ -57,6 +57,8 @@ public class Library {
 	}
 
 	Library(String uuid) {
+		stats = new HashSet<Stat>();
+
 		this.uuid = uuid;
 		this.dateAdded = new Date();
 	}
@@ -87,6 +89,14 @@ public class Library {
 
 	public Set<Stat> getStats() {
 		return Collections.unmodifiableSet(stats);
+	}
+
+	void clearStats() {
+		stats.clear();
+	}
+
+	public void remove(Stat stat) {
+		stats.remove(stat);
 	}
 
 }

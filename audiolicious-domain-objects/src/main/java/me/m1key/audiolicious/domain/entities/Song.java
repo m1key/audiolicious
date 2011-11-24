@@ -80,10 +80,10 @@ public class Song {
 	@Column(name = "HD")
 	private boolean hd;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = { CascadeType.MERGE })
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	private Album album;
 
-	@OneToMany(mappedBy = "song", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "song", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, orphanRemoval = true)
 	private Set<Stat> stats;
 
 	// For proxying.
@@ -225,6 +225,10 @@ public class Song {
 				.append("year", year).append("hasVideo", hasVideo)
 				.append("videoHeight", videoHeight)
 				.append("videoWidth", videoWidth).append("hd", hd).toString();
+	}
+
+	void clearStats() {
+		stats.clear();
 	}
 
 }
