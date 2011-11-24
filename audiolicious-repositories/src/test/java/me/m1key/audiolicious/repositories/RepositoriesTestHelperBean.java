@@ -27,6 +27,7 @@ import javax.persistence.Query;
 
 import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
+import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.entities.Rating;
 import me.m1key.audiolicious.domain.entities.Song;
 
@@ -87,5 +88,29 @@ public class RepositoriesTestHelperBean {
 				String.format("SELECT COUNT(id) FROM %s", entityName))
 				.getSingleResult();
 		return (Long) howMany;
+	}
+
+	public void deleteAllLibraries() {
+		List<Library> allLibraries = getAllLibraries();
+		List<Song> songs = getAllSongs();
+
+		for (Song song : songs) {
+			song.clearStats();
+		}
+		for (Library library : allLibraries) {
+			entityManager.remove(library);
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	private List<Library> getAllLibraries() {
+		Query select = entityManager.createQuery("FROM Library");
+		return select.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	private List<Song> getAllSongs() {
+		Query select = entityManager.createQuery("FROM Song");
+		return select.getResultList();
 	}
 }

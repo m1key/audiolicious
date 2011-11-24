@@ -227,7 +227,7 @@ public class Song {
 				.append("videoWidth", videoWidth).append("hd", hd).toString();
 	}
 
-	void clearStats() {
+	public void clearStats() {
 		stats.clear();
 	}
 
