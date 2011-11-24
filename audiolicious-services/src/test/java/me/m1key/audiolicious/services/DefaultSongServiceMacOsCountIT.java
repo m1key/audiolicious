@@ -115,6 +115,8 @@ public class DefaultSongServiceMacOsCountIT {
 	private StubPodcastHandler podcastHandler;
 	@Inject
 	private StubVideoHandler videoHandler;
+	@Inject
+	private StubLibraryRepositoryWithInfo libraryRepository;
 
 	@Deployment
 	public static WebArchive createTestArchive()
@@ -159,8 +161,10 @@ public class DefaultSongServiceMacOsCountIT {
 						SongRepository.class, SongService.class, SongTo.class,
 						Stat.class, StubAlbumRepository.class,
 						StubArtistRepository.class, StubAudiobookHandler.class,
-						StubLibraryRepository.class, StubPodcastHandler.class,
-						StubSongHandler.class, StubSongRepository.class,
+						StubLibraryRepository.class,
+						StubLibraryRepositoryWithInfo.class,
+						StubPodcastHandler.class, StubSongHandler.class,
+						StubSongRepository.class,
 						StubTrackHandlersFactory.class, StubVideoHandler.class,
 						TrackHandler.class, TrackMapper.class,
 						TrackMappersFactory.class, TrackTo.class,
@@ -195,5 +199,7 @@ public class DefaultSongServiceMacOsCountIT {
 				+ TOTAL_MUSIC_VIDEOS + TOTAL_VIDEOS,
 				audiobookHandler.getCount() + podcastHandler.getCount()
 						+ songHandler.getCount() + videoHandler.getCount());
+
+		assertEquals(1, libraryRepository.getSaveCalledTimes());
 	}
 }

@@ -26,8 +26,10 @@ import javax.ejb.Singleton;
 import me.m1key.audiolicious.domain.entities.Library;
 
 @Singleton
-@Local(LibraryRepository.class)
-public class StubLibraryRepository implements LibraryRepository {
+@Local({ LibraryRepository.class, StubLibraryRepositoryWithInfo.class })
+public class StubLibraryRepository implements StubLibraryRepositoryWithInfo {
+
+	private int saveCalledTimes = 0;
 
 	@Override
 	public Library getByUuid(String libraryUuid) {
@@ -36,6 +38,12 @@ public class StubLibraryRepository implements LibraryRepository {
 
 	@Override
 	public void save(Library library) {
+		saveCalledTimes++;
+	}
+
+	@Override
+	public int getSaveCalledTimes() {
+		return saveCalledTimes;
 	}
 
 }
