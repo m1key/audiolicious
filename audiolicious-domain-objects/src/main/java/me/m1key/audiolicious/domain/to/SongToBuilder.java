@@ -43,6 +43,8 @@ public class SongToBuilder {
 	private int videoWidth;
 	private boolean hd;
 	private boolean musicVideo;
+	private int trackNumber;
+	private int discNumber;
 
 	public SongToBuilder(String name) {
 		this.name = name;
@@ -148,11 +150,22 @@ public class SongToBuilder {
 		return this;
 	}
 
+	public SongToBuilder withTrackNumber(int trackNumber) {
+		this.trackNumber = trackNumber;
+		return this;
+	}
+
+	public SongToBuilder withDiscNumber(int discNumber) {
+		this.discNumber = discNumber;
+		return this;
+	}
+
 	public SongTo build() {
 		return new SongTo(name, albumName, artist, albumArtist, year, composer,
 				genre, compilation, dateAdded, dateModified, rating, playCount,
 				skipDate, skipCount, albumRatingComputed, albumRating,
-				hasVideo, videoHeight, videoWidth, hd, musicVideo);
+				hasVideo, videoHeight, videoWidth, hd, musicVideo, trackNumber,
+				discNumber);
 	}
 
 }

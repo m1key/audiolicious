@@ -33,13 +33,16 @@ public final class SongTo extends TrackTo {
 	private final Date skipDate;
 	private final int skipCount;
 	private final boolean compilation;
+	private final int trackNumber;
+	private final int discNumber;
 
-	public SongTo(String name, String albumName, String artist, String albumArtist,
-			int year, String composer, String genre, boolean compilation,
-			Date dateAdded, Date dateModified, RatingTo rating, int playCount,
-			Date skipDate, int skipCount, boolean albumRatingComputed,
-			RatingTo albumRating, boolean hasVideo, int videoHeight,
-			int videoWidth, boolean hd, boolean musicVideo) {
+	public SongTo(String name, String albumName, String artist,
+			String albumArtist, int year, String composer, String genre,
+			boolean compilation, Date dateAdded, Date dateModified,
+			RatingTo rating, int playCount, Date skipDate, int skipCount,
+			boolean albumRatingComputed, RatingTo albumRating,
+			boolean hasVideo, int videoHeight, int videoWidth, boolean hd,
+			boolean musicVideo, int trackNumber, int discNumber) {
 		super(name, albumName, artist, albumArtist, year, genre, dateAdded,
 				dateModified, rating, playCount, hasVideo, videoHeight,
 				videoWidth, hd);
@@ -50,6 +53,8 @@ public final class SongTo extends TrackTo {
 		this.skipDate = skipDate == null ? null : new Date(skipDate.getTime());
 		this.skipCount = skipCount;
 		this.compilation = compilation;
+		this.trackNumber = trackNumber;
+		this.discNumber = discNumber;
 	}
 
 	public RatingTo getAlbumRating() {
@@ -78,6 +83,14 @@ public final class SongTo extends TrackTo {
 
 	public boolean isCompilation() {
 		return compilation;
+	}
+
+	public int getTrackNumber() {
+		return trackNumber;
+	}
+
+	public int getDiscNumber() {
+		return discNumber;
 	}
 
 	@Override
@@ -113,7 +126,9 @@ public final class SongTo extends TrackTo {
 				.append(composer, castOther.composer)
 				.append(skipDate, castOther.skipDate)
 				.append(skipCount, castOther.skipCount)
-				.append(compilation, castOther.compilation).isEquals();
+				.append(compilation, castOther.compilation)
+				.append(trackNumber, castOther.trackNumber)
+				.append(discNumber, castOther.discNumber).isEquals();
 	}
 
 	@Override
@@ -124,6 +139,8 @@ public final class SongTo extends TrackTo {
 				.append("albumRating", albumRating)
 				.append("musicVideo", musicVideo).append("composer", composer)
 				.append("skipDate", skipDate).append("skipCount", skipCount)
-				.append("compilation", compilation).toString();
+				.append("compilation", compilation)
+				.append("trackNumber", trackNumber)
+				.append("discNumber", discNumber).toString();
 	}
 }

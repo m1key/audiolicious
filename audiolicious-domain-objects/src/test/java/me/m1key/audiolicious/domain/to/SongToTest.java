@@ -38,11 +38,11 @@ public class SongToTest {
 		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		SongTo song2 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		assertEquals(song1, song2);
 	}
 
@@ -54,11 +54,11 @@ public class SongToTest {
 		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		SongTo song2 = new SongTo("Invisible", "Rainbow in the Dark2", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		assertFalse(song1.equals(song2));
 	}
 
@@ -70,11 +70,11 @@ public class SongToTest {
 		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		SongTo song2 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio2", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		assertFalse(song1.equals(song2));
 	}
 
@@ -86,11 +86,11 @@ public class SongToTest {
 		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		SongTo song2 = new SongTo("Invisible", "Rainbow in the Dark", "Dio2",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		assertFalse(song1.equals(song2));
 	}
 
@@ -102,11 +102,11 @@ public class SongToTest {
 		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		SongTo song2 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock2", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		assertFalse(song1.equals(song2));
 	}
 
@@ -118,11 +118,11 @@ public class SongToTest {
 		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		SongTo song2 = new SongTo("Invisible2", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		assertFalse(song1.equals(song2));
 	}
 
@@ -134,11 +134,11 @@ public class SongToTest {
 		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		SongTo song2 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(99), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		assertFalse(song1.equals(song2));
 	}
 
@@ -150,11 +150,11 @@ public class SongToTest {
 		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		SongTo song2 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 99, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		assertFalse(song1.equals(song2));
 	}
 
@@ -166,11 +166,11 @@ public class SongToTest {
 		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		SongTo song2 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1984, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		assertFalse(song1.equals(song2));
 	}
 
@@ -182,11 +182,11 @@ public class SongToTest {
 		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		SongTo song2 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				true, 0, 0, false, false);
+				true, 0, 0, false, false, 7, 1);
 		assertFalse(song1.equals(song2));
 	}
 
@@ -198,11 +198,11 @@ public class SongToTest {
 		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		SongTo song2 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 1, 0, false, false);
+				false, 1, 0, false, false, 7, 1);
 		assertFalse(song1.equals(song2));
 	}
 
@@ -214,11 +214,11 @@ public class SongToTest {
 		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		SongTo song2 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 1, false, false);
+				false, 0, 1, false, false, 7, 1);
 		assertFalse(song1.equals(song2));
 	}
 
@@ -230,11 +230,11 @@ public class SongToTest {
 		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		SongTo song2 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, true, false);
+				false, 0, 0, true, false, 7, 1);
 		assertFalse(song1.equals(song2));
 	}
 
@@ -246,11 +246,11 @@ public class SongToTest {
 		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		SongTo song2 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, false, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		assertFalse(song1.equals(song2));
 	}
 
@@ -262,11 +262,11 @@ public class SongToTest {
 		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		SongTo song2 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(99),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		assertFalse(song1.equals(song2));
 	}
 
@@ -278,11 +278,11 @@ public class SongToTest {
 		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		SongTo song2 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, true);
+				false, 0, 0, false, true, 7, 1);
 		assertFalse(song1.equals(song2));
 	}
 
@@ -294,11 +294,11 @@ public class SongToTest {
 		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		SongTo song2 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio2", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		assertFalse(song1.equals(song2));
 	}
 
@@ -310,11 +310,11 @@ public class SongToTest {
 		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		SongTo song2 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 1, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		assertFalse(song1.equals(song2));
 	}
 
@@ -326,11 +326,43 @@ public class SongToTest {
 		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
 		SongTo song2 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
 				"Dio", 1983, "Dio", "Rock", true, dateAdded, dateModified,
 				new RatingTo(100), 100, skipDate, 1, true, new RatingTo(100),
-				false, 0, 0, false, false);
+				false, 0, 0, false, false, 7, 1);
+		assertFalse(song1.equals(song2));
+	}
+
+	@Test
+	public void testNotEquals19() {
+		Date dateAdded = new Date();
+		Date dateModified = new Date();
+		Date skipDate = new Date();
+		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
+				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
+				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
+				false, 0, 0, false, false, 7, 1);
+		SongTo song2 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
+				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
+				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
+				false, 0, 0, false, false, 8, 1);
+		assertFalse(song1.equals(song2));
+	}
+
+	@Test
+	public void testNotEquals20() {
+		Date dateAdded = new Date();
+		Date dateModified = new Date();
+		Date skipDate = new Date();
+		SongTo song1 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
+				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
+				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
+				false, 0, 0, false, false, 7, 1);
+		SongTo song2 = new SongTo("Invisible", "Rainbow in the Dark", "Dio",
+				"Dio", 1983, "Dio", "Rock", false, dateAdded, dateModified,
+				new RatingTo(100), 100, skipDate, 0, true, new RatingTo(100),
+				false, 0, 0, false, false, 7, 2);
 		assertFalse(song1.equals(song2));
 	}
 

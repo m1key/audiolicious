@@ -57,12 +57,15 @@ public class SongToBuilderTest {
 		Date skipDate = new Date();
 		int albumRating = 99;
 		boolean albumRatingComputed = true;
+		int trackNumber = 2;
+		int discNumber = 1;
 
 		songViaConstructor = new SongTo(name, albumName, artist, albumArtist,
 				year, composer, genre, compilation, dateAdded, dateModified,
 				new RatingTo(rating), playCount, skipDate, skipCount,
 				albumRatingComputed, new RatingTo(albumRating), hasVideo,
-				videoHeight, videoWidth, hd, musicVideo);
+				videoHeight, videoWidth, hd, musicVideo, trackNumber,
+				discNumber);
 
 		songViaBuilder = new SongToBuilder(name).withAlbumName(albumName)
 				.withArtist(artist).withAlbumArtist(albumArtist).withYear(year)
@@ -73,7 +76,9 @@ public class SongToBuilderTest {
 				.withHd(hd).withComposer(composer).withCompilation(compilation)
 				.withMusicVideo(musicVideo).withSkipCount(skipCount)
 				.withSkipDate(skipDate).withAlbumRating(albumRating)
-				.withAlbumRatingComputed(albumRatingComputed).build();
+				.withAlbumRatingComputed(albumRatingComputed)
+				.withTrackNumber(trackNumber).withDiscNumber(discNumber)
+				.build();
 	}
 
 	@Test
@@ -194,6 +199,18 @@ public class SongToBuilderTest {
 	public void shouldHaveEqualSkipCompilation() {
 		assertEquals(songViaConstructor.isCompilation(),
 				songViaBuilder.isCompilation());
+	}
+
+	@Test
+	public void shouldHaveEqualTrackNumber() {
+		assertEquals(songViaConstructor.getTrackNumber(),
+				songViaBuilder.getTrackNumber());
+	}
+
+	@Test
+	public void shouldHaveEqualDiscNumber() {
+		assertEquals(songViaConstructor.getDiscNumber(),
+				songViaBuilder.getDiscNumber());
 	}
 
 }

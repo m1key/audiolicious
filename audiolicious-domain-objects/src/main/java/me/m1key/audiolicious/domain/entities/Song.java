@@ -59,11 +59,20 @@ public class Song {
 	@Column(name = "ARTIST_NAME", length = 512)
 	private String artistName;
 
+	@Column(name = "ALBUM_NAME", length = 512)
+	private String albumName;
+
 	@Column(name = "COMPOSER", length = 512)
 	private String composer;
 
 	@Column(name = "GENRE", length = 128)
 	private String genre;
+
+	@Column(name = "TRACK_NUMBER")
+	private int trackNumber;
+
+	@Column(name = "DISC_NUMBER")
+	private int discNumber;
 
 	@Column(name = "YEAR")
 	private int year;
@@ -90,12 +99,16 @@ public class Song {
 	protected Song() {
 	}
 
-	public Song(String name, String artistName, Album album, int year,
+	public Song(String name, String albumName, String artistName,
+			int trackNumber, int discNumber, Album album, int year,
 			String composer, String genre, boolean hasVideo, int videoHeight,
 			int videoWidth, boolean hd) {
 		this.uuid = UUID.randomUUID().toString();
 		this.name = name;
+		this.albumName = albumName;
 		this.artistName = artistName;
+		this.discNumber = discNumber;
+		this.trackNumber = trackNumber;
 		this.composer = composer;
 		this.genre = genre;
 		this.year = year;
@@ -112,6 +125,7 @@ public class Song {
 		this.uuid = UUID.randomUUID().toString();
 		this.name = songTo.getName();
 		this.artistName = songTo.getArtist();
+		this.albumName = songTo.getAlbumName();
 		this.composer = songTo.getComposer();
 		this.genre = songTo.getGenre();
 		this.year = songTo.getYear();
@@ -119,6 +133,8 @@ public class Song {
 		this.videoHeight = songTo.getVideoHeight();
 		this.videoWidth = songTo.getVideoWidth();
 		this.hd = songTo.isHd();
+		this.trackNumber = songTo.getTrackNumber();
+		this.discNumber = songTo.getDiscNumber();
 
 		stats = new HashSet<Stat>();
 	}
@@ -187,6 +203,18 @@ public class Song {
 		return Collections.unmodifiableSet(stats);
 	}
 
+	public String getAlbumName() {
+		return albumName;
+	}
+
+	public int getDiscNumber() {
+		return discNumber;
+	}
+
+	public int getTrackNumber() {
+		return trackNumber;
+	}
+
 	private void removeFromCurrentAlbum() {
 		if (album != null) {
 			album.removeSong(this);
@@ -195,10 +223,9 @@ public class Song {
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(uuid).append(name)
-				.append(artistName).append(composer).append(genre).append(year)
-				.append(hasVideo).append(videoHeight).append(videoWidth)
-				.append(hd).toHashCode();
+		return new HashCodeBuilder().append(name).append(albumName)
+				.append(artistName).append(trackNumber).append(discNumber)
+				.toHashCode();
 	}
 
 	@Override
@@ -206,15 +233,11 @@ public class Song {
 		if (!(other instanceof Song))
 			return false;
 		Song castOther = (Song) other;
-		return new EqualsBuilder().append(uuid, castOther.uuid)
-				.append(name, castOther.name)
+		return new EqualsBuilder().append(name, castOther.name)
+				.append(albumName, castOther.albumName)
 				.append(artistName, castOther.artistName)
-				.append(composer, castOther.composer)
-				.append(genre, castOther.genre).append(year, castOther.year)
-				.append(hasVideo, castOther.hasVideo)
-				.append(videoHeight, castOther.videoHeight)
-				.append(videoWidth, castOther.videoWidth)
-				.append(hd, castOther.hd).isEquals();
+				.append(trackNumber, castOther.trackNumber)
+				.append(discNumber, castOther.discNumber).isEquals();
 	}
 
 	@Override

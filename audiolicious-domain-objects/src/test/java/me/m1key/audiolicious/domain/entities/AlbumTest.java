@@ -44,8 +44,8 @@ public class AlbumTest {
 	@Test
 	public void testSongBelongsToAlbum() {
 		Album album = new Album("Holy Diver", artist, new Rating(100));
-		Song song = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", false, 0, 0, false);
+		Song song = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
+				1983, "Ronnie James Dio", "Rock", false, 0, 0, false);
 		album.addSong(song);
 		assertTrue(album.getSongs().contains(song));
 	}
@@ -55,8 +55,8 @@ public class AlbumTest {
 		Album album1 = new Album("Holy Diver", artist, new Rating(100));
 		Album album2 = new Album("Strange Highways", artist, new Rating(100));
 		Album album = new Album("Holy Diver", artist, new Rating(100));
-		Song song = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", false, 0, 0, false);
+		Song song = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
+				1983, "Ronnie James Dio", "Rock", false, 0, 0, false);
 		album1.addSong(song);
 		album2.addSong(song);
 		assertFalse(album1.getSongs().contains(song));
@@ -67,8 +67,8 @@ public class AlbumTest {
 	@Test(expected = UnsupportedOperationException.class)
 	public void testCannotModifySongsSet() {
 		Album album = new Album("Holy Diver", artist, new Rating(100));
-		Song song = new Song("Invisible", "Dio", album, 1983,
-				"Ronnie James Dio", "Rock", false, 0, 0, false);
+		Song song = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
+				1983, "Ronnie James Dio", "Rock", false, 0, 0, false);
 		album.getSongs().add(song);
 	}
 

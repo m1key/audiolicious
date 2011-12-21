@@ -83,11 +83,16 @@ public class DefaultSongMapper extends NonAggregateTrackMapper<SongTo>
 				XmlNodeName.SKIP_COUNT);
 		boolean compilation = extractor.extractBoolean(trackValues,
 				XmlNodeName.COMPILATION);
+		int trackNumber = extractor.extractInt(trackValues,
+				XmlNodeName.TRACK_NUMBER);
+		int discNumber = extractor.extractInt(trackValues,
+				XmlNodeName.DISC_NUMBER);
 
 		return new SongTo(name, album, artist, albumArtist, year, composer,
 				genre, compilation, dateAdded, dateModified, rating, playCount,
 				skipDate, skipCount, albumRatingComputed, albumRating,
-				hasVideo, videoHeight, videoWidth, hd, musicVideo);
+				hasVideo, videoHeight, videoWidth, hd, musicVideo, trackNumber,
+				discNumber);
 	}
 
 	@Override
