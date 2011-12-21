@@ -33,6 +33,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.apache.commons.lang.builder.ToStringBuilder;
+
 @Entity(name = "Library")
 @Table(name = "LIBRARIES")
 public class Library {
@@ -97,6 +101,25 @@ public class Library {
 
 	public void remove(Stat stat) {
 		stats.remove(stat);
+	}
+
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(uuid).toHashCode();
+	}
+
+	@Override
+	public boolean equals(final Object other) {
+		if (!(other instanceof Library))
+			return false;
+		Library castOther = (Library) other;
+		return new EqualsBuilder().append(uuid, castOther.uuid).isEquals();
+	}
+
+	@Override
+	public String toString() {
+		return new ToStringBuilder(this).append("uuid", uuid)
+				.append("dateAdded", dateAdded).toString();
 	}
 
 }
