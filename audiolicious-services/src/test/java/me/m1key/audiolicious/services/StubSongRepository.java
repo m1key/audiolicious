@@ -107,9 +107,9 @@ public class StubSongRepository implements SongRepository {
 
 	@Override
 	public Song getSong(String songName, String albumName, String albumArtist,
-			int trackNumber, int discNumber) {
+			int trackNumber, int discNumber, int totalTime) {
 		Set<Song> songsForThisAlbum = songsPerAlbum.get(toKey(songName,
-				albumName, albumArtist, trackNumber, discNumber));
+				albumName, albumArtist, trackNumber, discNumber, totalTime));
 		if (songsForThisAlbum != null) {
 			for (Song song : songsForThisAlbum) {
 				if (song.getName().equals(songName)) {
@@ -121,14 +121,15 @@ public class StubSongRepository implements SongRepository {
 	}
 
 	private String toKey(String songName, String albumName, String albumArtist,
-			int trackNumber, int discNumber) {
-		return String.format("%s:%s:%s:%d:%d", songName, albumName,
-				albumArtist, trackNumber, discNumber);
+			int trackNumber, int discNumber, int totalTime) {
+		return String.format("%s:%s:%s:%d:%d:%d", songName, albumName,
+				albumArtist, trackNumber, discNumber, totalTime);
 	}
 
 	private String toKey(Song song) {
 		return toKey(song.getName(), song.getAlbumName(), song.getArtistName(),
-				song.getTrackNumber(), song.getDiscNumber());
+				song.getTrackNumber(), song.getDiscNumber(),
+				song.getTotalTime());
 	}
 
 }

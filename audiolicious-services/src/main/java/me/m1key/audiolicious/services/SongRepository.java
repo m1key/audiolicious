@@ -25,6 +25,6 @@ public interface SongRepository {
 	void save(Song song);
 
 	Song getSong(String songName, String albumName, String albumArtistName,
-			int trackNumber, int discNumber);
+			int trackNumber, int discNumber, int totalTime);
 
 }

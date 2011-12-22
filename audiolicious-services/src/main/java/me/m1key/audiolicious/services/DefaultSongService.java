@@ -106,13 +106,10 @@ public class DefaultSongService implements SongService {
 	private Song getOrCreateSong(SongTo songTo) {
 		Song song = songRepository.getSong(songTo.getName(),
 				songTo.getAlbumName(), songTo.getAlbumArtist(),
-				songTo.getTrackNumber(), songTo.getDiscNumber());
+				songTo.getTrackNumber(), songTo.getDiscNumber(),
+				songTo.getTotalTime());
 		if (song.equals(nullSong)) {
 			song = new Song(songTo);
-		} else {
-			System.out.println("Uh oh!");
-			System.out.println(songTo);
-			System.out.println();
 		}
 		return song;
 	}

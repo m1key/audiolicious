@@ -48,19 +48,22 @@ public class JpaSongRepository implements SongRepository {
 
 	@Override
 	public Song getSong(String songName, String albumName,
-			String albumArtistName, int trackNumber, int discNumber) {
+			String albumArtistName, int trackNumber, int discNumber,
+			int totalTime) {
 		@SuppressWarnings("unchecked")
 		List<Song> songObjects = entityManager
 				.createQuery(
-						"FROM Song s WHERE s.name = :name AND s.albumName = :albumName"
+						"FROM Song s WHERE s.name = :songName AND s.albumName = :albumName"
 								+ " AND s.artistName = :artistName"
 								+ " AND s.trackNumber = :trackNumber"
-								+ " AND s.discNumber = :discNumber")
-				.setParameter("name", songName)
+								+ " AND s.discNumber = :discNumber"
+								+ " AND s.totalTime = :totalTime")
+				.setParameter("songName", songName)
 				.setParameter("albumName", albumName)
 				.setParameter("artistName", albumArtistName)
 				.setParameter("trackNumber", trackNumber)
-				.setParameter("discNumber", discNumber).getResultList();
+				.setParameter("discNumber", discNumber)
+				.setParameter("totalTime", totalTime).getResultList();
 
 		if (songNotFound(songObjects)) {
 			return nullSong;
