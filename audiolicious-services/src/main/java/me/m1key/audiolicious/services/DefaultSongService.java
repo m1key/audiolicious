@@ -61,7 +61,7 @@ public class DefaultSongService implements SongService {
 	public void addSong(SongTo songTo, String libraryUuid) {
 		Artist artist = getOrCreateArtistByName(getAlbumArtistName(songTo));
 		Album album = getOrCreateAlbum(songTo, artist);
-		Song song = getOrCreateSong(songTo, album);
+		Song song = getOrCreateSong(songTo);
 
 		song.setAlbum(album);
 
@@ -103,10 +103,16 @@ public class DefaultSongService implements SongService {
 		return albumRepository.getAlbum(artist, albumName);
 	}
 
-	private Song getOrCreateSong(SongTo songTo, Album album) {
-		Song song = songRepository.getSong(album, songTo.getName());
+	private Song getOrCreateSong(SongTo songTo) {
+		Song song = songRepository.getSong(songTo.getName(),
+				songTo.getAlbumName(), songTo.getAlbumArtist(),
+				songTo.getTrackNumber(), songTo.getDiscNumber());
 		if (song.equals(nullSong)) {
 			song = new Song(songTo);
+		} else {
+			System.out.println("Uh oh!");
+			System.out.println(songTo);
+			System.out.println();
 		}
 		return song;
 	}

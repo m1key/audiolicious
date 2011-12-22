@@ -51,8 +51,8 @@ import me.m1key.audiolicious.libraryparser.RawTrackDataHandler;
 import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParser;
 import me.m1key.audiolicious.libraryparser.XmlParseException;
 import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandler;
-import me.m1key.audiolicious.objecthandler.ObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.DefaultRawTrackDataHandler;
+import me.m1key.audiolicious.objecthandler.ObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
 import me.m1key.audiolicious.objecthandler.factories.TrackHandlersFactory;
 import me.m1key.audiolicious.objecthandler.factories.TrackMappersFactory;
@@ -65,8 +65,8 @@ import me.m1key.audiolicious.objecthandler.handlers.SongHandler;
 import me.m1key.audiolicious.objecthandler.handlers.SongService;
 import me.m1key.audiolicious.objecthandler.handlers.VideoHandler;
 import me.m1key.audiolicious.objectmapper.AggregateTrackMapper;
-import me.m1key.audiolicious.objectmapper.DefaultAggregateTrackMapper;
 import me.m1key.audiolicious.objectmapper.CannotMapTrackValuesException;
+import me.m1key.audiolicious.objectmapper.DefaultAggregateTrackMapper;
 import me.m1key.audiolicious.objectmapper.ObjectMappingException;
 import me.m1key.audiolicious.objectmapper.TrackMapper;
 import me.m1key.audiolicious.objectmapper.extractor.DataExtractor;
@@ -92,7 +92,6 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.DependencyResolvers;
 import org.jboss.shrinkwrap.resolver.api.maven.MavenDependencyResolver;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -253,7 +252,7 @@ public class DefaultSongServiceMacOsIT {
 		assertNotNull(album.getUuid());
 		assertEquals("Fleet Foxes", album.getArtist().getName());
 		assertEquals("Fleet Foxes (Deluxe Edition)", album.getName());
-		// assertEquals(19, album.getSongs().size()); // TODO
+		assertEquals(19, album.getSongs().size());
 	}
 
 	@Test
@@ -285,8 +284,6 @@ public class DefaultSongServiceMacOsIT {
 	}
 
 	@Test
-	@Ignore
-	// TODO object equality
 	public void testAlbum3Song2Correct() {
 		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
 		Song song2 = getSongByTitleAndVideo(album, "He Doesn't Know Why", false);
@@ -315,8 +312,6 @@ public class DefaultSongServiceMacOsIT {
 	}
 
 	@Test
-	@Ignore
-	// TODO object equality
 	public void testAlbum3Song3Correct() {
 		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
 		Song song3 = getSongByTitleAndVideo(album, "White Winter Hymnal", false);
@@ -745,8 +740,6 @@ public class DefaultSongServiceMacOsIT {
 	}
 
 	@Test
-	@Ignore
-	// TODO object equality
 	public void testAlbum3Song18Correct() {
 		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
 		Song song18 = getSongByTitleAndVideo(album, "He Doesn't Know Why", true);
@@ -777,8 +770,6 @@ public class DefaultSongServiceMacOsIT {
 	}
 
 	@Test
-	@Ignore
-	// TODO object equality
 	public void testAlbum3Song19Correct() {
 		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
 		Song song19 = getSongByTitleAndVideo(album, "White Winter Hymnal", true);

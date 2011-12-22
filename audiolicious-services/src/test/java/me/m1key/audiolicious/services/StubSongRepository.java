@@ -28,7 +28,6 @@ import javax.ejb.Singleton;
 import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.qualifiers.NullSong;
-import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Song;
 
 @Singleton
@@ -41,12 +40,12 @@ public class StubSongRepository implements SongRepository {
 
 	private Map<String, Integer> numberOfSongsPerAlbum;
 	private Map<String, Integer> numberOfAlbumsPerArtist;
-	private Map<Album, Set<Song>> songsPerAlbum;
+	private Map<String, Set<Song>> songsPerAlbum;
 
 	public StubSongRepository() {
 		numberOfSongsPerAlbum = new HashMap<String, Integer>();
 		numberOfAlbumsPerArtist = new HashMap<String, Integer>();
-		songsPerAlbum = new HashMap<Album, Set<Song>>();
+		songsPerAlbum = new HashMap<String, Set<Song>>();
 	}
 
 	@Override
@@ -100,15 +99,17 @@ public class StubSongRepository implements SongRepository {
 		Set<Song> songsForThisAlbum = songsPerAlbum.get(song.getAlbum());
 		if (songsForThisAlbum == null) {
 			songsForThisAlbum = new HashSet<Song>();
-			songsPerAlbum.put(song.getAlbum(), songsForThisAlbum);
+			songsPerAlbum.put(toKey(song), songsForThisAlbum);
 		}
 
 		songsForThisAlbum.add(song);
 	}
 
 	@Override
-	public Song getSong(Album album, String songName) {
-		Set<Song> songsForThisAlbum = songsPerAlbum.get(album);
+	public Song getSong(String songName, String albumName, String albumArtist,
+			int trackNumber, int discNumber) {
+		Set<Song> songsForThisAlbum = songsPerAlbum.get(toKey(songName,
+				albumName, albumArtist, trackNumber, discNumber));
 		if (songsForThisAlbum != null) {
 			for (Song song : songsForThisAlbum) {
 				if (song.getName().equals(songName)) {
@@ -118,4 +119,16 @@ public class StubSongRepository implements SongRepository {
 		}
 		return nullSong;
 	}
+
+	private String toKey(String songName, String albumName, String albumArtist,
+			int trackNumber, int discNumber) {
+		return String.format("%s:%s:%s:%d:%d", songName, albumName,
+				albumArtist, trackNumber, discNumber);
+	}
+
+	private String toKey(Song song) {
+		return toKey(song.getName(), song.getAlbumName(), song.getArtistName(),
+				song.getTrackNumber(), song.getDiscNumber());
+	}
+
 }
