@@ -59,13 +59,14 @@ public class SongToBuilderTest {
 		boolean albumRatingComputed = true;
 		int trackNumber = 2;
 		int discNumber = 1;
+		int totalTime = 100;
 
 		songViaConstructor = new SongTo(name, albumName, artist, albumArtist,
 				year, composer, genre, compilation, dateAdded, dateModified,
 				new RatingTo(rating), playCount, skipDate, skipCount,
 				albumRatingComputed, new RatingTo(albumRating), hasVideo,
 				videoHeight, videoWidth, hd, musicVideo, trackNumber,
-				discNumber);
+				discNumber, totalTime);
 
 		songViaBuilder = new SongToBuilder(name).withAlbumName(albumName)
 				.withArtist(artist).withAlbumArtist(albumArtist).withYear(year)

@@ -87,12 +87,14 @@ public class DefaultSongMapper extends NonAggregateTrackMapper<SongTo>
 				XmlNodeName.TRACK_NUMBER);
 		int discNumber = extractor.extractInt(trackValues,
 				XmlNodeName.DISC_NUMBER);
+		int totalTime = extractor.extractInt(trackValues,
+				XmlNodeName.TOTAL_TIME);
 
 		return new SongTo(name, album, artist, albumArtist, year, composer,
 				genre, compilation, dateAdded, dateModified, rating, playCount,
 				skipDate, skipCount, albumRatingComputed, albumRating,
 				hasVideo, videoHeight, videoWidth, hd, musicVideo, trackNumber,
-				discNumber);
+				discNumber, totalTime);
 	}
 
 	@Override

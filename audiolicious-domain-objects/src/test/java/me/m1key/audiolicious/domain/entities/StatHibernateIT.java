@@ -183,47 +183,47 @@ public class StatHibernateIT extends HibernateIT {
 		Song song01 = new Song(ARTIST_1_ALBUM_1_SONG_1_NAME,
 				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 1, 1, artist1Album1,
 				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false);
+				0, false, 100);
 		Song song02 = new Song(ARTIST_1_ALBUM_1_SONG_2_NAME,
 				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 2, 1, artist1Album1,
 				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", true, 0,
-				0, false);
+				0, false, 100);
 		Song song03 = new Song(ARTIST_1_ALBUM_1_SONG_3_NAME,
 				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 3, 1, artist1Album1,
 				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false);
+				0, false, 100);
 		Song song04 = new Song(ARTIST_1_ALBUM_1_SONG_4_NAME,
 				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 4, 1, artist1Album1,
 				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false);
+				0, false, 100);
 		Song song05 = new Song(ARTIST_1_ALBUM_1_SONG_5_NAME,
 				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 5, 1, artist1Album1,
 				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false);
+				0, false, 100);
 		Song song06 = new Song(ARTIST_1_ALBUM_1_SONG_6_NAME,
 				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 6, 1, artist1Album1,
 				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false);
+				0, false, 100);
 		Song song07 = new Song(ARTIST_1_ALBUM_1_SONG_7_NAME,
 				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 7, 1, artist1Album1,
 				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false);
+				0, false, 100);
 		Song song08 = new Song(ARTIST_1_ALBUM_1_SONG_8_NAME,
 				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 8, 1, artist1Album1,
 				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false);
+				0, false, 100);
 		Song song09 = new Song(ARTIST_1_ALBUM_1_SONG_9_NAME,
 				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 9, 1, artist1Album1,
 				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false);
+				0, false, 100);
 		Song song10 = new Song(ARTIST_1_ALBUM_1_SONG_10_NAME,
 				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 10, 1, artist1Album1,
 				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false);
+				0, false, 100);
 		Song song11 = new Song(ARTIST_1_ALBUM_1_SONG_11_NAME,
 				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 11, 1, artist1Album1,
 				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false);
+				0, false, 100);
 
 		song01.addStat(library, artist1Album1DateAdded,
 				artist1Album1DateModified, artist1Album1DateSkipped, 0,
@@ -276,43 +276,43 @@ public class StatHibernateIT extends HibernateIT {
 	private void addSongsToAlbum2(Album artist1Album2) {
 		Song song01 = new Song(ARTIST_1_ALBUM_2_SONG_1_NAME,
 				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 1, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false);
+				1991, "", "Rock", false, 0, 0, false, 100);
 		Song song02 = new Song(ARTIST_1_ALBUM_2_SONG_2_NAME,
 				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 2, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false);
+				1991, "", "Rock", false, 0, 0, false, 100);
 		Song song03 = new Song(ARTIST_1_ALBUM_2_SONG_3_NAME,
 				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 3, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false);
+				1991, "", "Rock", false, 0, 0, false, 100);
 		Song song04 = new Song(ARTIST_1_ALBUM_2_SONG_4_NAME,
 				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 4, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false);
+				1991, "", "Rock", false, 0, 0, false, 100);
 		Song song05 = new Song(ARTIST_1_ALBUM_2_SONG_5_NAME,
 				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 5, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false);
+				1991, "", "Rock", false, 0, 0, false, 100);
 		Song song06 = new Song(ARTIST_1_ALBUM_2_SONG_6_NAME,
 				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 6, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false);
+				1991, "", "Rock", false, 0, 0, false, 100);
 		Song song07 = new Song(ARTIST_1_ALBUM_2_SONG_7_NAME,
 				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 7, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false);
+				1991, "", "Rock", false, 0, 0, false, 100);
 		Song song08 = new Song(ARTIST_1_ALBUM_2_SONG_8_NAME,
 				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 8, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false);
+				1991, "", "Rock", false, 0, 0, false, 100);
 		Song song09 = new Song(ARTIST_1_ALBUM_2_SONG_9_NAME,
 				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 9, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false);
+				1991, "", "Rock", false, 0, 0, false, 100);
 		Song song10 = new Song(ARTIST_1_ALBUM_2_SONG_10_NAME,
 				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 10, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false);
+				1991, "", "Rock", false, 0, 0, false, 100);
 		Song song11 = new Song(ARTIST_1_ALBUM_2_SONG_11_NAME,
 				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 11, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false);
+				1991, "", "Rock", false, 0, 0, false, 100);
 		Song song12 = new Song(ARTIST_1_ALBUM_2_SONG_12_NAME,
 				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 12, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false);
+				1991, "", "Rock", false, 0, 0, false, 100);
 		Song song13 = new Song(ARTIST_1_ALBUM_2_SONG_13_NAME,
 				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 13, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false);
+				1991, "", "Rock", false, 0, 0, false, 100);
 
 		song01.addStat(library, artist1Album2DateAdded,
 				artist1Album2DateModified, artist1Album2DateSkipped, 0,
@@ -373,37 +373,37 @@ public class StatHibernateIT extends HibernateIT {
 	private void addSongsToAlbum3(Album artist2Album1) {
 		Song song01 = new Song(ARTIST_2_ALBUM_1_SONG_1_NAME,
 				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 1, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false);
+				2009, "", "Alternative", false, 0, 0, false, 100);
 		Song song02 = new Song(ARTIST_2_ALBUM_1_SONG_2_NAME,
 				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 2, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false);
+				2009, "", "Alternative", false, 0, 0, false, 100);
 		Song song03 = new Song(ARTIST_2_ALBUM_1_SONG_3_NAME,
 				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 3, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false);
+				2009, "", "Alternative", false, 0, 0, false, 100);
 		Song song04 = new Song(ARTIST_2_ALBUM_1_SONG_4_NAME,
 				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 4, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false);
+				2009, "", "Alternative", false, 0, 0, false, 100);
 		Song song05 = new Song(ARTIST_2_ALBUM_1_SONG_5_NAME,
 				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 5, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false);
+				2009, "", "Alternative", false, 0, 0, false, 100);
 		Song song06 = new Song(ARTIST_2_ALBUM_1_SONG_6_NAME,
 				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 6, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false);
+				2009, "", "Alternative", false, 0, 0, false, 100);
 		Song song07 = new Song(ARTIST_2_ALBUM_1_SONG_7_NAME,
 				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 7, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false);
+				2009, "", "Alternative", false, 0, 0, false, 100);
 		Song song08 = new Song(ARTIST_2_ALBUM_1_SONG_8_NAME,
 				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 8, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false);
+				2009, "", "Alternative", false, 0, 0, false, 100);
 		Song song09 = new Song(ARTIST_2_ALBUM_1_SONG_9_NAME,
 				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 9, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false);
+				2009, "", "Alternative", false, 0, 0, false, 100);
 		Song song10 = new Song(ARTIST_2_ALBUM_1_SONG_10_NAME,
 				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 10, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false);
+				2009, "", "Alternative", false, 0, 0, false, 100);
 		Song song11 = new Song(ARTIST_2_ALBUM_1_SONG_11_NAME,
 				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 11, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false);
+				2009, "", "Alternative", false, 0, 0, false, 100);
 
 		song01.addStat(library, artist2Album1DateAdded,
 				artist2Album1DateModified, artist2Album1DateSkipped, 0,

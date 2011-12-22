@@ -35,6 +35,7 @@ public final class SongTo extends TrackTo {
 	private final boolean compilation;
 	private final int trackNumber;
 	private final int discNumber;
+	private final int totalTime;
 
 	public SongTo(String name, String albumName, String artist,
 			String albumArtist, int year, String composer, String genre,
@@ -42,7 +43,7 @@ public final class SongTo extends TrackTo {
 			RatingTo rating, int playCount, Date skipDate, int skipCount,
 			boolean albumRatingComputed, RatingTo albumRating,
 			boolean hasVideo, int videoHeight, int videoWidth, boolean hd,
-			boolean musicVideo, int trackNumber, int discNumber) {
+			boolean musicVideo, int trackNumber, int discNumber, int totalTime) {
 		super(name, albumName, artist, albumArtist, year, genre, dateAdded,
 				dateModified, rating, playCount, hasVideo, videoHeight,
 				videoWidth, hd);
@@ -55,6 +56,7 @@ public final class SongTo extends TrackTo {
 		this.compilation = compilation;
 		this.trackNumber = trackNumber;
 		this.discNumber = discNumber;
+		this.totalTime = totalTime;
 	}
 
 	public RatingTo getAlbumRating() {
@@ -93,6 +95,10 @@ public final class SongTo extends TrackTo {
 		return discNumber;
 	}
 
+	public int getTotalTime() {
+		return totalTime;
+	}
+
 	@Override
 	public TrackToType getType() {
 		return TrackToType.SONG;
@@ -128,7 +134,8 @@ public final class SongTo extends TrackTo {
 				.append(skipCount, castOther.skipCount)
 				.append(compilation, castOther.compilation)
 				.append(trackNumber, castOther.trackNumber)
-				.append(discNumber, castOther.discNumber).isEquals();
+				.append(discNumber, castOther.discNumber)
+				.append(totalTime, castOther.totalTime).isEquals();
 	}
 
 	@Override
@@ -141,6 +148,7 @@ public final class SongTo extends TrackTo {
 				.append("skipDate", skipDate).append("skipCount", skipCount)
 				.append("compilation", compilation)
 				.append("trackNumber", trackNumber)
-				.append("discNumber", discNumber).toString();
+				.append("discNumber", discNumber)
+				.append("totalTime", totalTime).toString();
 	}
 }

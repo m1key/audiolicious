@@ -58,7 +58,7 @@ public class NullEntitiesFactory {
 	public Song getNullSong() {
 		return new Song("(null song)", "(null album)", "(null artist)", 0, 0,
 				nullAlbum, 2011, "(null composer)", "(null genre)", false, 0,
-				0, false);
+				0, false, 0);
 	}
 
 	@Produces

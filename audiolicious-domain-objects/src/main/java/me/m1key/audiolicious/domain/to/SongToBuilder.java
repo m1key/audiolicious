@@ -45,6 +45,7 @@ public class SongToBuilder {
 	private boolean musicVideo;
 	private int trackNumber;
 	private int discNumber;
+	private int totalTime;
 
 	public SongToBuilder(String name) {
 		this.name = name;
@@ -160,12 +161,17 @@ public class SongToBuilder {
 		return this;
 	}
 
+	public SongToBuilder withTotalTime(int totalTime) {
+		this.totalTime = totalTime;
+		return this;
+	}
+
 	public SongTo build() {
 		return new SongTo(name, albumName, artist, albumArtist, year, composer,
 				genre, compilation, dateAdded, dateModified, rating, playCount,
 				skipDate, skipCount, albumRatingComputed, albumRating,
 				hasVideo, videoHeight, videoWidth, hd, musicVideo, trackNumber,
-				discNumber);
+				discNumber, totalTime);
 	}
 
 }

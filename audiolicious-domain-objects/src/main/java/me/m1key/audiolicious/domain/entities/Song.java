@@ -89,6 +89,9 @@ public class Song {
 	@Column(name = "HD")
 	private boolean hd;
 
+	@Column(name = "TOTAL_TIME")
+	private int totalTime;
+
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	private Album album;
 
@@ -102,7 +105,7 @@ public class Song {
 	public Song(String name, String albumName, String artistName,
 			int trackNumber, int discNumber, Album album, int year,
 			String composer, String genre, boolean hasVideo, int videoHeight,
-			int videoWidth, boolean hd) {
+			int videoWidth, boolean hd, int totalTime) {
 		this.uuid = UUID.randomUUID().toString();
 		this.name = name;
 		this.albumName = albumName;
@@ -116,6 +119,7 @@ public class Song {
 		this.videoHeight = videoHeight;
 		this.videoWidth = videoWidth;
 		this.hd = hd;
+		this.totalTime = totalTime;
 		setAlbum(album);
 
 		stats = new HashSet<Stat>();
@@ -135,6 +139,7 @@ public class Song {
 		this.hd = songTo.isHd();
 		this.trackNumber = songTo.getTrackNumber();
 		this.discNumber = songTo.getDiscNumber();
+		this.totalTime = songTo.getTotalTime();
 
 		stats = new HashSet<Stat>();
 	}
@@ -215,6 +220,10 @@ public class Song {
 		return trackNumber;
 	}
 
+	public int getTotalTime() {
+		return totalTime;
+	}
+
 	private void removeFromCurrentAlbum() {
 		if (album != null) {
 			album.removeSong(this);
@@ -225,7 +234,7 @@ public class Song {
 	public int hashCode() {
 		return new HashCodeBuilder().append(name).append(albumName)
 				.append(artistName).append(trackNumber).append(discNumber)
-				.toHashCode();
+				.append(totalTime).toHashCode();
 	}
 
 	@Override
@@ -237,15 +246,20 @@ public class Song {
 				.append(albumName, castOther.albumName)
 				.append(artistName, castOther.artistName)
 				.append(trackNumber, castOther.trackNumber)
-				.append(discNumber, castOther.discNumber).isEquals();
+				.append(discNumber, castOther.discNumber)
+				.append(totalTime, castOther.totalTime).isEquals();
 	}
 
 	@Override
 	public String toString() {
 		return new ToStringBuilder(this).append("uuid", uuid)
-				.append("name", name).append("artistName", artistName)
-				.append("composer", composer).append("genre", genre)
-				.append("year", year).append("hasVideo", hasVideo)
+				.append("name", name).append("albumName", albumName)
+				.append("artistName", artistName)
+				.append("trackNumber", trackNumber)
+				.append("discNumber", discNumber)
+				.append("totalTime", totalTime).append("composer", composer)
+				.append("genre", genre).append("year", year)
+				.append("hasVideo", hasVideo)
 				.append("videoHeight", videoHeight)
 				.append("videoWidth", videoWidth).append("hd", hd).toString();
 	}

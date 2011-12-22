@@ -135,6 +135,9 @@ public class SongMapperTest {
 		trackValues.put(XmlNodeName.COMPOSER, "Dio");
 		trackValues.put(XmlNodeName.SKIP_COUNT, "3");
 		trackValues.put(XmlNodeName.SKIP_DATE, "2009-04-09T21:31:52Z");
+		trackValues.put(XmlNodeName.TRACK_NUMBER, "9");
+		trackValues.put(XmlNodeName.DISC_NUMBER, "2");
+		trackValues.put(XmlNodeName.TOTAL_TIME, "200");
 		SongTo song = songMapper.map(trackValues);
 
 		assertNotNull(song);
@@ -161,6 +164,9 @@ public class SongMapperTest {
 		assertEquals(false, song.isPodcast());
 		assertEquals("Dio", song.getComposer());
 		assertEquals(3, song.getSkipCount());
+		assertEquals(9, song.getTrackNumber());
+		assertEquals(2, song.getDiscNumber());
+		assertEquals(200, song.getTotalTime());
 		assertEquals(1239312712000L, song.getSkipDate().getTime());
 	}
 
