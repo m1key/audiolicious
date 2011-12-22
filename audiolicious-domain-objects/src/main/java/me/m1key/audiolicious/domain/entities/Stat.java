@@ -64,6 +64,12 @@ public class Stat {
 	@Column(name = "PLAY_COUNT")
 	private int playCount;
 
+	@Column(name = "LIBRARY_UUID", length = 36)
+	private String libraryUuid;
+
+	@Column(name = "SONG_UUID", length = 36)
+	private String songUuid;
+
 	@Embedded
 	private Rating rating;
 
@@ -90,6 +96,9 @@ public class Stat {
 		this.rating = rating;
 		this.playCount = playCount;
 
+		this.libraryUuid = library.getUuid();
+		this.songUuid = song.getUuid();
+
 		library.addStat(this);
 	}
 
@@ -103,6 +112,9 @@ public class Stat {
 		this.rating = new Rating(songTo.getRating());
 		this.dateSkipped = songTo.getSkipDate();
 		this.skipCount = songTo.getSkipCount();
+
+		this.libraryUuid = library.getUuid();
+		this.songUuid = song.getUuid();
 
 		library.addStat(this);
 	}
@@ -145,7 +157,8 @@ public class Stat {
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(uuid).toHashCode();
+		return new HashCodeBuilder().append(songUuid).append(libraryUuid)
+				.toHashCode();
 	}
 
 	@Override
@@ -153,13 +166,15 @@ public class Stat {
 		if (!(other instanceof Stat))
 			return false;
 		Stat castOther = (Stat) other;
-		return new EqualsBuilder().append(uuid, castOther.uuid).isEquals();
+		return new EqualsBuilder().append(songUuid, castOther.songUuid)
+				.append(libraryUuid, castOther.libraryUuid).isEquals();
 	}
 
 	@Override
 	public String toString() {
 		return new ToStringBuilder(this).append("uuid", uuid)
-				.append("dateAdded", dateAdded)
+				.append("libraryUuid", libraryUuid)
+				.append("songUuid", songUuid).append("dateAdded", dateAdded)
 				.append("dateModified", dateModified)
 				.append("playCount", playCount)
 				.append("dateSkipped", dateSkipped)
