@@ -93,7 +93,7 @@ public class Artist {
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(uuid).append(name).toHashCode();
+		return new HashCodeBuilder().append(name).append(name).toHashCode();
 	}
 
 	@Override
@@ -101,7 +101,7 @@ public class Artist {
 		if (!(other instanceof Artist))
 			return false;
 		Artist castOther = (Artist) other;
-		return new EqualsBuilder().append(uuid, castOther.uuid).isEquals();
+		return new EqualsBuilder().append(name, castOther.name).isEquals();
 	}
 
 	@Override

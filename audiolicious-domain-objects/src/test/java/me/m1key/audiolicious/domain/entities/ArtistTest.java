@@ -18,6 +18,7 @@
 
 package me.m1key.audiolicious.domain.entities;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -28,6 +29,14 @@ import me.m1key.audiolicious.domain.entities.Rating;
 import org.junit.Test;
 
 public class ArtistTest {
+
+	@Test
+	public void testEquals() {
+		Artist artist1 = new Artist("Dio");
+		Artist artist2 = new Artist("Dio");
+
+		assertEquals(artist1, artist2);
+	}
 
 	@Test
 	public void testNotEquals() {
