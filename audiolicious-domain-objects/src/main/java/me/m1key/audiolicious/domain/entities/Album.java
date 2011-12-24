@@ -54,6 +54,9 @@ public class Album {
 	@Column(name = "NAME", length = 512)
 	private String name;
 
+	@Column(name = "ARTIST_NAME", length = 512)
+	private String artistName;
+
 	@Embedded
 	private Rating rating;
 
@@ -71,6 +74,8 @@ public class Album {
 		this.uuid = UUID.randomUUID().toString();
 		this.name = albumName;
 		this.rating = albumRating;
+
+		this.artistName = albumArtist.getName();
 
 		songs = new HashSet<Song>();
 		setArtist(albumArtist);
@@ -123,7 +128,8 @@ public class Album {
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(uuid).append(name).toHashCode();
+		return new HashCodeBuilder().append(name).append(artistName)
+				.toHashCode();
 	}
 
 	@Override
@@ -131,7 +137,8 @@ public class Album {
 		if (!(other instanceof Album))
 			return false;
 		Album castOther = (Album) other;
-		return new EqualsBuilder().append(uuid, castOther.uuid).isEquals();
+		return new EqualsBuilder().append(name, castOther.name)
+				.append(artistName, castOther.artistName).isEquals();
 	}
 
 	@Override

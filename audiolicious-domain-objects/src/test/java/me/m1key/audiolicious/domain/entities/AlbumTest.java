@@ -35,6 +35,13 @@ public class AlbumTest {
 	}
 
 	@Test
+	public void testEquals() {
+		Album album1 = new Album("Holy Diver", artist, new Rating(100));
+		Album album2 = new Album("Holy Diver", artist, new Rating(80));
+		assertEquals(album1, album2);
+	}
+
+	@Test
 	public void testNotEquals1() {
 		Album album1 = new Album("Holy Diver", artist, new Rating(100));
 		Album album2 = new Album("Holy Diver3", artist, new Rating(100));
