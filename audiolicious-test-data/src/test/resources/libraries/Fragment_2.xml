@@ -1,0 +1,4302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>Major Version</key>
+		<integer>1</integer>
+		<key>Minor Version</key>
+		<integer>1</integer>
+		<key>Date</key>
+		<date>2011-12-25T17:49:56Z</date>
+		<key>Application Version</key>
+		<string>10.5.2</string>
+		<key>Features</key>
+		<integer>5</integer>
+		<key>Show Content Ratings</key>
+		<true />
+		<key>Music Folder</key>
+		<string>file://localhost/E:/iTunes/</string>
+		<key>Library Persistent ID</key>
+		<string>10B7BF9345EC1A28</string>
+		<key>Tracks</key>
+		<dict>
+			<key>1340</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>1340</integer>
+				<key>Name</key>
+				<string>Nicole.Scherzinger.-.Whatever.You.Like.(by.eselfilme.com).avi</string>
+				<key>Artist</key>
+				<string>created.with.SUPER(C).v2007.bld.23</string>
+				<key>Composer</key>
+				<string>created.with.SUPER(C).v2007.bld.23</string>
+				<key>Kind</key>
+				<string>QuickTime movie file</string>
+				<key>Size</key>
+				<integer>40650851</integer>
+				<key>Total Time</key>
+				<integer>240880</integer>
+				<key>Date Modified</key>
+				<date>2007-11-04T19:08:34Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T16:39:51Z</date>
+				<key>Bit Rate</key>
+				<integer>124</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>0AC7E9F3BAEDDDC6</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Has Video</key>
+				<true />
+				<key>HD</key>
+				<false />
+				<key>Video Width</key>
+				<integer>576</integer>
+				<key>Video Height</key>
+				<integer>432</integer>
+				<key>Movie</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Movies/Nicole.Scherzinger.-.Whatever.You.Li.MOV</string>
+				<key>File Folder Count</key>
+				<integer>3</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>1342</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>1342</integer>
+				<key>Name</key>
+				<string>YouTube - Naskewtenk Mikael Kurdish Music Belly Dance.flv</string>
+				<key>Artist</key>
+				<string>created.with.SUPER(C).v2007.bld.23</string>
+				<key>Composer</key>
+				<string>created.with.SUPER(C).v2007.bld.23</string>
+				<key>Kind</key>
+				<string>QuickTime movie file</string>
+				<key>Size</key>
+				<integer>11400080</integer>
+				<key>Total Time</key>
+				<integer>199366</integer>
+				<key>Date Modified</key>
+				<date>2008-01-24T16:37:08Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T16:39:57Z</date>
+				<key>Bit Rate</key>
+				<integer>101</integer>
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>4E3695C73CFC1F0C</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Has Video</key>
+				<true />
+				<key>HD</key>
+				<false />
+				<key>Video Width</key>
+				<integer>320</integer>
+				<key>Video Height</key>
+				<integer>240</integer>
+				<key>Movie</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Movies/YouTube%20-%20Naskewtenk%20Mikael%20%20Kurdish.MOV</string>
+				<key>File Folder Count</key>
+				<integer>3</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>1344</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>1344</integer>
+				<key>Name</key>
+				<string>The Rubaiyat (Unabridged)</string>
+				<key>Artist</key>
+				<string>Omar Khayyam</string>
+				<key>Album Artist</key>
+				<string>Omar Khayyam</string>
+				<key>Album</key>
+				<string>The Rubaiyat (Unabridged)</string>
+				<key>Genre</key>
+				<string>Classics</string>
+				<key>Kind</key>
+				<string>Protected AAC audio file</string>
+				<key>Size</key>
+				<integer>6632521</integer>
+				<key>Total Time</key>
+				<integer>1670568</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Track Count</key>
+				<integer>1</integer>
+				<key>Date Modified</key>
+				<date>2009-03-17T18:42:40Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T16:39:58Z</date>
+				<key>Bit Rate</key>
+				<integer>32</integer>
+				<key>Sample Rate</key>
+				<integer>24000</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3340725993</integer>
+				<key>Play Date UTC</key>
+				<date>2009-11-10T19:26:33Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Sort Album</key>
+				<string>Rubaiyat (Unabridged)</string>
+				<key>Sort Name</key>
+				<string>Rubaiyat (Unabridged)</string>
+				<key>Persistent ID</key>
+				<string>BB894F4BB38E619E</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Protected</key>
+				<true />
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Omar%20Khayyam/The%20Rubaiyat%20(Unabridged)/01%20The%20Rubaiyat%20(Unabridged).m4b</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>1346</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>1346</integer>
+				<key>Name</key>
+				<string>Revelations</string>
+				<key>Artist</key>
+				<string>Audioslave</string>
+				<key>Album Artist</key>
+				<string>Audioslave</string>
+				<key>Album</key>
+				<string>Revelations</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>8818831</integer>
+				<key>Total Time</key>
+				<integer>252413</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Year</key>
+				<integer>2006</integer>
+				<key>Date Modified</key>
+				<date>2009-04-04T20:54:36Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T16:39:58Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>2</integer>
+				<key>Play Date</key>
+				<integer>3341067375</integer>
+				<key>Play Date UTC</key>
+				<date>2009-11-14T18:16:15Z</date>
+				<key>Release Date</key>
+				<date>2006-09-01T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>100</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>50F6CE431D13761A</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Audioslave/Revelations/01%20Revelations.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>1348</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>1348</integer>
+				<key>Name</key>
+				<string>One and the Same</string>
+				<key>Artist</key>
+				<string>Audioslave</string>
+				<key>Album Artist</key>
+				<string>Audioslave</string>
+				<key>Album</key>
+				<string>Revelations</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>7682827</integer>
+				<key>Total Time</key>
+				<integer>217773</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>2</integer>
+				<key>Year</key>
+				<integer>2006</integer>
+				<key>Date Modified</key>
+				<date>2009-04-04T20:56:22Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T16:39:58Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>2</integer>
+				<key>Play Date</key>
+				<integer>3341067589</integer>
+				<key>Play Date UTC</key>
+				<date>2009-11-14T18:19:49Z</date>
+				<key>Release Date</key>
+				<date>2006-09-01T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>100</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>69D146B49228D2A6</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Audioslave/Revelations/02%20One%20and%20the%20Same.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+
+			<key>24014</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24014</integer>
+				<key>Name</key>
+				<string>Killing In the Name</string>
+				<key>Artist</key>
+				<string>Rage Against the Machine</string>
+				<key>Album Artist</key>
+				<string>Rage Against the Machine</string>
+				<key>Album</key>
+				<string>Rage Against the Machine</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>11868613</integer>
+				<key>Total Time</key>
+				<integer>313585</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>2</integer>
+				<key>Track Count</key>
+				<integer>10</integer>
+				<key>Year</key>
+				<integer>1992</integer>
+				<key>Date Modified</key>
+				<date>2011-12-16T19:55:18Z</date>
+				<key>Date Added</key>
+				<date>2011-12-16T20:52:28Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>4</integer>
+				<key>Play Date</key>
+				<integer>3407423962</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-22T18:39:22Z</date>
+				<key>Release Date</key>
+				<date>1992-11-09T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>100</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>809D042B48885F52</string>
+				<key>Explicit</key>
+				<true />
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Rage%20Against%20the%20Machine/Rage%20Against%20the%20Machine/02%20Killing%20In%20the%20Name.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24016</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24016</integer>
+				<key>Name</key>
+				<string>Take the Power Back</string>
+				<key>Artist</key>
+				<string>Rage Against the Machine</string>
+				<key>Album Artist</key>
+				<string>Rage Against the Machine</string>
+				<key>Composer</key>
+				<string>Rage Against the Machine</string>
+				<key>Album</key>
+				<string>Rage Against the Machine</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>11553783</integer>
+				<key>Total Time</key>
+				<integer>335840</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>3</integer>
+				<key>Track Count</key>
+				<integer>10</integer>
+				<key>Year</key>
+				<integer>1992</integer>
+				<key>Date Modified</key>
+				<date>2011-12-16T19:55:24Z</date>
+				<key>Date Added</key>
+				<date>2011-12-16T20:52:30Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>3</integer>
+				<key>Play Date</key>
+				<integer>3407424298</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-22T18:44:58Z</date>
+				<key>Release Date</key>
+				<date>1992-11-09T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>2CEA1ACB645F4FA6</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Rage%20Against%20the%20Machine/Rage%20Against%20the%20Machine/03%20Take%20the%20Power%20Back.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24018</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24018</integer>
+				<key>Name</key>
+				<string>Settle for Nothing</string>
+				<key>Artist</key>
+				<string>Rage Against the Machine</string>
+				<key>Album Artist</key>
+				<string>Rage Against the Machine</string>
+				<key>Album</key>
+				<string>Rage Against the Machine</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>9885348</integer>
+				<key>Total Time</key>
+				<integer>287333</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>4</integer>
+				<key>Track Count</key>
+				<integer>10</integer>
+				<key>Year</key>
+				<integer>1992</integer>
+				<key>Date Modified</key>
+				<date>2011-12-16T19:56:00Z</date>
+				<key>Date Added</key>
+				<date>2011-12-16T20:52:32Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407055081</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T12:11:21Z</date>
+				<key>Release Date</key>
+				<date>1992-11-09T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>60</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>3081A78D7E121217</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Rage%20Against%20the%20Machine/Rage%20Against%20the%20Machine/04%20Settle%20for%20Nothing.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24020</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24020</integer>
+				<key>Name</key>
+				<string>Bullet In the Head</string>
+				<key>Artist</key>
+				<string>Rage Against the Machine</string>
+				<key>Album Artist</key>
+				<string>Rage Against the Machine</string>
+				<key>Composer</key>
+				<string>Rage Against the Machine</string>
+				<key>Album</key>
+				<string>Rage Against the Machine</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>10641323</integer>
+				<key>Total Time</key>
+				<integer>307066</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>5</integer>
+				<key>Track Count</key>
+				<integer>10</integer>
+				<key>Year</key>
+				<integer>1992</integer>
+				<key>Date Modified</key>
+				<date>2011-12-16T19:56:00Z</date>
+				<key>Date Added</key>
+				<date>2011-12-16T20:52:34Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407055389</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T12:16:29Z</date>
+				<key>Release Date</key>
+				<date>1992-11-09T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>DC4F07928FB4B18B</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Rage%20Against%20the%20Machine/Rage%20Against%20the%20Machine/05%20Bullet%20In%20the%20Head.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24022</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24022</integer>
+				<key>Name</key>
+				<string>Know Your Enemy</string>
+				<key>Artist</key>
+				<string>Rage Against the Machine</string>
+				<key>Album Artist</key>
+				<string>Rage Against the Machine</string>
+				<key>Composer</key>
+				<string>Rage Against the Machine</string>
+				<key>Album</key>
+				<string>Rage Against the Machine</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>10143406</integer>
+				<key>Total Time</key>
+				<integer>294693</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>6</integer>
+				<key>Track Count</key>
+				<integer>10</integer>
+				<key>Year</key>
+				<integer>1992</integer>
+				<key>Date Modified</key>
+				<date>2011-12-16T19:56:06Z</date>
+				<key>Date Added</key>
+				<date>2011-12-16T20:52:35Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407055683</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T12:21:23Z</date>
+				<key>Release Date</key>
+				<date>1992-11-09T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>203E003D5C892027</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Rage%20Against%20the%20Machine/Rage%20Against%20the%20Machine/06%20Know%20Your%20Enemy.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24024</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24024</integer>
+				<key>Name</key>
+				<string>Wake Up</string>
+				<key>Artist</key>
+				<string>Rage Against the Machine</string>
+				<key>Album Artist</key>
+				<string>Rage Against the Machine</string>
+				<key>Composer</key>
+				<string>Rage Against the Machine</string>
+				<key>Album</key>
+				<string>Rage Against the Machine</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>12498477</integer>
+				<key>Total Time</key>
+				<integer>364133</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>7</integer>
+				<key>Track Count</key>
+				<integer>10</integer>
+				<key>Year</key>
+				<integer>1992</integer>
+				<key>Date Modified</key>
+				<date>2011-12-16T19:56:30Z</date>
+				<key>Date Added</key>
+				<date>2011-12-16T20:52:36Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>4</integer>
+				<key>Play Date</key>
+				<integer>3407424693</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-22T18:51:33Z</date>
+				<key>Release Date</key>
+				<date>1992-11-09T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>100</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>D566CC0074F8095F</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Rage%20Against%20the%20Machine/Rage%20Against%20the%20Machine/07%20Wake%20Up.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24026</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24026</integer>
+				<key>Name</key>
+				<string>Fistful of Steel</string>
+				<key>Artist</key>
+				<string>Rage Against the Machine</string>
+				<key>Album Artist</key>
+				<string>Rage Against the Machine</string>
+				<key>Album</key>
+				<string>Rage Against the Machine</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>11436028</integer>
+				<key>Total Time</key>
+				<integer>331106</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>8</integer>
+				<key>Track Count</key>
+				<integer>10</integer>
+				<key>Year</key>
+				<integer>1992</integer>
+				<key>Date Modified</key>
+				<date>2011-12-16T19:56:42Z</date>
+				<key>Date Added</key>
+				<date>2011-12-16T20:52:37Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407056378</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T12:32:58Z</date>
+				<key>Release Date</key>
+				<date>1992-11-09T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>947F152FCD8F22BD</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Rage%20Against%20the%20Machine/Rage%20Against%20the%20Machine/08%20Fistful%20of%20Steel.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24028</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24028</integer>
+				<key>Name</key>
+				<string>Township Rebellion</string>
+				<key>Artist</key>
+				<string>Rage Against the Machine</string>
+				<key>Album Artist</key>
+				<string>Rage Against the Machine</string>
+				<key>Album</key>
+				<string>Rage Against the Machine</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>11162804</integer>
+				<key>Total Time</key>
+				<integer>324426</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>9</integer>
+				<key>Track Count</key>
+				<integer>10</integer>
+				<key>Year</key>
+				<integer>1992</integer>
+				<key>Date Modified</key>
+				<date>2011-12-16T19:56:40Z</date>
+				<key>Date Added</key>
+				<date>2011-12-16T20:52:37Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407056703</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T12:38:23Z</date>
+				<key>Release Date</key>
+				<date>1992-11-09T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>2C8A817E73E4F7B2</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Rage%20Against%20the%20Machine/Rage%20Against%20the%20Machine/09%20Township%20Rebellion.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24030</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24030</integer>
+				<key>Name</key>
+				<string>Freedom</string>
+				<key>Artist</key>
+				<string>Rage Against the Machine</string>
+				<key>Album Artist</key>
+				<string>Rage Against the Machine</string>
+				<key>Album</key>
+				<string>Rage Against the Machine</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>12572370</integer>
+				<key>Total Time</key>
+				<integer>366266</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>10</integer>
+				<key>Track Count</key>
+				<integer>10</integer>
+				<key>Year</key>
+				<integer>1992</integer>
+				<key>Date Modified</key>
+				<date>2011-12-16T19:57:00Z</date>
+				<key>Date Added</key>
+				<date>2011-12-16T20:52:37Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407057069</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T12:44:29Z</date>
+				<key>Release Date</key>
+				<date>1992-11-09T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>433ACA29BC8FBAF6</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Rage%20Against%20the%20Machine/Rage%20Against%20the%20Machine/10%20Freedom.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24032</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24032</integer>
+				<key>Name</key>
+				<string>Warped</string>
+				<key>Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album</key>
+				<string>One Hot Minute (Bonus Track Version)</string>
+				<key>Genre</key>
+				<string>Rock</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>10285215</integer>
+				<key>Total Time</key>
+				<integer>304680</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Track Count</key>
+				<integer>16</integer>
+				<key>Year</key>
+				<integer>1995</integer>
+				<key>Date Modified</key>
+				<date>2011-12-17T10:57:54Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T11:23:36Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407013959</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T00:45:59Z</date>
+				<key>Release Date</key>
+				<date>1995-01-01T00:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>60</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>4B6F58188FC2576B</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Red%20Hot%20Chili%20Peppers/One%20Hot%20Minute%20(Bonus%20Track%20Version)/01%20Warped.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24034</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24034</integer>
+				<key>Name</key>
+				<string>Aeroplane</string>
+				<key>Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album</key>
+				<string>One Hot Minute (Bonus Track Version)</string>
+				<key>Genre</key>
+				<string>Rock</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>9649974</integer>
+				<key>Total Time</key>
+				<integer>285066</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>2</integer>
+				<key>Track Count</key>
+				<integer>16</integer>
+				<key>Year</key>
+				<integer>1995</integer>
+				<key>Date Modified</key>
+				<date>2011-12-17T10:57:58Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T11:23:38Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>2</integer>
+				<key>Play Date</key>
+				<integer>3406986908</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-17T17:15:08Z</date>
+				<key>Release Date</key>
+				<date>1995-01-01T00:00:00Z</date>
+				<key>Rating</key>
+				<integer>100</integer>
+				<key>Album Rating</key>
+				<integer>60</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>48BA2E7BBA268D1B</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Red%20Hot%20Chili%20Peppers/One%20Hot%20Minute%20(Bonus%20Track%20Version)/02%20Aeroplane.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24036</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24036</integer>
+				<key>Name</key>
+				<string>Deep Kick</string>
+				<key>Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album</key>
+				<string>One Hot Minute (Bonus Track Version)</string>
+				<key>Genre</key>
+				<string>Rock</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>13378060</integer>
+				<key>Total Time</key>
+				<integer>393906</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>3</integer>
+				<key>Track Count</key>
+				<integer>16</integer>
+				<key>Year</key>
+				<integer>1995</integer>
+				<key>Date Modified</key>
+				<date>2011-12-17T10:57:56Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T11:23:38Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407013109</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T00:31:49Z</date>
+				<key>Release Date</key>
+				<date>1995-01-01T00:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>60</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>4F0EAC624C314122</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Red%20Hot%20Chili%20Peppers/One%20Hot%20Minute%20(Bonus%20Track%20Version)/03%20Deep%20Kick.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24038</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24038</integer>
+				<key>Name</key>
+				<string>My Friends</string>
+				<key>Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album</key>
+				<string>One Hot Minute (Bonus Track Version)</string>
+				<key>Genre</key>
+				<string>Rock</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>8651954</integer>
+				<key>Total Time</key>
+				<integer>248640</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>4</integer>
+				<key>Track Count</key>
+				<integer>16</integer>
+				<key>Year</key>
+				<integer>1995</integer>
+				<key>Date Modified</key>
+				<date>2011-12-17T10:58:14Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T11:23:40Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407013357</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T00:35:57Z</date>
+				<key>Release Date</key>
+				<date>1995-01-01T00:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>60</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>3EC5DC4EC83E4126</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Red%20Hot%20Chili%20Peppers/One%20Hot%20Minute%20(Bonus%20Track%20Version)/04%20My%20Friends.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24040</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24040</integer>
+				<key>Name</key>
+				<string>Coffee Shop</string>
+				<key>Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album</key>
+				<string>One Hot Minute (Bonus Track Version)</string>
+				<key>Genre</key>
+				<string>Rock</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>6748540</integer>
+				<key>Total Time</key>
+				<integer>188933</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>5</integer>
+				<key>Track Count</key>
+				<integer>16</integer>
+				<key>Year</key>
+				<integer>1995</integer>
+				<key>Date Modified</key>
+				<date>2011-12-17T10:58:18Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T11:23:42Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407013546</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T00:39:06Z</date>
+				<key>Release Date</key>
+				<date>1995-01-01T00:00:00Z</date>
+				<key>Rating</key>
+				<integer>60</integer>
+				<key>Album Rating</key>
+				<integer>60</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>E56A5909C6BDA01A</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Red%20Hot%20Chili%20Peppers/One%20Hot%20Minute%20(Bonus%20Track%20Version)/05%20Coffee%20Shop.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24042</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24042</integer>
+				<key>Name</key>
+				<string>Pea</string>
+				<key>Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album</key>
+				<string>One Hot Minute (Bonus Track Version)</string>
+				<key>Genre</key>
+				<string>Rock</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>3940638</integer>
+				<key>Total Time</key>
+				<integer>107306</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>6</integer>
+				<key>Track Count</key>
+				<integer>16</integer>
+				<key>Year</key>
+				<integer>1995</integer>
+				<key>Date Modified</key>
+				<date>2011-12-17T10:58:12Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T11:23:42Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407013654</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T00:40:54Z</date>
+				<key>Release Date</key>
+				<date>1995-01-01T00:00:00Z</date>
+				<key>Rating</key>
+				<integer>60</integer>
+				<key>Album Rating</key>
+				<integer>60</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>EC1E80933ACB18C0</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Red%20Hot%20Chili%20Peppers/One%20Hot%20Minute%20(Bonus%20Track%20Version)/06%20Pea.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24044</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24044</integer>
+				<key>Name</key>
+				<string>One Big Mob</string>
+				<key>Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album</key>
+				<string>One Hot Minute (Bonus Track Version)</string>
+				<key>Genre</key>
+				<string>Rock</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>11998738</integer>
+				<key>Total Time</key>
+				<integer>362306</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>7</integer>
+				<key>Track Count</key>
+				<integer>16</integer>
+				<key>Year</key>
+				<integer>1995</integer>
+				<key>Date Modified</key>
+				<date>2011-12-17T10:58:38Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T11:23:43Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407014350</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T00:52:30Z</date>
+				<key>Release Date</key>
+				<date>1995-01-01T00:00:00Z</date>
+				<key>Rating</key>
+				<integer>60</integer>
+				<key>Album Rating</key>
+				<integer>60</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>9CAF5E64AF82D500</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Red%20Hot%20Chili%20Peppers/One%20Hot%20Minute%20(Bonus%20Track%20Version)/07%20One%20Big%20Mob.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24046</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24046</integer>
+				<key>Name</key>
+				<string>Walkabout</string>
+				<key>Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album</key>
+				<string>One Hot Minute (Bonus Track Version)</string>
+				<key>Genre</key>
+				<string>Rock</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>10567582</integer>
+				<key>Total Time</key>
+				<integer>307093</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>8</integer>
+				<key>Track Count</key>
+				<integer>16</integer>
+				<key>Year</key>
+				<integer>1995</integer>
+				<key>Date Modified</key>
+				<date>2011-12-17T10:58:40Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T11:23:43Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407014657</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T00:57:37Z</date>
+				<key>Release Date</key>
+				<date>1995-01-01T00:00:00Z</date>
+				<key>Rating</key>
+				<integer>60</integer>
+				<key>Album Rating</key>
+				<integer>60</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>1EAF44B0880781EB</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Red%20Hot%20Chili%20Peppers/One%20Hot%20Minute%20(Bonus%20Track%20Version)/08%20Walkabout.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24048</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24048</integer>
+				<key>Name</key>
+				<string>Tearjerker</string>
+				<key>Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album</key>
+				<string>One Hot Minute (Bonus Track Version)</string>
+				<key>Genre</key>
+				<string>Rock</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>9002956</integer>
+				<key>Total Time</key>
+				<integer>259626</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>9</integer>
+				<key>Track Count</key>
+				<integer>16</integer>
+				<key>Year</key>
+				<integer>1995</integer>
+				<key>Date Modified</key>
+				<date>2011-12-17T10:58:36Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T11:23:44Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407014917</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T01:01:57Z</date>
+				<key>Release Date</key>
+				<date>1995-01-01T00:00:00Z</date>
+				<key>Rating</key>
+				<integer>60</integer>
+				<key>Album Rating</key>
+				<integer>60</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>7D40542EDF6ECCF6</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Red%20Hot%20Chili%20Peppers/One%20Hot%20Minute%20(Bonus%20Track%20Version)/09%20Tearjerker.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24050</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24050</integer>
+				<key>Name</key>
+				<string>One Hot Minute</string>
+				<key>Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album</key>
+				<string>One Hot Minute (Bonus Track Version)</string>
+				<key>Genre</key>
+				<string>Rock</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>12995726</integer>
+				<key>Total Time</key>
+				<integer>383760</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>10</integer>
+				<key>Track Count</key>
+				<integer>16</integer>
+				<key>Year</key>
+				<integer>1995</integer>
+				<key>Date Modified</key>
+				<date>2011-12-17T10:59:06Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T11:23:45Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407015301</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T01:08:21Z</date>
+				<key>Release Date</key>
+				<date>1995-01-01T00:00:00Z</date>
+				<key>Rating</key>
+				<integer>60</integer>
+				<key>Album Rating</key>
+				<integer>60</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>61EA5FDECB6E426C</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Red%20Hot%20Chili%20Peppers/One%20Hot%20Minute%20(Bonus%20Track%20Version)/10%20One%20Hot%20Minute.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24052</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24052</integer>
+				<key>Name</key>
+				<string>Falling Into Grace</string>
+				<key>Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album</key>
+				<string>One Hot Minute (Bonus Track Version)</string>
+				<key>Genre</key>
+				<string>Rock</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>7766660</integer>
+				<key>Total Time</key>
+				<integer>228093</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>11</integer>
+				<key>Track Count</key>
+				<integer>16</integer>
+				<key>Year</key>
+				<integer>1995</integer>
+				<key>Date Modified</key>
+				<date>2011-12-17T10:58:54Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T11:23:46Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407015529</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T01:12:09Z</date>
+				<key>Release Date</key>
+				<date>1995-01-01T00:00:00Z</date>
+				<key>Rating</key>
+				<integer>60</integer>
+				<key>Album Rating</key>
+				<integer>60</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>04B8B42CDF2E060F</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Red%20Hot%20Chili%20Peppers/One%20Hot%20Minute%20(Bonus%20Track%20Version)/11%20Falling%20Into%20Grace.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24054</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24054</integer>
+				<key>Name</key>
+				<string>Shallow Be Thy Game</string>
+				<key>Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album</key>
+				<string>One Hot Minute (Bonus Track Version)</string>
+				<key>Genre</key>
+				<string>Rock</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>9484519</integer>
+				<key>Total Time</key>
+				<integer>273933</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>12</integer>
+				<key>Track Count</key>
+				<integer>16</integer>
+				<key>Year</key>
+				<integer>1995</integer>
+				<key>Date Modified</key>
+				<date>2011-12-17T10:59:08Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T11:23:46Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407015803</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T01:16:43Z</date>
+				<key>Release Date</key>
+				<date>1995-01-01T00:00:00Z</date>
+				<key>Rating</key>
+				<integer>60</integer>
+				<key>Album Rating</key>
+				<integer>60</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>BA7EA3B1CF292147</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Red%20Hot%20Chili%20Peppers/One%20Hot%20Minute%20(Bonus%20Track%20Version)/12%20Shallow%20Be%20Thy%20Game.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24056</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24056</integer>
+				<key>Name</key>
+				<string>Transcending</string>
+				<key>Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album</key>
+				<string>One Hot Minute (Bonus Track Version)</string>
+				<key>Genre</key>
+				<string>Rock</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>11520009</integer>
+				<key>Total Time</key>
+				<integer>346880</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>13</integer>
+				<key>Track Count</key>
+				<integer>16</integer>
+				<key>Year</key>
+				<integer>1995</integer>
+				<key>Date Modified</key>
+				<date>2011-12-17T10:59:14Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T11:23:47Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407016149</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T01:22:29Z</date>
+				<key>Release Date</key>
+				<date>1995-01-01T00:00:00Z</date>
+				<key>Rating</key>
+				<integer>60</integer>
+				<key>Album Rating</key>
+				<integer>60</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>77C1596DDC5D2193</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Red%20Hot%20Chili%20Peppers/One%20Hot%20Minute%20(Bonus%20Track%20Version)/13%20Transcending.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24058</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24058</integer>
+				<key>Name</key>
+				<string>Let's Make Evil (Bonus Track)</string>
+				<key>Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album</key>
+				<string>One Hot Minute (Bonus Track Version)</string>
+				<key>Genre</key>
+				<string>Rock</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>10871042</integer>
+				<key>Total Time</key>
+				<integer>317791</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>14</integer>
+				<key>Track Count</key>
+				<integer>16</integer>
+				<key>Year</key>
+				<integer>1995</integer>
+				<key>Date Modified</key>
+				<date>2011-12-17T10:59:32Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T11:23:47Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407016467</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T01:27:47Z</date>
+				<key>Release Date</key>
+				<date>1995-01-01T00:00:00Z</date>
+				<key>Rating</key>
+				<integer>60</integer>
+				<key>Album Rating</key>
+				<integer>60</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>B38B3065BC0AFCC0</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Red%20Hot%20Chili%20Peppers/One%20Hot%20Minute%20(Bonus%20Track%20Version)/14%20Let's%20Make%20Evil%20(Bonus%20Track).m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24060</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24060</integer>
+				<key>Name</key>
+				<string>Stretch You Out (Bonus Track)</string>
+				<key>Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album</key>
+				<string>One Hot Minute (Bonus Track Version)</string>
+				<key>Genre</key>
+				<string>Rock</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>12791513</integer>
+				<key>Total Time</key>
+				<integer>378613</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>15</integer>
+				<key>Track Count</key>
+				<integer>16</integer>
+				<key>Year</key>
+				<integer>1995</integer>
+				<key>Date Modified</key>
+				<date>2011-12-17T10:59:36Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T11:23:47Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407016846</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T01:34:06Z</date>
+				<key>Release Date</key>
+				<date>1995-01-01T00:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>60</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>3F5A927FF718570A</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Red%20Hot%20Chili%20Peppers/One%20Hot%20Minute%20(Bonus%20Track%20Version)/15%20Stretch%20You%20Out%20(Bonus%20Track).m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24062</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24062</integer>
+				<key>Name</key>
+				<string>Bob (Bonus Track)</string>
+				<key>Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album</key>
+				<string>One Hot Minute (Bonus Track Version)</string>
+				<key>Genre</key>
+				<string>Rock</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>11482354</integer>
+				<key>Total Time</key>
+				<integer>343770</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>16</integer>
+				<key>Track Count</key>
+				<integer>16</integer>
+				<key>Year</key>
+				<integer>1995</integer>
+				<key>Date Modified</key>
+				<date>2011-12-17T10:59:40Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T11:23:47Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407017191</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T01:39:51Z</date>
+				<key>Release Date</key>
+				<date>1995-01-01T00:00:00Z</date>
+				<key>Rating</key>
+				<integer>60</integer>
+				<key>Album Rating</key>
+				<integer>60</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>DB32D973009CDD46</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Red%20Hot%20Chili%20Peppers/One%20Hot%20Minute%20(Bonus%20Track%20Version)/16%20Bob%20(Bonus%20Track).m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24064</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24064</integer>
+				<key>Name</key>
+				<string>Aeroplane (Bonus Track)</string>
+				<key>Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album Artist</key>
+				<string>Red Hot Chili Peppers</string>
+				<key>Album</key>
+				<string>One Hot Minute (Bonus Track Version)</string>
+				<key>Genre</key>
+				<string>Rock</string>
+				<key>Kind</key>
+				<string>Purchased MPEG-4 video file</string>
+				<key>Size</key>
+				<integer>57432325</integer>
+				<key>Total Time</key>
+				<integer>249708</integer>
+				<key>Track Number</key>
+				<integer>17</integer>
+				<key>Year</key>
+				<integer>2009</integer>
+				<key>Date Modified</key>
+				<date>2011-12-17T11:00:20Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T11:23:47Z</date>
+				<key>Bit Rate</key>
+				<integer>246</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407020974</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T02:42:54Z</date>
+				<key>Release Date</key>
+				<date>2009-03-17T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>100</integer>
+				<key>Album Rating</key>
+				<integer>60</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>5D3CB138E3F3DE48</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Has Video</key>
+				<true />
+				<key>HD</key>
+				<false />
+				<key>Video Width</key>
+				<integer>640</integer>
+				<key>Video Height</key>
+				<integer>480</integer>
+				<key>Music Video</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Red%20Hot%20Chili%20Peppers/One%20Hot%20Minute%20(Bonus%20Track%20Version)/17%20Aeroplane%20(Bonus%20Track).m4v</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24066</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24066</integer>
+				<key>Name</key>
+				<string>Trashed</string>
+				<key>Artist</key>
+				<string>Black Sabbath</string>
+				<key>Album Artist</key>
+				<string>Black Sabbath</string>
+				<key>Composer</key>
+				<string>Tony Iommi, Terrence Geezer Butler, William Thomas Ward
+					&#38; Ian Gillan</string>
+				<key>Album</key>
+				<string>Born Again (Deluxe Expanded Edition)</string>
+				<key>Genre</key>
+				<string>Metal</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>8968469</integer>
+				<key>Total Time</key>
+				<integer>255493</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>2</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Track Count</key>
+				<integer>9</integer>
+				<key>Year</key>
+				<integer>2011</integer>
+				<key>Date Modified</key>
+				<date>2011-11-25T20:47:06Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T13:49:56Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407057508</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T12:51:48Z</date>
+				<key>Release Date</key>
+				<date>2011-05-27T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>A15A2B1765029BB3</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Black%20Sabbath/Born%20Again%20(Deluxe%20Expanded%20Edition)/1-01%20Trashed.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24068</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24068</integer>
+				<key>Name</key>
+				<string>Stonehenge</string>
+				<key>Artist</key>
+				<string>Black Sabbath</string>
+				<key>Album Artist</key>
+				<string>Black Sabbath</string>
+				<key>Composer</key>
+				<string>Tony Iommi, Terrence Geezer Butler, William Thomas Ward
+					&#38; Ian Gillan</string>
+				<key>Album</key>
+				<string>Born Again (Deluxe Expanded Edition)</string>
+				<key>Genre</key>
+				<string>Metal</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>4495086</integer>
+				<key>Total Time</key>
+				<integer>117680</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>2</integer>
+				<key>Track Number</key>
+				<integer>2</integer>
+				<key>Track Count</key>
+				<integer>9</integer>
+				<key>Year</key>
+				<integer>2011</integer>
+				<key>Date Modified</key>
+				<date>2011-11-25T20:47:00Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T13:49:57Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407057626</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T12:53:46Z</date>
+				<key>Release Date</key>
+				<date>2011-05-27T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>0872CC7AC7474DC0</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Black%20Sabbath/Born%20Again%20(Deluxe%20Expanded%20Edition)/1-02%20Stonehenge.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24070</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24070</integer>
+				<key>Name</key>
+				<string>Disturbing the Priest</string>
+				<key>Artist</key>
+				<string>Black Sabbath</string>
+				<key>Album Artist</key>
+				<string>Black Sabbath</string>
+				<key>Composer</key>
+				<string>Tony Iommi, Terrence Geezer Butler, William Thomas Ward
+					&#38; Ian Gillan</string>
+				<key>Album</key>
+				<string>Born Again (Deluxe Expanded Edition)</string>
+				<key>Genre</key>
+				<string>Metal</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>11969828</integer>
+				<key>Total Time</key>
+				<integer>348586</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>2</integer>
+				<key>Track Number</key>
+				<integer>3</integer>
+				<key>Track Count</key>
+				<integer>9</integer>
+				<key>Year</key>
+				<integer>2011</integer>
+				<key>Date Modified</key>
+				<date>2011-11-25T20:47:12Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T13:49:57Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407057974</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T12:59:34Z</date>
+				<key>Release Date</key>
+				<date>2011-05-27T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>0AB5AA16D555C2B0</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Black%20Sabbath/Born%20Again%20(Deluxe%20Expanded%20Edition)/1-03%20Disturbing%20the%20Priest.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24072</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24072</integer>
+				<key>Name</key>
+				<string>The Dark</string>
+				<key>Artist</key>
+				<string>Black Sabbath</string>
+				<key>Album Artist</key>
+				<string>Black Sabbath</string>
+				<key>Composer</key>
+				<string>Tony Iommi, Terrence Geezer Butler, William Thomas Ward
+					&#38; Ian Gillan</string>
+				<key>Album</key>
+				<string>Born Again (Deluxe Expanded Edition)</string>
+				<key>Genre</key>
+				<string>Metal</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>2038872</integer>
+				<key>Total Time</key>
+				<integer>45280</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>2</integer>
+				<key>Track Number</key>
+				<integer>4</integer>
+				<key>Track Count</key>
+				<integer>9</integer>
+				<key>Year</key>
+				<integer>2011</integer>
+				<key>Date Modified</key>
+				<date>2011-11-25T20:47:08Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T13:49:57Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407058019</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T13:00:19Z</date>
+				<key>Release Date</key>
+				<date>2011-05-27T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Sort Name</key>
+				<string>Dark</string>
+				<key>Persistent ID</key>
+				<string>74B8C72D0DA5483A</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Black%20Sabbath/Born%20Again%20(Deluxe%20Expanded%20Edition)/1-04%20The%20Dark.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24074</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24074</integer>
+				<key>Name</key>
+				<string>Zero the Hero</string>
+				<key>Artist</key>
+				<string>Black Sabbath</string>
+				<key>Album Artist</key>
+				<string>Black Sabbath</string>
+				<key>Composer</key>
+				<string>Tony Iommi, Terrence Geezer Butler, William Thomas Ward
+					&#38; Ian Gillan</string>
+				<key>Album</key>
+				<string>Born Again (Deluxe Expanded Edition)</string>
+				<key>Genre</key>
+				<string>Metal</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>15542121</integer>
+				<key>Total Time</key>
+				<integer>455520</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>2</integer>
+				<key>Track Number</key>
+				<integer>5</integer>
+				<key>Track Count</key>
+				<integer>9</integer>
+				<key>Year</key>
+				<integer>2011</integer>
+				<key>Date Modified</key>
+				<date>2011-11-25T20:47:42Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T13:49:57Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407059455</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T13:24:15Z</date>
+				<key>Release Date</key>
+				<date>2011-05-27T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>12DF2BB931213FB4</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Black%20Sabbath/Born%20Again%20(Deluxe%20Expanded%20Edition)/1-05%20Zero%20the%20Hero.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24076</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24076</integer>
+				<key>Name</key>
+				<string>Digital Bitch</string>
+				<key>Artist</key>
+				<string>Black Sabbath</string>
+				<key>Album Artist</key>
+				<string>Black Sabbath</string>
+				<key>Composer</key>
+				<string>Tony Iommi, Terrence Geezer Butler, William Thomas Ward
+					&#38; Ian Gillan</string>
+				<key>Album</key>
+				<string>Born Again (Deluxe Expanded Edition)</string>
+				<key>Genre</key>
+				<string>Metal</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>7694481</integer>
+				<key>Total Time</key>
+				<integer>217893</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>2</integer>
+				<key>Track Number</key>
+				<integer>6</integer>
+				<key>Track Count</key>
+				<integer>9</integer>
+				<key>Year</key>
+				<integer>2011</integer>
+				<key>Date Modified</key>
+				<date>2011-11-25T20:47:28Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T13:49:58Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407059672</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T13:27:52Z</date>
+				<key>Release Date</key>
+				<date>2011-05-27T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>60</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>5F791F2B9B194FBE</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Black%20Sabbath/Born%20Again%20(Deluxe%20Expanded%20Edition)/1-06%20Digital%20Bitch.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24078</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24078</integer>
+				<key>Name</key>
+				<string>Born Again</string>
+				<key>Artist</key>
+				<string>Black Sabbath</string>
+				<key>Album Artist</key>
+				<string>Black Sabbath</string>
+				<key>Composer</key>
+				<string>Tony Iommi, Terrence Geezer Butler, William Thomas Ward
+					&#38; Ian Gillan</string>
+				<key>Album</key>
+				<string>Born Again (Deluxe Expanded Edition)</string>
+				<key>Genre</key>
+				<string>Metal</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>13532380</integer>
+				<key>Total Time</key>
+				<integer>394120</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>2</integer>
+				<key>Track Number</key>
+				<integer>7</integer>
+				<key>Track Count</key>
+				<integer>9</integer>
+				<key>Year</key>
+				<integer>2011</integer>
+				<key>Date Modified</key>
+				<date>2011-11-25T20:47:44Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T13:49:58Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407060067</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T13:34:27Z</date>
+				<key>Release Date</key>
+				<date>2011-05-27T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>1D78499FA183598A</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Black%20Sabbath/Born%20Again%20(Deluxe%20Expanded%20Edition)/1-07%20Born%20Again.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24080</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24080</integer>
+				<key>Name</key>
+				<string>Hot Line</string>
+				<key>Artist</key>
+				<string>Black Sabbath</string>
+				<key>Album Artist</key>
+				<string>Black Sabbath</string>
+				<key>Composer</key>
+				<string>Tony Iommi, Terrence Geezer Butler, William Thomas Ward
+					&#38; Ian Gillan</string>
+				<key>Album</key>
+				<string>Born Again (Deluxe Expanded Edition)</string>
+				<key>Genre</key>
+				<string>Metal</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>10095649</integer>
+				<key>Total Time</key>
+				<integer>291493</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>2</integer>
+				<key>Track Number</key>
+				<integer>8</integer>
+				<key>Track Count</key>
+				<integer>9</integer>
+				<key>Year</key>
+				<integer>2011</integer>
+				<key>Date Modified</key>
+				<date>2011-11-25T20:47:58Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T13:49:59Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407060358</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T13:39:18Z</date>
+				<key>Release Date</key>
+				<date>2011-05-27T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>FCAC24C2DA6E9523</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Black%20Sabbath/Born%20Again%20(Deluxe%20Expanded%20Edition)/1-08%20Hot%20Line.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24082</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24082</integer>
+				<key>Name</key>
+				<string>Keep It Warm</string>
+				<key>Artist</key>
+				<string>Black Sabbath</string>
+				<key>Album Artist</key>
+				<string>Black Sabbath</string>
+				<key>Composer</key>
+				<string>Tony Iommi, Terrence Geezer Butler, William Thomas Ward
+					&#38; Ian Gillan</string>
+				<key>Album</key>
+				<string>Born Again (Deluxe Expanded Edition)</string>
+				<key>Genre</key>
+				<string>Metal</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>11631683</integer>
+				<key>Total Time</key>
+				<integer>338373</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>2</integer>
+				<key>Track Number</key>
+				<integer>9</integer>
+				<key>Track Count</key>
+				<integer>9</integer>
+				<key>Year</key>
+				<integer>2011</integer>
+				<key>Date Modified</key>
+				<date>2011-11-25T20:48:14Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T13:49:59Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407060696</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T13:44:56Z</date>
+				<key>Release Date</key>
+				<date>2011-05-27T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>E89BFF38221D1B17</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Black%20Sabbath/Born%20Again%20(Deluxe%20Expanded%20Edition)/1-09%20Keep%20It%20Warm.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24084</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24084</integer>
+				<key>Name</key>
+				<string>The Fallen</string>
+				<key>Artist</key>
+				<string>Black Sabbath</string>
+				<key>Album Artist</key>
+				<string>Black Sabbath</string>
+				<key>Composer</key>
+				<string>Tony Iommi, Terrence Geezer Butler, William Thomas Ward
+					&#38; Ian Gillan</string>
+				<key>Album</key>
+				<string>Born Again (Deluxe Expanded Edition)</string>
+				<key>Genre</key>
+				<string>Metal</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>9423534</integer>
+				<key>Total Time</key>
+				<integer>267426</integer>
+				<key>Disc Number</key>
+				<integer>2</integer>
+				<key>Disc Count</key>
+				<integer>2</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Track Count</key>
+				<integer>11</integer>
+				<key>Year</key>
+				<integer>2011</integer>
+				<key>Date Modified</key>
+				<date>2011-11-25T20:48:12Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T13:49:59Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407060964</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T13:49:24Z</date>
+				<key>Release Date</key>
+				<date>2011-05-27T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Sort Name</key>
+				<string>Fallen</string>
+				<key>Persistent ID</key>
+				<string>C126F80F0E318535</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Black%20Sabbath/Born%20Again%20(Deluxe%20Expanded%20Edition)/2-01%20The%20Fallen.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24086</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24086</integer>
+				<key>Name</key>
+				<string>Stonehenge</string>
+				<key>Artist</key>
+				<string>Black Sabbath</string>
+				<key>Album Artist</key>
+				<string>Black Sabbath</string>
+				<key>Composer</key>
+				<string>Tony Iommi, Terrence Geezer Butler, William Thomas Ward
+					&#38; Ian Gillan</string>
+				<key>Album</key>
+				<string>Born Again (Deluxe Expanded Edition)</string>
+				<key>Genre</key>
+				<string>Metal</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>9865344</integer>
+				<key>Total Time</key>
+				<integer>283506</integer>
+				<key>Disc Number</key>
+				<integer>2</integer>
+				<key>Disc Count</key>
+				<integer>2</integer>
+				<key>Track Number</key>
+				<integer>2</integer>
+				<key>Track Count</key>
+				<integer>11</integer>
+				<key>Year</key>
+				<integer>2011</integer>
+				<key>Date Modified</key>
+				<date>2011-11-25T20:48:28Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T13:50:00Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Comments</key>
+				<string>(Extended Version)</string>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407061247</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T13:54:07Z</date>
+				<key>Release Date</key>
+				<date>2011-05-27T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>6A01E91E996EC885</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Black%20Sabbath/Born%20Again%20(Deluxe%20Expanded%20Edition)/2-02%20Stonehenge.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24088</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24088</integer>
+				<key>Name</key>
+				<string>Hot Line</string>
+				<key>Artist</key>
+				<string>Black Sabbath</string>
+				<key>Album Artist</key>
+				<string>Black Sabbath</string>
+				<key>Composer</key>
+				<string>Tony Iommi, Terrence Geezer Butler, William Thomas Ward
+					&#38; Ian Gillan</string>
+				<key>Album</key>
+				<string>Born Again (Deluxe Expanded Edition)</string>
+				<key>Genre</key>
+				<string>Metal</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>10236637</integer>
+				<key>Total Time</key>
+				<integer>294906</integer>
+				<key>Disc Number</key>
+				<integer>2</integer>
+				<key>Disc Count</key>
+				<integer>2</integer>
+				<key>Track Number</key>
+				<integer>3</integer>
+				<key>Track Count</key>
+				<integer>11</integer>
+				<key>Year</key>
+				<integer>2011</integer>
+				<key>Date Modified</key>
+				<date>2011-11-25T20:48:46Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T13:50:00Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Comments</key>
+				<string>(Live At Reading Festival, August 1983)</string>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407061542</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T13:59:02Z</date>
+				<key>Release Date</key>
+				<date>2011-05-27T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>907090D355E612BC</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Black%20Sabbath/Born%20Again%20(Deluxe%20Expanded%20Edition)/2-03%20Hot%20Line.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24090</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24090</integer>
+				<key>Name</key>
+				<string>War Pigs</string>
+				<key>Artist</key>
+				<string>Black Sabbath</string>
+				<key>Album Artist</key>
+				<string>Black Sabbath</string>
+				<key>Composer</key>
+				<string>Tony Iommi, Ozzy Osbourne, William Thomas Ward &#38;
+					Terrence Geezer Butler</string>
+				<key>Album</key>
+				<string>Born Again (Deluxe Expanded Edition)</string>
+				<key>Genre</key>
+				<string>Metal</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>15425306</integer>
+				<key>Total Time</key>
+				<integer>445066</integer>
+				<key>Disc Number</key>
+				<integer>2</integer>
+				<key>Disc Count</key>
+				<integer>2</integer>
+				<key>Track Number</key>
+				<integer>4</integer>
+				<key>Track Count</key>
+				<integer>11</integer>
+				<key>Year</key>
+				<integer>2011</integer>
+				<key>Date Modified</key>
+				<date>2011-11-25T20:48:50Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T13:50:00Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Comments</key>
+				<string>(Live At Reading Festival, August 1983)</string>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407061987</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T14:06:27Z</date>
+				<key>Release Date</key>
+				<date>2011-05-27T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>144FF6CBF41E5F1A</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Black%20Sabbath/Born%20Again%20(Deluxe%20Expanded%20Edition)/2-04%20War%20Pigs.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24092</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24092</integer>
+				<key>Name</key>
+				<string>Black Sabbath</string>
+				<key>Artist</key>
+				<string>Black Sabbath</string>
+				<key>Album Artist</key>
+				<string>Black Sabbath</string>
+				<key>Composer</key>
+				<string>Tony Iommi, Ozzy Osbourne, Terrence Geezer Butler &#38;
+					William Thomas Ward</string>
+				<key>Album</key>
+				<string>Born Again (Deluxe Expanded Edition)</string>
+				<key>Genre</key>
+				<string>Metal</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>14809339</integer>
+				<key>Total Time</key>
+				<integer>430693</integer>
+				<key>Disc Number</key>
+				<integer>2</integer>
+				<key>Disc Count</key>
+				<integer>2</integer>
+				<key>Track Number</key>
+				<integer>5</integer>
+				<key>Track Count</key>
+				<integer>11</integer>
+				<key>Year</key>
+				<integer>2011</integer>
+				<key>Date Modified</key>
+				<date>2011-11-25T20:48:56Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T13:50:00Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Comments</key>
+				<string>(Live At Reading Festival, August 1983)</string>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407062418</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T14:13:38Z</date>
+				<key>Release Date</key>
+				<date>2011-05-27T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>4C7BACAA441C9811</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Black%20Sabbath/Born%20Again%20(Deluxe%20Expanded%20Edition)/2-05%20Black%20Sabbath.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24094</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24094</integer>
+				<key>Name</key>
+				<string>The Dark</string>
+				<key>Artist</key>
+				<string>Black Sabbath</string>
+				<key>Album Artist</key>
+				<string>Black Sabbath</string>
+				<key>Composer</key>
+				<string>Tony Iommi, Terrence Geezer Butler, William Thomas Ward
+					&#38; Ian Gillan</string>
+				<key>Album</key>
+				<string>Born Again (Deluxe Expanded Edition)</string>
+				<key>Genre</key>
+				<string>Metal</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>2724045</integer>
+				<key>Total Time</key>
+				<integer>65106</integer>
+				<key>Disc Number</key>
+				<integer>2</integer>
+				<key>Disc Count</key>
+				<integer>2</integer>
+				<key>Track Number</key>
+				<integer>6</integer>
+				<key>Track Count</key>
+				<integer>11</integer>
+				<key>Year</key>
+				<integer>2011</integer>
+				<key>Date Modified</key>
+				<date>2011-11-25T20:48:54Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T13:50:00Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Comments</key>
+				<string>(Live At Reading Festival, August 1983)</string>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407062483</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T14:14:43Z</date>
+				<key>Release Date</key>
+				<date>2011-05-27T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Sort Name</key>
+				<string>Dark (Live At Reading Festival, August 1983)</string>
+				<key>Persistent ID</key>
+				<string>AAA54C80FF5B0BB7</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Black%20Sabbath/Born%20Again%20(Deluxe%20Expanded%20Edition)/2-06%20The%20Dark.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24096</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24096</integer>
+				<key>Name</key>
+				<string>Zero the Hero</string>
+				<key>Artist</key>
+				<string>Black Sabbath</string>
+				<key>Album Artist</key>
+				<string>Black Sabbath</string>
+				<key>Composer</key>
+				<string>Tony Iommi, Terrence Geezer Butler, William Thomas Ward
+					&#38; Ian Gillan</string>
+				<key>Album</key>
+				<string>Born Again (Deluxe Expanded Edition)</string>
+				<key>Genre</key>
+				<string>Metal</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>14344949</integer>
+				<key>Total Time</key>
+				<integer>414600</integer>
+				<key>Disc Number</key>
+				<integer>2</integer>
+				<key>Disc Count</key>
+				<integer>2</integer>
+				<key>Track Number</key>
+				<integer>7</integer>
+				<key>Track Count</key>
+				<integer>11</integer>
+				<key>Year</key>
+				<integer>2011</integer>
+				<key>Date Modified</key>
+				<date>2011-11-25T20:49:16Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T13:50:00Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Comments</key>
+				<string>(Live At Reading Festival, August 1983)</string>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407062898</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T14:21:38Z</date>
+				<key>Release Date</key>
+				<date>2011-05-27T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>3F15FB95CCF0171E</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Black%20Sabbath/Born%20Again%20(Deluxe%20Expanded%20Edition)/2-07%20Zero%20the%20Hero.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24098</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24098</integer>
+				<key>Name</key>
+				<string>Digital Bitch</string>
+				<key>Artist</key>
+				<string>Black Sabbath</string>
+				<key>Album Artist</key>
+				<string>Black Sabbath</string>
+				<key>Composer</key>
+				<string>Tony Iommi, Terrence Geezer Butler, William Thomas Ward
+					&#38; Ian Gillan</string>
+				<key>Album</key>
+				<string>Born Again (Deluxe Expanded Edition)</string>
+				<key>Genre</key>
+				<string>Metal</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>7652957</integer>
+				<key>Total Time</key>
+				<integer>213880</integer>
+				<key>Disc Number</key>
+				<integer>2</integer>
+				<key>Disc Count</key>
+				<integer>2</integer>
+				<key>Track Number</key>
+				<integer>8</integer>
+				<key>Track Count</key>
+				<integer>11</integer>
+				<key>Year</key>
+				<integer>2011</integer>
+				<key>Date Modified</key>
+				<date>2011-11-25T20:49:14Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T13:50:01Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Comments</key>
+				<string>(Live At Reading Festival, August 1983)</string>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407063112</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T14:25:12Z</date>
+				<key>Release Date</key>
+				<date>2011-05-27T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>60</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>9546D70918B43DFD</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Black%20Sabbath/Born%20Again%20(Deluxe%20Expanded%20Edition)/2-08%20Digital%20Bitch.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24100</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24100</integer>
+				<key>Name</key>
+				<string>Iron Man</string>
+				<key>Artist</key>
+				<string>Black Sabbath</string>
+				<key>Album Artist</key>
+				<string>Black Sabbath</string>
+				<key>Composer</key>
+				<string>Tony Iommi, Ozzy Osbourne, William Thomas Ward &#38;
+					Terrence Geezer Butler</string>
+				<key>Album</key>
+				<string>Born Again (Deluxe Expanded Edition)</string>
+				<key>Genre</key>
+				<string>Metal</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>16248829</integer>
+				<key>Total Time</key>
+				<integer>460960</integer>
+				<key>Disc Number</key>
+				<integer>2</integer>
+				<key>Disc Count</key>
+				<integer>2</integer>
+				<key>Track Number</key>
+				<integer>9</integer>
+				<key>Track Count</key>
+				<integer>11</integer>
+				<key>Year</key>
+				<integer>2011</integer>
+				<key>Date Modified</key>
+				<date>2011-11-25T20:49:42Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T13:50:01Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Comments</key>
+				<string>(Live At Reading Festival, August 1983)</string>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407063573</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T14:32:53Z</date>
+				<key>Release Date</key>
+				<date>2011-05-27T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>D791D7648D84E50D</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Black%20Sabbath/Born%20Again%20(Deluxe%20Expanded%20Edition)/2-09%20Iron%20Man.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>24102</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>24102</integer>
+				<key>Name</key>
+				<string>Smoke On the Water</string>
+				<key>Artist</key>
+				<string>Black Sabbath</string>
+				<key>Album Artist</key>
+				<string>Black Sabbath</string>
+				<key>Composer</key>
+				<string>Ian Gillan, Roger Glover, Jon Lord, Ian Paice &#38; Ritchie
+					Blackmore</string>
+				<key>Album</key>
+				<string>Born Again (Deluxe Expanded Edition)</string>
+				<key>Genre</key>
+				<string>Metal</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>10862217</integer>
+				<key>Total Time</key>
+				<integer>296386</integer>
+				<key>Disc Number</key>
+				<integer>2</integer>
+				<key>Disc Count</key>
+				<integer>2</integer>
+				<key>Track Number</key>
+				<integer>10</integer>
+				<key>Track Count</key>
+				<integer>11</integer>
+				<key>Year</key>
+				<integer>2011</integer>
+				<key>Date Modified</key>
+				<date>2011-11-25T20:49:40Z</date>
+				<key>Date Added</key>
+				<date>2011-12-17T13:50:01Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Comments</key>
+				<string>(Live At Reading Festival, August 1983)</string>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3407063869</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T14:37:49Z</date>
+				<key>Release Date</key>
+				<date>2011-05-27T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>4ECA18FC67F151FF</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Black%20Sabbath/Born%20Again%20(Deluxe%20Expanded%20Edition)/2-10%20Smoke%20On%20the%20Water.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>9362</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>9362</integer>
+				<key>Name</key>
+				<string>Mean Disposition (Remastered 2009)</string>
+				<key>Artist</key>
+				<string>The Rolling Stones</string>
+				<key>Album Artist</key>
+				<string>The Rolling Stones</string>
+				<key>Composer</key>
+				<string>Mick Jagger &#38; Keith Richards</string>
+				<key>Album</key>
+				<string>Voodoo Lounge (Remastered 2009)</string>
+				<key>Genre</key>
+				<string>Rock</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>9259536</integer>
+				<key>Total Time</key>
+				<integer>248466</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>15</integer>
+				<key>Track Count</key>
+				<integer>15</integer>
+				<key>Year</key>
+				<integer>2009</integer>
+				<key>Date Modified</key>
+				<date>2009-11-11T16:29:18Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T16:42:49Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Comments</key>
+				<string>(Remastered 2009)</string>
+				<key>Play Count</key>
+				<integer>1</integer>
+				<key>Play Date</key>
+				<integer>3340898939</integer>
+				<key>Play Date UTC</key>
+				<date>2009-11-12T19:28:59Z</date>
+				<key>Release Date</key>
+				<date>2009-08-17T07:00:00Z</date>
+				<key>Rating</key>
+				<integer>60</integer>
+				<key>Album Rating</key>
+				<integer>60</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Sort Album Artist</key>
+				<string>Rolling Stones</string>
+				<key>Sort Artist</key>
+				<string>Rolling Stones</string>
+				<key>Persistent ID</key>
+				<string>8E1FDCC2857ADC91</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/The%20Rolling%20Stones/Voodoo%20Lounge%20(Remastered%202009)/15%20Mean%20Disposition%20(Remastered%202009.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>9364</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>9364</integer>
+				<key>Name</key>
+				<string>Cochise</string>
+				<key>Artist</key>
+				<string>Audioslave</string>
+				<key>Album Artist</key>
+				<string>Audioslave</string>
+				<key>Album</key>
+				<string>Audioslave</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>7774510</integer>
+				<key>Total Time</key>
+				<integer>222026</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>1</integer>
+				<key>Track Count</key>
+				<integer>14</integer>
+				<key>Year</key>
+				<integer>2002</integer>
+				<key>Date Modified</key>
+				<date>2009-11-13T15:34:16Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T16:42:50Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>5</integer>
+				<key>Play Date</key>
+				<integer>3407074095</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T17:28:15Z</date>
+				<key>Release Date</key>
+				<date>2002-11-13T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>D1DB9E0EE2A9236F</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Audioslave/Audioslave/01%20Cochise.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>9366</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>9366</integer>
+				<key>Name</key>
+				<string>Show Me How to Live</string>
+				<key>Artist</key>
+				<string>Audioslave</string>
+				<key>Album Artist</key>
+				<string>Audioslave</string>
+				<key>Album</key>
+				<string>Audioslave</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>9529306</integer>
+				<key>Total Time</key>
+				<integer>277840</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>2</integer>
+				<key>Track Count</key>
+				<integer>14</integer>
+				<key>Year</key>
+				<integer>2002</integer>
+				<key>Date Modified</key>
+				<date>2009-11-13T15:34:50Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T16:42:50Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>6</integer>
+				<key>Play Date</key>
+				<integer>3407074373</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T17:32:53Z</date>
+				<key>Release Date</key>
+				<date>2002-11-13T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>100</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>EE3D084F21AE3EFD</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Audioslave/Audioslave/02%20Show%20Me%20How%20to%20Live.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>9368</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>9368</integer>
+				<key>Name</key>
+				<string>Gasoline</string>
+				<key>Artist</key>
+				<string>Audioslave</string>
+				<key>Album Artist</key>
+				<string>Audioslave</string>
+				<key>Album</key>
+				<string>Audioslave</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>9589193</integer>
+				<key>Total Time</key>
+				<integer>279333</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>3</integer>
+				<key>Track Count</key>
+				<integer>14</integer>
+				<key>Year</key>
+				<integer>2002</integer>
+				<key>Date Modified</key>
+				<date>2009-11-13T15:35:20Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T16:42:50Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>6</integer>
+				<key>Play Date</key>
+				<integer>3407074652</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T17:37:32Z</date>
+				<key>Release Date</key>
+				<date>2002-11-13T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>100</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>28DBDBBEAA787C65</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Audioslave/Audioslave/03%20Gasoline.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>9370</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>9370</integer>
+				<key>Name</key>
+				<string>What You Are</string>
+				<key>Artist</key>
+				<string>Audioslave</string>
+				<key>Album Artist</key>
+				<string>Audioslave</string>
+				<key>Album</key>
+				<string>Audioslave</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>8563649</integer>
+				<key>Total Time</key>
+				<integer>249400</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>4</integer>
+				<key>Track Count</key>
+				<integer>14</integer>
+				<key>Year</key>
+				<integer>2002</integer>
+				<key>Date Modified</key>
+				<date>2009-11-13T15:35:50Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T16:42:50Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>7</integer>
+				<key>Play Date</key>
+				<integer>3407074902</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T17:41:42Z</date>
+				<key>Release Date</key>
+				<date>2002-11-13T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>100</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>D03D95885D0370F1</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Audioslave/Audioslave/04%20What%20You%20Are.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>9372</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>9372</integer>
+				<key>Name</key>
+				<string>Like a Stone</string>
+				<key>Artist</key>
+				<string>Audioslave</string>
+				<key>Album Artist</key>
+				<string>Audioslave</string>
+				<key>Album</key>
+				<string>Audioslave</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>10124433</integer>
+				<key>Total Time</key>
+				<integer>293960</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>5</integer>
+				<key>Track Count</key>
+				<integer>14</integer>
+				<key>Year</key>
+				<integer>2002</integer>
+				<key>Date Modified</key>
+				<date>2009-11-13T15:36:30Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T16:42:50Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>6</integer>
+				<key>Play Date</key>
+				<integer>3407075196</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T17:46:36Z</date>
+				<key>Release Date</key>
+				<date>2002-11-13T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>66F026567BB2C59A</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Audioslave/Audioslave/05%20Like%20a%20Stone.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>9374</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>9374</integer>
+				<key>Name</key>
+				<string>Set It Off</string>
+				<key>Artist</key>
+				<string>Audioslave</string>
+				<key>Album Artist</key>
+				<string>Audioslave</string>
+				<key>Album</key>
+				<string>Audioslave</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>9113727</integer>
+				<key>Total Time</key>
+				<integer>263200</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>6</integer>
+				<key>Track Count</key>
+				<integer>14</integer>
+				<key>Year</key>
+				<integer>2002</integer>
+				<key>Date Modified</key>
+				<date>2009-11-13T15:37:10Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T16:42:50Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>6</integer>
+				<key>Play Date</key>
+				<integer>3407075459</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T17:50:59Z</date>
+				<key>Release Date</key>
+				<date>2002-11-13T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>100</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>A68792AC2420824B</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Audioslave/Audioslave/06%20Set%20It%20Off.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>9376</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>9376</integer>
+				<key>Name</key>
+				<string>Shadow On the Sun</string>
+				<key>Artist</key>
+				<string>Audioslave</string>
+				<key>Album Artist</key>
+				<string>Audioslave</string>
+				<key>Album</key>
+				<string>Audioslave</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>11651056</integer>
+				<key>Total Time</key>
+				<integer>343400</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>7</integer>
+				<key>Track Count</key>
+				<integer>14</integer>
+				<key>Year</key>
+				<integer>2002</integer>
+				<key>Date Modified</key>
+				<date>2009-11-13T15:37:10Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T16:42:50Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>6</integer>
+				<key>Play Date</key>
+				<integer>3407075802</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T17:56:42Z</date>
+				<key>Release Date</key>
+				<date>2002-11-13T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>B96E28A7BD7C3711</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Audioslave/Audioslave/07%20Shadow%20On%20the%20Sun.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>9378</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>9378</integer>
+				<key>Name</key>
+				<string>I Am the Highway</string>
+				<key>Artist</key>
+				<string>Audioslave</string>
+				<key>Album Artist</key>
+				<string>Audioslave</string>
+				<key>Album</key>
+				<string>Audioslave</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>11459270</integer>
+				<key>Total Time</key>
+				<integer>334906</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>8</integer>
+				<key>Track Count</key>
+				<integer>14</integer>
+				<key>Year</key>
+				<integer>2002</integer>
+				<key>Date Modified</key>
+				<date>2009-11-13T15:37:42Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T16:42:50Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>6</integer>
+				<key>Play Date</key>
+				<integer>3407076137</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T18:02:17Z</date>
+				<key>Release Date</key>
+				<date>2002-11-13T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>0B952D958A8BB654</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Audioslave/Audioslave/08%20I%20Am%20the%20Highway.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>9380</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>9380</integer>
+				<key>Name</key>
+				<string>Exploder</string>
+				<key>Artist</key>
+				<string>Audioslave</string>
+				<key>Album Artist</key>
+				<string>Audioslave</string>
+				<key>Album</key>
+				<string>Audioslave</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>7206317</integer>
+				<key>Total Time</key>
+				<integer>206000</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>9</integer>
+				<key>Track Count</key>
+				<integer>14</integer>
+				<key>Year</key>
+				<integer>2002</integer>
+				<key>Date Modified</key>
+				<date>2009-11-13T15:37:32Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T16:42:50Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>5</integer>
+				<key>Play Date</key>
+				<integer>3407076343</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T18:05:43Z</date>
+				<key>Release Date</key>
+				<date>2002-11-13T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>7C2A2FA4AF224133</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Audioslave/Audioslave/09%20Exploder.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>9382</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>9382</integer>
+				<key>Name</key>
+				<string>Hypnotize</string>
+				<key>Artist</key>
+				<string>Audioslave</string>
+				<key>Album Artist</key>
+				<string>Audioslave</string>
+				<key>Album</key>
+				<string>Audioslave</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>7277637</integer>
+				<key>Total Time</key>
+				<integer>206560</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>10</integer>
+				<key>Track Count</key>
+				<integer>14</integer>
+				<key>Year</key>
+				<integer>2002</integer>
+				<key>Date Modified</key>
+				<date>2009-11-13T15:37:48Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T16:42:50Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>5</integer>
+				<key>Play Date</key>
+				<integer>3407076757</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T18:12:37Z</date>
+				<key>Release Date</key>
+				<date>2002-11-13T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>100</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>41C270276B14B014</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Audioslave/Audioslave/10%20Hypnotize.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>9384</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>9384</integer>
+				<key>Name</key>
+				<string>Bring Em Back Alive</string>
+				<key>Artist</key>
+				<string>Audioslave</string>
+				<key>Album Artist</key>
+				<string>Audioslave</string>
+				<key>Album</key>
+				<string>Audioslave</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>11256072</integer>
+				<key>Total Time</key>
+				<integer>328773</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>11</integer>
+				<key>Track Count</key>
+				<integer>14</integer>
+				<key>Year</key>
+				<integer>2002</integer>
+				<key>Date Modified</key>
+				<date>2009-11-13T15:38:14Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T16:42:50Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>5</integer>
+				<key>Play Date</key>
+				<integer>3407077086</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T18:18:06Z</date>
+				<key>Release Date</key>
+				<date>2002-11-13T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>80</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>8011EB74909569B7</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Audioslave/Audioslave/11%20Bring%20Em%20Back%20Alive.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+			<key>9386</key>
+			<dict>
+				<key>Track ID</key>
+				<integer>9386</integer>
+				<key>Name</key>
+				<string>Light My Way</string>
+				<key>Artist</key>
+				<string>Audioslave</string>
+				<key>Album Artist</key>
+				<string>Audioslave</string>
+				<key>Album</key>
+				<string>Audioslave</string>
+				<key>Genre</key>
+				<string>Alternative</string>
+				<key>Kind</key>
+				<string>Purchased AAC audio file</string>
+				<key>Size</key>
+				<integer>10401859</integer>
+				<key>Total Time</key>
+				<integer>303400</integer>
+				<key>Disc Number</key>
+				<integer>1</integer>
+				<key>Disc Count</key>
+				<integer>1</integer>
+				<key>Track Number</key>
+				<integer>12</integer>
+				<key>Track Count</key>
+				<integer>14</integer>
+				<key>Year</key>
+				<integer>2002</integer>
+				<key>Date Modified</key>
+				<date>2009-11-13T15:38:14Z</date>
+				<key>Date Added</key>
+				<date>2010-07-17T16:42:50Z</date>
+				<key>Bit Rate</key>
+				<integer>256</integer>
+				<key>Sample Rate</key>
+				<integer>44100</integer>
+				<key>Play Count</key>
+				<integer>4</integer>
+				<key>Play Date</key>
+				<integer>3407077389</integer>
+				<key>Play Date UTC</key>
+				<date>2011-12-18T18:23:09Z</date>
+				<key>Release Date</key>
+				<date>2002-11-13T08:00:00Z</date>
+				<key>Rating</key>
+				<integer>60</integer>
+				<key>Album Rating</key>
+				<integer>80</integer>
+				<key>Album Rating Computed</key>
+				<true />
+				<key>Artwork Count</key>
+				<integer>1</integer>
+				<key>Persistent ID</key>
+				<string>2B1983E05BBF10D2</string>
+				<key>Track Type</key>
+				<string>File</string>
+				<key>Purchased</key>
+				<true />
+				<key>Location</key>
+				<string>file://localhost/E:/iTunes/Audioslave/Audioslave/12%20Light%20My%20Way.m4a</string>
+				<key>File Folder Count</key>
+				<integer>4</integer>
+				<key>Library Folder Count</key>
+				<integer>1</integer>
+			</dict>
+		</dict>
+	</dict>
+</plist>

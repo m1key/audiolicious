@@ -21,21 +21,36 @@ package me.m1key.audiolicious.repositories;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+
+import me.m1key.audiolicious.domain.entities.Album;
+import me.m1key.audiolicious.domain.entities.Song;
+import me.m1key.audiolicious.services.ArtistRepository;
 
 @Stateless
 public class TestHelperBean {
 
 	@PersistenceContext
 	private EntityManager entityManager;
+	@Inject
+	private ArtistRepository artistRepository;
 
 	public void deleteAllArtists() {
 		Query select = entityManager.createQuery("FROM Artist");
 		List<?> allArtists = select.getResultList();
 		for (Object artist : allArtists) {
 			entityManager.remove(artist);
+		}
+	}
+
+	public void deleteAllLibraries() {
+		Query select = entityManager.createQuery("FROM Library");
+		List<?> allLibraries = select.getResultList();
+		for (Object library : allLibraries) {
+			entityManager.remove(library);
 		}
 	}
 
@@ -51,10 +66,41 @@ public class TestHelperBean {
 		return total("Song");
 	}
 
+	public Long totalLibraries() {
+		return total("Library");
+	}
+
 	private Long total(String entityName) {
 		Object howMany = entityManager.createQuery(
 				String.format("SELECT COUNT(id) FROM %s", entityName))
 				.getSingleResult();
 		return (Long) howMany;
+	}
+
+	public int getArtistAlbumsSize(String artistName) {
+		return artistRepository.getArtist(artistName).getAlbums().size();
+	}
+
+	public int getArtistSongsSize(String artistName) {
+		int totalSongs = 0;
+		for (Album album : artistRepository.getArtist(artistName).getAlbums()) {
+			totalSongs += album.getSongs().size();
+		}
+		return totalSongs;
+	}
+
+	public int getSongStatsSize(String songName) {
+		Query select = entityManager
+				.createQuery("FROM Song WHERE name = :name").setParameter(
+						"name", songName);
+		@SuppressWarnings("unchecked")
+		List<Song> allSongsByName = select.getResultList();
+		if (allSongsByName.size() != 1) {
+			throw new RuntimeException(String.format(
+					"There should be one song by "
+							+ "name [%s] but there are [%d].", songName,
+					allSongsByName.size()));
+		}
+		return allSongsByName.get(0).getStats().size();
 	}
 }
