@@ -20,6 +20,7 @@ package me.m1key.audiolicious.objecthandler;
 
 import java.util.Map;
 
+import javax.ejb.Asynchronous;
 import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Singleton;
@@ -39,6 +40,7 @@ public class DefaultRawTrackDataHandler implements RawTrackDataHandler {
 	private ObjectTrackDataHandler objectTrackDataHandler;
 
 	@Override
+	@Asynchronous
 	public void handle(Map<XmlNodeName, String> rawTrackData, String libraryUuid) {
 		TrackTo track = mapper.map(rawTrackData);
 		objectTrackDataHandler.handle(track, libraryUuid);
