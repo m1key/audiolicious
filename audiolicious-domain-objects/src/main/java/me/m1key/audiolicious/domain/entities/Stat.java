@@ -29,6 +29,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import me.m1key.audiolicious.domain.to.SongTo;
 
@@ -37,7 +38,8 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 @Entity(name = "Stat")
-@Table(name = "STATS")
+@Table(name = "STATS", uniqueConstraints = { @UniqueConstraint(columnNames = {
+		"SONG_UUID", "LIBRARY_UUID" }) })
 public class Stat {
 
 	@SuppressWarnings("unused")
