@@ -53,16 +53,16 @@ public class Song {
 	@Column(name = "UUID", unique = true, length = 36)
 	private String uuid;
 
-	@Column(name = "NAME", length = 512)
+	@Column(name = "NAME", length = 255)
 	private String name;
 
-	@Column(name = "ARTIST_NAME", length = 512)
+	@Column(name = "ARTIST_NAME", length = 255)
 	private String artistName;
 
-	@Column(name = "ALBUM_NAME", length = 512)
+	@Column(name = "ALBUM_NAME", length = 255)
 	private String albumName;
 
-	@Column(name = "COMPOSER", length = 512)
+	@Column(name = "COMPOSER", length = 255)
 	private String composer;
 
 	@Column(name = "GENRE", length = 128)

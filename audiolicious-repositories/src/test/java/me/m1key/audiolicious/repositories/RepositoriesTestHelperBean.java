@@ -113,4 +113,8 @@ public class RepositoriesTestHelperBean {
 		Query select = entityManager.createQuery("FROM Song");
 		return select.getResultList();
 	}
+
+	public Long totalArtists() {
+		return total("Artist");
+	}
 }

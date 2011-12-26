@@ -123,6 +123,8 @@ public class JpaSongRepositoryIT {
 	public void shouldCreateAndRetrieveAllSongs() {
 		assertEquals("There should be no songs before any are created.",
 				Long.valueOf(0), testHelperBean.totalSongs());
+		assertEquals("There should be no artists before any are created.",
+				Long.valueOf(0), testHelperBean.totalArtists());
 
 		Artist artist = testHelperBean.createArtist(ARTIST_NAME);
 		Album album = testHelperBean.createAlbum(ALBUM_NAME, artist,
