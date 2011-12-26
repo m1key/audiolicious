@@ -154,15 +154,10 @@ public class SongMapperTest {
 		assertEquals(80, song.getRating().getPercentage());
 		assertEquals(new RatingTo(80), song.getRating());
 		assertEquals(TrackToType.SONG, song.getType());
-		assertEquals(0, song.getVideoHeight());
-		assertEquals(0, song.getVideoWidth());
 		assertEquals(2008, song.getYear());
 		assertEquals(true, song.isAlbumRatingComputed());
 		assertEquals(false, song.isHasVideo());
-		assertEquals(false, song.isHd());
-		assertEquals(false, song.isMusicVideo());
 		assertEquals(false, song.isPodcast());
-		assertEquals("Dio", song.getComposer());
 		assertEquals(3, song.getSkipCount());
 		assertEquals(9, song.getTrackNumber());
 		assertEquals(2, song.getDiscNumber());

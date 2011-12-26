@@ -123,11 +123,8 @@ public class AudiobookMapperTest {
 		assertEquals(80, audiobook.getRating().getPercentage());
 		assertEquals(new RatingTo(80), audiobook.getRating());
 		assertEquals(TrackToType.AUDIOBOOK, audiobook.getType());
-		assertEquals(0, audiobook.getVideoHeight());
-		assertEquals(0, audiobook.getVideoWidth());
 		assertEquals(2008, audiobook.getYear());
 		assertEquals(false, audiobook.isHasVideo());
-		assertEquals(false, audiobook.isHd());
 		assertEquals(false, audiobook.isPodcast());
 		assertEquals("Comments", audiobook.getComments());
 	}

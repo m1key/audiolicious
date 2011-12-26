@@ -131,21 +131,4 @@ public class PodcastToBuilderTest {
 				podcastViaBuilder.isHasVideo());
 	}
 
-	@Test
-	public void shouldHaveEqualVideoHeight() {
-		assertEquals(podcastViaConstructor.getVideoHeight(),
-				podcastViaBuilder.getVideoHeight());
-	}
-
-	@Test
-	public void shouldHaveEqualVideoWidth() {
-		assertEquals(podcastViaConstructor.getVideoWidth(),
-				podcastViaBuilder.getVideoWidth());
-	}
-
-	@Test
-	public void shouldHaveEqualHd() {
-		assertEquals(podcastViaConstructor.isHd(), podcastViaBuilder.isHd());
-	}
-
 }

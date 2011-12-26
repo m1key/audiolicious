@@ -48,11 +48,7 @@ public class SongToBuilderTest {
 		int rating = 100;
 		int playCount = 100;
 		boolean hasVideo = true;
-		int videoHeight = 123;
-		int videoWidth = 321;
-		boolean hd = true;
 		boolean compilation = true;
-		boolean musicVideo = true;
 		int skipCount = 111;
 		Date skipDate = new Date();
 		int albumRating = 99;
@@ -65,17 +61,14 @@ public class SongToBuilderTest {
 				year, composer, genre, compilation, dateAdded, dateModified,
 				new RatingTo(rating), playCount, skipDate, skipCount,
 				albumRatingComputed, new RatingTo(albumRating), hasVideo,
-				videoHeight, videoWidth, hd, musicVideo, trackNumber,
-				discNumber, totalTime);
+				trackNumber, discNumber, totalTime);
 
 		songViaBuilder = new SongToBuilder(name).withAlbumName(albumName)
 				.withArtist(artist).withAlbumArtist(albumArtist).withYear(year)
 				.withGenre(genre).withDateAdded(dateAdded)
 				.withDateModified(dateModified).withRating(rating)
 				.withPlayCount(playCount).withHasVideo(hasVideo)
-				.withVideoHeight(videoHeight).withVideoWidth(videoWidth)
-				.withHd(hd).withComposer(composer).withCompilation(compilation)
-				.withMusicVideo(musicVideo).withSkipCount(skipCount)
+				.withCompilation(compilation).withSkipCount(skipCount)
 				.withSkipDate(skipDate).withAlbumRating(albumRating)
 				.withAlbumRatingComputed(albumRatingComputed)
 				.withTrackNumber(trackNumber).withDiscNumber(discNumber)
@@ -144,23 +137,6 @@ public class SongToBuilderTest {
 	}
 
 	@Test
-	public void shouldHaveEqualVideoHeight() {
-		assertEquals(songViaConstructor.getVideoHeight(),
-				songViaBuilder.getVideoHeight());
-	}
-
-	@Test
-	public void shouldHaveEqualVideoWidth() {
-		assertEquals(songViaConstructor.getVideoWidth(),
-				songViaBuilder.getVideoWidth());
-	}
-
-	@Test
-	public void shouldHaveEqualHd() {
-		assertEquals(songViaConstructor.isHd(), songViaBuilder.isHd());
-	}
-
-	@Test
 	public void shouldHaveEqualAlbumRatingComputed() {
 		assertEquals(songViaConstructor.isAlbumRatingComputed(),
 				songViaBuilder.isAlbumRatingComputed());
@@ -170,18 +146,6 @@ public class SongToBuilderTest {
 	public void shouldHaveEqualAlbumRating() {
 		assertEquals(songViaConstructor.getAlbumRating(),
 				songViaBuilder.getAlbumRating());
-	}
-
-	@Test
-	public void shouldHaveEqualMusicVideo() {
-		assertEquals(songViaConstructor.isMusicVideo(),
-				songViaBuilder.isMusicVideo());
-	}
-
-	@Test
-	public void shouldHaveEqualComposer() {
-		assertEquals(songViaConstructor.getComposer(),
-				songViaBuilder.getComposer());
 	}
 
 	@Test

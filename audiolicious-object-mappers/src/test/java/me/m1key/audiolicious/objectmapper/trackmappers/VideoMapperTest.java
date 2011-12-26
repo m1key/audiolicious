@@ -186,11 +186,8 @@ public class VideoMapperTest {
 		assertEquals(80, video.getRating().getPercentage());
 		assertEquals(new RatingTo(80), video.getRating());
 		assertEquals(TrackToType.VIDEO, video.getType());
-		assertEquals(240, video.getVideoHeight());
-		assertEquals(320, video.getVideoWidth());
 		assertEquals(2008, video.getYear());
 		assertEquals(true, video.isHasVideo());
-		assertEquals(false, video.isHd());
 		assertEquals(false, video.isPodcast());
 	}
 

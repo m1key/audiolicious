@@ -36,127 +36,108 @@ public class SongTest {
 
 	@Test
 	public void testNotEquals1() {
-		Song song1 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
-		Song song2 = new Song("Invisible2", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
-		assertFalse(song1.equals(song2));
-	}
-
-	@Test
-	public void testNotEquals2() {
-		Song song1 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
-		Song song2 = new Song("Invisible", "Holy Diver", "Dio2", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
-		assertFalse(song1.equals(song2));
-	}
-
-	@Test
-	public void testNotEquals3() {
-		Song song1 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
-		Song song2 = new Song("Invisible", "Holy Diver2", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
+		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
+				100);
+		Song song2 = new Song("Invisible2", 7, 1, album, 1983, "Rock", false,
+				100);
 		assertFalse(song1.equals(song2));
 	}
 
 	@Test
 	public void testNotEquals4() {
-		Song song1 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
-		Song song2 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 101);
+		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
+				100);
+		Song song2 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
+				101);
 		assertFalse(song1.equals(song2));
 	}
 
 	@Test
 	public void testEquals1() {
-		Song song1 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
-		Song song2 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1984, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
+		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
+				100);
+		Song song2 = new Song("Invisible", 7, 1, album, 1984, "Rock", false,
+				100);
 		assertTrue(song1.equals(song2));
 	}
 
 	@Test
 	public void testEquals2() {
-		Song song1 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
-		Song song2 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio2", "Rock", false, 0, 0, false, 100);
+		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
+				100);
+		Song song2 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
+				100);
 		assertTrue(song1.equals(song2));
 	}
 
 	@Test
 	public void testEquals3() {
-		Song song1 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
-		Song song2 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock2", false, 0, 0, false, 100);
+		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
+				100);
+		Song song2 = new Song("Invisible", 7, 1, album, 1983, "Rock2", false,
+				100);
 		assertTrue(song1.equals(song2));
 	}
 
 	@Test
 	public void testEquals4() {
-		Song song1 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
-		Song song2 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
+		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
+				100);
+		Song song2 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
+				100);
 		assertTrue(song1.equals(song2));
 	}
 
 	@Test
 	public void testEquals5() {
-		Song song1 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
-		Song song2 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
+		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
+				100);
+		Song song2 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
+				100);
 		assertTrue(song1.equals(song2));
 	}
 
 	@Test
 	public void testEquals6() {
-		Song song1 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
-		Song song2 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
+		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
+				100);
+		Song song2 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
+				100);
 		assertTrue(song1.equals(song2));
 	}
 
 	@Test
 	public void testEquals7() {
-		Song song1 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
-		Song song2 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", true, 0, 0, false, 100);
+		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
+				100);
+		Song song2 = new Song("Invisible", 7, 1, album, 1983, "Rock", true, 100);
 		assertTrue(song1.equals(song2));
 	}
 
 	@Test
 	public void testEquals8() {
-		Song song1 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
-		Song song2 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 1, 0, false, 100);
+		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
+				100);
+		Song song2 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
+				100);
 		assertTrue(song1.equals(song2));
 	}
 
 	@Test
 	public void testEquals9() {
-		Song song1 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
-		Song song2 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 1, false, 100);
+		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
+				100);
+		Song song2 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
+				100);
 		assertTrue(song1.equals(song2));
 	}
 
 	@Test
 	public void testEquals10() {
-		Song song1 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, false, 100);
-		Song song2 = new Song("Invisible", "Holy Diver", "Dio", 7, 1, album,
-				1983, "Ronnie James Dio", "Rock", false, 0, 0, true, 100);
+		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
+				100);
+		Song song2 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
+				100);
 		assertTrue(song1.equals(song2));
 	}
 

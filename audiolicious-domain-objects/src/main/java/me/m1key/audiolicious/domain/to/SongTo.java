@@ -28,8 +28,6 @@ public final class SongTo extends TrackTo {
 
 	private final boolean albumRatingComputed;
 	private final RatingTo albumRating;
-	private final boolean musicVideo;
-	private final String composer;
 	private final Date skipDate;
 	private final int skipCount;
 	private final boolean compilation;
@@ -42,15 +40,11 @@ public final class SongTo extends TrackTo {
 			boolean compilation, Date dateAdded, Date dateModified,
 			RatingTo rating, int playCount, Date skipDate, int skipCount,
 			boolean albumRatingComputed, RatingTo albumRating,
-			boolean hasVideo, int videoHeight, int videoWidth, boolean hd,
-			boolean musicVideo, int trackNumber, int discNumber, int totalTime) {
+			boolean hasVideo, int trackNumber, int discNumber, int totalTime) {
 		super(name, albumName, artist, albumArtist, year, genre, dateAdded,
-				dateModified, rating, playCount, hasVideo, videoHeight,
-				videoWidth, hd);
+				dateModified, rating, playCount, hasVideo);
 		this.albumRatingComputed = albumRatingComputed;
 		this.albumRating = albumRating;
-		this.musicVideo = musicVideo;
-		this.composer = composer;
 		this.skipDate = skipDate == null ? null : new Date(skipDate.getTime());
 		this.skipCount = skipCount;
 		this.compilation = compilation;
@@ -65,14 +59,6 @@ public final class SongTo extends TrackTo {
 
 	public boolean isAlbumRatingComputed() {
 		return albumRatingComputed;
-	}
-
-	public boolean isMusicVideo() {
-		return musicVideo;
-	}
-
-	public String getComposer() {
-		return composer;
 	}
 
 	public Date getSkipDate() {
@@ -114,8 +100,8 @@ public final class SongTo extends TrackTo {
 		return new HashCodeBuilder().appendSuper(super.hashCode())
 				.append(getType()).append(isPodcast())
 				.append(albumRatingComputed).append(albumRating)
-				.append(musicVideo).append(composer).append(skipDate)
-				.append(skipCount).append(compilation).toHashCode();
+				.append(skipDate).append(skipCount).append(compilation)
+				.toHashCode();
 	}
 
 	@Override
@@ -128,8 +114,6 @@ public final class SongTo extends TrackTo {
 				.append(isPodcast(), castOther.isPodcast())
 				.append(albumRatingComputed, castOther.albumRatingComputed)
 				.append(albumRating, castOther.albumRating)
-				.append(musicVideo, castOther.musicVideo)
-				.append(composer, castOther.composer)
 				.append(skipDate, castOther.skipDate)
 				.append(skipCount, castOther.skipCount)
 				.append(compilation, castOther.compilation)
@@ -144,7 +128,6 @@ public final class SongTo extends TrackTo {
 				.append("type", getType()).append("isPodcast", isPodcast())
 				.append("albumRatingComputed", albumRatingComputed)
 				.append("albumRating", albumRating)
-				.append("musicVideo", musicVideo).append("composer", composer)
 				.append("skipDate", skipDate).append("skipCount", skipCount)
 				.append("compilation", compilation)
 				.append("trackNumber", trackNumber)

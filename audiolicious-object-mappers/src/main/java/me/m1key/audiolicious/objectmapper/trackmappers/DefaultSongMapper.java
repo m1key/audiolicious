@@ -66,15 +66,8 @@ public class DefaultSongMapper extends NonAggregateTrackMapper<SongTo>
 		int playCount = extractor.extractInt(trackValues,
 				XmlNodeName.PLAY_COUNT);
 		int year = extractor.extractInt(trackValues, XmlNodeName.YEAR);
-		boolean musicVideo = extractor.extractBoolean(trackValues,
-				XmlNodeName.MUSIC_VIDEO);
 		boolean hasVideo = extractor.extractBoolean(trackValues,
 				XmlNodeName.HAS_VIDEO);
-		int videoHeight = extractor.extractInt(trackValues,
-				XmlNodeName.VIDEO_HEIGHT);
-		int videoWidth = extractor.extractInt(trackValues,
-				XmlNodeName.VIDEO_WIDTH);
-		boolean hd = extractor.extractBoolean(trackValues, XmlNodeName.HD);
 		String composer = extractor.extractString(trackValues,
 				XmlNodeName.COMPOSER);
 		Date skipDate = extractor.extractDate(trackValues,
@@ -93,8 +86,7 @@ public class DefaultSongMapper extends NonAggregateTrackMapper<SongTo>
 		return new SongTo(name, album, artist, albumArtist, year, composer,
 				genre, compilation, dateAdded, dateModified, rating, playCount,
 				skipDate, skipCount, albumRatingComputed, albumRating,
-				hasVideo, videoHeight, videoWidth, hd, musicVideo, trackNumber,
-				discNumber, totalTime);
+				hasVideo, trackNumber, discNumber, totalTime);
 	}
 
 	@Override

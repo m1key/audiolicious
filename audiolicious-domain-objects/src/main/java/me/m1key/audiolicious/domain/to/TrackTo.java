@@ -37,14 +37,10 @@ public abstract class TrackTo {
 	private final int playCount;
 	private final int year;
 	private final boolean hasVideo;
-	private final int videoHeight;
-	private final int videoWidth;
-	private final boolean hd;
 
 	public TrackTo(String name, String albumName, String artist,
 			String albumArtist, int year, String genre, Date dateAdded,
-			Date dateModified, RatingTo rating, int playCount,
-			boolean hasVideo, int videoHeight, int videoWidth, boolean hd) {
+			Date dateModified, RatingTo rating, int playCount, boolean hasVideo) {
 		super();
 		this.dateAdded = dateAdded == null ? null : new Date(
 				dateAdded.getTime());
@@ -59,9 +55,6 @@ public abstract class TrackTo {
 		this.playCount = playCount;
 		this.year = year;
 		this.hasVideo = hasVideo;
-		this.videoHeight = videoHeight;
-		this.videoWidth = videoWidth;
-		this.hd = hd;
 	}
 
 	public Date getDateAdded() {
@@ -104,20 +97,8 @@ public abstract class TrackTo {
 		return year;
 	}
 
-	public int getVideoHeight() {
-		return videoHeight;
-	}
-
-	public int getVideoWidth() {
-		return videoWidth;
-	}
-
 	public boolean isHasVideo() {
 		return hasVideo;
-	}
-
-	public boolean isHd() {
-		return hd;
 	}
 
 	public abstract TrackToType getType();
@@ -129,8 +110,7 @@ public abstract class TrackTo {
 		return new HashCodeBuilder().append(dateAdded).append(dateModified)
 				.append(albumName).append(albumArtist).append(artist)
 				.append(genre).append(name).append(rating).append(playCount)
-				.append(year).append(hasVideo).append(videoHeight)
-				.append(videoWidth).append(hd).toHashCode();
+				.append(year).append(hasVideo).toHashCode();
 	}
 
 	@Override
@@ -147,10 +127,7 @@ public abstract class TrackTo {
 				.append(rating, castOther.rating)
 				.append(playCount, castOther.playCount)
 				.append(year, castOther.year)
-				.append(hasVideo, castOther.hasVideo)
-				.append(videoHeight, castOther.videoHeight)
-				.append(videoWidth, castOther.videoWidth)
-				.append(hd, castOther.hd).isEquals();
+				.append(hasVideo, castOther.hasVideo).isEquals();
 	}
 
 	@Override
@@ -161,9 +138,7 @@ public abstract class TrackTo {
 				.append("albumArtist", albumArtist).append("artist", artist)
 				.append("genre", genre).append("name", name)
 				.append("rating", rating).append("playCount", playCount)
-				.append("year", year).append("hasVideo", hasVideo)
-				.append("videoHeight", videoHeight)
-				.append("videoWidth", videoWidth).append("hd", hd).toString();
+				.append("year", year).append("hasVideo", hasVideo).toString();
 	}
 
 }

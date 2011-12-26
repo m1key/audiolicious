@@ -65,9 +65,6 @@ public class Song {
 	@Column(name = "ALBUM_NAME", length = 255)
 	private String albumName;
 
-	@Column(name = "COMPOSER", length = 255)
-	private String composer;
-
 	@Column(name = "GENRE", length = 128)
 	private String genre;
 
@@ -83,15 +80,6 @@ public class Song {
 	@Column(name = "HAS_VIDEO")
 	private boolean hasVideo;
 
-	@Column(name = "VIDEO_HEIGHT")
-	private int videoHeight;
-
-	@Column(name = "VIDEO_WIDTH")
-	private int videoWidth;
-
-	@Column(name = "HD")
-	private boolean hd;
-
 	@Column(name = "TOTAL_TIME")
 	private int totalTime;
 
@@ -105,23 +93,17 @@ public class Song {
 	protected Song() {
 	}
 
-	public Song(String name, String albumName, String artistName,
-			int trackNumber, int discNumber, Album album, int year,
-			String composer, String genre, boolean hasVideo, int videoHeight,
-			int videoWidth, boolean hd, int totalTime) {
+	public Song(String name, int trackNumber, int discNumber, Album album,
+			int year, String genre, boolean hasVideo, int totalTime) {
 		this.uuid = UUID.randomUUID().toString();
 		this.name = name;
-		this.albumName = albumName;
-		this.artistName = artistName;
+		this.albumName = album.getName();
+		this.artistName = album.getArtist().getName();
 		this.discNumber = discNumber;
 		this.trackNumber = trackNumber;
-		this.composer = composer;
 		this.genre = genre;
 		this.year = year;
 		this.hasVideo = hasVideo;
-		this.videoHeight = videoHeight;
-		this.videoWidth = videoWidth;
-		this.hd = hd;
 		this.totalTime = totalTime;
 		setAlbum(album);
 
@@ -133,13 +115,9 @@ public class Song {
 		this.name = songTo.getName();
 		this.artistName = songTo.getArtist();
 		this.albumName = songTo.getAlbumName();
-		this.composer = songTo.getComposer();
 		this.genre = songTo.getGenre();
 		this.year = songTo.getYear();
 		this.hasVideo = songTo.isHasVideo();
-		this.videoHeight = songTo.getVideoHeight();
-		this.videoWidth = songTo.getVideoWidth();
-		this.hd = songTo.isHd();
 		this.trackNumber = songTo.getTrackNumber();
 		this.discNumber = songTo.getDiscNumber();
 		this.totalTime = songTo.getTotalTime();
@@ -159,10 +137,6 @@ public class Song {
 		return artistName;
 	}
 
-	public String getComposer() {
-		return composer;
-	}
-
 	public Album getAlbum() {
 		return album;
 	}
@@ -171,24 +145,12 @@ public class Song {
 		return genre;
 	}
 
-	public int getVideoHeight() {
-		return videoHeight;
-	}
-
-	public int getVideoWidth() {
-		return videoWidth;
-	}
-
 	public int getYear() {
 		return year;
 	}
 
 	public boolean hasVideo() {
 		return hasVideo;
-	}
-
-	public boolean isHd() {
-		return hd;
 	}
 
 	public void setAlbum(Album album) {
@@ -260,11 +222,8 @@ public class Song {
 				.append("artistName", artistName)
 				.append("trackNumber", trackNumber)
 				.append("discNumber", discNumber)
-				.append("totalTime", totalTime).append("composer", composer)
-				.append("genre", genre).append("year", year)
-				.append("hasVideo", hasVideo)
-				.append("videoHeight", videoHeight)
-				.append("videoWidth", videoWidth).append("hd", hd).toString();
+				.append("totalTime", totalTime).append("genre", genre)
+				.append("year", year).append("hasVideo", hasVideo).toString();
 	}
 
 	public void clearStats() {

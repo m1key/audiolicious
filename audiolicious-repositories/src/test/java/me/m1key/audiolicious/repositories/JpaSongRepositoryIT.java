@@ -110,9 +110,8 @@ public class JpaSongRepositoryIT {
 		Artist artist = testHelperBean.createArtist(ARTIST_NAME);
 		Album album = testHelperBean.createAlbum(ALBUM_NAME, artist,
 				new Rating(80));
-		Song song = new Song(SONG_1_NAME, ALBUM_NAME, ARTIST_NAME, 1, 1, album,
-				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false, 100);
+		Song song = new Song(SONG_1_NAME, 1, 1, album, 1988, "Rock",
+				false, 100);
 		jpaSongRepository.save(song);
 
 		assertNotNull("Saved song should not be null.",
@@ -129,28 +128,28 @@ public class JpaSongRepositoryIT {
 		Artist artist = testHelperBean.createArtist(ARTIST_NAME);
 		Album album = testHelperBean.createAlbum(ALBUM_NAME, artist,
 				new Rating(80));
-		Song song01 = new Song(SONG_1_NAME, ALBUM_NAME, ARTIST_NAME, 1, 1,
-				album, 1991, "", "Rock", false, 0, 0, false, 100);
-		Song song02 = new Song(SONG_2_NAME, ALBUM_NAME, ARTIST_NAME, 2, 1,
-				album, 1991, "", "Rock", false, 0, 0, false, 100);
-		Song song03 = new Song(SONG_3_NAME, ALBUM_NAME, ARTIST_NAME, 3, 1,
-				album, 1991, "", "Rock", false, 0, 0, false, 100);
-		Song song04 = new Song(SONG_4_NAME, ALBUM_NAME, ARTIST_NAME, 4, 1,
-				album, 1991, "", "Rock", false, 0, 0, false, 100);
-		Song song05 = new Song(SONG_5_NAME, ALBUM_NAME, ARTIST_NAME, 5, 1,
-				album, 1991, "", "Rock", false, 0, 0, false, 100);
-		Song song06 = new Song(SONG_6_NAME, ALBUM_NAME, ARTIST_NAME, 6, 1,
-				album, 1991, "", "Rock", false, 0, 0, false, 100);
-		Song song07 = new Song(SONG_7_NAME, ALBUM_NAME, ARTIST_NAME, 7, 1,
-				album, 1991, "", "Rock", false, 0, 0, false, 100);
-		Song song08 = new Song(SONG_8_NAME, ALBUM_NAME, ARTIST_NAME, 8, 1,
-				album, 1991, "", "Rock", false, 0, 0, false, 100);
-		Song song09 = new Song(SONG_9_NAME, ALBUM_NAME, ARTIST_NAME, 9, 1,
-				album, 1991, "", "Rock", false, 0, 0, false, 100);
-		Song song10 = new Song(SONG_10_NAME, ALBUM_NAME, ARTIST_NAME, 10, 1,
-				album, 1991, "", "Rock", false, 0, 0, false, 100);
-		Song song11 = new Song(SONG_11_NAME, ALBUM_NAME, ARTIST_NAME, 11, 1,
-				album, 1991, "", "Rock", false, 0, 0, false, 100);
+		Song song01 = new Song(SONG_1_NAME, 1, 1, album, 1991,
+				"Rock", false, 100);
+		Song song02 = new Song(SONG_2_NAME, 2, 1, album, 1991,
+				"Rock", false, 100);
+		Song song03 = new Song(SONG_3_NAME, 3, 1, album, 1991,
+				"Rock", false, 100);
+		Song song04 = new Song(SONG_4_NAME, 4, 1, album, 1991,
+				"Rock", false, 100);
+		Song song05 = new Song(SONG_5_NAME, 5, 1, album, 1991,
+				"Rock", false, 100);
+		Song song06 = new Song(SONG_6_NAME, 6, 1, album, 1991,
+				"Rock", false, 100);
+		Song song07 = new Song(SONG_7_NAME, 7, 1, album, 1991,
+				"Rock", false, 100);
+		Song song08 = new Song(SONG_8_NAME, 8, 1, album, 1991,
+				"Rock", false, 100);
+		Song song09 = new Song(SONG_9_NAME, 9, 1, album, 1991,
+				"Rock", false, 100);
+		Song song10 = new Song(SONG_10_NAME, 10, 1, album, 1991,
+				"Rock", false, 100);
+		Song song11 = new Song(SONG_11_NAME, 11, 1, album, 1991,
+				"Rock", false, 100);
 		jpaSongRepository.save(song01);
 		jpaSongRepository.save(song02);
 		jpaSongRepository.save(song03);

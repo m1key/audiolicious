@@ -26,10 +26,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 public final class AudiobookTo extends TrackTo {
 
-	private static final int VIDEO_HEIGHT = 0;
-	private static final int VIDEO_WIDTH = 0;
 	private static final boolean HAS_VIDEO = false;
-	private static final boolean HD = false;
 
 	private final String comments;
 
@@ -37,8 +34,7 @@ public final class AudiobookTo extends TrackTo {
 			String albumArtist, int year, String genre, Date dateAdded,
 			Date dateModified, RatingTo rating, int playCount, String comments) {
 		super(name, albumName, artist, albumArtist, year, genre, dateAdded,
-				dateModified, rating, playCount, HAS_VIDEO, VIDEO_HEIGHT,
-				VIDEO_WIDTH, HD);
+				dateModified, rating, playCount, HAS_VIDEO);
 		this.comments = comments;
 	}
 

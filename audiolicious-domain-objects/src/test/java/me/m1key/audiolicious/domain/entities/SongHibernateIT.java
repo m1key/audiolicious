@@ -121,26 +121,15 @@ public class SongHibernateIT extends HibernateIT {
 						"Song [%s] album artist should equal artist it was requested with.",
 						ARTIST_2_ALBUM_1_SONG_5_NAME), song.getArtistName(),
 				ARTIST_2_NAME);
-		assertEquals(String.format(
-				"Song [%s] composer should be an empty string.",
-				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getComposer(), "");
 		assertEquals(String.format("Song [%s] genre should be correct.",
 				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getGenre(), "Alternative");
 		assertEquals(String.format("Song [%s] name should be correct.",
 				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getName(),
 				ARTIST_2_ALBUM_1_SONG_5_NAME);
-		assertEquals(String.format(
-				"Song [%s] should have video height count equal 0.",
-				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getVideoHeight(), 0);
-		assertEquals(String.format(
-				"Song [%s] should have video width count equal 0.",
-				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getVideoWidth(), 0);
 		assertEquals(String.format("Song [%s] should have year equal 2009.",
 				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getYear(), 2009);
 		assertNotNull(String.format("Song [%s] UUID should not be null.",
 				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getUuid());
-		assertFalse(String.format("Song [%s] HD should be false.",
-				ARTIST_2_ALBUM_1_SONG_5_NAME), song.isHd());
 		assertFalse(String.format("Song [%s] should have no video.",
 				ARTIST_2_ALBUM_1_SONG_5_NAME), song.hasVideo());
 	}
@@ -169,10 +158,8 @@ public class SongHibernateIT extends HibernateIT {
 		getEntityManager().persist(artist);
 		Album album = new Album(ARTIST_1_ALBUM_1_NAME, artist, new Rating(80));
 		getEntityManager().persist(album);
-		Song song = new Song(ARTIST_1_ALBUM_1_SONG_1_NAME,
-				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 1, 1, album, 1988,
-				"Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0, 0,
-				false, 100);
+		Song song = new Song(ARTIST_1_ALBUM_1_SONG_1_NAME, 1, 1, album, 1988,
+				"Rock", false, 100);
 		getEntityManager().persist(song);
 		getEntityManager().getTransaction().commit();
 
@@ -289,50 +276,28 @@ public class SongHibernateIT extends HibernateIT {
 	}
 
 	private void addSongsToAlbum1(Album artist1Album1) {
-		Song song01 = new Song(ARTIST_1_ALBUM_1_SONG_1_NAME,
-				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 1, 1, artist1Album1,
-				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false, 100);
-		Song song02 = new Song(ARTIST_1_ALBUM_1_SONG_2_NAME,
-				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 2, 1, artist1Album1,
-				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", true, 0,
-				0, false, 100);
-		Song song03 = new Song(ARTIST_1_ALBUM_1_SONG_3_NAME,
-				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 3, 1, artist1Album1,
-				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false, 100);
-		Song song04 = new Song(ARTIST_1_ALBUM_1_SONG_4_NAME,
-				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 4, 1, artist1Album1,
-				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false, 100);
-		Song song05 = new Song(ARTIST_1_ALBUM_1_SONG_5_NAME,
-				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 5, 1, artist1Album1,
-				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false, 100);
-		Song song06 = new Song(ARTIST_1_ALBUM_1_SONG_6_NAME,
-				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 6, 1, artist1Album1,
-				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false, 100);
-		Song song07 = new Song(ARTIST_1_ALBUM_1_SONG_7_NAME,
-				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 7, 1, artist1Album1,
-				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false, 100);
-		Song song08 = new Song(ARTIST_1_ALBUM_1_SONG_8_NAME,
-				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 8, 1, artist1Album1,
-				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false, 100);
-		Song song09 = new Song(ARTIST_1_ALBUM_1_SONG_9_NAME,
-				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 9, 1, artist1Album1,
-				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false, 100);
-		Song song10 = new Song(ARTIST_1_ALBUM_1_SONG_10_NAME,
-				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 10, 1, artist1Album1,
-				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false, 100);
-		Song song11 = new Song(ARTIST_1_ALBUM_1_SONG_11_NAME,
-				ARTIST_1_ALBUM_1_NAME, ARTIST_1_NAME, 11, 1, artist1Album1,
-				1988, "Zakk Wylde/Bob Daisley/Ozzy Osbourne", "Rock", false, 0,
-				0, false, 100);
+		Song song01 = new Song(ARTIST_1_ALBUM_1_SONG_1_NAME, 1, 1,
+				artist1Album1, 1988, "Rock", false, 100);
+		Song song02 = new Song(ARTIST_1_ALBUM_1_SONG_2_NAME, 2, 1,
+				artist1Album1, 1988, "Rock", true, 100);
+		Song song03 = new Song(ARTIST_1_ALBUM_1_SONG_3_NAME, 3, 1,
+				artist1Album1, 1988, "Rock", false, 100);
+		Song song04 = new Song(ARTIST_1_ALBUM_1_SONG_4_NAME, 4, 1,
+				artist1Album1, 1988, "Rock", false, 100);
+		Song song05 = new Song(ARTIST_1_ALBUM_1_SONG_5_NAME, 5, 1,
+				artist1Album1, 1988, "Rock", false, 100);
+		Song song06 = new Song(ARTIST_1_ALBUM_1_SONG_6_NAME, 6, 1,
+				artist1Album1, 1988, "Rock", false, 100);
+		Song song07 = new Song(ARTIST_1_ALBUM_1_SONG_7_NAME, 7, 1,
+				artist1Album1, 1988, "Rock", false, 100);
+		Song song08 = new Song(ARTIST_1_ALBUM_1_SONG_8_NAME, 8, 1,
+				artist1Album1, 1988, "Rock", false, 100);
+		Song song09 = new Song(ARTIST_1_ALBUM_1_SONG_9_NAME, 9, 1,
+				artist1Album1, 1988, "Rock", false, 100);
+		Song song10 = new Song(ARTIST_1_ALBUM_1_SONG_10_NAME, 10, 1,
+				artist1Album1, 1988, "Rock", false, 100);
+		Song song11 = new Song(ARTIST_1_ALBUM_1_SONG_11_NAME, 11, 1,
+				artist1Album1, 1988, "Rock", false, 100);
 
 		artist1Album1.addSong(song01);
 		artist1Album1.addSong(song02);
@@ -349,45 +314,32 @@ public class SongHibernateIT extends HibernateIT {
 	}
 
 	private void addSongsToAlbum2(Album artist1Album2) {
-		Song song01 = new Song(ARTIST_1_ALBUM_2_SONG_1_NAME,
-				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 1, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false, 100);
-		Song song02 = new Song(ARTIST_1_ALBUM_2_SONG_2_NAME,
-				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 2, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false, 100);
-		Song song03 = new Song(ARTIST_1_ALBUM_2_SONG_3_NAME,
-				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 3, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false, 100);
-		Song song04 = new Song(ARTIST_1_ALBUM_2_SONG_4_NAME,
-				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 4, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false, 100);
-		Song song05 = new Song(ARTIST_1_ALBUM_2_SONG_5_NAME,
-				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 5, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false, 100);
-		Song song06 = new Song(ARTIST_1_ALBUM_2_SONG_6_NAME,
-				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 6, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false, 100);
-		Song song07 = new Song(ARTIST_1_ALBUM_2_SONG_7_NAME,
-				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 7, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false, 100);
-		Song song08 = new Song(ARTIST_1_ALBUM_2_SONG_8_NAME,
-				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 8, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false, 100);
-		Song song09 = new Song(ARTIST_1_ALBUM_2_SONG_9_NAME,
-				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 9, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false, 100);
-		Song song10 = new Song(ARTIST_1_ALBUM_2_SONG_10_NAME,
-				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 10, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false, 100);
-		Song song11 = new Song(ARTIST_1_ALBUM_2_SONG_11_NAME,
-				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 11, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false, 100);
-		Song song12 = new Song(ARTIST_1_ALBUM_2_SONG_12_NAME,
-				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 12, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false, 100);
-		Song song13 = new Song(ARTIST_1_ALBUM_2_SONG_13_NAME,
-				ARTIST_1_ALBUM_2_NAME, ARTIST_1_NAME, 13, 1, artist1Album2,
-				1991, "", "Rock", false, 0, 0, false, 100);
+		Song song01 = new Song(ARTIST_1_ALBUM_2_SONG_1_NAME, 1, 1,
+				artist1Album2, 1991, "Rock", false, 100);
+		Song song02 = new Song(ARTIST_1_ALBUM_2_SONG_2_NAME, 2, 1,
+				artist1Album2, 1991, "Rock", false, 100);
+		Song song03 = new Song(ARTIST_1_ALBUM_2_SONG_3_NAME, 3, 1,
+				artist1Album2, 1991, "Rock", false, 100);
+		Song song04 = new Song(ARTIST_1_ALBUM_2_SONG_4_NAME, 4, 1,
+				artist1Album2, 1991, "Rock", false, 100);
+		Song song05 = new Song(ARTIST_1_ALBUM_2_SONG_5_NAME, 5, 1,
+				artist1Album2, 1991, "Rock", false, 100);
+		Song song06 = new Song(ARTIST_1_ALBUM_2_SONG_6_NAME, 6, 1,
+				artist1Album2, 1991, "Rock", false, 100);
+		Song song07 = new Song(ARTIST_1_ALBUM_2_SONG_7_NAME, 7, 1,
+				artist1Album2, 1991, "Rock", false, 100);
+		Song song08 = new Song(ARTIST_1_ALBUM_2_SONG_8_NAME, 8, 1,
+				artist1Album2, 1991, "Rock", false, 100);
+		Song song09 = new Song(ARTIST_1_ALBUM_2_SONG_9_NAME, 9, 1,
+				artist1Album2, 1991, "Rock", false, 100);
+		Song song10 = new Song(ARTIST_1_ALBUM_2_SONG_10_NAME, 10, 1,
+				artist1Album2, 1991, "Rock", false, 100);
+		Song song11 = new Song(ARTIST_1_ALBUM_2_SONG_11_NAME, 11, 1,
+				artist1Album2, 1991, "Rock", false, 100);
+		Song song12 = new Song(ARTIST_1_ALBUM_2_SONG_12_NAME, 12, 1,
+				artist1Album2, 1991, "Rock", false, 100);
+		Song song13 = new Song(ARTIST_1_ALBUM_2_SONG_13_NAME, 13, 1,
+				artist1Album2, 1991, "Rock", false, 100);
 
 		artist1Album2.addSong(song01);
 		artist1Album2.addSong(song02);
@@ -406,39 +358,28 @@ public class SongHibernateIT extends HibernateIT {
 	}
 
 	private void addSongsToAlbum3(Album artist2Album1) {
-		Song song01 = new Song(ARTIST_2_ALBUM_1_SONG_1_NAME,
-				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 1, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false, 100);
-		Song song02 = new Song(ARTIST_2_ALBUM_1_SONG_2_NAME,
-				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 2, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false, 100);
-		Song song03 = new Song(ARTIST_2_ALBUM_1_SONG_3_NAME,
-				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 3, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false, 100);
-		Song song04 = new Song(ARTIST_2_ALBUM_1_SONG_4_NAME,
-				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 4, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false, 100);
-		Song song05 = new Song(ARTIST_2_ALBUM_1_SONG_5_NAME,
-				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 5, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false, 100);
-		Song song06 = new Song(ARTIST_2_ALBUM_1_SONG_6_NAME,
-				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 6, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false, 100);
-		Song song07 = new Song(ARTIST_2_ALBUM_1_SONG_7_NAME,
-				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 7, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false, 100);
-		Song song08 = new Song(ARTIST_2_ALBUM_1_SONG_8_NAME,
-				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 8, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false, 100);
-		Song song09 = new Song(ARTIST_2_ALBUM_1_SONG_9_NAME,
-				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 9, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false, 100);
-		Song song10 = new Song(ARTIST_2_ALBUM_1_SONG_10_NAME,
-				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 10, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false, 100);
-		Song song11 = new Song(ARTIST_2_ALBUM_1_SONG_11_NAME,
-				ARTIST_2_ALBUM_1_NAME, ARTIST_2_NAME, 11, 1, artist2Album1,
-				2009, "", "Alternative", false, 0, 0, false, 100);
+		Song song01 = new Song(ARTIST_2_ALBUM_1_SONG_1_NAME, 1, 1,
+				artist2Album1, 2009, "Alternative", false, 100);
+		Song song02 = new Song(ARTIST_2_ALBUM_1_SONG_2_NAME, 2, 1,
+				artist2Album1, 2009, "Alternative", false, 100);
+		Song song03 = new Song(ARTIST_2_ALBUM_1_SONG_3_NAME, 3, 1,
+				artist2Album1, 2009, "Alternative", false, 100);
+		Song song04 = new Song(ARTIST_2_ALBUM_1_SONG_4_NAME, 4, 1,
+				artist2Album1, 2009, "Alternative", false, 100);
+		Song song05 = new Song(ARTIST_2_ALBUM_1_SONG_5_NAME, 5, 1,
+				artist2Album1, 2009, "Alternative", false, 100);
+		Song song06 = new Song(ARTIST_2_ALBUM_1_SONG_6_NAME, 6, 1,
+				artist2Album1, 2009, "Alternative", false, 100);
+		Song song07 = new Song(ARTIST_2_ALBUM_1_SONG_7_NAME, 7, 1,
+				artist2Album1, 2009, "Alternative", false, 100);
+		Song song08 = new Song(ARTIST_2_ALBUM_1_SONG_8_NAME, 8, 1,
+				artist2Album1, 2009, "Alternative", false, 100);
+		Song song09 = new Song(ARTIST_2_ALBUM_1_SONG_9_NAME, 9, 1,
+				artist2Album1, 2009, "Alternative", false, 100);
+		Song song10 = new Song(ARTIST_2_ALBUM_1_SONG_10_NAME, 10, 1,
+				artist2Album1, 2009, "Alternative", false, 100);
+		Song song11 = new Song(ARTIST_2_ALBUM_1_SONG_11_NAME, 11, 1,
+				artist2Album1, 2009, "Alternative", false, 100);
 
 		artist2Album1.addSong(song01);
 		artist2Album1.addSong(song02);

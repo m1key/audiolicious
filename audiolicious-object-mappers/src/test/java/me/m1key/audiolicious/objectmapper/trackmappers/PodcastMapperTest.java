@@ -138,11 +138,8 @@ public class PodcastMapperTest {
 		assertEquals(80, podcast.getRating().getPercentage());
 		assertEquals(new RatingTo(80), podcast.getRating());
 		assertEquals(TrackToType.PODCAST, podcast.getType());
-		assertEquals(0, podcast.getVideoHeight());
-		assertEquals(0, podcast.getVideoWidth());
 		assertEquals(2008, podcast.getYear());
 		assertEquals(false, podcast.isHasVideo());
-		assertEquals(false, podcast.isHd());
 		assertEquals(true, podcast.isPodcast());
 	}
 

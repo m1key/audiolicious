@@ -203,7 +203,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Monster Magnet", song1.getAlbum().getArtist().getName());
 		assertEquals(new Rating(100), song1.getAlbum().getRating());
 		assertEquals("Monster Magnet", song1.getArtistName());
-		assertEquals("John McBain/David Wyndorf", song1.getComposer());
 		assertEquals(1279381386000L, song1.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1261327910000L, song1.getStats().iterator().next()
@@ -216,8 +215,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song1.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song1.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song1.getAlbum());
-		assertEquals(0, song1.getVideoHeight());
-		assertEquals(0, song1.getVideoWidth());
 		assertEquals(1992, song1.getYear());
 	}
 
@@ -231,7 +228,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Monster Magnet", song2.getAlbum().getArtist().getName());
 		assertEquals(new Rating(100), song2.getAlbum().getRating());
 		assertEquals("Monster Magnet", song2.getArtistName());
-		assertEquals(null, song2.getComposer());
 		assertEquals(1279381386000L, song2.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1261327910000L, song2.getStats().iterator().next()
@@ -244,8 +240,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song2.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song2.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song2.getAlbum());
-		assertEquals(0, song2.getVideoHeight());
-		assertEquals(0, song2.getVideoWidth());
 		assertEquals(1992, song2.getYear());
 	}
 
@@ -259,7 +253,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Monster Magnet", song3.getAlbum().getArtist().getName());
 		assertEquals(new Rating(100), song3.getAlbum().getRating());
 		assertEquals("Monster Magnet", song3.getArtistName());
-		assertEquals(null, song3.getComposer());
 		assertEquals(1279381386000L, song3.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1261327910000L, song3.getStats().iterator().next()
@@ -272,8 +265,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song3.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song3.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song3.getAlbum());
-		assertEquals(0, song3.getVideoHeight());
-		assertEquals(0, song3.getVideoWidth());
 		assertEquals(1992, song3.getYear());
 	}
 
@@ -287,7 +278,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Monster Magnet", song4.getAlbum().getArtist().getName());
 		assertEquals(new Rating(100), song4.getAlbum().getRating());
 		assertEquals("Monster Magnet", song4.getArtistName());
-		assertEquals("John McBain/David Wyndorf", song4.getComposer());
 		assertEquals(1279381386000L, song4.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1261327910000L, song4.getStats().iterator().next()
@@ -300,8 +290,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song4.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song4.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song4.getAlbum());
-		assertEquals(0, song4.getVideoHeight());
-		assertEquals(0, song4.getVideoWidth());
 		assertEquals(1992, song4.getYear());
 	}
 
@@ -315,7 +303,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Monster Magnet", song5.getAlbum().getArtist().getName());
 		assertEquals(new Rating(100), song5.getAlbum().getRating());
 		assertEquals("Monster Magnet", song5.getArtistName());
-		assertEquals("David Wyndorf", song5.getComposer());
 		assertEquals(1279381386000L, song5.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1261327910000L, song5.getStats().iterator().next()
@@ -328,8 +315,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song5.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song5.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song5.getAlbum());
-		assertEquals(0, song5.getVideoHeight());
-		assertEquals(0, song5.getVideoWidth());
 		assertEquals(1992, song5.getYear());
 	}
 
@@ -343,7 +328,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Monster Magnet", song6.getAlbum().getArtist().getName());
 		assertEquals(new Rating(100), song6.getAlbum().getRating());
 		assertEquals("Monster Magnet", song6.getArtistName());
-		assertEquals(null, song6.getComposer());
 		assertEquals(1279381386000L, song6.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1261327910000L, song6.getStats().iterator().next()
@@ -356,8 +340,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song6.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song6.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song6.getAlbum());
-		assertEquals(0, song6.getVideoHeight());
-		assertEquals(0, song6.getVideoWidth());
 		assertEquals(1992, song6.getYear());
 	}
 
@@ -371,7 +353,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Monster Magnet", song7.getAlbum().getArtist().getName());
 		assertEquals(new Rating(100), song7.getAlbum().getRating());
 		assertEquals("Monster Magnet", song7.getArtistName());
-		assertEquals(null, song7.getComposer());
 		assertEquals(1279381386000L, song7.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1261327910000L, song7.getStats().iterator().next()
@@ -384,8 +365,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song7.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song7.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song7.getAlbum());
-		assertEquals(0, song7.getVideoHeight());
-		assertEquals(0, song7.getVideoWidth());
 		assertEquals(1992, song7.getYear());
 	}
 
@@ -399,7 +378,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Monster Magnet", song8.getAlbum().getArtist().getName());
 		assertEquals(new Rating(100), song8.getAlbum().getRating());
 		assertEquals("Monster Magnet", song8.getArtistName());
-		assertEquals(null, song8.getComposer());
 		assertEquals(1279381386000L, song8.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1261327910000L, song8.getStats().iterator().next()
@@ -412,8 +390,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song8.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song8.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song8.getAlbum());
-		assertEquals(0, song8.getVideoHeight());
-		assertEquals(0, song8.getVideoWidth());
 		assertEquals(1992, song8.getYear());
 	}
 
@@ -427,7 +403,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Monster Magnet", song9.getAlbum().getArtist().getName());
 		assertEquals(new Rating(100), song9.getAlbum().getRating());
 		assertEquals("Monster Magnet", song9.getArtistName());
-		assertEquals(null, song9.getComposer());
 		assertEquals(1279381386000L, song9.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1261327910000L, song9.getStats().iterator().next()
@@ -440,8 +415,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song9.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song9.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song9.getAlbum());
-		assertEquals(0, song9.getVideoHeight());
-		assertEquals(0, song9.getVideoWidth());
 		assertEquals(1992, song9.getYear());
 	}
 
@@ -465,7 +438,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song1.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song1.getAlbum().getRating());
 		assertEquals("Tool", song1.getArtistName());
-		assertEquals("Tool", song1.getComposer());
 		assertEquals(1279381466000L, song1.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1276755858000L, song1.getStats().iterator().next()
@@ -478,8 +450,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song1.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song1.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song1.getAlbum());
-		assertEquals(0, song1.getVideoHeight());
-		assertEquals(0, song1.getVideoWidth());
 		assertEquals(1996, song1.getYear());
 	}
 
@@ -493,7 +463,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song2.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song2.getAlbum().getRating());
 		assertEquals("Tool", song2.getArtistName());
-		assertEquals("Tool", song2.getComposer());
 		assertEquals(1279381466000L, song2.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1276755858000L, song2.getStats().iterator().next()
@@ -506,8 +475,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song2.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song2.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song2.getAlbum());
-		assertEquals(0, song2.getVideoHeight());
-		assertEquals(0, song2.getVideoWidth());
 		assertEquals(1996, song2.getYear());
 	}
 
@@ -521,7 +488,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song3.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song3.getAlbum().getRating());
 		assertEquals("Tool", song3.getArtistName());
-		assertEquals("Tool", song3.getComposer());
 		assertEquals(1279381466000L, song3.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1276755858000L, song3.getStats().iterator().next()
@@ -534,8 +500,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song3.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song3.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song3.getAlbum());
-		assertEquals(0, song3.getVideoHeight());
-		assertEquals(0, song3.getVideoWidth());
 		assertEquals(1996, song3.getYear());
 	}
 
@@ -549,7 +513,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song4.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song4.getAlbum().getRating());
 		assertEquals("Tool", song4.getArtistName());
-		assertEquals("Tool", song4.getComposer());
 		assertEquals(1279381466000L, song4.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1276755858000L, song4.getStats().iterator().next()
@@ -562,8 +525,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song4.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song4.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song4.getAlbum());
-		assertEquals(0, song4.getVideoHeight());
-		assertEquals(0, song4.getVideoWidth());
 		assertEquals(1996, song4.getYear());
 	}
 
@@ -577,7 +538,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song5.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song5.getAlbum().getRating());
 		assertEquals("Tool", song5.getArtistName());
-		assertEquals("Tool", song5.getComposer());
 		assertEquals(1279381466000L, song5.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1276755858000L, song5.getStats().iterator().next()
@@ -590,8 +550,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song5.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song5.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song5.getAlbum());
-		assertEquals(0, song5.getVideoHeight());
-		assertEquals(0, song5.getVideoWidth());
 		assertEquals(1996, song5.getYear());
 	}
 
@@ -605,7 +563,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song6.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song6.getAlbum().getRating());
 		assertEquals("Tool", song6.getArtistName());
-		assertEquals("Tool", song6.getComposer());
 		assertEquals(1279381466000L, song6.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1276755858000L, song6.getStats().iterator().next()
@@ -618,8 +575,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song6.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song6.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song6.getAlbum());
-		assertEquals(0, song6.getVideoHeight());
-		assertEquals(0, song6.getVideoWidth());
 		assertEquals(1996, song6.getYear());
 	}
 
@@ -633,7 +588,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song7.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song7.getAlbum().getRating());
 		assertEquals("Tool", song7.getArtistName());
-		assertEquals("Tool", song7.getComposer());
 		assertEquals(1279381466000L, song7.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1276755858000L, song7.getStats().iterator().next()
@@ -646,8 +600,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song7.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song7.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song7.getAlbum());
-		assertEquals(0, song7.getVideoHeight());
-		assertEquals(0, song7.getVideoWidth());
 		assertEquals(1996, song7.getYear());
 	}
 
@@ -661,7 +613,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song8.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song8.getAlbum().getRating());
 		assertEquals("Tool", song8.getArtistName());
-		assertEquals("Tool", song8.getComposer());
 		assertEquals(1279381466000L, song8.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1276755858000L, song8.getStats().iterator().next()
@@ -674,8 +625,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song8.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song8.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song8.getAlbum());
-		assertEquals(0, song8.getVideoHeight());
-		assertEquals(0, song8.getVideoWidth());
 		assertEquals(1996, song8.getYear());
 	}
 
@@ -689,7 +638,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song9.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song9.getAlbum().getRating());
 		assertEquals("Tool", song9.getArtistName());
-		assertEquals("Tool", song9.getComposer());
 		assertEquals(1279381466000L, song9.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1276755858000L, song9.getStats().iterator().next()
@@ -702,8 +650,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song9.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song9.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song9.getAlbum());
-		assertEquals(0, song9.getVideoHeight());
-		assertEquals(0, song9.getVideoWidth());
 		assertEquals(1996, song9.getYear());
 	}
 
@@ -717,7 +663,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song10.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song10.getAlbum().getRating());
 		assertEquals("Tool", song10.getArtistName());
-		assertEquals("Tool", song10.getComposer());
 		assertEquals(1279381466000L, song10.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1276755858000L, song10.getStats().iterator().next()
@@ -730,8 +675,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song10.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song10.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song10.getAlbum());
-		assertEquals(0, song10.getVideoHeight());
-		assertEquals(0, song10.getVideoWidth());
 		assertEquals(1996, song10.getYear());
 	}
 
@@ -745,7 +688,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song11.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song11.getAlbum().getRating());
 		assertEquals("Tool", song11.getArtistName());
-		assertEquals("Tool", song11.getComposer());
 		assertEquals(1279381466000L, song11.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1276755858000L, song11.getStats().iterator().next()
@@ -758,8 +700,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song11.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song11.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song11.getAlbum());
-		assertEquals(0, song11.getVideoHeight());
-		assertEquals(0, song11.getVideoWidth());
 		assertEquals(1996, song11.getYear());
 	}
 
@@ -773,7 +713,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song12.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song12.getAlbum().getRating());
 		assertEquals("Tool", song12.getArtistName());
-		assertEquals("Tool", song12.getComposer());
 		assertEquals(1279381466000L, song12.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1276755858000L, song12.getStats().iterator().next()
@@ -786,8 +725,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song12.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song12.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song12.getAlbum());
-		assertEquals(0, song12.getVideoHeight());
-		assertEquals(0, song12.getVideoWidth());
 		assertEquals(1996, song12.getYear());
 	}
 
@@ -801,7 +738,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song13.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song13.getAlbum().getRating());
 		assertEquals("Tool", song13.getArtistName());
-		assertEquals("Tool", song13.getComposer());
 		assertEquals(1279381466000L, song13.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1276755858000L, song13.getStats().iterator().next()
@@ -814,8 +750,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song13.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song13.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song13.getAlbum());
-		assertEquals(0, song13.getVideoHeight());
-		assertEquals(0, song13.getVideoWidth());
 		assertEquals(1996, song13.getYear());
 	}
 
@@ -829,7 +763,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song14.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song14.getAlbum().getRating());
 		assertEquals("Tool", song14.getArtistName());
-		assertEquals("Tool", song14.getComposer());
 		assertEquals(1279381466000L, song14.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1276755858000L, song14.getStats().iterator().next()
@@ -842,8 +775,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song14.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song14.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song14.getAlbum());
-		assertEquals(0, song14.getVideoHeight());
-		assertEquals(0, song14.getVideoWidth());
 		assertEquals(1996, song14.getYear());
 	}
 
@@ -857,7 +788,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song15.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song15.getAlbum().getRating());
 		assertEquals("Tool", song15.getArtistName());
-		assertEquals("Tool", song15.getComposer());
 		assertEquals(1279381466000L, song15.getStats().iterator().next()
 				.getDateAdded().getTime());
 		assertEquals(1276755858000L, song15.getStats().iterator().next()
@@ -870,8 +800,6 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals(0, song15.getStats().iterator().next().getSkipCount());
 		assertEquals(null, song15.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song15.getAlbum());
-		assertEquals(0, song15.getVideoHeight());
-		assertEquals(0, song15.getVideoWidth());
 		assertEquals(1996, song15.getYear());
 	}
 

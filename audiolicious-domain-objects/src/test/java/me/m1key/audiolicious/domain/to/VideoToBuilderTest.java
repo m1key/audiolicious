@@ -127,21 +127,4 @@ public class VideoToBuilderTest {
 				videoViaBuilder.isHasVideo());
 	}
 
-	@Test
-	public void shouldHaveEqualVideoHeight() {
-		assertEquals(videoViaConstructor.getVideoHeight(),
-				videoViaBuilder.getVideoHeight());
-	}
-
-	@Test
-	public void shouldHaveEqualVideoWidth() {
-		assertEquals(videoViaConstructor.getVideoWidth(),
-				videoViaBuilder.getVideoWidth());
-	}
-
-	@Test
-	public void shouldHaveEqualHd() {
-		assertEquals(videoViaConstructor.isHd(), videoViaBuilder.isHd());
-	}
-
 }

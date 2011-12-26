@@ -26,13 +26,19 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 public final class VideoTo extends TrackTo {
 
+	private int videoHeight;
+	private int videoWidth;
+	private boolean hd;
+
 	public VideoTo(String name, String albumName, String albumArtist,
 			String artist, int year, String genre, Date dateAdded,
 			Date dateModified, RatingTo rating, int playCount,
 			boolean hasVideo, int videoHeight, int videoWidth, boolean hd) {
 		super(name, albumName, artist, albumArtist, year, genre, dateAdded,
-				dateModified, rating, playCount, hasVideo, videoHeight,
-				videoWidth, hd);
+				dateModified, rating, playCount, hasVideo);
+		this.videoHeight = videoHeight;
+		this.videoWidth = videoWidth;
+		this.hd = hd;
 	}
 
 	@Override
@@ -45,10 +51,23 @@ public final class VideoTo extends TrackTo {
 		return false;
 	}
 
+	public int getVideoHeight() {
+		return videoHeight;
+	}
+
+	public int getVideoWidth() {
+		return videoWidth;
+	}
+
+	public boolean isHd() {
+		return hd;
+	}
+
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder().appendSuper(super.hashCode())
-				.append(getType()).append(isPodcast()).toHashCode();
+				.append(getType()).append(isPodcast()).append(videoHeight)
+				.append(videoWidth).append(hd).toHashCode();
 	}
 
 	@Override
@@ -58,14 +77,17 @@ public final class VideoTo extends TrackTo {
 		VideoTo castOther = (VideoTo) other;
 		return new EqualsBuilder().appendSuper(super.equals(other))
 				.append(getType(), castOther.getType())
-				.append(isPodcast(), castOther.isPodcast()).isEquals();
+				.append(isPodcast(), castOther.isPodcast())
+				.append(videoHeight, castOther.videoHeight)
+				.append(videoWidth, castOther.videoWidth)
+				.append(hd, castOther.hd).isEquals();
 	}
 
 	@Override
 	public String toString() {
 		return new ToStringBuilder(this).appendSuper(super.toString())
 				.append("type", getType()).append("isPodcast", isPodcast())
-				.toString();
+				.append(videoHeight).append(videoWidth).append(hd).toString();
 	}
 
 }
