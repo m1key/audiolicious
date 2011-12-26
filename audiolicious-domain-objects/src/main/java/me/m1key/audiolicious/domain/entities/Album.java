@@ -30,37 +30,41 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 @Entity(name = "Album")
-@Table(name = "ALBUMS")
+@Table(name = "ALBUMS", uniqueConstraints = { @UniqueConstraint(columnNames = {
+		"ARTIST_ID", "NAME" }) })
 public class Album {
 
 	@SuppressWarnings("unused")
 	@Id
 	@GeneratedValue
-	@Column(name = "ARTIST_ID")
+	@Column(name = "ALBUM_ID")
 	private Long id;
 
 	@Column(name = "UUID", unique = true, length = 36)
 	private String uuid;
 
-	@Column(name = "NAME", length = 512)
+	@Column(name = "NAME", length = 255)
 	private String name;
 
-	@Column(name = "ARTIST_NAME", length = 512)
+	@Column(name = "ARTIST_NAME", length = 255)
 	private String artistName;
 
 	@Embedded
 	private Rating rating;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = { CascadeType.MERGE })
+	@JoinColumn(name = "ARTIST_ID")
 	private Artist artist;
 
 	@OneToMany(mappedBy = "album", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
