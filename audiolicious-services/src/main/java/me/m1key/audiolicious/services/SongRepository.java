@@ -18,13 +18,14 @@
 
 package me.m1key.audiolicious.services;
 
+import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Song;
 
 public interface SongRepository {
 
 	void save(Song song);
 
-	Song getSong(String songName, String albumName, String albumArtistName,
-			int trackNumber, int discNumber, int totalTime);
+	Song getSong(String songName, Album album, int trackNumber, int discNumber,
+			int totalTime);
 
 }

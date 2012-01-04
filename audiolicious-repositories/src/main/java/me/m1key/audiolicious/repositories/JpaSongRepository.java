@@ -27,6 +27,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import me.m1key.audiolicious.commons.qualifiers.NullSong;
+import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Song;
 import me.m1key.audiolicious.services.SongRepository;
 
@@ -47,20 +48,17 @@ public class JpaSongRepository implements SongRepository {
 	}
 
 	@Override
-	public Song getSong(String songName, String albumName,
-			String albumArtistName, int trackNumber, int discNumber,
-			int totalTime) {
+	public Song getSong(String songName, Album album, int trackNumber,
+			int discNumber, int totalTime) {
 		@SuppressWarnings("unchecked")
 		List<Song> songObjects = entityManager
 				.createQuery(
-						"FROM Song s WHERE s.name = :songName AND s.albumName = :albumName"
-								+ " AND s.artistName = :artistName"
+						"FROM Song s WHERE s.name = :songName AND s.album = :album"
 								+ " AND s.trackNumber = :trackNumber"
 								+ " AND s.discNumber = :discNumber"
 								+ " AND s.totalTime = :totalTime")
 				.setParameter("songName", songName)
-				.setParameter("albumName", albumName)
-				.setParameter("artistName", albumArtistName)
+				.setParameter("album", album)
 				.setParameter("trackNumber", trackNumber)
 				.setParameter("discNumber", discNumber)
 				.setParameter("totalTime", totalTime).getResultList();

@@ -57,13 +57,10 @@ public class Album {
 	@Column(name = "NAME", length = 255)
 	private String name;
 
-	@Column(name = "ARTIST_NAME", length = 255)
-	private String artistName;
-
 	@Embedded
 	private Rating rating;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = { CascadeType.MERGE })
+	@ManyToOne(optional = false, cascade = { CascadeType.MERGE })
 	@JoinColumn(name = "ARTIST_ID")
 	private Artist artist;
 
@@ -78,8 +75,6 @@ public class Album {
 		this.uuid = UUID.randomUUID().toString();
 		this.name = albumName;
 		this.rating = albumRating;
-
-		this.artistName = albumArtist.getName();
 
 		songs = new HashSet<Song>();
 		setArtist(albumArtist);
@@ -132,8 +127,7 @@ public class Album {
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(name).append(artistName)
-				.toHashCode();
+		return new HashCodeBuilder().append(name).toHashCode();
 	}
 
 	@Override
@@ -142,7 +136,7 @@ public class Album {
 			return false;
 		Album castOther = (Album) other;
 		return new EqualsBuilder().append(name, castOther.name)
-				.append(artistName, castOther.artistName).isEquals();
+				.append(artist, castOther.artist).isEquals();
 	}
 
 	@Override

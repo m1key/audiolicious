@@ -30,6 +30,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -43,8 +44,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 @Entity(name = "Song")
 @Table(name = "SONGS", uniqueConstraints = { @UniqueConstraint(columnNames = {
-		"NAME", "ALBUM_NAME", "ARTIST_NAME", "TRACK_NUMBER", "DISC_NUMBER",
-		"TOTAL_TIME" }) })
+		"NAME", "ALBUM_ID", "TRACK_NUMBER", "DISC_NUMBER", "TOTAL_TIME" }) })
 public class Song {
 
 	@SuppressWarnings("unused")
@@ -61,9 +61,6 @@ public class Song {
 
 	@Column(name = "ARTIST_NAME", length = 255)
 	private String artistName;
-
-	@Column(name = "ALBUM_NAME", length = 255)
-	private String albumName;
 
 	@Column(name = "GENRE", length = 128)
 	private String genre;
@@ -84,6 +81,7 @@ public class Song {
 	private int totalTime;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "ALBUM_ID")
 	private Album album;
 
 	@OneToMany(mappedBy = "song", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, orphanRemoval = true)
@@ -97,7 +95,6 @@ public class Song {
 			int year, String genre, boolean hasVideo, int totalTime) {
 		this.uuid = UUID.randomUUID().toString();
 		this.name = name;
-		this.albumName = album.getName();
 		this.artistName = album.getArtist().getName();
 		this.discNumber = discNumber;
 		this.trackNumber = trackNumber;
@@ -114,7 +111,6 @@ public class Song {
 		this.uuid = UUID.randomUUID().toString();
 		this.name = songTo.getName();
 		this.artistName = songTo.getArtist();
-		this.albumName = songTo.getAlbumName();
 		this.genre = songTo.getGenre();
 		this.year = songTo.getYear();
 		this.hasVideo = songTo.isHasVideo();
@@ -173,10 +169,6 @@ public class Song {
 		return Collections.unmodifiableSet(stats);
 	}
 
-	public String getAlbumName() {
-		return albumName;
-	}
-
 	public int getDiscNumber() {
 		return discNumber;
 	}
@@ -197,9 +189,8 @@ public class Song {
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(name).append(albumName)
-				.append(artistName).append(trackNumber).append(discNumber)
-				.append(totalTime).toHashCode();
+		return new HashCodeBuilder().append(name).append(trackNumber)
+				.append(discNumber).append(totalTime).toHashCode();
 	}
 
 	@Override
@@ -208,18 +199,16 @@ public class Song {
 			return false;
 		Song castOther = (Song) other;
 		return new EqualsBuilder().append(name, castOther.name)
-				.append(albumName, castOther.albumName)
-				.append(artistName, castOther.artistName)
 				.append(trackNumber, castOther.trackNumber)
 				.append(discNumber, castOther.discNumber)
-				.append(totalTime, castOther.totalTime).isEquals();
+				.append(totalTime, castOther.totalTime)
+				.append(album, castOther.album).isEquals();
 	}
 
 	@Override
 	public String toString() {
 		return new ToStringBuilder(this).append("uuid", uuid)
-				.append("name", name).append("albumName", albumName)
-				.append("artistName", artistName)
+				.append("name", name).append("artistName", artistName)
 				.append("trackNumber", trackNumber)
 				.append("discNumber", discNumber)
 				.append("totalTime", totalTime).append("genre", genre)
