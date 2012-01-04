@@ -24,6 +24,9 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.UserTransaction;
 
 import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
@@ -67,6 +70,11 @@ public class JpaAlbumRepositoryIT {
 	@Inject
 	private RepositoriesTestHelperBean testHelperBean;
 
+	@PersistenceContext
+	private EntityManager entityManager;
+	@Inject
+	private UserTransaction userTransaction;
+
 	@Deployment
 	public static WebArchive createTestArchive()
 			throws IllegalArgumentException, IOException {
@@ -103,20 +111,29 @@ public class JpaAlbumRepositoryIT {
 	}
 
 	@Test
-	public void shouldSaveAndRetrieveAlbum() {
+	public void shouldSaveAndRetrieveAlbum() throws Exception {
+		userTransaction.begin();
+		entityManager.joinTransaction();
+
 		Artist artist = testHelperBean.createArtist(ARTIST_1_NAME);
 		Album album = new Album(ARTIST_1_ALBUM_1_NAME, artist, new Rating(80));
 		jpaAlbumRepository.createAlbum(album);
 
 		Album retrievedAlbum = jpaAlbumRepository.getAlbum(artist,
 				ARTIST_1_ALBUM_1_NAME);
+
+		userTransaction.commit();
+
 		assertNotNull(retrievedAlbum);
 		assertEquals("Created and retrieved by name album should be the same.",
 				album, retrievedAlbum);
 	}
 
 	@Test
-	public void shouldReturnCorrectAlbum() {
+	public void shouldReturnCorrectAlbum() throws Exception {
+		userTransaction.begin();
+		entityManager.joinTransaction();
+
 		Artist artist1 = testHelperBean.createArtist(ARTIST_1_NAME);
 		Album artist1Album1 = new Album(ARTIST_1_ALBUM_1_NAME, artist1,
 				new Rating(80));
@@ -134,18 +151,26 @@ public class JpaAlbumRepositoryIT {
 		jpaAlbumRepository
 				.createAlbum(artist2Album2WithTheSameNameAsArist1Album1);
 
+		Album retrievedArtist1Album1 = jpaAlbumRepository.getAlbum(artist1,
+				ARTIST_1_ALBUM_1_NAME);
+		Album retrievedArtist1Album2 = jpaAlbumRepository.getAlbum(artist1,
+				ARTIST_1_ALBUM_2_NAME);
+		Album retrievedArtist2Album1 = jpaAlbumRepository.getAlbum(artist2,
+				ARTIST_2_ALBUM_1_NAME);
+		Album retrievedArtist2Album2WithTheSameNameAsArist1Album1 = jpaAlbumRepository
+				.getAlbum(artist2, ARTIST_1_ALBUM_1_NAME);
+
+		userTransaction.commit();
+
 		assertEquals("Created and retrieved by name album should be the same.",
-				artist1Album1,
-				jpaAlbumRepository.getAlbum(artist1, ARTIST_1_ALBUM_1_NAME));
+				artist1Album1, retrievedArtist1Album1);
 		assertEquals("Created and retrieved by name album should be the same.",
-				artist1Album2,
-				jpaAlbumRepository.getAlbum(artist1, ARTIST_1_ALBUM_2_NAME));
+				artist1Album2, retrievedArtist1Album2);
 		assertEquals("Created and retrieved by name album should be the same.",
-				artist2Album1,
-				jpaAlbumRepository.getAlbum(artist2, ARTIST_2_ALBUM_1_NAME));
+				artist2Album1, retrievedArtist2Album1);
 		assertEquals("Created and retrieved by name album should be the same.",
 				artist2Album2WithTheSameNameAsArist1Album1,
-				jpaAlbumRepository.getAlbum(artist2, ARTIST_1_ALBUM_1_NAME));
+				retrievedArtist2Album2WithTheSameNameAsArist1Album1);
 	}
 
 	@After

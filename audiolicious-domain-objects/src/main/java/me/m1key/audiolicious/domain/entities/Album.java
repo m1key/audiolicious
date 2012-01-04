@@ -60,7 +60,7 @@ public class Album {
 	@Embedded
 	private Rating rating;
 
-	@ManyToOne(optional = false, cascade = { CascadeType.MERGE })
+	@ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = { CascadeType.MERGE })
 	@JoinColumn(name = "ARTIST_ID")
 	private Artist artist;
 
@@ -135,14 +135,14 @@ public class Album {
 		if (!(other instanceof Album))
 			return false;
 		Album castOther = (Album) other;
-		return new EqualsBuilder().append(name, castOther.name)
-				.append(artist, castOther.artist).isEquals();
+		return new EqualsBuilder().append(getName(), castOther.getName())
+				.append(getArtist(), castOther.getArtist()).isEquals();
 	}
 
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this).append("uuid", uuid)
-				.append("name", name).toString();
+		return new ToStringBuilder(this).append("uuid", getUuid())
+				.append("name", getName()).toString();
 	}
 
 }
