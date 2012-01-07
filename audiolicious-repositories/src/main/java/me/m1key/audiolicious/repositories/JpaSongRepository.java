@@ -54,14 +54,12 @@ public class JpaSongRepository implements SongRepository {
 		List<Song> songObjects = entityManager
 				.createQuery(
 						"FROM Song s WHERE s.name = :songName AND s.album = :album"
-								+ " AND s.trackNumber = :trackNumber"
-								+ " AND s.discNumber = :discNumber"
-								+ " AND s.totalTime = :totalTime")
+								+ " AND s.key = :songKey")
 				.setParameter("songName", songName)
 				.setParameter("album", album)
-				.setParameter("trackNumber", trackNumber)
-				.setParameter("discNumber", discNumber)
-				.setParameter("totalTime", totalTime).getResultList();
+				.setParameter("songKey",
+						Song.toKey(totalTime, trackNumber, discNumber))
+				.getResultList();
 
 		if (songNotFound(songObjects)) {
 			return nullSong;

@@ -278,9 +278,6 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals(null, song1.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song1.getAlbum());
 		assertEquals(2009, song1.getYear());
-		assertEquals(191493, song1.getTotalTime());
-		assertEquals(1, song1.getTrackNumber());
-		assertEquals(1, song1.getDiscNumber());
 	}
 
 	@Test
@@ -306,9 +303,6 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals(null, song2.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song2.getAlbum());
 		assertEquals(2009, song2.getYear());
-		assertEquals(199560, song2.getTotalTime());
-		assertEquals(6, song2.getTrackNumber());
-		assertEquals(1, song2.getDiscNumber());
 	}
 
 	@Test
@@ -881,9 +875,6 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals(null, song5.getStats().iterator().next().getDateSkipped());
 		assertEquals(album, song5.getAlbum());
 		assertEquals(2003, song5.getYear());
-		assertEquals(461906, song5.getTotalTime());
-		assertEquals(5, song5.getTrackNumber());
-		assertEquals(1, song5.getDiscNumber());
 	}
 
 	@Test

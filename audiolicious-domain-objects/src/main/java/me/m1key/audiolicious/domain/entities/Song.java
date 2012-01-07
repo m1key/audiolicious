@@ -44,7 +44,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 @Entity(name = "Song")
 @Table(name = "SONGS", uniqueConstraints = { @UniqueConstraint(columnNames = {
-		"NAME", "ALBUM_ID", "TRACK_NUMBER", "DISC_NUMBER", "TOTAL_TIME" }) })
+		"NAME", "ALBUM_ID", "SONG_KEY" }) })
 public class Song {
 
 	@SuppressWarnings("unused")
@@ -65,20 +65,14 @@ public class Song {
 	@Column(name = "GENRE", length = 128)
 	private String genre;
 
-	@Column(name = "TRACK_NUMBER")
-	private int trackNumber;
-
-	@Column(name = "DISC_NUMBER")
-	private int discNumber;
+	@Column(name = "SONG_KEY", length = 20, nullable = false)
+	private String key;
 
 	@Column(name = "YEAR")
 	private int year;
 
 	@Column(name = "HAS_VIDEO")
 	private boolean hasVideo;
-
-	@Column(name = "TOTAL_TIME")
-	private int totalTime;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "ALBUM_ID")
@@ -96,12 +90,12 @@ public class Song {
 		this.uuid = UUID.randomUUID().toString();
 		this.name = name;
 		this.artistName = album.getArtist().getName();
-		this.discNumber = discNumber;
-		this.trackNumber = trackNumber;
 		this.genre = genre;
 		this.year = year;
 		this.hasVideo = hasVideo;
-		this.totalTime = totalTime;
+
+		this.key = toKey(totalTime, trackNumber, discNumber);
+
 		setAlbum(album);
 
 		stats = new HashSet<Stat>();
@@ -114,9 +108,9 @@ public class Song {
 		this.genre = songTo.getGenre();
 		this.year = songTo.getYear();
 		this.hasVideo = songTo.isHasVideo();
-		this.trackNumber = songTo.getTrackNumber();
-		this.discNumber = songTo.getDiscNumber();
-		this.totalTime = songTo.getTotalTime();
+
+		this.key = toKey(songTo.getTotalTime(), songTo.getTrackNumber(),
+				songTo.getDiscNumber());
 
 		stats = new HashSet<Stat>();
 	}
@@ -149,6 +143,10 @@ public class Song {
 		return hasVideo;
 	}
 
+	public String getKey() {
+		return key;
+	}
+
 	public void setAlbum(Album album) {
 		removeFromCurrentAlbum();
 		this.album = album;
@@ -169,18 +167,6 @@ public class Song {
 		return Collections.unmodifiableSet(stats);
 	}
 
-	public int getDiscNumber() {
-		return discNumber;
-	}
-
-	public int getTrackNumber() {
-		return trackNumber;
-	}
-
-	public int getTotalTime() {
-		return totalTime;
-	}
-
 	private void removeFromCurrentAlbum() {
 		if (album != null) {
 			album.removeSong(this);
@@ -189,8 +175,8 @@ public class Song {
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(name).append(trackNumber)
-				.append(discNumber).append(totalTime).toHashCode();
+		return new HashCodeBuilder().append(getName()).append(getKey())
+				.toHashCode();
 	}
 
 	@Override
@@ -198,25 +184,25 @@ public class Song {
 		if (!(other instanceof Song))
 			return false;
 		Song castOther = (Song) other;
-		return new EqualsBuilder().append(name, castOther.name)
-				.append(trackNumber, castOther.trackNumber)
-				.append(discNumber, castOther.discNumber)
-				.append(totalTime, castOther.totalTime)
-				.append(album, castOther.album).isEquals();
+		return new EqualsBuilder().append(getName(), castOther.getName())
+				.append(getKey(), castOther.getKey())
+				.append(getAlbum(), castOther.getAlbum()).isEquals();
 	}
 
 	@Override
 	public String toString() {
 		return new ToStringBuilder(this).append("uuid", uuid)
 				.append("name", name).append("artistName", artistName)
-				.append("trackNumber", trackNumber)
-				.append("discNumber", discNumber)
-				.append("totalTime", totalTime).append("genre", genre)
-				.append("year", year).append("hasVideo", hasVideo).toString();
+				.append("key", key).append("genre", genre).append("year", year)
+				.append("hasVideo", hasVideo).toString();
 	}
 
 	public void clearStats() {
 		stats.clear();
+	}
+
+	public static String toKey(int totalTime, int trackNumber, int discNumber) {
+		return String.format("%d:%d:%d", totalTime, trackNumber, discNumber);
 	}
 
 }

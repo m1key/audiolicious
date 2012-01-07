@@ -116,7 +116,7 @@ public class TwoLibrariesIT {
 	private static final int ONE_AND_THE_SAME_STATS = 2;
 	private static final int FOUR_WAY_DIABLO_STATS = 1;
 
-	private static final String pathToFile1 = "../audiolicious-test-data/src/test/resources/libraries/Fragment_1.xml";
+	private static final String PATH_TO_FILE_1 = "../audiolicious-test-data/src/test/resources/libraries/Fragment_1.xml";
 	private static final String pathToFile2 = "../audiolicious-test-data/src/test/resources/libraries/Fragment_2.xml";
 
 	@Inject
@@ -201,7 +201,7 @@ public class TwoLibrariesIT {
 		assertEquals("There should be no libraries before the test.",
 				Long.valueOf(0), testHelperBean.totalLibraries());
 
-		File xmlLibraryFile1 = new File(pathToFile1);
+		File xmlLibraryFile1 = new File(PATH_TO_FILE_1);
 		libraryImporter.importLibrary(xmlLibraryFile1);
 		File xmlLibraryFile2 = new File(pathToFile2);
 		libraryImporter.importLibrary(xmlLibraryFile2);

@@ -123,13 +123,13 @@ public class StubSongRepository implements SongRepository {
 
 	private String toKey(String songName, Album album, int trackNumber,
 			int discNumber, int totalTime) {
-		return String.format("%s:%s:%s:%d:%d", songName, album.getName(),
-				trackNumber, discNumber, totalTime);
+		return String.format("%s:%s:%s", songName, album.getName(),
+				Song.toKey(totalTime, discNumber, trackNumber));
 	}
 
 	private String toKey(Song song) {
-		return toKey(song.getName(), song.getAlbum(), song.getTrackNumber(),
-				song.getDiscNumber(), song.getTotalTime());
+		return String.format("%s:%s:%s", song.getName(), song.getAlbum(),
+				song.getKey());
 	}
 
 }

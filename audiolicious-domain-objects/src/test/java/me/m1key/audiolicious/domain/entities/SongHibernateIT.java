@@ -23,6 +23,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import org.junit.Test;
@@ -143,6 +145,8 @@ public class SongHibernateIT extends HibernateIT {
 		Album album = getAlbumByArtistNameAlbumNameInsideExistingTransaction(
 				ARTIST_1_NAME, ARTIST_1_ALBUM_1_NAME);
 
+		System.out.println(getSongCount(album.getSongs(),
+				ARTIST_1_ALBUM_1_SONG_7_NAME));
 		Set<Song> songs = getAndVerifyAlbumSongs(album, 11);
 
 		verifySong1Correct(album, songs);
@@ -225,6 +229,24 @@ public class SongHibernateIT extends HibernateIT {
 			}
 		}
 		return null;
+	}
+
+	private int getSongCount(Set<Song> songs, String songName) {
+		int count = 0;
+		List<Song> songsList = new ArrayList<Song>();
+		for (Song song : songs) {
+			if (song.getName().equals(songName)) {
+				System.out.println(song);
+				songsList.add(song);
+				count++;
+			}
+		}
+		if (songsList.size() > 1) {
+			System.out.println(songsList.get(0).equals(songsList.get(1)));
+			System.out.println(songsList.get(0).hashCode());
+			System.out.println(songsList.get(1).hashCode());
+		}
+		return count;
 	}
 
 	private void createArtistsAlbumsAndSongs() {
