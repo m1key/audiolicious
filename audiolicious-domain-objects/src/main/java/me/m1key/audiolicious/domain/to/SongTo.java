@@ -20,11 +20,13 @@ package me.m1key.audiolicious.domain.to;
 
 import java.util.Date;
 
+import me.m1key.audiolicious.domain.entities.SongInfo;
+
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-public final class SongTo extends TrackTo {
+public final class SongTo extends TrackTo implements SongInfo {
 
 	private final boolean albumRatingComputed;
 	private final RatingTo albumRating;
@@ -73,14 +75,17 @@ public final class SongTo extends TrackTo {
 		return compilation;
 	}
 
+	@Override
 	public int getTrackNumber() {
 		return trackNumber;
 	}
 
+	@Override
 	public int getDiscNumber() {
 		return discNumber;
 	}
 
+	@Override
 	public int getTotalTime() {
 		return totalTime;
 	}

@@ -1,6 +1,6 @@
 /* 
  * Audiolicious - Your Music Library Statistics
- * Copyright (C) 2011, Michal Huniewicz
+ * Copyright (C) 2012, Michal Huniewicz
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,16 +16,24 @@
  * along with this program.  If not, see http://www.m1key.me
  */
 
-package me.m1key.audiolicious.services;
+package me.m1key.audiolicious.domain.entities;
 
-import me.m1key.audiolicious.domain.entities.Album;
-import me.m1key.audiolicious.domain.entities.Song;
+public interface SongInfo {
 
-public interface SongRepository {
+	String getName();
 
-	void save(Song song);
+	String getArtist();
 
-	Song getSong(String songName, Album album, int trackNumber, int discNumber,
-			int totalTime);
+	String getGenre();
+
+	int getYear();
+
+	boolean isHasVideo();
+
+	int getTotalTime();
+
+	int getTrackNumber();
+
+	int getDiscNumber();
 
 }

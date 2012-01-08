@@ -33,6 +33,7 @@ public class StubAlbumRepository implements AlbumRepository {
 	private Album toolAenima;
 	private Album fleetFoxesFleetFoxes;
 	private Album variousArtistsAnimatrix;
+	private Album kornIssues;
 
 	public StubAlbumRepository() {
 		monsterMagnetSpineOfGod = new Album("Spine Of God", new Artist(
@@ -42,6 +43,7 @@ public class StubAlbumRepository implements AlbumRepository {
 				new Artist("Fleet Foxes"), new Rating(80));
 		variousArtistsAnimatrix = new Album("Animatrix: The Album", new Artist(
 				"Various Artists"), new Rating(100));
+		kornIssues = new Album("Issues", new Artist("Korn"), new Rating(100));
 	}
 
 	@Override
@@ -61,6 +63,9 @@ public class StubAlbumRepository implements AlbumRepository {
 				&& album.equals("Animatrix: The Album")) {
 			return variousArtistsAnimatrix;
 		}
+		if (artist.getName().equals("Korn") && album.equals("Issues")) {
+			return kornIssues;
+		}
 		return new Album(album, artist, new Rating(100));
 	}
 
@@ -78,6 +83,10 @@ public class StubAlbumRepository implements AlbumRepository {
 
 	public Album getVariousArtistsAnimatrix() {
 		return variousArtistsAnimatrix;
+	}
+
+	public Album getKornIssues() {
+		return kornIssues;
 	}
 
 	@Override

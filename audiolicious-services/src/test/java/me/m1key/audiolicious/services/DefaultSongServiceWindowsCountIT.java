@@ -29,14 +29,15 @@ import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.commons.qualifiers.NullLibrary;
-import me.m1key.audiolicious.commons.qualifiers.NullSong;
 import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
 import me.m1key.audiolicious.domain.entities.Rating;
 import me.m1key.audiolicious.domain.entities.Song;
+import me.m1key.audiolicious.domain.entities.SongInfo;
 import me.m1key.audiolicious.domain.entities.Stat;
+import me.m1key.audiolicious.domain.entities.StatInfo;
 import me.m1key.audiolicious.domain.to.AudiobookTo;
 import me.m1key.audiolicious.domain.to.LibraryTo;
 import me.m1key.audiolicious.domain.to.PodcastTo;
@@ -50,8 +51,8 @@ import me.m1key.audiolicious.libraryparser.RawTrackDataHandler;
 import me.m1key.audiolicious.libraryparser.VtdItunesLibraryParser;
 import me.m1key.audiolicious.libraryparser.XmlParseException;
 import me.m1key.audiolicious.objecthandler.DefaultObjectTrackDataHandler;
-import me.m1key.audiolicious.objecthandler.ObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.DefaultRawTrackDataHandler;
+import me.m1key.audiolicious.objecthandler.ObjectTrackDataHandler;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
 import me.m1key.audiolicious.objecthandler.factories.TrackMappersFactory;
 import me.m1key.audiolicious.objecthandler.handlers.AudiobookHandler;
@@ -60,8 +61,8 @@ import me.m1key.audiolicious.objecthandler.handlers.SongHandler;
 import me.m1key.audiolicious.objecthandler.handlers.SongService;
 import me.m1key.audiolicious.objecthandler.handlers.VideoHandler;
 import me.m1key.audiolicious.objectmapper.AggregateTrackMapper;
-import me.m1key.audiolicious.objectmapper.DefaultAggregateTrackMapper;
 import me.m1key.audiolicious.objectmapper.CannotMapTrackValuesException;
+import me.m1key.audiolicious.objectmapper.DefaultAggregateTrackMapper;
 import me.m1key.audiolicious.objectmapper.ObjectMappingException;
 import me.m1key.audiolicious.objectmapper.TrackMapper;
 import me.m1key.audiolicious.objectmapper.extractor.DataExtractor;
@@ -145,24 +146,23 @@ public class DefaultSongServiceWindowsCountIT {
 						DefaultRawTrackDataHandler.class,
 						DefaultSongMapper.class, DefaultSongService.class,
 						DefaultVideoMapper.class, EnglishValuesProvider.class,
-						I18nDataExtractor.class, Library.class,
-						LibraryImporter.class, LibraryParser.class,
-						LibraryService.class, LibraryRepository.class,
-						LibraryTo.class, NonAggregateTrackMapper.class,
-						NullAlbum.class, NullArtist.class,
-						NullEntitiesFactory.class, NullLibrary.class,
-						NullSong.class, ObjectMappingException.class,
+						FullStatInfo.class, I18nDataExtractor.class,
+						Library.class, LibraryImporter.class,
+						LibraryParser.class, LibraryService.class,
+						LibraryRepository.class, LibraryTo.class,
+						NonAggregateTrackMapper.class, NullAlbum.class,
+						NullArtist.class, NullEntitiesFactory.class,
+						NullLibrary.class, ObjectMappingException.class,
 						ObjectTrackDataHandler.class, PodcastHandler.class,
 						PodcastMapper.class, PodcastTo.class, Rating.class,
 						RatingTo.class, RawTrackDataHandler.class, Song.class,
-						SongHandler.class, SongMapper.class,
-						SongRepository.class, SongService.class, SongTo.class,
-						Stat.class, StubAlbumRepository.class,
+						SongHandler.class, SongInfo.class, SongMapper.class,
+						SongService.class, SongTo.class, Stat.class,
+						StatInfo.class, StubAlbumRepository.class,
 						StubArtistRepository.class, StubAudiobookHandler.class,
 						StubLibraryRepository.class,
 						StubLibraryRepositoryWithInfo.class,
 						StubPodcastHandler.class, StubSongHandler.class,
-						StubSongRepository.class,
 						StubTrackHandlersFactory.class, StubVideoHandler.class,
 						TrackHandler.class, TrackMapper.class,
 						TrackMappersFactory.class, TrackTo.class,

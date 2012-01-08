@@ -1,0 +1,65 @@
+package me.m1key.audiolicious.domain.to;
+
+import java.util.Date;
+
+import me.m1key.audiolicious.domain.entities.Library;
+import me.m1key.audiolicious.domain.entities.StatInfo;
+
+public class DefaultStatInfo implements StatInfo {
+
+	private Library library;
+	private Date dateAdded;
+	private Date dateModified;
+	private int playCount;
+	private int rating;
+	private Date dateSkipped;
+	private int skipCount;
+
+	public DefaultStatInfo(Library library, Date dateAdded, Date dateModified,
+			int playCount, int rating, Date dateSkipped, int skipCount) {
+		super();
+		this.library = library;
+		this.dateAdded = dateAdded;
+		this.dateModified = dateModified;
+		this.playCount = playCount;
+		this.rating = rating;
+		this.dateSkipped = dateSkipped;
+		this.skipCount = skipCount;
+	}
+
+	@Override
+	public Library getLibrary() {
+		return library;
+	}
+
+	@Override
+	public Date getDateAdded() {
+		return dateAdded;
+	}
+
+	@Override
+	public Date getDateModified() {
+		return dateModified;
+	}
+
+	@Override
+	public int getPlayCount() {
+		return playCount;
+	}
+
+	@Override
+	public RatingTo getRating() {
+		return new RatingTo(rating);
+	}
+
+	@Override
+	public Date getDateSkipped() {
+		return dateSkipped;
+	}
+
+	@Override
+	public int getSkipCount() {
+		return skipCount;
+	}
+
+}

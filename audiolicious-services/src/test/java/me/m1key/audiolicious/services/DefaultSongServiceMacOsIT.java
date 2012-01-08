@@ -30,14 +30,15 @@ import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.commons.qualifiers.NullLibrary;
-import me.m1key.audiolicious.commons.qualifiers.NullSong;
 import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
 import me.m1key.audiolicious.domain.entities.Rating;
 import me.m1key.audiolicious.domain.entities.Song;
+import me.m1key.audiolicious.domain.entities.SongInfo;
 import me.m1key.audiolicious.domain.entities.Stat;
+import me.m1key.audiolicious.domain.entities.StatInfo;
 import me.m1key.audiolicious.domain.to.AudiobookTo;
 import me.m1key.audiolicious.domain.to.LibraryTo;
 import me.m1key.audiolicious.domain.to.PodcastTo;
@@ -103,8 +104,6 @@ public class DefaultSongServiceMacOsIT {
 	@Inject
 	private LibraryImporter libraryImporter;
 	@Inject
-	private StubSongRepository songRepository;
-	@Inject
 	private StubAlbumRepository stubAlbumRepository;
 
 	private static boolean handlerHasNotRunYet = true;
@@ -140,26 +139,25 @@ public class DefaultSongServiceMacOsIT {
 						DefaultSongHandler.class, DefaultSongMapper.class,
 						DefaultSongService.class, DefaultVideoMapper.class,
 						EnglishValuesProvider.class, I18nDataExtractor.class,
-						Library.class, LibraryImporter.class,
-						LibraryParser.class, LibraryService.class,
-						LibraryRepository.class, LibraryTo.class,
-						NonAggregateTrackMapper.class, NoopTrackHandler.class,
-						NullAlbum.class, NullArtist.class,
-						NullEntitiesFactory.class, NullLibrary.class,
-						NullSong.class, ObjectMappingException.class,
+						FullStatInfo.class, Library.class,
+						LibraryImporter.class, LibraryParser.class,
+						LibraryService.class, LibraryRepository.class,
+						LibraryTo.class, NonAggregateTrackMapper.class,
+						NoopTrackHandler.class, NullAlbum.class,
+						NullArtist.class, NullEntitiesFactory.class,
+						NullLibrary.class, ObjectMappingException.class,
 						ObjectTrackDataHandler.class, PodcastHandler.class,
 						PodcastMapper.class, PodcastTo.class, Rating.class,
 						RatingTo.class, RawTrackDataHandler.class, Song.class,
-						SongHandler.class, SongMapper.class,
-						SongRepository.class, SongService.class, SongTo.class,
+						SongHandler.class, StatInfo.class, SongInfo.class,
+						SongMapper.class, SongService.class, SongTo.class,
 						Stat.class, StubAlbumRepository.class,
 						StubArtistRepository.class,
 						StubLibraryRepository.class,
 						StubLibraryRepositoryWithInfo.class,
-						StubSongRepository.class, TrackHandler.class,
-						TrackHandlersFactory.class, TrackMapper.class,
-						TrackMappersFactory.class, TrackTo.class,
-						TrackToType.class, VideoHandler.class,
+						TrackHandler.class, TrackHandlersFactory.class,
+						TrackMapper.class, TrackMappersFactory.class,
+						TrackTo.class, TrackToType.class, VideoHandler.class,
 						VideoMapper.class, VideoTo.class,
 						VtdItunesLibraryParser.class, XmlNodeName.class,
 						XmlParseException.class)
@@ -205,44 +203,10 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testCorrectNumberOfSongsInKornIssues() {
-		assertEquals(Integer.valueOf(16),
-				songRepository.getNumberOfSongs("Korn", "Issues"));
-	}
-
-	@Test
-	public void testCorrectNumberOfSongsInMarilynMansonMechanicalAnimals() {
-		assertEquals(Integer.valueOf(14), songRepository.getNumberOfSongs(
-				"Marilyn Manson", "Mechanical Animals"));
-	}
-
-	@Test
-	public void testCorrectNumberOfSongsInVariousArtistsTheRoughGuideToTheMusicOfTheSahara() {
-		assertEquals(Integer.valueOf(13),
-				songRepository.getNumberOfSongs("Various Artists",
-						"The Rough Guide To The Music Of The Sahara"));
-	}
-
-	@Test
-	public void testCorrectNumberOfSongsInBerlinerPhilharmonikerWagnerDeRingDerNibelungen() {
-		assertEquals(Integer.valueOf(189), songRepository.getNumberOfSongs(
-				"Berliner Philharmoniker & Herbert von Karajan",
-				"Wagner: Der Ring der Nibelungen (iTunes)"));
-	}
-
-	@Test
-	public void testCorrectNumberOfSongsInTheRollingStonesExileOnMainSt() {
-		assertEquals(Integer.valueOf(30), songRepository.getNumberOfSongs(
-				"The Rolling Stones", "Exile On Main St"));
-	}
-
-	@Test
-	public void testCorrectNumberOfAlbums() {
-		assertEquals(Integer.valueOf(704), songRepository.getNumberOfAlbums());
-	}
-
-	@Test
-	public void testCorrectNumberOfArtists() {
-		assertEquals(Integer.valueOf(449), songRepository.getNumberOfArtists());
+		assertEquals(
+				Integer.valueOf(16),
+				Integer.valueOf(stubAlbumRepository.getKornIssues().getSongs()
+						.size()));
 	}
 
 	@Test

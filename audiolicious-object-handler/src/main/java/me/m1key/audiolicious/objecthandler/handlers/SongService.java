@@ -18,10 +18,11 @@
 
 package me.m1key.audiolicious.objecthandler.handlers;
 
+import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.to.SongTo;
 
 public interface SongService {
 
-	void addSong(SongTo songTo, String libraryUuid);
+	void addSong(SongTo songTo, Library library);
 
 }

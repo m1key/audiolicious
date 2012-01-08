@@ -57,6 +57,8 @@ public class JpaLibraryRepository implements LibraryRepository {
 
 	@Override
 	public void save(Library library) {
+		entityManager.flush();
+		entityManager.clear();
 		entityManager.persist(library);
 	}
 

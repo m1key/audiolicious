@@ -18,10 +18,11 @@
 
 package me.m1key.audiolicious.objecthandler;
 
+import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.to.TrackTo;
 
 public interface TrackHandler<T extends TrackTo> {
 
-	void handle(T track, String libraryUuid);
+	void handle(T track, Library library);
 
 }

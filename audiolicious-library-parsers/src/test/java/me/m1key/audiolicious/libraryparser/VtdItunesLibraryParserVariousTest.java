@@ -22,10 +22,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 import java.io.File;
+import java.util.Date;
 import java.util.Map;
-import java.util.UUID;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
+import me.m1key.audiolicious.domain.entities.Library;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -33,9 +34,10 @@ import org.junit.Test;
 public class VtdItunesLibraryParserVariousTest {
 
 	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/Fragment_1.xml";
-	private static final String LIBRARY_UUID = UUID.randomUUID().toString();
 	private static VtdItunesLibraryParser parser;
 	private static StubRawTrackDataHandler stubRawTrackDataHandler;
+
+	private static Library library;
 
 	@BeforeClass
 	public static void setUp() throws Exception {
@@ -43,7 +45,8 @@ public class VtdItunesLibraryParserVariousTest {
 		File file = new File(pathToFile);
 		parser = new VtdItunesLibraryParser();
 		parser.setCallback(stubRawTrackDataHandler);
-		parser.process(file, LIBRARY_UUID);
+		library = new Library(new Date());
+		parser.process(file, library);
 	}
 
 	@Test

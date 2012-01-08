@@ -100,17 +100,21 @@ public class Album {
 		return Collections.unmodifiableSet(songs);
 	}
 
-	public void addSong(Song song) {
-		if (song.getAlbum() != this) {
-			song.setAlbum(this);
-		}
-		if (!songs.contains(song)) {
-			songs.add(song);
-		}
+	public boolean addSong(SongInfo songInfo, StatInfo statInfo) {
+		Song song = new Song(songInfo, this);
+		boolean added = songs.add(song);
+		Song songFromTheCollection = getSong(songInfo);
+		songFromTheCollection.addStat(statInfo);
+		return added;
 	}
 
-	public void removeSong(Song song) {
-		songs.remove(song);
+	private Song getSong(SongInfo songInfo) {
+		for (Song song : songs) {
+			if (song.equals(new Song(songInfo, this))) {
+				return song;
+			}
+		}
+		return null;
 	}
 
 	public void setArtist(Artist artist) {

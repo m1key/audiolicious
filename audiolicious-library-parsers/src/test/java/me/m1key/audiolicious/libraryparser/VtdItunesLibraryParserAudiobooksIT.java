@@ -23,12 +23,13 @@ import static org.junit.Assert.assertNull;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.Map;
-import java.util.UUID;
 
 import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
+import me.m1key.audiolicious.domain.entities.Library;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -47,7 +48,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/Audiobooks-2011-05-29.xml";
 
-	private static final String LIBRARY_UUID = UUID.randomUUID().toString();
+	private Library library;
 
 	@Inject
 	private LibraryParser parser;
@@ -63,7 +64,8 @@ public class VtdItunesLibraryParserAudiobooksIT {
 								.getSimpleName() + ".war")
 				.addAsWebInfResource(EmptyAsset.INSTANCE,
 						ArchivePaths.create("beans.xml"))
-				.addClasses(LibraryParser.class, RawTrackDataHandler.class,
+				.addClasses(Library.class, LibraryParser.class,
+						RawTrackDataHandler.class,
 						StubRawTrackDataHandler.class,
 						StubRawTrackDataHandlerImpl.class,
 						VtdItunesLibraryParser.class, XmlNodeName.class,
@@ -79,7 +81,8 @@ public class VtdItunesLibraryParserAudiobooksIT {
 	@Before
 	public void setup() {
 		File libraryFile = new File(pathToFile);
-		parser.process(libraryFile, LIBRARY_UUID);
+		library = new Library(new Date());
+		parser.process(libraryFile, library);
 	}
 
 	@Test

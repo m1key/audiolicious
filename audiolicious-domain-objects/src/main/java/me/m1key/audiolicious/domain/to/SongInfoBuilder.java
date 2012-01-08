@@ -20,7 +20,9 @@ package me.m1key.audiolicious.domain.to;
 
 import java.util.Date;
 
-public class SongToBuilder {
+import me.m1key.audiolicious.domain.entities.SongInfo;
+
+public class SongInfoBuilder {
 
 	private Date dateAdded;
 	private Date dateModified;
@@ -43,106 +45,106 @@ public class SongToBuilder {
 	private int discNumber;
 	private int totalTime;
 
-	public SongToBuilder(String name) {
+	public SongInfoBuilder(String name) {
 		this.name = name;
 	}
 
-	public SongToBuilder withDateAdded(Date dateAdded) {
+	public SongInfoBuilder withDateAdded(Date dateAdded) {
 		this.dateAdded = dateAdded;
 		return this;
 	}
 
-	public SongToBuilder withDateModified(Date dateModified) {
+	public SongInfoBuilder withDateModified(Date dateModified) {
 		this.dateModified = dateModified;
 		return this;
 	}
 
-	public SongToBuilder withAlbumName(String albumName) {
+	public SongInfoBuilder withAlbumName(String albumName) {
 		this.albumName = albumName;
 		return this;
 	}
 
-	public SongToBuilder withAlbumArtist(String albumArtist) {
+	public SongInfoBuilder withAlbumArtist(String albumArtist) {
 		this.albumArtist = albumArtist;
 		return this;
 	}
 
-	public SongToBuilder withArtist(String artist) {
+	public SongInfoBuilder withArtist(String artist) {
 		this.artist = artist;
 		return this;
 	}
 
-	public SongToBuilder withGenre(String genre) {
+	public SongInfoBuilder withGenre(String genre) {
 		this.genre = genre;
 		return this;
 	}
 
-	public SongToBuilder withRating(int rating) {
+	public SongInfoBuilder withRating(int rating) {
 		this.rating = new RatingTo(rating);
 		return this;
 	}
 
-	public SongToBuilder withPlayCount(int playCount) {
+	public SongInfoBuilder withPlayCount(int playCount) {
 		this.playCount = playCount;
 		return this;
 	}
 
-	public SongToBuilder withYear(int year) {
+	public SongInfoBuilder withYear(int year) {
 		this.year = year;
 		return this;
 	}
 
-	public SongToBuilder withHasVideo(boolean hasVideo) {
+	public SongInfoBuilder withHasVideo(boolean hasVideo) {
 		this.hasVideo = hasVideo;
 		return this;
 	}
 
-	public SongToBuilder withComposer(String composer) {
+	public SongInfoBuilder withComposer(String composer) {
 		this.composer = composer;
 		return this;
 	}
 
-	public SongToBuilder withCompilation(boolean compilation) {
+	public SongInfoBuilder withCompilation(boolean compilation) {
 		this.compilation = compilation;
 		return this;
 	}
 
-	public SongToBuilder withSkipCount(int skipCount) {
+	public SongInfoBuilder withSkipCount(int skipCount) {
 		this.skipCount = skipCount;
 		return this;
 	}
 
-	public SongToBuilder withSkipDate(Date skipDate) {
+	public SongInfoBuilder withSkipDate(Date skipDate) {
 		this.skipDate = skipDate;
 		return this;
 	}
 
-	public SongToBuilder withAlbumRatingComputed(boolean albumRatingComputed) {
+	public SongInfoBuilder withAlbumRatingComputed(boolean albumRatingComputed) {
 		this.albumRatingComputed = albumRatingComputed;
 		return this;
 	}
 
-	public SongToBuilder withAlbumRating(int albumRating) {
+	public SongInfoBuilder withAlbumRating(int albumRating) {
 		this.albumRating = new RatingTo(albumRating);
 		return this;
 	}
 
-	public SongToBuilder withTrackNumber(int trackNumber) {
+	public SongInfoBuilder withTrackNumber(int trackNumber) {
 		this.trackNumber = trackNumber;
 		return this;
 	}
 
-	public SongToBuilder withDiscNumber(int discNumber) {
+	public SongInfoBuilder withDiscNumber(int discNumber) {
 		this.discNumber = discNumber;
 		return this;
 	}
 
-	public SongToBuilder withTotalTime(int totalTime) {
+	public SongInfoBuilder withTotalTime(int totalTime) {
 		this.totalTime = totalTime;
 		return this;
 	}
 
-	public SongTo build() {
+	public SongInfo build() {
 		return new SongTo(name, albumName, artist, albumArtist, year, composer,
 				genre, compilation, dateAdded, dateModified, rating, playCount,
 				skipDate, skipCount, albumRatingComputed, albumRating,

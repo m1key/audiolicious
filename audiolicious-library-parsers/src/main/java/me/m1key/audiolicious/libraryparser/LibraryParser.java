@@ -20,8 +20,10 @@ package me.m1key.audiolicious.libraryparser;
 
 import java.io.File;
 
+import me.m1key.audiolicious.domain.entities.Library;
+
 public interface LibraryParser {
 
-	void process(File libraryFile, String libraryUuid);
+	void process(File libraryFile, Library library);
 
 }

@@ -19,7 +19,6 @@
 package me.m1key.audiolicious.domain.entities;
 
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -35,8 +34,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-
-import me.m1key.audiolicious.domain.to.SongTo;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -85,32 +82,22 @@ public class Song {
 	protected Song() {
 	}
 
-	public Song(String name, int trackNumber, int discNumber, Album album,
-			int year, String genre, boolean hasVideo, int totalTime) {
+	Song(SongInfo songInfo, Album album) {
+		if (album == null) {
+			throw new IllegalArgumentException(
+					"Null Album passed to Song constructor.");
+		}
+
 		this.uuid = UUID.randomUUID().toString();
-		this.name = name;
-		this.artistName = album.getArtist().getName();
-		this.genre = genre;
-		this.year = year;
-		this.hasVideo = hasVideo;
+		this.name = songInfo.getName();
+		this.artistName = songInfo.getArtist();
+		this.genre = songInfo.getGenre();
+		this.year = songInfo.getYear();
+		this.hasVideo = songInfo.isHasVideo();
+		this.album = album;
 
-		this.key = toKey(totalTime, trackNumber, discNumber);
-
-		setAlbum(album);
-
-		stats = new HashSet<Stat>();
-	}
-
-	public Song(SongTo songTo) {
-		this.uuid = UUID.randomUUID().toString();
-		this.name = songTo.getName();
-		this.artistName = songTo.getArtist();
-		this.genre = songTo.getGenre();
-		this.year = songTo.getYear();
-		this.hasVideo = songTo.isHasVideo();
-
-		this.key = toKey(songTo.getTotalTime(), songTo.getTrackNumber(),
-				songTo.getDiscNumber());
+		this.key = toKey(songInfo.getTotalTime(), songInfo.getTrackNumber(),
+				songInfo.getDiscNumber());
 
 		stats = new HashSet<Stat>();
 	}
@@ -147,30 +134,20 @@ public class Song {
 		return key;
 	}
 
-	public void setAlbum(Album album) {
-		removeFromCurrentAlbum();
-		this.album = album;
-		album.addSong(this);
-	}
-
-	public void addStat(SongTo songTo, Library library) {
-		stats.add(new Stat(library, this, songTo));
-	}
-
-	public void addStat(Library library, Date dateAdded, Date dateModified,
-			Date dateSkipped, int skipCount, Rating rating, int played) {
-		stats.add(new Stat(library, this, dateAdded, dateModified, dateSkipped,
-				skipCount, rating, played));
-	}
-
 	public Set<Stat> getStats() {
 		return Collections.unmodifiableSet(stats);
 	}
 
-	private void removeFromCurrentAlbum() {
-		if (album != null) {
-			album.removeSong(this);
-		}
+	public void addStat(StatInfo statInfo) {
+		stats.add(new Stat(statInfo, this)); // TODO library.addStat
+	}
+
+	public void clearStats() {
+		stats.clear();
+	}
+
+	public static String toKey(int totalTime, int trackNumber, int discNumber) {
+		return String.format("%d:%d:%d", totalTime, trackNumber, discNumber);
 	}
 
 	@Override
@@ -195,14 +172,6 @@ public class Song {
 				.append("name", name).append("artistName", artistName)
 				.append("key", key).append("genre", genre).append("year", year)
 				.append("hasVideo", hasVideo).toString();
-	}
-
-	public void clearStats() {
-		stats.clear();
-	}
-
-	public static String toKey(int totalTime, int trackNumber, int discNumber) {
-		return String.format("%d:%d:%d", totalTime, trackNumber, discNumber);
 	}
 
 }

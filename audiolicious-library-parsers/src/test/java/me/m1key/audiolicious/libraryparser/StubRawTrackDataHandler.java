@@ -22,10 +22,11 @@ import java.util.List;
 import java.util.Map;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
+import me.m1key.audiolicious.domain.entities.Library;
 
 public interface StubRawTrackDataHandler extends RawTrackDataHandler {
 
-	void handle(Map<XmlNodeName, String> trackValues, String libraryUuid);
+	void handle(Map<XmlNodeName, String> trackValues, Library library);
 
 	List<Map<XmlNodeName, String>> getRawTrackData();
 

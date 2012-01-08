@@ -43,7 +43,7 @@ public class DefaultLibraryImporter implements LibraryImporter {
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public LibraryTo importLibrary(File libraryFile) {
 		Library library = libraryService.createLibrary();
-		libraryParser.process(libraryFile, library.getUuid());
+		libraryParser.process(libraryFile, library);
 		return new LibraryTo(library);
 	}
 

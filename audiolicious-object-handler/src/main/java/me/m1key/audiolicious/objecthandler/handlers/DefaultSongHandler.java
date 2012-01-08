@@ -22,6 +22,7 @@ import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Singleton;
 
+import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
 
@@ -33,8 +34,8 @@ public class DefaultSongHandler implements SongHandler {
 	private SongService songService;
 
 	@Override
-	public void handle(SongTo songTo, String libraryUuid) {
-		songService.addSong(songTo, libraryUuid);
+	public void handle(SongTo songTo, Library library) {
+		songService.addSong(songTo, library);
 	}
 
 }

@@ -18,14 +18,15 @@
 
 package me.m1key.audiolicious.objecthandler.handlers;
 
-import java.util.UUID;
+import java.util.Date;
 
+import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.to.AudiobookTo;
 import me.m1key.audiolicious.domain.to.AudiobookToBuilder;
 import me.m1key.audiolicious.domain.to.PodcastTo;
 import me.m1key.audiolicious.domain.to.PodcastToBuilder;
+import me.m1key.audiolicious.domain.to.SongInfoBuilder;
 import me.m1key.audiolicious.domain.to.SongTo;
-import me.m1key.audiolicious.domain.to.SongToBuilder;
 import me.m1key.audiolicious.domain.to.VideoTo;
 import me.m1key.audiolicious.domain.to.VideoToBuilder;
 
@@ -34,41 +35,42 @@ import org.junit.Test;
 
 public class NoopTrackHandlerTest {
 
-	private static final String LIBRARY_UUID = UUID.randomUUID().toString();
+	private Library library;
 
 	private DefaultNoopTrackHandler handler;
 
 	@Before
 	public void setup() {
 		handler = new DefaultNoopTrackHandler();
+		library = new Library(new Date());
 	}
 
 	@Test
 	public void canHandleNull() {
-		handler.handle(null, LIBRARY_UUID);
+		handler.handle(null, library);
 	}
 
 	@Test
 	public void canHandleAudiobookTo() {
 		AudiobookTo audiobookTo = new AudiobookToBuilder("Invisible").build();
-		handler.handle(audiobookTo, LIBRARY_UUID);
+		handler.handle(audiobookTo, library);
 	}
 
 	@Test
 	public void canHandlePodcastTo() {
 		PodcastTo podcastTo = new PodcastToBuilder("Invisible").build();
-		handler.handle(podcastTo, LIBRARY_UUID);
+		handler.handle(podcastTo, library);
 	}
 
 	@Test
 	public void canHandleSongTo() {
-		SongTo songTo = new SongToBuilder("Invisible").build();
-		handler.handle(songTo, LIBRARY_UUID);
+		SongTo songTo = (SongTo) new SongInfoBuilder("Invisible").build();
+		handler.handle(songTo, library);
 	}
 
 	@Test
 	public void canHandleVideoTo() {
 		VideoTo videoTo = new VideoToBuilder("Invisible").build();
-		handler.handle(videoTo, LIBRARY_UUID);
+		handler.handle(videoTo, library);
 	}
 }

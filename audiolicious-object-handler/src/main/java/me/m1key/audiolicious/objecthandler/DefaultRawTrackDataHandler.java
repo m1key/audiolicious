@@ -25,6 +25,7 @@ import javax.ejb.Local;
 import javax.ejb.Singleton;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
+import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.libraryparser.RawTrackDataHandler;
 import me.m1key.audiolicious.objectmapper.AggregateTrackMapper;
@@ -39,9 +40,9 @@ public class DefaultRawTrackDataHandler implements RawTrackDataHandler {
 	private ObjectTrackDataHandler objectTrackDataHandler;
 
 	@Override
-	public void handle(Map<XmlNodeName, String> rawTrackData, String libraryUuid) {
+	public void handle(Map<XmlNodeName, String> rawTrackData, Library library) {
 		TrackTo track = mapper.map(rawTrackData);
-		objectTrackDataHandler.handle(track, libraryUuid);
+		objectTrackDataHandler.handle(track, library);
 	}
 
 	public void setMapper(AggregateTrackMapper mapper) {

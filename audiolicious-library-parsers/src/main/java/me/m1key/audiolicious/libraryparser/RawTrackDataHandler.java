@@ -21,9 +21,10 @@ package me.m1key.audiolicious.libraryparser;
 import java.util.Map;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
+import me.m1key.audiolicious.domain.entities.Library;
 
 public interface RawTrackDataHandler {
 
-	void handle(Map<XmlNodeName, String> trackValues, String libraryUuid);
+	void handle(Map<XmlNodeName, String> trackValues, Library library);
 
 }

@@ -83,12 +83,8 @@ public class Library {
 	}
 
 	public void addStat(Stat stat) {
-		if (stat.getLibrary() != this) {
-			stat.setLibrary(this);
-		}
-		if (!stats.contains(stat)) {
-			stats.add(stat);
-		}
+//		stat.setLibrary(this);
+		stats.add(stat);
 	}
 
 	public Set<Stat> getStats() {

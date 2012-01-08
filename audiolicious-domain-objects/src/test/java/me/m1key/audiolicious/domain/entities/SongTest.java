@@ -21,6 +21,8 @@ package me.m1key.audiolicious.domain.entities;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import me.m1key.audiolicious.domain.to.SongInfoBuilder;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -36,108 +38,79 @@ public class SongTest {
 
 	@Test
 	public void testNotEquals1() {
-		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
-				100);
-		Song song2 = new Song("Invisible2", 7, 1, album, 1983, "Rock", false,
-				100);
+		Song song1 = new Song(new SongInfoBuilder("Invisible")
+				.withTrackNumber(7).withDiscNumber(1).withYear(1983)
+				.withGenre("Rock").withHasVideo(false).withRating(100).build(),
+				album);
+		Song song2 = new Song(new SongInfoBuilder("Invisible2")
+				.withTrackNumber(7).withDiscNumber(1).withYear(1983)
+				.withGenre("Rock").withHasVideo(false).withRating(100).build(),
+				album);
 		assertFalse(song1.equals(song2));
 	}
 
 	@Test
-	public void testNotEquals4() {
-		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
-				100);
-		Song song2 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
-				101);
-		assertFalse(song1.equals(song2));
+	public void testEquals4() {
+		Song song1 = new Song(new SongInfoBuilder("Invisible")
+				.withTrackNumber(7).withDiscNumber(1).withYear(1983)
+				.withGenre("Rock").withHasVideo(false).withRating(100).build(),
+				album);
+		Song song2 = new Song(new SongInfoBuilder("Invisible")
+				.withTrackNumber(7).withDiscNumber(1).withYear(1983)
+				.withGenre("Rock").withHasVideo(false).withRating(99).build(),
+				album);
+		assertTrue(song1.equals(song2));
 	}
 
 	@Test
 	public void testEquals1() {
-		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
-				100);
-		Song song2 = new Song("Invisible", 7, 1, album, 1984, "Rock", false,
-				100);
+		Song song1 = new Song(new SongInfoBuilder("Invisible")
+				.withTrackNumber(7).withDiscNumber(1).withYear(1983)
+				.withGenre("Rock").withHasVideo(false).withRating(100).build(),
+				album);
+		Song song2 = new Song(new SongInfoBuilder("Invisible")
+				.withTrackNumber(7).withDiscNumber(1).withYear(1984)
+				.withGenre("Rock").withHasVideo(false).withRating(100).build(),
+				album);
 		assertTrue(song1.equals(song2));
 	}
 
 	@Test
 	public void testEquals2() {
-		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
-				100);
-		Song song2 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
-				100);
+		Song song1 = new Song(new SongInfoBuilder("Invisible")
+				.withTrackNumber(7).withDiscNumber(1).withYear(1983)
+				.withGenre("Rock").withHasVideo(false).withRating(100).build(),
+				album);
+		Song song2 = new Song(new SongInfoBuilder("Invisible")
+				.withTrackNumber(7).withDiscNumber(1).withYear(1983)
+				.withGenre("Rock").withHasVideo(false).withRating(100).build(),
+				album);
 		assertTrue(song1.equals(song2));
 	}
 
 	@Test
 	public void testEquals3() {
-		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
-				100);
-		Song song2 = new Song("Invisible", 7, 1, album, 1983, "Rock2", false,
-				100);
-		assertTrue(song1.equals(song2));
-	}
-
-	@Test
-	public void testEquals4() {
-		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
-				100);
-		Song song2 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
-				100);
-		assertTrue(song1.equals(song2));
-	}
-
-	@Test
-	public void testEquals5() {
-		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
-				100);
-		Song song2 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
-				100);
-		assertTrue(song1.equals(song2));
-	}
-
-	@Test
-	public void testEquals6() {
-		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
-				100);
-		Song song2 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
-				100);
+		Song song1 = new Song(new SongInfoBuilder("Invisible")
+				.withTrackNumber(7).withDiscNumber(1).withYear(1983)
+				.withGenre("Rock").withHasVideo(false).withRating(100).build(),
+				album);
+		Song song2 = new Song(
+				new SongInfoBuilder("Invisible").withTrackNumber(7)
+						.withDiscNumber(1).withYear(1983).withGenre("Rock2")
+						.withHasVideo(false).withRating(100).build(), album);
 		assertTrue(song1.equals(song2));
 	}
 
 	@Test
 	public void testEquals7() {
-		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
-				100);
-		Song song2 = new Song("Invisible", 7, 1, album, 1983, "Rock", true, 100);
-		assertTrue(song1.equals(song2));
-	}
-
-	@Test
-	public void testEquals8() {
-		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
-				100);
-		Song song2 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
-				100);
-		assertTrue(song1.equals(song2));
-	}
-
-	@Test
-	public void testEquals9() {
-		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
-				100);
-		Song song2 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
-				100);
-		assertTrue(song1.equals(song2));
-	}
-
-	@Test
-	public void testEquals10() {
-		Song song1 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
-				100);
-		Song song2 = new Song("Invisible", 7, 1, album, 1983, "Rock", false,
-				100);
+		Song song1 = new Song(new SongInfoBuilder("Invisible")
+				.withTrackNumber(7).withDiscNumber(1).withYear(1983)
+				.withGenre("Rock").withHasVideo(false).withRating(100).build(),
+				album);
+		Song song2 = new Song(new SongInfoBuilder("Invisible")
+				.withTrackNumber(7).withDiscNumber(1).withYear(1983)
+				.withGenre("Rock").withHasVideo(true).withRating(100).build(),
+				album);
 		assertTrue(song1.equals(song2));
 	}
 

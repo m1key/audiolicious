@@ -21,6 +21,7 @@ package me.m1key.audiolicious.objecthandler.handlers;
 import javax.ejb.Local;
 import javax.ejb.Singleton;
 
+import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
 
@@ -36,7 +37,7 @@ public class DefaultNoopTrackHandler implements TrackHandler<TrackTo> {
 			.getLogger(DefaultNoopTrackHandler.class);
 
 	@Override
-	public void handle(TrackTo track, String libraryUuid) {
+	public void handle(TrackTo track, Library library) {
 		log.warn("Ignoring track [{}].", track);
 	}
 

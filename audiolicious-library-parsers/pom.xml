@@ -37,6 +37,10 @@
 			<artifactId>audiolicious-commons</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>me.m1key.audiolicious</groupId>
+			<artifactId>audiolicious-domain-objects</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.ximpleware</groupId>
 			<artifactId>vtd-xml</artifactId>
 		</dependency>

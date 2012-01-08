@@ -23,9 +23,11 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 import java.util.Set;
+
+import me.m1key.audiolicious.domain.to.SongInfoBuilder;
+import me.m1key.audiolicious.domain.to.StatInfoBuilder;
 
 import org.junit.Test;
 
@@ -71,6 +73,16 @@ public class SongHibernateIT extends HibernateIT {
 	private static final String ARTIST_2_ALBUM_1_SONG_9_NAME = "3 Birds";
 	private static final String ARTIST_2_ALBUM_1_SONG_10_NAME = "No Hassle Night";
 	private static final String ARTIST_2_ALBUM_1_SONG_11_NAME = "Will There Be Enough Water?";
+
+	private Date artist1Album1DateAdded = new Date();
+	private Date artist1Album1DateModified = new Date();
+	private Date artist1Album1DateSkipped = new Date();
+	private Date artist1Album2DateAdded = new Date();
+	private Date artist1Album2DateModified = new Date();
+	private Date artist1Album2DateSkipped = new Date();
+	private Date artist2Album1DateAdded = new Date();
+	private Date artist2Album1DateModified = new Date();
+	private Date artist2Album1DateSkipped = new Date();
 
 	@Test
 	public void shouldHaveCorrectNumberOfArtistsAlbumsAndSongs() {
@@ -121,8 +133,8 @@ public class SongHibernateIT extends HibernateIT {
 		assertEquals(
 				String.format(
 						"Song [%s] album artist should equal artist it was requested with.",
-						ARTIST_2_ALBUM_1_SONG_5_NAME), song.getArtistName(),
-				ARTIST_2_NAME);
+						ARTIST_2_ALBUM_1_SONG_5_NAME), ARTIST_2_NAME,
+				song.getArtistName());
 		assertEquals(String.format("Song [%s] genre should be correct.",
 				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getGenre(), "Alternative");
 		assertEquals(String.format("Song [%s] name should be correct.",
@@ -145,8 +157,6 @@ public class SongHibernateIT extends HibernateIT {
 		Album album = getAlbumByArtistNameAlbumNameInsideExistingTransaction(
 				ARTIST_1_NAME, ARTIST_1_ALBUM_1_NAME);
 
-		System.out.println(getSongCount(album.getSongs(),
-				ARTIST_1_ALBUM_1_SONG_7_NAME));
 		Set<Song> songs = getAndVerifyAlbumSongs(album, 11);
 
 		verifySong1Correct(album, songs);
@@ -158,13 +168,22 @@ public class SongHibernateIT extends HibernateIT {
 	@Test
 	public void savingAlbumShouldSaveArtist() {
 		getEntityManager().getTransaction().begin();
+		Library library = new Library("Library UUID");
+		getEntityManager().persist(library);
 		Artist artist = new Artist(ARTIST_1_NAME);
 		getEntityManager().persist(artist);
 		Album album = new Album(ARTIST_1_ALBUM_1_NAME, artist, new Rating(80));
+		album.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_1_SONG_1_NAME)
+						.withTrackNumber(1).withDiscNumber(1).withYear(1988)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album1DateAdded)
+						.withDateModified(artist1Album1DateModified)
+						.withDateSkipped(artist1Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(8)
+						.build());
 		getEntityManager().persist(album);
-		Song song = new Song(ARTIST_1_ALBUM_1_SONG_1_NAME, 1, 1, album, 1988,
-				"Rock", false, 100);
-		getEntityManager().persist(song);
 		getEntityManager().getTransaction().commit();
 
 		assertNotNull("Artist should be persisted.",
@@ -231,46 +250,31 @@ public class SongHibernateIT extends HibernateIT {
 		return null;
 	}
 
-	private int getSongCount(Set<Song> songs, String songName) {
-		int count = 0;
-		List<Song> songsList = new ArrayList<Song>();
-		for (Song song : songs) {
-			if (song.getName().equals(songName)) {
-				System.out.println(song);
-				songsList.add(song);
-				count++;
-			}
-		}
-		if (songsList.size() > 1) {
-			System.out.println(songsList.get(0).equals(songsList.get(1)));
-			System.out.println(songsList.get(0).hashCode());
-			System.out.println(songsList.get(1).hashCode());
-		}
-		return count;
-	}
-
 	private void createArtistsAlbumsAndSongs() {
 		assertEquals("There should be no albums before any are created.", 0,
 				getAllAlbums().size());
 
 		getEntityManager().getTransaction().begin();
 
+		Library library = new Library("Library UUID");
+		getEntityManager().persist(library);
+
 		Artist artist1 = new Artist(ARTIST_1_NAME);
 		getEntityManager().persist(artist1);
 		Album artist1Album1 = new Album(ARTIST_1_ALBUM_1_NAME, artist1,
 				new Rating(80));
-		addSongsToAlbum1(artist1Album1);
+		addSongsToAlbum1(artist1Album1, library);
 		getEntityManager().persist(artist1Album1);
 		Album artist1Album2 = new Album(ARTIST_1_ALBUM_2_NAME, artist1,
 				new Rating(80));
-		addSongsToAlbum2(artist1Album2);
+		addSongsToAlbum2(artist1Album2, library);
 		getEntityManager().persist(artist1Album2);
 
 		Artist artist2 = new Artist(ARTIST_2_NAME);
 		getEntityManager().persist(artist2);
 		Album artist2Album1 = new Album(ARTIST_2_ALBUM_1_NAME, artist2,
 				new Rating(80));
-		addSongsToAlbum3(artist2Album1);
+		addSongsToAlbum3(artist2Album1, library);
 		getEntityManager().persist(artist2Album1);
 
 		getEntityManager().getTransaction().commit();
@@ -297,122 +301,407 @@ public class SongHibernateIT extends HibernateIT {
 						ARTIST_2_ALBUM_1_NAME).size());
 	}
 
-	private void addSongsToAlbum1(Album artist1Album1) {
-		Song song01 = new Song(ARTIST_1_ALBUM_1_SONG_1_NAME, 1, 1,
-				artist1Album1, 1988, "Rock", false, 100);
-		Song song02 = new Song(ARTIST_1_ALBUM_1_SONG_2_NAME, 2, 1,
-				artist1Album1, 1988, "Rock", true, 100);
-		Song song03 = new Song(ARTIST_1_ALBUM_1_SONG_3_NAME, 3, 1,
-				artist1Album1, 1988, "Rock", false, 100);
-		Song song04 = new Song(ARTIST_1_ALBUM_1_SONG_4_NAME, 4, 1,
-				artist1Album1, 1988, "Rock", false, 100);
-		Song song05 = new Song(ARTIST_1_ALBUM_1_SONG_5_NAME, 5, 1,
-				artist1Album1, 1988, "Rock", false, 100);
-		Song song06 = new Song(ARTIST_1_ALBUM_1_SONG_6_NAME, 6, 1,
-				artist1Album1, 1988, "Rock", false, 100);
-		Song song07 = new Song(ARTIST_1_ALBUM_1_SONG_7_NAME, 7, 1,
-				artist1Album1, 1988, "Rock", false, 100);
-		Song song08 = new Song(ARTIST_1_ALBUM_1_SONG_8_NAME, 8, 1,
-				artist1Album1, 1988, "Rock", false, 100);
-		Song song09 = new Song(ARTIST_1_ALBUM_1_SONG_9_NAME, 9, 1,
-				artist1Album1, 1988, "Rock", false, 100);
-		Song song10 = new Song(ARTIST_1_ALBUM_1_SONG_10_NAME, 10, 1,
-				artist1Album1, 1988, "Rock", false, 100);
-		Song song11 = new Song(ARTIST_1_ALBUM_1_SONG_11_NAME, 11, 1,
-				artist1Album1, 1988, "Rock", false, 100);
+	private void addSongsToAlbum1(Album artist1Album1, Library library) {
+		artist1Album1.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_1_SONG_1_NAME)
+						.withTrackNumber(1).withDiscNumber(1).withYear(1988)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album1DateAdded)
+						.withDateModified(artist1Album1DateModified)
+						.withDateSkipped(artist1Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(12)
+						.build());
 
-		artist1Album1.addSong(song01);
-		artist1Album1.addSong(song02);
-		artist1Album1.addSong(song03);
-		artist1Album1.addSong(song04);
-		artist1Album1.addSong(song05);
-		artist1Album1.addSong(song06);
-		artist1Album1.addSong(song07);
-		artist1Album1.addSong(song08);
-		artist1Album1.addSong(song09);
-		artist1Album1.addSong(song10);
-		artist1Album1.addSong(song11);
+		artist1Album1.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_1_SONG_2_NAME)
+						.withTrackNumber(2).withDiscNumber(1).withYear(1988)
+						.withGenre("Rock").withHasVideo(true).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album1DateAdded)
+						.withDateModified(artist1Album1DateModified)
+						.withDateSkipped(artist1Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(3)
+						.build());
+
+		artist1Album1.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_1_SONG_3_NAME)
+						.withTrackNumber(3).withDiscNumber(1).withYear(1988)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album1DateAdded)
+						.withDateModified(artist1Album1DateModified)
+						.withDateSkipped(artist1Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(4)
+						.build());
+
+		artist1Album1.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_1_SONG_4_NAME)
+						.withTrackNumber(4).withDiscNumber(1).withYear(1988)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album1DateAdded)
+						.withDateModified(artist1Album1DateModified)
+						.withDateSkipped(artist1Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(8)
+						.build());
+
+		artist1Album1.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_1_SONG_5_NAME)
+						.withTrackNumber(5).withDiscNumber(1).withYear(1988)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album1DateAdded)
+						.withDateModified(artist1Album1DateModified)
+						.withDateSkipped(artist1Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(91)
+						.build());
+
+		artist1Album1.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_1_SONG_6_NAME)
+						.withTrackNumber(6).withDiscNumber(1).withYear(1988)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album1DateAdded)
+						.withDateModified(artist1Album1DateModified)
+						.withDateSkipped(artist1Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(11)
+						.build());
+
+		artist1Album1.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_1_SONG_7_NAME)
+						.withTrackNumber(7).withDiscNumber(1).withYear(1988)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album1DateAdded)
+						.withDateModified(artist1Album1DateModified)
+						.withDateSkipped(artist1Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(6)
+						.build());
+
+		artist1Album1.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_1_SONG_8_NAME)
+						.withTrackNumber(8).withDiscNumber(1).withYear(1988)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album1DateAdded)
+						.withDateModified(artist1Album1DateModified)
+						.withDateSkipped(artist1Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(2)
+						.build());
+
+		artist1Album1.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_1_SONG_9_NAME)
+						.withTrackNumber(9).withDiscNumber(1).withYear(1988)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album1DateAdded)
+						.withDateModified(artist1Album1DateModified)
+						.withDateSkipped(artist1Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(5)
+						.build());
+
+		artist1Album1.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_1_SONG_10_NAME)
+						.withTrackNumber(10).withDiscNumber(1).withYear(1988)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album1DateAdded)
+						.withDateModified(artist1Album1DateModified)
+						.withDateSkipped(artist1Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(6)
+						.build());
+
+		artist1Album1.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_1_SONG_11_NAME)
+						.withTrackNumber(11).withDiscNumber(1).withYear(1988)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album1DateAdded)
+						.withDateModified(artist1Album1DateModified)
+						.withDateSkipped(artist1Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(7)
+						.build());
+	}
+
+	private void addSongsToAlbum2(Album artist1Album2, Library library) {
+
+		artist1Album2.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_2_SONG_1_NAME)
+						.withTrackNumber(1).withDiscNumber(1).withYear(1991)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album2DateAdded)
+						.withDateModified(artist1Album2DateModified)
+						.withDateSkipped(artist1Album2DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(19)
+						.build());
+
+		artist1Album2.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_2_SONG_2_NAME)
+						.withTrackNumber(2).withDiscNumber(1).withYear(1991)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album2DateAdded)
+						.withDateModified(artist1Album2DateModified)
+						.withDateSkipped(artist1Album2DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(29)
+						.build());
+
+		artist1Album2.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_2_SONG_3_NAME)
+						.withTrackNumber(3).withDiscNumber(1).withYear(1991)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album2DateAdded)
+						.withDateModified(artist1Album2DateModified)
+						.withDateSkipped(artist1Album2DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(39)
+						.build());
+
+		artist1Album2.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_2_SONG_4_NAME)
+						.withTrackNumber(4).withDiscNumber(1).withYear(1991)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album2DateAdded)
+						.withDateModified(artist1Album2DateModified)
+						.withDateSkipped(artist1Album2DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(49)
+						.build());
+
+		artist1Album2.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_2_SONG_5_NAME)
+						.withTrackNumber(5).withDiscNumber(1).withYear(1991)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album2DateAdded)
+						.withDateModified(artist1Album2DateModified)
+						.withDateSkipped(artist1Album2DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(59)
+						.build());
+
+		artist1Album2.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_2_SONG_6_NAME)
+						.withTrackNumber(6).withDiscNumber(1).withYear(1991)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album2DateAdded)
+						.withDateModified(artist1Album2DateModified)
+						.withDateSkipped(artist1Album2DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(69)
+						.build());
+
+		artist1Album2.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_2_SONG_7_NAME)
+						.withTrackNumber(7).withDiscNumber(1).withYear(1991)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album2DateAdded)
+						.withDateModified(artist1Album2DateModified)
+						.withDateSkipped(artist1Album2DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(79)
+						.build());
+
+		artist1Album2.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_2_SONG_8_NAME)
+						.withTrackNumber(8).withDiscNumber(1).withYear(1991)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album2DateAdded)
+						.withDateModified(artist1Album2DateModified)
+						.withDateSkipped(artist1Album2DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(89)
+						.build());
+
+		artist1Album2.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_2_SONG_9_NAME)
+						.withTrackNumber(9).withDiscNumber(1).withYear(1991)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album2DateAdded)
+						.withDateModified(artist1Album2DateModified)
+						.withDateSkipped(artist1Album2DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(99)
+						.build());
+
+		artist1Album2.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_2_SONG_10_NAME)
+						.withTrackNumber(10).withDiscNumber(1).withYear(1991)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album2DateAdded)
+						.withDateModified(artist1Album2DateModified)
+						.withDateSkipped(artist1Album2DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(109)
+						.build());
+
+		artist1Album2.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_2_SONG_11_NAME)
+						.withTrackNumber(11).withDiscNumber(1).withYear(1991)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album2DateAdded)
+						.withDateModified(artist1Album2DateModified)
+						.withDateSkipped(artist1Album2DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(119)
+						.build());
+
+		artist1Album2.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_2_SONG_12_NAME)
+						.withTrackNumber(12).withDiscNumber(1).withYear(1991)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album2DateAdded)
+						.withDateModified(artist1Album2DateModified)
+						.withDateSkipped(artist1Album2DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(129)
+						.build());
+
+		artist1Album2.addSong(
+				new SongInfoBuilder(ARTIST_1_ALBUM_2_SONG_13_NAME)
+						.withTrackNumber(13).withDiscNumber(1).withYear(1991)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.build(), new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist1Album2DateAdded)
+						.withDateModified(artist1Album2DateModified)
+						.withDateSkipped(artist1Album2DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(139)
+						.build());
 
 	}
 
-	private void addSongsToAlbum2(Album artist1Album2) {
-		Song song01 = new Song(ARTIST_1_ALBUM_2_SONG_1_NAME, 1, 1,
-				artist1Album2, 1991, "Rock", false, 100);
-		Song song02 = new Song(ARTIST_1_ALBUM_2_SONG_2_NAME, 2, 1,
-				artist1Album2, 1991, "Rock", false, 100);
-		Song song03 = new Song(ARTIST_1_ALBUM_2_SONG_3_NAME, 3, 1,
-				artist1Album2, 1991, "Rock", false, 100);
-		Song song04 = new Song(ARTIST_1_ALBUM_2_SONG_4_NAME, 4, 1,
-				artist1Album2, 1991, "Rock", false, 100);
-		Song song05 = new Song(ARTIST_1_ALBUM_2_SONG_5_NAME, 5, 1,
-				artist1Album2, 1991, "Rock", false, 100);
-		Song song06 = new Song(ARTIST_1_ALBUM_2_SONG_6_NAME, 6, 1,
-				artist1Album2, 1991, "Rock", false, 100);
-		Song song07 = new Song(ARTIST_1_ALBUM_2_SONG_7_NAME, 7, 1,
-				artist1Album2, 1991, "Rock", false, 100);
-		Song song08 = new Song(ARTIST_1_ALBUM_2_SONG_8_NAME, 8, 1,
-				artist1Album2, 1991, "Rock", false, 100);
-		Song song09 = new Song(ARTIST_1_ALBUM_2_SONG_9_NAME, 9, 1,
-				artist1Album2, 1991, "Rock", false, 100);
-		Song song10 = new Song(ARTIST_1_ALBUM_2_SONG_10_NAME, 10, 1,
-				artist1Album2, 1991, "Rock", false, 100);
-		Song song11 = new Song(ARTIST_1_ALBUM_2_SONG_11_NAME, 11, 1,
-				artist1Album2, 1991, "Rock", false, 100);
-		Song song12 = new Song(ARTIST_1_ALBUM_2_SONG_12_NAME, 12, 1,
-				artist1Album2, 1991, "Rock", false, 100);
-		Song song13 = new Song(ARTIST_1_ALBUM_2_SONG_13_NAME, 13, 1,
-				artist1Album2, 1991, "Rock", false, 100);
+	private void addSongsToAlbum3(Album artist2Album1, Library library) {
+		artist2Album1.addSong(
+				new SongInfoBuilder(ARTIST_2_ALBUM_1_SONG_1_NAME)
+						.withTrackNumber(1).withDiscNumber(1).withYear(2009)
+						.withGenre("Alternative").withHasVideo(false)
+						.withRating(100).withArtist(ARTIST_2_NAME).build(),
+				new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist2Album1DateAdded)
+						.withDateModified(artist2Album1DateModified)
+						.withDateSkipped(artist2Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(19)
+						.build());
 
-		artist1Album2.addSong(song01);
-		artist1Album2.addSong(song02);
-		artist1Album2.addSong(song03);
-		artist1Album2.addSong(song04);
-		artist1Album2.addSong(song05);
-		artist1Album2.addSong(song06);
-		artist1Album2.addSong(song07);
-		artist1Album2.addSong(song08);
-		artist1Album2.addSong(song09);
-		artist1Album2.addSong(song10);
-		artist1Album2.addSong(song11);
-		artist1Album2.addSong(song12);
-		artist1Album2.addSong(song13);
+		artist2Album1.addSong(
+				new SongInfoBuilder(ARTIST_2_ALBUM_1_SONG_2_NAME)
+						.withTrackNumber(2).withDiscNumber(1).withYear(2009)
+						.withGenre("Alternative").withHasVideo(false)
+						.withRating(100).withArtist(ARTIST_2_NAME).build(),
+				new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist2Album1DateAdded)
+						.withDateModified(artist2Album1DateModified)
+						.withDateSkipped(artist2Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(29)
+						.build());
 
-	}
+		artist2Album1.addSong(
+				new SongInfoBuilder(ARTIST_2_ALBUM_1_SONG_3_NAME)
+						.withTrackNumber(3).withDiscNumber(1).withYear(2009)
+						.withGenre("Alternative").withHasVideo(false)
+						.withRating(100).withArtist(ARTIST_2_NAME).build(),
+				new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist2Album1DateAdded)
+						.withDateModified(artist2Album1DateModified)
+						.withDateSkipped(artist2Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(39)
+						.build());
 
-	private void addSongsToAlbum3(Album artist2Album1) {
-		Song song01 = new Song(ARTIST_2_ALBUM_1_SONG_1_NAME, 1, 1,
-				artist2Album1, 2009, "Alternative", false, 100);
-		Song song02 = new Song(ARTIST_2_ALBUM_1_SONG_2_NAME, 2, 1,
-				artist2Album1, 2009, "Alternative", false, 100);
-		Song song03 = new Song(ARTIST_2_ALBUM_1_SONG_3_NAME, 3, 1,
-				artist2Album1, 2009, "Alternative", false, 100);
-		Song song04 = new Song(ARTIST_2_ALBUM_1_SONG_4_NAME, 4, 1,
-				artist2Album1, 2009, "Alternative", false, 100);
-		Song song05 = new Song(ARTIST_2_ALBUM_1_SONG_5_NAME, 5, 1,
-				artist2Album1, 2009, "Alternative", false, 100);
-		Song song06 = new Song(ARTIST_2_ALBUM_1_SONG_6_NAME, 6, 1,
-				artist2Album1, 2009, "Alternative", false, 100);
-		Song song07 = new Song(ARTIST_2_ALBUM_1_SONG_7_NAME, 7, 1,
-				artist2Album1, 2009, "Alternative", false, 100);
-		Song song08 = new Song(ARTIST_2_ALBUM_1_SONG_8_NAME, 8, 1,
-				artist2Album1, 2009, "Alternative", false, 100);
-		Song song09 = new Song(ARTIST_2_ALBUM_1_SONG_9_NAME, 9, 1,
-				artist2Album1, 2009, "Alternative", false, 100);
-		Song song10 = new Song(ARTIST_2_ALBUM_1_SONG_10_NAME, 10, 1,
-				artist2Album1, 2009, "Alternative", false, 100);
-		Song song11 = new Song(ARTIST_2_ALBUM_1_SONG_11_NAME, 11, 1,
-				artist2Album1, 2009, "Alternative", false, 100);
+		artist2Album1.addSong(
+				new SongInfoBuilder(ARTIST_2_ALBUM_1_SONG_4_NAME)
+						.withTrackNumber(4).withDiscNumber(1).withYear(2009)
+						.withGenre("Alternative").withHasVideo(false)
+						.withRating(100).withArtist(ARTIST_2_NAME).build(),
+				new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist2Album1DateAdded)
+						.withDateModified(artist2Album1DateModified)
+						.withDateSkipped(artist2Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(49)
+						.build());
 
-		artist2Album1.addSong(song01);
-		artist2Album1.addSong(song02);
-		artist2Album1.addSong(song03);
-		artist2Album1.addSong(song04);
-		artist2Album1.addSong(song05);
-		artist2Album1.addSong(song06);
-		artist2Album1.addSong(song07);
-		artist2Album1.addSong(song08);
-		artist2Album1.addSong(song09);
-		artist2Album1.addSong(song10);
-		artist2Album1.addSong(song11);
+		artist2Album1.addSong(
+				new SongInfoBuilder(ARTIST_2_ALBUM_1_SONG_5_NAME)
+						.withTrackNumber(5).withDiscNumber(1).withYear(2009)
+						.withGenre("Alternative").withHasVideo(false)
+						.withRating(100).withArtist(ARTIST_2_NAME).build(),
+				new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist2Album1DateAdded)
+						.withDateModified(artist2Album1DateModified)
+						.withDateSkipped(artist2Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(59)
+						.build());
+
+		artist2Album1.addSong(
+				new SongInfoBuilder(ARTIST_2_ALBUM_1_SONG_6_NAME)
+						.withTrackNumber(6).withDiscNumber(1).withYear(2009)
+						.withGenre("Alternative").withHasVideo(false)
+						.withRating(100).withArtist(ARTIST_2_NAME).build(),
+				new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist2Album1DateAdded)
+						.withDateModified(artist2Album1DateModified)
+						.withDateSkipped(artist2Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(69)
+						.build());
+
+		artist2Album1.addSong(
+				new SongInfoBuilder(ARTIST_2_ALBUM_1_SONG_7_NAME)
+						.withTrackNumber(7).withDiscNumber(1).withYear(2009)
+						.withGenre("Alternative").withHasVideo(false)
+						.withRating(100).withArtist(ARTIST_2_NAME).build(),
+				new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist2Album1DateAdded)
+						.withDateModified(artist2Album1DateModified)
+						.withDateSkipped(artist2Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(79)
+						.build());
+
+		artist2Album1.addSong(
+				new SongInfoBuilder(ARTIST_2_ALBUM_1_SONG_8_NAME)
+						.withTrackNumber(8).withDiscNumber(1).withYear(2009)
+						.withGenre("Alternative").withHasVideo(false)
+						.withRating(100).withArtist(ARTIST_2_NAME).build(),
+				new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist2Album1DateAdded)
+						.withDateModified(artist2Album1DateModified)
+						.withDateSkipped(artist2Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(89)
+						.build());
+
+		artist2Album1.addSong(
+				new SongInfoBuilder(ARTIST_2_ALBUM_1_SONG_9_NAME)
+						.withTrackNumber(1).withDiscNumber(1).withYear(2009)
+						.withGenre("Alternative").withHasVideo(false)
+						.withRating(100).withArtist(ARTIST_2_NAME).build(),
+				new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist2Album1DateAdded)
+						.withDateModified(artist2Album1DateModified)
+						.withDateSkipped(artist2Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(99)
+						.build());
+
+		artist2Album1.addSong(
+				new SongInfoBuilder(ARTIST_2_ALBUM_1_SONG_10_NAME)
+						.withTrackNumber(10).withDiscNumber(1).withYear(2009)
+						.withGenre("Alternative").withHasVideo(false)
+						.withRating(100).withArtist(ARTIST_2_NAME).build(),
+				new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist2Album1DateAdded)
+						.withDateModified(artist2Album1DateModified)
+						.withDateSkipped(artist2Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(109)
+						.build());
+
+		artist2Album1.addSong(
+				new SongInfoBuilder(ARTIST_2_ALBUM_1_SONG_11_NAME)
+						.withTrackNumber(11).withDiscNumber(1).withYear(2009)
+						.withGenre("Alternative").withHasVideo(false)
+						.withRating(100).withArtist(ARTIST_2_NAME).build(),
+				new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(artist2Album1DateAdded)
+						.withDateModified(artist2Album1DateModified)
+						.withDateSkipped(artist2Album1DateSkipped)
+						.withSkipCount(0).withRating(80).withPlayCount(119)
+						.build());
 	}
 }

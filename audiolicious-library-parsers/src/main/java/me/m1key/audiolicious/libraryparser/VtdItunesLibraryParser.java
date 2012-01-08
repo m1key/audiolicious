@@ -28,6 +28,7 @@ import javax.ejb.Local;
 import javax.ejb.Stateful;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
+import me.m1key.audiolicious.domain.entities.Library;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -62,14 +63,14 @@ public class VtdItunesLibraryParser implements LibraryParser {
 	private RawTrackDataHandler rawTrackDataHandler;
 
 	@Override
-	public void process(File xmlFile, String libraryUuid) {
+	public void process(File xmlFile, Library library) {
 		setXmlFile(xmlFile);
 		initialiseXPathProcessing();
 		verifyCanParseFile();
 		bindNavigator();
 
 		while (hasTrack()) {
-			rawTrackDataHandler.handle(extractTrackValues(), libraryUuid);
+			rawTrackDataHandler.handle(extractTrackValues(), library);
 		}
 	}
 

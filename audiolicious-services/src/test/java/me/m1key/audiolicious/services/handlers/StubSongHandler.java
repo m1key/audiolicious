@@ -21,6 +21,7 @@ package me.m1key.audiolicious.services.handlers;
 import javax.ejb.Local;
 import javax.ejb.Singleton;
 
+import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
 import me.m1key.audiolicious.objecthandler.handlers.SongHandler;
@@ -32,7 +33,7 @@ public class StubSongHandler implements SongHandler {
 	private int count;
 
 	@Override
-	public void handle(SongTo track, String libraryUuid) {
+	public void handle(SongTo track, Library library) {
 		count++;
 	}
 

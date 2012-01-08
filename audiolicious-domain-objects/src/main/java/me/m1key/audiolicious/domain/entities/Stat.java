@@ -32,8 +32,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import me.m1key.audiolicious.domain.to.SongTo;
-
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -74,7 +72,7 @@ public class Stat {
 	@JoinColumn(name = "SONG_ID")
 	private Song song;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "LIBRARY_ID")
 	private Library library;
 
@@ -85,6 +83,15 @@ public class Stat {
 	protected Stat(Library library, Song song, Date dateAdded,
 			Date dateModified, Date dateSkipped, int skipCount, Rating rating,
 			int playCount) {
+		if (library == null) {
+			throw new IllegalArgumentException(
+					"Null library passed to Stat constructor.");
+		}
+		if (song == null) {
+			throw new IllegalArgumentException(
+					"Null song passed to Stat constructor.");
+		}
+
 		this.uuid = UUID.randomUUID().toString();
 		this.library = library;
 		this.song = song;
@@ -98,16 +105,25 @@ public class Stat {
 		library.addStat(this);
 	}
 
-	protected Stat(Library library, Song song, SongTo songTo) {
+	protected Stat(StatInfo statInfo, Song song) {
+		if (statInfo.getLibrary() == null) {
+			throw new IllegalArgumentException(
+					"Null library passed to Stat constructor.");
+		}
+		if (song == null) {
+			throw new IllegalArgumentException(
+					"Null song passed to Stat constructor.");
+		}
+
 		this.uuid = UUID.randomUUID().toString();
-		this.library = library;
+		this.library = statInfo.getLibrary();
 		this.song = song;
-		this.dateAdded = songTo.getDateAdded();
-		this.dateModified = songTo.getDateModified();
-		this.playCount = songTo.getPlayCount();
-		this.rating = new Rating(songTo.getRating());
-		this.dateSkipped = songTo.getSkipDate();
-		this.skipCount = songTo.getSkipCount();
+		this.dateAdded = statInfo.getDateAdded();
+		this.dateModified = statInfo.getDateModified();
+		this.playCount = statInfo.getPlayCount();
+		this.rating = new Rating(statInfo.getRating());
+		this.dateSkipped = statInfo.getDateSkipped();
+		this.skipCount = statInfo.getSkipCount();
 
 		library.addStat(this);
 	}
@@ -150,7 +166,7 @@ public class Stat {
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(uuid).toHashCode();
+		return new HashCodeBuilder().append(getSong()).toHashCode();
 	}
 
 	@Override

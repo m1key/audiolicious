@@ -24,6 +24,7 @@ import javax.ejb.Local;
 import javax.ejb.Singleton;
 import javax.inject.Inject;
 
+import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.to.TrackTo;
 
 @Singleton
@@ -35,9 +36,9 @@ public class DefaultObjectTrackDataHandler implements ObjectTrackDataHandler {
 
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void handle(TrackTo track, String libraryUuid) {
+	public void handle(TrackTo track, Library library) {
 		TrackHandler handlerForThisTo = handlersForAllKnownTos.get(track
 				.getClass());
-		handlerForThisTo.handle(track, libraryUuid);
+		handlerForThisTo.handle(track, library);
 	}
 }

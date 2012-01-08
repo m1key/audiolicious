@@ -1,6 +1,6 @@
 /* 
  * Audiolicious - Your Music Library Statistics
- * Copyright (C) 2011, Michal Huniewicz
+ * Copyright (C) 2012, Michal Huniewicz
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,19 +16,26 @@
  * along with this program.  If not, see http://www.m1key.me
  */
 
-package me.m1key.audiolicious.commons.qualifiers;
+package me.m1key.audiolicious.domain.entities;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.util.Date;
 
-import javax.inject.Qualifier;
+import me.m1key.audiolicious.domain.to.RatingTo;
 
-@Qualifier
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER,
-        ElementType.TYPE })
-public @interface NullSong {
+public interface StatInfo {
+
+	Library getLibrary();
+
+	Date getDateAdded();
+
+	Date getDateModified();
+
+	int getPlayCount();
+
+	RatingTo getRating();
+
+	Date getDateSkipped();
+
+	int getSkipCount();
 
 }

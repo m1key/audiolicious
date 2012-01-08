@@ -29,17 +29,19 @@ import javax.inject.Inject;
 import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.commons.qualifiers.NullLibrary;
-import me.m1key.audiolicious.commons.qualifiers.NullSong;
 import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
 import me.m1key.audiolicious.domain.entities.Rating;
 import me.m1key.audiolicious.domain.entities.Song;
+import me.m1key.audiolicious.domain.entities.SongInfo;
 import me.m1key.audiolicious.domain.entities.Stat;
+import me.m1key.audiolicious.domain.entities.StatInfo;
 import me.m1key.audiolicious.domain.to.RatingTo;
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.domain.to.TrackTo;
+import me.m1key.audiolicious.services.FullStatInfo;
 import me.m1key.audiolicious.services.LibraryRepository;
 
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -67,19 +69,19 @@ public class JpaLibraryRepositoryIT {
 			throws IllegalArgumentException, IOException {
 		return ShrinkWrap
 				.create(WebArchive.class,
-						JpaSongRepositoryIT.class.getSimpleName() + ".war")
+						JpaLibraryRepositoryIT.class.getSimpleName() + ".war")
 				.addAsWebInfResource(EmptyAsset.INSTANCE,
 						ArchivePaths.create("beans.xml"))
 				.addAsResource("log4j.xml", "log4j.xml")
 				.addAsResource("META-INF/persistence.xml",
 						"META-INF/persistence.xml")
-				.addClasses(Album.class, Artist.class,
+				.addClasses(Album.class, Artist.class, FullStatInfo.class,
 						JpaLibraryRepository.class, Library.class,
-						NullAlbum.class, NullArtist.class,
-						NullEntitiesFactory.class, NullLibrary.class,
-						NullSong.class, Rating.class, RatingTo.class,
-						Song.class, LibraryRepository.class, SongTo.class,
-						Stat.class, RepositoriesTestHelperBean.class,
+						LibraryRepository.class, NullAlbum.class,
+						NullArtist.class, NullEntitiesFactory.class,
+						NullLibrary.class, Rating.class, RatingTo.class,
+						Song.class, SongInfo.class, SongTo.class, Stat.class,
+						StatInfo.class, RepositoriesTestHelperBean.class,
 						TrackTo.class)
 				.addAsLibraries(
 						DependencyResolvers

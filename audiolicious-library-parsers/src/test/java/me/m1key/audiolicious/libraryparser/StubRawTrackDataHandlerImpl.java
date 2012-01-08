@@ -28,6 +28,7 @@ import javax.ejb.Local;
 import javax.ejb.Stateless;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
+import me.m1key.audiolicious.domain.entities.Library;
 
 @Stateless
 @Local({ StubRawTrackDataHandler.class, RawTrackDataHandler.class })
@@ -40,7 +41,7 @@ public class StubRawTrackDataHandlerImpl implements StubRawTrackDataHandler {
 	}
 
 	@Override
-	public void handle(Map<XmlNodeName, String> trackValues, String libraryUuid) {
+	public void handle(Map<XmlNodeName, String> trackValues, Library library) {
 		rawTrackData.add(trackValues);
 	}
 

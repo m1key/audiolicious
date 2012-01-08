@@ -25,7 +25,6 @@ import javax.inject.Inject;
 import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.commons.qualifiers.NullLibrary;
-import me.m1key.audiolicious.commons.qualifiers.NullSong;
 
 @ApplicationScoped
 public class NullEntitiesFactory {
@@ -33,10 +32,6 @@ public class NullEntitiesFactory {
 	@Inject
 	@NullArtist
 	private Artist nullArtist;
-
-	@Inject
-	@NullAlbum
-	private Album nullAlbum;
 
 	@Produces
 	@ApplicationScoped
@@ -50,14 +45,6 @@ public class NullEntitiesFactory {
 	@NullAlbum
 	public Album getNullAlbum() {
 		return new Album("(null album)", nullArtist, new Rating(0));
-	}
-
-	@Produces
-	@ApplicationScoped
-	@NullSong
-	public Song getNullSong() {
-		return new Song("(null song)", 0, 0, nullAlbum, 2011,
-				"(null genre)", false, 0);
 	}
 
 	@Produces

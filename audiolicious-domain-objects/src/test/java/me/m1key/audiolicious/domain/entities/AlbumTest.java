@@ -22,6 +22,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import me.m1key.audiolicious.domain.to.SongInfoBuilder;
+import me.m1key.audiolicious.domain.to.StatInfoBuilder;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -51,31 +54,26 @@ public class AlbumTest {
 	@Test
 	public void testSongBelongsToAlbum() {
 		Album album = new Album("Holy Diver", artist, new Rating(100));
-		Song song = new Song("Invisible", 7, 1, album, 1983, "Rock",
-				false, 100);
-		album.addSong(song);
-		assertTrue(album.getSongs().contains(song));
-	}
+		SongInfo songInfo = new SongInfoBuilder("Invisible").withTrackNumber(7)
+				.withTrackNumber(1).withYear(1983).withGenre("Rock")
+				.withHasVideo(false).withRating(100).build();
 
-	@Test
-	public void testSongBelongsToOnlyOneAlbum() {
-		Album album1 = new Album("Holy Diver", artist, new Rating(100));
-		Album album2 = new Album("Strange Highways", artist, new Rating(100));
-		Album album = new Album("Holy Diver", artist, new Rating(100));
-		Song song = new Song("Invisible", 7, 1, album, 1983, "Rock",
-				false, 100);
-		album1.addSong(song);
-		album2.addSong(song);
-		assertFalse(album1.getSongs().contains(song));
-		assertTrue(album2.getSongs().contains(song));
-		assertEquals(album2, song.getAlbum());
+		album.addSong(songInfo,
+				new StatInfoBuilder().withLibrary(new Library("Library UUID"))
+						.withSkipCount(0).withRating(80).withPlayCount(19)
+						.build());
+
+		Song song = new Song(songInfo, album);
+		assertTrue(album.getSongs().contains(song));
 	}
 
 	@Test(expected = UnsupportedOperationException.class)
 	public void testCannotModifySongsSet() {
 		Album album = new Album("Holy Diver", artist, new Rating(100));
-		Song song = new Song("Invisible", 7, 1, album, 1983, "Rock",
-				false, 100);
+		Song song = new Song(new SongInfoBuilder("Invisible")
+				.withTrackNumber(7).withTrackNumber(1).withYear(1983)
+				.withGenre("Rock").withHasVideo(false).withRating(100).build(),
+				album);
 		album.getSongs().add(song);
 	}
 
