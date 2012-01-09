@@ -31,6 +31,7 @@ import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.commons.qualifiers.NullLibrary;
 import me.m1key.audiolicious.domain.entities.Album;
+import me.m1key.audiolicious.domain.entities.AlbumInfo;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
@@ -104,7 +105,7 @@ public class DefaultSongServiceMacOsIT {
 	@Inject
 	private LibraryImporter libraryImporter;
 	@Inject
-	private StubAlbumRepository stubAlbumRepository;
+	private StubArtistRepository stubArtistRepository;
 
 	private static boolean handlerHasNotRunYet = true;
 
@@ -123,7 +124,7 @@ public class DefaultSongServiceMacOsIT {
 						ArchivePaths.create("beans.xml"))
 				.addAsResource("log4j.xml", "log4j.xml")
 				.addClasses(AggregateTrackMapper.class, Album.class,
-						AlbumRepository.class, Artist.class,
+						AlbumInfo.class, AlbumRepository.class, Artist.class,
 						ArtistRepository.class, AudiobookHandler.class,
 						AudiobookMapper.class, AudiobookTo.class,
 						CannotMapTrackValuesException.class,
@@ -151,8 +152,7 @@ public class DefaultSongServiceMacOsIT {
 						RatingTo.class, RawTrackDataHandler.class, Song.class,
 						SongHandler.class, StatInfo.class, SongInfo.class,
 						SongMapper.class, SongService.class, SongTo.class,
-						Stat.class, StubAlbumRepository.class,
-						StubArtistRepository.class,
+						Stat.class, StubArtistRepository.class,
 						StubLibraryRepository.class,
 						StubLibraryRepositoryWithInfo.class,
 						TrackHandler.class, TrackHandlersFactory.class,
@@ -183,7 +183,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum1Correct() {
-		Album album = stubAlbumRepository.getMonsterMagnetSpineOfGod();
+		Album album = stubArtistRepository.getMonsterMagnetSpineOfGod();
 		assertNotNull(album);
 		assertNotNull(album.getUuid());
 		assertEquals("Monster Magnet", album.getArtist().getName());
@@ -193,7 +193,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum2Correct() {
-		Album album = stubAlbumRepository.getToolAenima();
+		Album album = stubArtistRepository.getToolAenima();
 		assertNotNull(album);
 		assertNotNull(album.getUuid());
 		assertEquals("Tool", album.getArtist().getName());
@@ -205,13 +205,13 @@ public class DefaultSongServiceMacOsIT {
 	public void testCorrectNumberOfSongsInKornIssues() {
 		assertEquals(
 				Integer.valueOf(16),
-				Integer.valueOf(stubAlbumRepository.getKornIssues().getSongs()
+				Integer.valueOf(stubArtistRepository.getKornIssues().getSongs()
 						.size()));
 	}
 
 	@Test
 	public void testAlbum3Correct() {
-		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
+		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		assertNotNull(album);
 		assertNotNull(album.getUuid());
 		assertEquals("Fleet Foxes", album.getArtist().getName());
@@ -221,7 +221,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum3Song1Correct() {
-		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
+		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		Song song1 = getSongByTitle(album, "Sun It Rises");
 		assertNotNull(song1);
 
@@ -246,7 +246,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum3Song2Correct() {
-		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
+		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		Song song2 = getSongByTitleAndVideo(album, "He Doesn't Know Why", false);
 		assertNotNull(song2);
 
@@ -271,7 +271,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum3Song3Correct() {
-		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
+		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		Song song3 = getSongByTitleAndVideo(album, "White Winter Hymnal", false);
 		assertNotNull(song3);
 
@@ -296,7 +296,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum3Song4Correct() {
-		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
+		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		Song song4 = getSongByTitle(album, "Ragged Wood");
 		assertNotNull(song4);
 
@@ -321,7 +321,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum3Song5Correct() {
-		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
+		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		Song song5 = getSongByTitle(album, "Tiger Mountain Peasant Song");
 		assertNotNull(song5);
 
@@ -346,7 +346,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum3Song6Correct() {
-		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
+		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		Song song6 = getSongByTitle(album, "Quiet Houses");
 		assertNotNull(song6);
 
@@ -371,7 +371,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum3Song7Correct() {
-		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
+		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		Song song7 = getSongByTitle(album, "Heard Them Stirring");
 		assertNotNull(song7);
 
@@ -396,7 +396,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum3Song8Correct() {
-		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
+		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		Song song8 = getSongByTitle(album, "Your Protector");
 		assertNotNull(song8);
 
@@ -421,7 +421,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum3Song9Correct() {
-		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
+		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		Song song9 = getSongByTitle(album, "Meadowlarks");
 		assertNotNull(song9);
 
@@ -446,7 +446,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum3Song10Correct() {
-		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
+		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		Song song10 = getSongByTitle(album, "Blue Ridge Mountains");
 		assertNotNull(song10);
 
@@ -472,7 +472,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum3Song11Correct() {
-		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
+		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		Song song11 = getSongByTitle(album, "Oliver James");
 		assertNotNull(song11);
 
@@ -498,7 +498,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum3Song12Correct() {
-		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
+		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		Song song12 = getSongByTitle(album, "Sun Giant");
 		assertNotNull(song12);
 
@@ -524,7 +524,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum3Song13Correct() {
-		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
+		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		Song song13 = getSongByTitle(album, "Drops In River");
 		assertNotNull(song13);
 
@@ -550,7 +550,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum3Song14Correct() {
-		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
+		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		Song song14 = getSongByTitle(album, "English House");
 		assertNotNull(song14);
 
@@ -576,7 +576,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum3Song15Correct() {
-		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
+		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		Song song15 = getSongByTitle(album, "Mykonos");
 		assertNotNull(song15);
 
@@ -602,7 +602,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum3Song16Correct() {
-		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
+		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		Song song16 = getSongByTitle(album, "Innocent Son");
 		assertNotNull(song16);
 
@@ -628,7 +628,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum3Song17Correct() {
-		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
+		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		Song song17 = getSongByTitle(album, "False Knight On the Road");
 		assertNotNull(song17);
 
@@ -654,7 +654,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum3Song18Correct() {
-		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
+		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		Song song18 = getSongByTitleAndVideo(album, "He Doesn't Know Why", true);
 		assertNotNull(song18);
 
@@ -681,7 +681,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum3Song19Correct() {
-		Album album = stubAlbumRepository.getFleetFoxesFleetFoxes();
+		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		Song song19 = getSongByTitleAndVideo(album, "White Winter Hymnal", true);
 		assertNotNull(song19);
 
@@ -707,7 +707,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum4Correct() {
-		Album album = stubAlbumRepository.getVariousArtistsAnimatrix();
+		Album album = stubArtistRepository.getVariousArtistsAnimatrix();
 		assertNotNull(album);
 		assertNotNull(album.getUuid());
 		assertEquals("Various Artists", album.getArtist().getName());
@@ -717,7 +717,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum4Song1Correct() {
-		Album album = stubAlbumRepository.getVariousArtistsAnimatrix();
+		Album album = stubArtistRepository.getVariousArtistsAnimatrix();
 		Song song1 = getSongByTitle(album, "Who Am I (Animatrix Edit)");
 		assertNotNull(song1);
 
@@ -743,7 +743,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum4Song2Correct() {
-		Album album = stubAlbumRepository.getVariousArtistsAnimatrix();
+		Album album = stubArtistRepository.getVariousArtistsAnimatrix();
 		Song song2 = getSongByTitle(album, "Big Wednesday");
 		assertNotNull(song2);
 
@@ -768,7 +768,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum4Song3Correct() {
-		Album album = stubAlbumRepository.getVariousArtistsAnimatrix();
+		Album album = stubArtistRepository.getVariousArtistsAnimatrix();
 		Song song3 = getSongByTitle(album, "Blind Tiger");
 		assertNotNull(song3);
 
@@ -793,7 +793,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum4Song4Correct() {
-		Album album = stubAlbumRepository.getVariousArtistsAnimatrix();
+		Album album = stubArtistRepository.getVariousArtistsAnimatrix();
 		Song song4 = getSongByTitle(album, "Under The Gun");
 		assertNotNull(song4);
 
@@ -818,7 +818,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum4Song5Correct() {
-		Album album = stubAlbumRepository.getVariousArtistsAnimatrix();
+		Album album = stubArtistRepository.getVariousArtistsAnimatrix();
 		Song song5 = getSongByTitle(album, "Martenot Waves");
 		assertNotNull(song5);
 
@@ -843,7 +843,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum4Song6Correct() {
-		Album album = stubAlbumRepository.getVariousArtistsAnimatrix();
+		Album album = stubArtistRepository.getVariousArtistsAnimatrix();
 		Song song6 = getSongByTitle(album, "Ren 2");
 		assertNotNull(song6);
 
@@ -868,7 +868,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum4Song7Correct() {
-		Album album = stubAlbumRepository.getVariousArtistsAnimatrix();
+		Album album = stubArtistRepository.getVariousArtistsAnimatrix();
 		Song song7 = getSongByTitle(album, "Hands Around My Throat");
 		assertNotNull(song7);
 
@@ -893,7 +893,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum4Song8Correct() {
-		Album album = stubAlbumRepository.getVariousArtistsAnimatrix();
+		Album album = stubArtistRepository.getVariousArtistsAnimatrix();
 		Song song8 = getSongByTitle(album,
 				"Beauty Never Fades (Animatrix Edit)");
 		assertNotNull(song8);
@@ -919,7 +919,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum4Song9Correct() {
-		Album album = stubAlbumRepository.getVariousArtistsAnimatrix();
+		Album album = stubArtistRepository.getVariousArtistsAnimatrix();
 		Song song9 = getSongByTitle(album, "Supermoves (Animatrix)");
 		assertNotNull(song9);
 
@@ -944,7 +944,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum4Song10Correct() {
-		Album album = stubAlbumRepository.getVariousArtistsAnimatrix();
+		Album album = stubArtistRepository.getVariousArtistsAnimatrix();
 		Song song10 = getSongByTitle(album, "Conga Fury (Animatrix Edit)");
 		assertNotNull(song10);
 
@@ -970,7 +970,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum4Song11Correct() {
-		Album album = stubAlbumRepository.getVariousArtistsAnimatrix();
+		Album album = stubArtistRepository.getVariousArtistsAnimatrix();
 		Song song11 = getSongByTitle(album, "Red Pill, Blue Pill");
 		assertNotNull(song11);
 
@@ -997,7 +997,7 @@ public class DefaultSongServiceMacOsIT {
 
 	@Test
 	public void testAlbum4Song12Correct() {
-		Album album = stubAlbumRepository.getVariousArtistsAnimatrix();
+		Album album = stubArtistRepository.getVariousArtistsAnimatrix();
 		Song song12 = getSongByTitle(album, "The Real");
 		assertNotNull(song12);
 

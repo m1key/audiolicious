@@ -75,9 +75,18 @@ public class Album {
 		this.uuid = UUID.randomUUID().toString();
 		this.name = albumName;
 		this.rating = albumRating;
+		this.artist = albumArtist;
 
 		songs = new HashSet<Song>();
-		setArtist(albumArtist);
+	}
+
+	Album(AlbumInfo albumInfo, Artist artist) {
+		this.uuid = UUID.randomUUID().toString();
+		this.name = albumInfo.getAlbumName();
+		this.rating = new Rating(albumInfo.getAlbumRating());
+		this.artist = artist;
+
+		songs = new HashSet<Song>();
 	}
 
 	public String getUuid() {
@@ -117,21 +126,9 @@ public class Album {
 		return null;
 	}
 
-	public void setArtist(Artist artist) {
-		removeFromCurrentArtist();
-		this.artist = artist;
-		artist.addAlbum(this);
-	}
-
-	private void removeFromCurrentArtist() {
-		if (artist != null) {
-			artist.removeAlbum(this);
-		}
-	}
-
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(name).toHashCode();
+		return new HashCodeBuilder().append(getName()).toHashCode();
 	}
 
 	@Override

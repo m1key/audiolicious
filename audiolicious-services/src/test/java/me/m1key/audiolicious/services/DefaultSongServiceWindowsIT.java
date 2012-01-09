@@ -31,6 +31,7 @@ import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.commons.qualifiers.NullLibrary;
 import me.m1key.audiolicious.domain.entities.Album;
+import me.m1key.audiolicious.domain.entities.AlbumInfo;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
@@ -104,7 +105,7 @@ public class DefaultSongServiceWindowsIT {
 	@Inject
 	private LibraryImporter libraryImport;
 	@Inject
-	private StubAlbumRepository stubAlbumRepository;
+	private StubArtistRepository stubArtistRepository;
 
 	private static boolean handlerHasNotRunYet = true;
 
@@ -123,7 +124,7 @@ public class DefaultSongServiceWindowsIT {
 						ArchivePaths.create("beans.xml"))
 				.addAsResource("log4j.xml", "log4j.xml")
 				.addClasses(AggregateTrackMapper.class, Album.class,
-						AlbumRepository.class, Artist.class,
+						AlbumInfo.class, AlbumRepository.class, Artist.class,
 						ArtistRepository.class, AudiobookHandler.class,
 						AudiobookMapper.class, AudiobookTo.class,
 						CannotMapTrackValuesException.class,
@@ -151,8 +152,7 @@ public class DefaultSongServiceWindowsIT {
 						RatingTo.class, RawTrackDataHandler.class, Song.class,
 						SongHandler.class, SongInfo.class, SongMapper.class,
 						SongService.class, SongTo.class, Stat.class,
-						StatInfo.class, StubAlbumRepository.class,
-						StubArtistRepository.class,
+						StatInfo.class, StubArtistRepository.class,
 						StubLibraryRepository.class,
 						StubLibraryRepositoryWithInfo.class,
 						TrackHandler.class, TrackHandlersFactory.class,
@@ -183,7 +183,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum1Correct() {
-		Album album = stubAlbumRepository.getMonsterMagnetSpineOfGod();
+		Album album = stubArtistRepository.getMonsterMagnetSpineOfGod();
 		assertNotNull(album);
 		assertNotNull(album.getUuid());
 		assertEquals("Monster Magnet", album.getArtist().getName());
@@ -193,7 +193,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum1Song1Correct() {
-		Album album = stubAlbumRepository.getMonsterMagnetSpineOfGod();
+		Album album = stubArtistRepository.getMonsterMagnetSpineOfGod();
 		Song song1 = getSongByTitle(album, "Pill Shovel");
 		assertNotNull(song1);
 
@@ -218,7 +218,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum1Song2Correct() {
-		Album album = stubAlbumRepository.getMonsterMagnetSpineOfGod();
+		Album album = stubArtistRepository.getMonsterMagnetSpineOfGod();
 		Song song2 = getSongByTitle(album, "Medicine");
 		assertNotNull(song2);
 
@@ -243,7 +243,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum1Song3Correct() {
-		Album album = stubAlbumRepository.getMonsterMagnetSpineOfGod();
+		Album album = stubArtistRepository.getMonsterMagnetSpineOfGod();
 		Song song3 = getSongByTitle(album, "Nod Scene");
 		assertNotNull(song3);
 
@@ -268,7 +268,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum1Song4Correct() {
-		Album album = stubAlbumRepository.getMonsterMagnetSpineOfGod();
+		Album album = stubArtistRepository.getMonsterMagnetSpineOfGod();
 		Song song4 = getSongByTitle(album, "Black Mastermind");
 		assertNotNull(song4);
 
@@ -293,7 +293,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum1Song5Correct() {
-		Album album = stubAlbumRepository.getMonsterMagnetSpineOfGod();
+		Album album = stubArtistRepository.getMonsterMagnetSpineOfGod();
 		Song song5 = getSongByTitle(album, "Zodiac Lung");
 		assertNotNull(song5);
 
@@ -318,7 +318,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum1Song6Correct() {
-		Album album = stubAlbumRepository.getMonsterMagnetSpineOfGod();
+		Album album = stubArtistRepository.getMonsterMagnetSpineOfGod();
 		Song song6 = getSongByTitle(album, "Spine of God");
 		assertNotNull(song6);
 
@@ -343,7 +343,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum1Song7Correct() {
-		Album album = stubAlbumRepository.getMonsterMagnetSpineOfGod();
+		Album album = stubArtistRepository.getMonsterMagnetSpineOfGod();
 		Song song7 = getSongByTitle(album, "Snake Dance");
 		assertNotNull(song7);
 
@@ -368,7 +368,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum1Song8Correct() {
-		Album album = stubAlbumRepository.getMonsterMagnetSpineOfGod();
+		Album album = stubArtistRepository.getMonsterMagnetSpineOfGod();
 		Song song8 = getSongByTitle(album, "Sin's a Good Man's Brother");
 		assertNotNull(song8);
 
@@ -393,7 +393,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum1Song9Correct() {
-		Album album = stubAlbumRepository.getMonsterMagnetSpineOfGod();
+		Album album = stubArtistRepository.getMonsterMagnetSpineOfGod();
 		Song song9 = getSongByTitle(album, "Ozium");
 		assertNotNull(song9);
 
@@ -418,7 +418,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum2Correct() {
-		Album album = stubAlbumRepository.getToolAenima();
+		Album album = stubArtistRepository.getToolAenima();
 		assertNotNull(album);
 		assertNotNull(album.getUuid());
 		assertEquals("Tool", album.getArtist().getName());
@@ -428,7 +428,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum2Song1Correct() {
-		Album album = stubAlbumRepository.getToolAenima();
+		Album album = stubArtistRepository.getToolAenima();
 		Song song1 = getSongByTitle(album, "Stinkfist");
 		assertNotNull(song1);
 
@@ -453,7 +453,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum2Song2Correct() {
-		Album album = stubAlbumRepository.getToolAenima();
+		Album album = stubArtistRepository.getToolAenima();
 		Song song2 = getSongByTitle(album, "Eulogy");
 		assertNotNull(song2);
 
@@ -478,7 +478,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum2Song3Correct() {
-		Album album = stubAlbumRepository.getToolAenima();
+		Album album = stubArtistRepository.getToolAenima();
 		Song song3 = getSongByTitle(album, "H.");
 		assertNotNull(song3);
 
@@ -503,7 +503,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum2Song4Correct() {
-		Album album = stubAlbumRepository.getToolAenima();
+		Album album = stubArtistRepository.getToolAenima();
 		Song song4 = getSongByTitle(album, "Useful Idiot");
 		assertNotNull(song4);
 
@@ -528,7 +528,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum2Song5Correct() {
-		Album album = stubAlbumRepository.getToolAenima();
+		Album album = stubArtistRepository.getToolAenima();
 		Song song5 = getSongByTitle(album, "Forty Six & 2");
 		assertNotNull(song5);
 
@@ -553,7 +553,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum2Song6Correct() {
-		Album album = stubAlbumRepository.getToolAenima();
+		Album album = stubArtistRepository.getToolAenima();
 		Song song6 = getSongByTitle(album, "Message To Harry Manback");
 		assertNotNull(song6);
 
@@ -578,7 +578,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum2Song7Correct() {
-		Album album = stubAlbumRepository.getToolAenima();
+		Album album = stubArtistRepository.getToolAenima();
 		Song song7 = getSongByTitle(album, "Hooker With A Penis");
 		assertNotNull(song7);
 
@@ -603,7 +603,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum2Song8Correct() {
-		Album album = stubAlbumRepository.getToolAenima();
+		Album album = stubArtistRepository.getToolAenima();
 		Song song8 = getSongByTitle(album, "Intermission");
 		assertNotNull(song8);
 
@@ -628,7 +628,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum2Song9Correct() {
-		Album album = stubAlbumRepository.getToolAenima();
+		Album album = stubArtistRepository.getToolAenima();
 		Song song9 = getSongByTitle(album, "Jimmy");
 		assertNotNull(song9);
 
@@ -653,7 +653,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum2Song10Correct() {
-		Album album = stubAlbumRepository.getToolAenima();
+		Album album = stubArtistRepository.getToolAenima();
 		Song song10 = getSongByTitle(album, "Die Eier Von Satan");
 		assertNotNull(song10);
 
@@ -678,7 +678,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum2Song11Correct() {
-		Album album = stubAlbumRepository.getToolAenima();
+		Album album = stubArtistRepository.getToolAenima();
 		Song song11 = getSongByTitle(album, "Pushit");
 		assertNotNull(song11);
 
@@ -703,7 +703,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum2Song12Correct() {
-		Album album = stubAlbumRepository.getToolAenima();
+		Album album = stubArtistRepository.getToolAenima();
 		Song song12 = getSongByTitle(album, "Cesaro Summability");
 		assertNotNull(song12);
 
@@ -728,7 +728,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum2Song13Correct() {
-		Album album = stubAlbumRepository.getToolAenima();
+		Album album = stubArtistRepository.getToolAenima();
 		Song song13 = getSongByTitle(album, "Ænema");
 		assertNotNull(song13);
 
@@ -753,7 +753,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum2Song14Correct() {
-		Album album = stubAlbumRepository.getToolAenima();
+		Album album = stubArtistRepository.getToolAenima();
 		Song song14 = getSongByTitle(album, "(-) Ions");
 		assertNotNull(song14);
 
@@ -778,7 +778,7 @@ public class DefaultSongServiceWindowsIT {
 
 	@Test
 	public void testAlbum2Song15Correct() {
-		Album album = stubAlbumRepository.getToolAenima();
+		Album album = stubArtistRepository.getToolAenima();
 		Song song15 = getSongByTitle(album, "Third Eye");
 		assertNotNull(song15);
 
@@ -805,7 +805,7 @@ public class DefaultSongServiceWindowsIT {
 	public void testCorrectNumberOfSongsInKornIssues() {
 		assertEquals(
 				Integer.valueOf(16),
-				Integer.valueOf(stubAlbumRepository.getKornIssues().getSongs()
+				Integer.valueOf(stubArtistRepository.getKornIssues().getSongs()
 						.size()));
 	}
 

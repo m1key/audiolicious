@@ -30,6 +30,7 @@ import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.commons.qualifiers.NullLibrary;
 import me.m1key.audiolicious.domain.entities.Album;
+import me.m1key.audiolicious.domain.entities.AlbumInfo;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
@@ -136,7 +137,7 @@ public class MacOsLibraryWithServiceIT {
 						"META-INF/persistence.xml")
 				.addAsResource("log4j.xml", "log4j.xml")
 				.addClasses(AggregateTrackMapper.class, Album.class,
-						AlbumRepository.class, Artist.class,
+						AlbumInfo.class, AlbumRepository.class, Artist.class,
 						ArtistRepository.class, AudiobookHandler.class,
 						AudiobookMapper.class, AudiobookTo.class,
 						CannotMapTrackValuesException.class,

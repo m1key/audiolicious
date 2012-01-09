@@ -1,3 +1,21 @@
+/* 
+ * Audiolicious - Your Music Library Statistics
+ * Copyright (C) 2012, Michal Huniewicz
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see http://www.m1key.me
+ */
+
 package me.m1key.audiolicious.domain.entities;
 
 import static org.junit.Assert.assertEquals;
@@ -5,6 +23,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 
+import me.m1key.audiolicious.domain.to.AlbumInfoBuilder;
 import me.m1key.audiolicious.domain.to.SongInfoBuilder;
 import me.m1key.audiolicious.domain.to.StatInfoBuilder;
 
@@ -110,22 +129,28 @@ public class LibraryHibernateIT extends HibernateIT {
 		getEntityManager().persist(library);
 
 		Artist artist1 = new Artist(ARTIST_1_NAME);
+		AlbumInfo artist1Album1Info = new AlbumInfoBuilder()
+				.withName(ARTIST_1_ALBUM_1_NAME).withRating(80).build();
+		artist1.addAlbum(artist1Album1Info);
+		AlbumInfo artist1Album2Info = new AlbumInfoBuilder()
+				.withName(ARTIST_1_ALBUM_2_NAME).withRating(80).build();
+		artist1.addAlbum(artist1Album2Info);
+		for (Album album : artist1.getAlbums()) {
+			if (album.getName().equals(ARTIST_1_ALBUM_1_NAME)) {
+				addSongsToAlbum1(album);
+			} else if (album.getName().equals(ARTIST_1_ALBUM_2_NAME)) {
+				addSongsToAlbum2(album);
+			}
+		}
 		getEntityManager().persist(artist1);
-		Album artist1Album1 = new Album(ARTIST_1_ALBUM_1_NAME, artist1,
-				new Rating(80));
-		addSongsToAlbum1(artist1Album1);
-		getEntityManager().persist(artist1Album1);
-		Album artist1Album2 = new Album(ARTIST_1_ALBUM_2_NAME, artist1,
-				new Rating(80));
-		addSongsToAlbum2(artist1Album2);
-		getEntityManager().persist(artist1Album2);
 
 		Artist artist2 = new Artist(ARTIST_2_NAME);
-		getEntityManager().persist(artist2);
-		Album artist2Album1 = new Album(ARTIST_2_ALBUM_1_NAME, artist2,
-				new Rating(80));
+		AlbumInfo artist2Album1Info = new AlbumInfoBuilder()
+				.withName(ARTIST_2_ALBUM_1_NAME).withRating(80).build();
+		artist2.addAlbum(artist2Album1Info);
+		Album artist2Album1 = artist2.getAlbums().iterator().next();
 		addSongsToAlbum3(artist2Album1);
-		getEntityManager().persist(artist2Album1);
+		getEntityManager().persist(artist2);
 
 		getEntityManager().getTransaction().commit();
 

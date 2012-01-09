@@ -78,17 +78,9 @@ public class Artist {
 		return uuid;
 	}
 
-	public void addAlbum(Album album) {
-		if (album.getArtist() != this) {
-			album.setArtist(this);
-		}
-		if (!albums.contains(album)) {
-			albums.add(album);
-		}
-	}
-
-	public void removeAlbum(Album album) {
-		albums.remove(album);
+	public boolean addAlbum(AlbumInfo albumInfo) {
+		Album album = new Album(albumInfo, this);
+		return albums.add(album);
 	}
 
 	@Override

@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 
+import me.m1key.audiolicious.domain.to.AlbumInfoBuilder;
 import me.m1key.audiolicious.domain.to.SongInfoBuilder;
 import me.m1key.audiolicious.domain.to.StatInfoBuilder;
 
@@ -141,22 +142,28 @@ public class StatHibernateIT extends HibernateIT {
 		getEntityManager().persist(library);
 
 		Artist artist1 = new Artist(ARTIST_1_NAME);
+		AlbumInfo artist1Album1Info = new AlbumInfoBuilder()
+				.withName(ARTIST_1_ALBUM_1_NAME).withRating(80).build();
+		artist1.addAlbum(artist1Album1Info);
+		AlbumInfo artist1Album2Info = new AlbumInfoBuilder()
+				.withName(ARTIST_1_ALBUM_2_NAME).withRating(80).build();
+		artist1.addAlbum(artist1Album2Info);
+		for (Album album : artist1.getAlbums()) {
+			if (album.getName().equals(ARTIST_1_ALBUM_1_NAME)) {
+				addSongsToAlbum1(album);
+			} else if (album.getName().equals(ARTIST_1_ALBUM_2_NAME)) {
+				addSongsToAlbum2(album);
+			}
+		}
 		getEntityManager().persist(artist1);
-		Album artist1Album1 = new Album(ARTIST_1_ALBUM_1_NAME, artist1,
-				new Rating(80));
-		addSongsToAlbum1(artist1Album1);
-		getEntityManager().persist(artist1Album1);
-		Album artist1Album2 = new Album(ARTIST_1_ALBUM_2_NAME, artist1,
-				new Rating(80));
-		addSongsToAlbum2(artist1Album2);
-		getEntityManager().persist(artist1Album2);
 
 		Artist artist2 = new Artist(ARTIST_2_NAME);
-		getEntityManager().persist(artist2);
-		Album artist2Album1 = new Album(ARTIST_2_ALBUM_1_NAME, artist2,
-				new Rating(80));
+		AlbumInfo artist2Album1Info = new AlbumInfoBuilder()
+				.withName(ARTIST_2_ALBUM_1_NAME).withRating(80).build();
+		artist2.addAlbum(artist2Album1Info);
+		Album artist2Album1 = artist2.getAlbums().iterator().next();
 		addSongsToAlbum3(artist2Album1);
-		getEntityManager().persist(artist2Album1);
+		getEntityManager().persist(artist2);
 
 		getEntityManager().getTransaction().commit();
 

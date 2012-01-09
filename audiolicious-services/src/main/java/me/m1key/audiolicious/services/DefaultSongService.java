@@ -23,12 +23,10 @@ import javax.ejb.Local;
 import javax.ejb.Singleton;
 import javax.inject.Inject;
 
-import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.Library;
-import me.m1key.audiolicious.domain.entities.Rating;
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.objecthandler.handlers.SongService;
 
@@ -37,13 +35,7 @@ import me.m1key.audiolicious.objecthandler.handlers.SongService;
 public class DefaultSongService implements SongService {
 
 	@EJB
-	private AlbumRepository albumRepository;
-	@EJB
 	private ArtistRepository artistRepository;
-
-	@Inject
-	@NullAlbum
-	private Album nullAlbum;
 	@Inject
 	@NullArtist
 	private Artist nullArtist;
@@ -51,7 +43,8 @@ public class DefaultSongService implements SongService {
 	@Override
 	public void addSong(SongTo songTo, Library library) {
 		Artist artist = getOrCreateArtistByName(getAlbumArtistName(songTo));
-		Album album = getOrCreateAlbum(songTo, artist);
+		artist.addAlbum(songTo);
+		Album album = getAlbum(songTo.getAlbumName(), artist);
 
 		if (album.addSong(songTo, new FullStatInfo(songTo, library))) {
 			artistRepository.createArtist(artist);
@@ -75,18 +68,13 @@ public class DefaultSongService implements SongService {
 		return artist;
 	}
 
-	private Album getOrCreateAlbum(SongTo songTo, Artist artist) {
-		String albumName = songTo.getAlbumName();
-		Album album = getAlbumByName(artist, albumName);
-		if (album.equals(nullAlbum)) {
-			album = new Album(albumName, artist, new Rating(
-					songTo.getAlbumRating()));
-			albumRepository.createAlbum(album);
+	private Album getAlbum(String albumName, Artist artist) {
+		for (Album album : artist.getAlbums()) {
+			if (album.getName().equals(albumName)) {
+				return album;
+			}
 		}
-		return album;
-	}
-
-	private Album getAlbumByName(Artist artist, String albumName) {
-		return albumRepository.getAlbum(artist, albumName);
+		throw new RuntimeException(String.format(
+				"Album [%d] not found in artist [%d].", albumName, artist));
 	}
 }

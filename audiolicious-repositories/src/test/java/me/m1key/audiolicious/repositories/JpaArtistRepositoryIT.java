@@ -29,6 +29,7 @@ import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.commons.qualifiers.NullLibrary;
 import me.m1key.audiolicious.domain.entities.Album;
+import me.m1key.audiolicious.domain.entities.AlbumInfo;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.entities.NullEntitiesFactory;
@@ -77,9 +78,10 @@ public class JpaArtistRepositoryIT {
 				.addAsResource("log4j.xml", "log4j.xml")
 				.addAsResource("META-INF/persistence.xml",
 						"META-INF/persistence.xml")
-				.addClasses(Album.class, Artist.class, ArtistRepository.class,
-						FullStatInfo.class, JpaArtistRepository.class,
-						Library.class, NullAlbum.class, NullArtist.class,
+				.addClasses(Album.class, AlbumInfo.class, Artist.class,
+						ArtistRepository.class, FullStatInfo.class,
+						JpaArtistRepository.class, Library.class,
+						NullAlbum.class, NullArtist.class,
 						NullEntitiesFactory.class, NullLibrary.class,
 						Rating.class, RatingTo.class, Song.class,
 						SongInfo.class, SongTo.class, Stat.class,

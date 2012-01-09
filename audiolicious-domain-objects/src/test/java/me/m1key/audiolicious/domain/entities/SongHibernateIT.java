@@ -26,6 +26,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Date;
 import java.util.Set;
 
+import me.m1key.audiolicious.domain.to.AlbumInfoBuilder;
 import me.m1key.audiolicious.domain.to.SongInfoBuilder;
 import me.m1key.audiolicious.domain.to.StatInfoBuilder;
 
@@ -165,39 +166,6 @@ public class SongHibernateIT extends HibernateIT {
 		getEntityManager().getTransaction().commit();
 	}
 
-	@Test
-	public void savingAlbumShouldSaveArtist() {
-		getEntityManager().getTransaction().begin();
-		Library library = new Library("Library UUID");
-		getEntityManager().persist(library);
-		Artist artist = new Artist(ARTIST_1_NAME);
-		getEntityManager().persist(artist);
-		Album album = new Album(ARTIST_1_ALBUM_1_NAME, artist, new Rating(80));
-		album.addSong(
-				new SongInfoBuilder(ARTIST_1_ALBUM_1_SONG_1_NAME)
-						.withTrackNumber(1).withDiscNumber(1).withYear(1988)
-						.withGenre("Rock").withHasVideo(false).withRating(100)
-						.build(), new StatInfoBuilder().withLibrary(library)
-						.withDateAdded(artist1Album1DateAdded)
-						.withDateModified(artist1Album1DateModified)
-						.withDateSkipped(artist1Album1DateSkipped)
-						.withSkipCount(0).withRating(80).withPlayCount(8)
-						.build());
-		getEntityManager().persist(album);
-		getEntityManager().getTransaction().commit();
-
-		assertNotNull("Artist should be persisted.",
-				getArtistByName(ARTIST_1_NAME));
-		assertNotNull(
-				"Album should be persisted.",
-				getAlbumByArtistNameAlbumName(ARTIST_1_NAME,
-						ARTIST_1_ALBUM_1_NAME));
-		assertNotNull(
-				"Song should be persisted.",
-				getSongByArtistNameAlbumNameSongName(ARTIST_1_NAME,
-						ARTIST_1_ALBUM_1_NAME, ARTIST_1_ALBUM_1_SONG_1_NAME));
-	}
-
 	private Album getAlbumByArtistNameAlbumNameInsideExistingTransaction(
 			String artistName, String albumName) {
 		Artist artist = (Artist) getEntityManager()
@@ -260,22 +228,28 @@ public class SongHibernateIT extends HibernateIT {
 		getEntityManager().persist(library);
 
 		Artist artist1 = new Artist(ARTIST_1_NAME);
+		AlbumInfo artist1Album1Info = new AlbumInfoBuilder()
+				.withName(ARTIST_1_ALBUM_1_NAME).withRating(80).build();
+		artist1.addAlbum(artist1Album1Info);
+		AlbumInfo artist1Album2Info = new AlbumInfoBuilder()
+				.withName(ARTIST_1_ALBUM_2_NAME).withRating(80).build();
+		artist1.addAlbum(artist1Album2Info);
+		for (Album album : artist1.getAlbums()) {
+			if (album.getName().equals(ARTIST_1_ALBUM_1_NAME)) {
+				addSongsToAlbum1(album, library);
+			} else if (album.getName().equals(ARTIST_1_ALBUM_2_NAME)) {
+				addSongsToAlbum2(album, library);
+			}
+		}
 		getEntityManager().persist(artist1);
-		Album artist1Album1 = new Album(ARTIST_1_ALBUM_1_NAME, artist1,
-				new Rating(80));
-		addSongsToAlbum1(artist1Album1, library);
-		getEntityManager().persist(artist1Album1);
-		Album artist1Album2 = new Album(ARTIST_1_ALBUM_2_NAME, artist1,
-				new Rating(80));
-		addSongsToAlbum2(artist1Album2, library);
-		getEntityManager().persist(artist1Album2);
 
 		Artist artist2 = new Artist(ARTIST_2_NAME);
-		getEntityManager().persist(artist2);
-		Album artist2Album1 = new Album(ARTIST_2_ALBUM_1_NAME, artist2,
-				new Rating(80));
+		AlbumInfo artist2Album1Info = new AlbumInfoBuilder()
+				.withName(ARTIST_2_ALBUM_1_NAME).withRating(80).build();
+		artist2.addAlbum(artist2Album1Info);
+		Album artist2Album1 = artist2.getAlbums().iterator().next();
 		addSongsToAlbum3(artist2Album1, library);
-		getEntityManager().persist(artist2Album1);
+		getEntityManager().persist(artist2);
 
 		getEntityManager().getTransaction().commit();
 

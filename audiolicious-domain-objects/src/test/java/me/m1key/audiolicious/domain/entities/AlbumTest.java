@@ -22,6 +22,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import me.m1key.audiolicious.domain.to.AlbumInfoBuilder;
 import me.m1key.audiolicious.domain.to.SongInfoBuilder;
 import me.m1key.audiolicious.domain.to.StatInfoBuilder;
 
@@ -78,18 +79,13 @@ public class AlbumTest {
 	}
 
 	@Test
-	public void testAlbumBelonsToOneArtist() {
+	public void testAlbumBelongsToOneArtist() {
 		Artist artist2 = new Artist("Black Sabbath");
-		Album album = new Album("Mob Rules", artist, new Rating(100));
-		artist2.addAlbum(album);
+		Album album = new Album("Mob Rules", artist2, new Rating(100));
+		AlbumInfo albumInfo = new AlbumInfoBuilder().withName("Mob Rules")
+				.withRating(100).build();
+		artist2.addAlbum(albumInfo);
 		assertFalse(artist.getAlbums().contains(album));
 		assertTrue(artist2.getAlbums().contains(album));
-	}
-
-	@Test
-	public void testAlbumDoesntBelongAfterRemoved() {
-		Album album = new Album("Mob Rules", artist, new Rating(100));
-		artist.removeAlbum(album);
-		assertFalse(artist.getAlbums().contains(album));
 	}
 }

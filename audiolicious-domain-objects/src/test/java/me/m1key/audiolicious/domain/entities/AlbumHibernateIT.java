@@ -22,6 +22,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import me.m1key.audiolicious.domain.to.AlbumInfoBuilder;
+
 import org.junit.Test;
 
 public class AlbumHibernateIT extends HibernateIT {
@@ -149,23 +151,6 @@ public class AlbumHibernateIT extends HibernateIT {
 		getEntityManager().getTransaction().commit();
 	}
 
-	@Test
-	public void savingAlbumShouldSaveArtist() {
-		getEntityManager().getTransaction().begin();
-		Artist artist = new Artist(ARTIST_1_NAME);
-		getEntityManager().persist(artist);
-		Album album = new Album(ARTIST_1_ALBUM_2_NAME, artist, new Rating(80));
-		getEntityManager().persist(album);
-		getEntityManager().getTransaction().commit();
-
-		assertNotNull("Artist should be persisted.",
-				getArtistByName(ARTIST_1_NAME));
-		assertNotNull(
-				"Album should be persisted.",
-				getAlbumByArtistNameAlbumName(ARTIST_1_NAME,
-						ARTIST_1_ALBUM_2_NAME));
-	}
-
 	private void createAlbums() {
 		assertEquals("There should be no albums before any are created.", 0,
 				getAllAlbums().size());
@@ -173,19 +158,20 @@ public class AlbumHibernateIT extends HibernateIT {
 		getEntityManager().getTransaction().begin();
 
 		Artist artist1 = new Artist(ARTIST_1_NAME);
+		AlbumInfo artist1Album1Info = new AlbumInfoBuilder()
+				.withName(ARTIST_1_ALBUM_1_NAME).withRating(80).build();
+		artist1.addAlbum(artist1Album1Info);
+		artist1Album1 = artist1.getAlbums().iterator().next();
+		AlbumInfo artist1Album2Info = new AlbumInfoBuilder()
+				.withName(ARTIST_1_ALBUM_2_NAME).withRating(80).build();
+		artist1.addAlbum(artist1Album2Info);
 		getEntityManager().persist(artist1);
-		artist1Album1 = new Album(ARTIST_1_ALBUM_1_NAME, artist1,
-				new Rating(80));
-		getEntityManager().persist(artist1Album1);
-		Album artist1Album2 = new Album(ARTIST_1_ALBUM_2_NAME, artist1,
-				new Rating(80));
-		getEntityManager().persist(artist1Album2);
 
 		Artist artist2 = new Artist(ARTIST_2_NAME);
+		AlbumInfo artist2Album1Info = new AlbumInfoBuilder()
+				.withName(ARTIST_2_ALBUM_1_NAME).withRating(80).build();
+		artist2.addAlbum(artist2Album1Info);
 		getEntityManager().persist(artist2);
-		Album artist2Album1 = new Album(ARTIST_2_ALBUM_1_NAME, artist2,
-				new Rating(80));
-		getEntityManager().persist(artist2Album1);
 
 		getEntityManager().getTransaction().commit();
 
