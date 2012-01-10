@@ -26,7 +26,6 @@ import java.io.IOException;
 import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
-import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.commons.qualifiers.NullLibrary;
 import me.m1key.audiolicious.domain.entities.Album;
@@ -156,9 +155,9 @@ public class MacOsLibraryWithServiceIT {
 						LibraryImporter.class, LibraryParser.class,
 						LibraryService.class, LibraryRepository.class,
 						LibraryTo.class, NonAggregateTrackMapper.class,
-						NoopTrackHandler.class, NullAlbum.class,
-						NullArtist.class, NullEntitiesFactory.class,
-						NullLibrary.class, ObjectMappingException.class,
+						NoopTrackHandler.class, NullArtist.class,
+						NullEntitiesFactory.class, NullLibrary.class,
+						ObjectMappingException.class,
 						ObjectTrackDataHandler.class, PodcastHandler.class,
 						PodcastMapper.class, PodcastTo.class, Rating.class,
 						RatingTo.class, RawTrackDataHandler.class, Song.class,

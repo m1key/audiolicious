@@ -20,31 +20,18 @@ package me.m1key.audiolicious.domain.entities;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
 
-import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.commons.qualifiers.NullLibrary;
 
 @ApplicationScoped
 public class NullEntitiesFactory {
 
-	@Inject
-	@NullArtist
-	private Artist nullArtist;
-
 	@Produces
 	@ApplicationScoped
 	@NullArtist
 	public Artist getNullArtist() {
 		return new Artist("(null artist");
-	}
-
-	@Produces
-	@ApplicationScoped
-	@NullAlbum
-	public Album getNullAlbum() {
-		return new Album("(null album)", nullArtist, new Rating(0));
 	}
 
 	@Produces

@@ -25,7 +25,6 @@ import java.io.IOException;
 
 import javax.inject.Inject;
 
-import me.m1key.audiolicious.commons.qualifiers.NullAlbum;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.commons.qualifiers.NullLibrary;
 import me.m1key.audiolicious.domain.entities.Album;
@@ -81,10 +80,9 @@ public class JpaArtistRepositoryIT {
 				.addClasses(Album.class, AlbumInfo.class, Artist.class,
 						ArtistRepository.class, FullStatInfo.class,
 						JpaArtistRepository.class, Library.class,
-						NullAlbum.class, NullArtist.class,
-						NullEntitiesFactory.class, NullLibrary.class,
-						Rating.class, RatingTo.class, Song.class,
-						SongInfo.class, SongTo.class, Stat.class,
+						NullArtist.class, NullEntitiesFactory.class,
+						NullLibrary.class, Rating.class, RatingTo.class,
+						Song.class, SongInfo.class, SongTo.class, Stat.class,
 						StatInfo.class, RepositoriesTestHelperBean.class,
 						TrackTo.class)
 				.addAsLibraries(
