@@ -20,7 +20,7 @@ package me.m1key.audiolicious.services;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
-import javax.ejb.Singleton;
+import javax.ejb.Stateful;
 import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
@@ -29,7 +29,7 @@ import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.objecthandler.handlers.SongService;
 
-@Singleton
+@Stateful
 @Local(SongService.class)
 public class DefaultSongService implements SongService {
 
