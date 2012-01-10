@@ -124,10 +124,9 @@ public class DefaultSongServiceMacOsIT {
 						ArchivePaths.create("beans.xml"))
 				.addAsResource("log4j.xml", "log4j.xml")
 				.addClasses(AggregateTrackMapper.class, Album.class,
-						AlbumInfo.class, AlbumRepository.class, Artist.class,
-						ArtistRepository.class, AudiobookHandler.class,
-						AudiobookMapper.class, AudiobookTo.class,
-						CannotMapTrackValuesException.class,
+						AlbumInfo.class, Artist.class, ArtistRepository.class,
+						AudiobookHandler.class, AudiobookMapper.class,
+						AudiobookTo.class, CannotMapTrackValuesException.class,
 						DefaultAggregateTrackMapper.class,
 						DefaultAudiobookMapper.class, DataExtractor.class,
 						DefaultEnglishValuesProvider.class,

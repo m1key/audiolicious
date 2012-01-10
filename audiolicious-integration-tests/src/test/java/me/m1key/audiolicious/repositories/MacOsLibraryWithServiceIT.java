@@ -83,7 +83,6 @@ import me.m1key.audiolicious.objectmapper.trackmappers.NonAggregateTrackMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.SongMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapper;
-import me.m1key.audiolicious.services.AlbumRepository;
 import me.m1key.audiolicious.services.ArtistRepository;
 import me.m1key.audiolicious.services.DefaultLibraryImporter;
 import me.m1key.audiolicious.services.DefaultLibraryService;
@@ -137,10 +136,9 @@ public class MacOsLibraryWithServiceIT {
 						"META-INF/persistence.xml")
 				.addAsResource("log4j.xml", "log4j.xml")
 				.addClasses(AggregateTrackMapper.class, Album.class,
-						AlbumInfo.class, AlbumRepository.class, Artist.class,
-						ArtistRepository.class, AudiobookHandler.class,
-						AudiobookMapper.class, AudiobookTo.class,
-						CannotMapTrackValuesException.class,
+						AlbumInfo.class, Artist.class, ArtistRepository.class,
+						AudiobookHandler.class, AudiobookMapper.class,
+						AudiobookTo.class, CannotMapTrackValuesException.class,
 						DataExtractor.class, DefaultAggregateTrackMapper.class,
 						DefaultAudiobookMapper.class,
 						DefaultLibraryService.class,
@@ -153,15 +151,14 @@ public class MacOsLibraryWithServiceIT {
 						DefaultRawTrackDataHandler.class,
 						DefaultSongHandler.class, DefaultSongService.class,
 						EnglishValuesProvider.class, FullStatInfo.class,
-						I18nDataExtractor.class, JpaAlbumRepository.class,
-						JpaArtistRepository.class, JpaLibraryRepository.class,
-						Library.class, LibraryImporter.class,
-						LibraryParser.class, LibraryService.class,
-						LibraryRepository.class, LibraryTo.class,
-						NonAggregateTrackMapper.class, NoopTrackHandler.class,
-						NullAlbum.class, NullArtist.class,
-						NullEntitiesFactory.class, NullLibrary.class,
-						ObjectMappingException.class,
+						I18nDataExtractor.class, JpaArtistRepository.class,
+						JpaLibraryRepository.class, Library.class,
+						LibraryImporter.class, LibraryParser.class,
+						LibraryService.class, LibraryRepository.class,
+						LibraryTo.class, NonAggregateTrackMapper.class,
+						NoopTrackHandler.class, NullAlbum.class,
+						NullArtist.class, NullEntitiesFactory.class,
+						NullLibrary.class, ObjectMappingException.class,
 						ObjectTrackDataHandler.class, PodcastHandler.class,
 						PodcastMapper.class, PodcastTo.class, Rating.class,
 						RatingTo.class, RawTrackDataHandler.class, Song.class,
