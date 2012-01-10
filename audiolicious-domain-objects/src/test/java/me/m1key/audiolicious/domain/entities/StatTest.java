@@ -5,6 +5,9 @@ import static org.junit.Assert.assertFalse;
 
 import java.util.Date;
 
+import me.m1key.audiolicious.domain.to.AlbumAndSongInfoBuilder;
+import me.m1key.audiolicious.domain.to.StatInfoBuilder;
+
 import org.junit.Test;
 
 public class StatTest {
@@ -12,7 +15,7 @@ public class StatTest {
 	@Test
 	public void testEquals1() {
 		Library library = new Library(new Date());
-		Song song = new Song();
+		Song song = createSong(library);
 		Date dateAdded = new Date();
 		Date dateModified = new Date();
 		Date dateSkipped = new Date();
@@ -33,7 +36,7 @@ public class StatTest {
 	@Test
 	public void testEquals2() {
 		Library library = new Library(new Date());
-		Song song = new Song();
+		Song song = createSong(library);
 		Date dateAdded = new Date();
 		Date dateAdded2 = new Date();
 		Date dateModified = new Date();
@@ -55,7 +58,7 @@ public class StatTest {
 	@Test
 	public void testEquals3() {
 		Library library = new Library(new Date());
-		Song song = new Song();
+		Song song = createSong(library);
 		Date dateAdded = new Date();
 		Date dateModified = new Date();
 		Date dateModified2 = new Date();
@@ -77,7 +80,7 @@ public class StatTest {
 	@Test
 	public void testEquals4() {
 		Library library = new Library(new Date());
-		Song song = new Song();
+		Song song = createSong(library);
 		Date dateAdded = new Date();
 		Date dateModified = new Date();
 		Date dateSkipped = new Date();
@@ -99,7 +102,7 @@ public class StatTest {
 	@Test
 	public void testEquals5() {
 		Library library = new Library(new Date());
-		Song song = new Song();
+		Song song = createSong(library);
 		Date dateAdded = new Date();
 		Date dateModified = new Date();
 		Date dateSkipped = new Date();
@@ -121,7 +124,7 @@ public class StatTest {
 	@Test
 	public void testEquals6() {
 		Library library = new Library(new Date());
-		Song song = new Song();
+		Song song = createSong(library);
 		Date dateAdded = new Date();
 		Date dateModified = new Date();
 		Date dateSkipped = new Date();
@@ -143,7 +146,7 @@ public class StatTest {
 	@Test
 	public void testEquals7() {
 		Library library = new Library(new Date());
-		Song song = new Song();
+		Song song = createSong(library);
 		Date dateAdded = new Date();
 		Date dateModified = new Date();
 		Date dateSkipped = new Date();
@@ -166,7 +169,7 @@ public class StatTest {
 	public void testNotEquals1() {
 		Library library = new Library(new Date());
 		Library library2 = new Library(new Date());
-		Song song = new Song();
+		Song song = createSong(library);
 		Date dateAdded = new Date();
 		Date dateModified = new Date();
 		Date dateSkipped = new Date();
@@ -182,5 +185,20 @@ public class StatTest {
 		assertFalse("Stats should not be identical because "
 				+ "they are for the same song but not from the same library.",
 				stat1.equals(stat2));
+	}
+
+	private Song createSong(Library library) {
+
+		Artist artist = new Artist("George Thorogood");
+		artist.addSong(
+				new AlbumAndSongInfoBuilder("Bad to the Bone")
+						.withTrackNumber(1).withDiscNumber(1).withYear(1988)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.withAlbumName("Anthology").withAlbumRating(80).build(),
+				new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(new Date()).withSkipCount(0)
+						.withRating(80).withPlayCount(12).build());
+		return artist.getAlbums().iterator().next().getSongs().iterator()
+				.next();
 	}
 }

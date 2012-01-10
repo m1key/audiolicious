@@ -5,6 +5,9 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 
+import me.m1key.audiolicious.domain.to.AlbumAndSongInfoBuilder;
+import me.m1key.audiolicious.domain.to.StatInfoBuilder;
+
 import org.junit.Test;
 
 public class LibraryTest {
@@ -23,7 +26,18 @@ public class LibraryTest {
 	public void testAddStat() {
 		Library library = new Library(new Date());
 
-		Song song = new Song();
+		Artist artist = new Artist("George Thorogood");
+		artist.addSong(
+				new AlbumAndSongInfoBuilder("Bad to the Bone")
+						.withTrackNumber(1).withDiscNumber(1).withYear(1988)
+						.withGenre("Rock").withHasVideo(false).withRating(100)
+						.withAlbumName("Anthology").withAlbumRating(80).build(),
+				new StatInfoBuilder().withLibrary(library)
+						.withDateAdded(new Date()).withSkipCount(0)
+						.withRating(80).withPlayCount(12).build());
+		Song song = artist.getAlbums().iterator().next().getSongs().iterator()
+				.next();
+
 		Stat stat = new Stat(library, song, new Date(), new Date(), new Date(),
 				0, new Rating(100), 10);
 		library.addStat(stat);
