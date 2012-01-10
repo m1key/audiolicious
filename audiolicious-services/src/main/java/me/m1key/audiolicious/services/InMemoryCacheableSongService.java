@@ -2,6 +2,7 @@ package me.m1key.audiolicious.services;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
@@ -34,7 +35,7 @@ public class InMemoryCacheableSongService implements CacheableSongService {
 		Artist artist = getOrCreateArtistByName(getAlbumArtistName(songTo));
 
 		if (artist.addSong(songTo, new FullStatInfo(songTo, library))) {
-			artistRepository.createArtist(artist);
+			// artistRepository.createArtist(artist);
 		}
 	}
 
@@ -68,6 +69,9 @@ public class InMemoryCacheableSongService implements CacheableSongService {
 
 	@Override
 	public void finalise() {
+		for (Entry<String, Artist> entry : getArtistCache().entrySet()) {
+			artistRepository.createArtist(entry.getValue());
+		}
 		getArtistCache().clear();
 	}
 

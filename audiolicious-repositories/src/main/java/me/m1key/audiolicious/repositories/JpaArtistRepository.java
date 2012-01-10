@@ -24,6 +24,7 @@ import javax.ejb.Local;
 import javax.ejb.Singleton;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.FlushModeType;
 import javax.persistence.PersistenceContext;
 
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
@@ -46,7 +47,8 @@ public class JpaArtistRepository implements ArtistRepository {
 		@SuppressWarnings("unchecked")
 		List<Artist> artistObjects = entityManager
 				.createQuery("from Artist a where a.name = :name")
-				.setParameter("name", artistName).getResultList();
+				.setParameter("name", artistName)
+				.setFlushMode(FlushModeType.COMMIT).getResultList();
 
 		if (artistNotFound(artistObjects)) {
 			return nullArtist;
