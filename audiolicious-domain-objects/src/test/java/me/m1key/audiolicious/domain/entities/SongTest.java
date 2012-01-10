@@ -21,6 +21,7 @@ package me.m1key.audiolicious.domain.entities;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import me.m1key.audiolicious.domain.to.AlbumInfoBuilder;
 import me.m1key.audiolicious.domain.to.SongInfoBuilder;
 
 import org.junit.Before;
@@ -33,7 +34,9 @@ public class SongTest {
 	@Before
 	public void setup() {
 		Artist artist = new Artist("Dio");
-		album = new Album("Holy Diver", artist, new Rating(100));
+		artist.addAlbum(new AlbumInfoBuilder().withName("Holy Diver")
+				.withRating(100).build());
+		album = artist.getAlbums().iterator().next();
 	}
 
 	@Test

@@ -19,9 +19,7 @@
 package me.m1key.audiolicious.domain.entities;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
 import me.m1key.audiolicious.domain.to.AlbumInfoBuilder;
 import me.m1key.audiolicious.domain.to.SongInfoBuilder;
 import me.m1key.audiolicious.domain.to.StatInfoBuilder;
@@ -36,33 +34,48 @@ public class AlbumTest {
 	@Before
 	public void setup() {
 		artist = new Artist("Dio");
+		assertEquals("Artist should have no albums before albums are added.",
+				0, artist.getAlbums().size());
 	}
 
 	@Test
 	public void testEquals() {
-		Album album1 = new Album("Holy Diver", artist, new Rating(100));
-		Album album2 = new Album("Holy Diver", artist, new Rating(80));
-		assertEquals(album1, album2);
+		artist.addAlbum(new AlbumInfoBuilder().withName("Holy Diver")
+				.withRating(100).build());
+		artist.addAlbum(new AlbumInfoBuilder().withName("Holy Diver")
+				.withRating(100).build());
+
+		assertEquals(
+				"Artist should have one album after two identical are added.",
+				1, artist.getAlbums().size());
 	}
 
 	@Test
 	public void testNotEquals1() {
-		Album album1 = new Album("Holy Diver", artist, new Rating(100));
-		Album album2 = new Album("Holy Diver3", artist, new Rating(100));
-		assertFalse(album1.equals(album2));
+		artist.addAlbum(new AlbumInfoBuilder().withName("Holy Diver")
+				.withRating(100).build());
+		artist.addAlbum(new AlbumInfoBuilder().withName("Holy Diver 2")
+				.withRating(100).build());
+
+		assertEquals("Artist should have two albums after two are added.", 2,
+				artist.getAlbums().size());
 	}
 
 	@Test
 	public void testSongBelongsToAlbum() {
-		Album album = new Album("Holy Diver", artist, new Rating(100));
+		artist.addAlbum(new AlbumInfoBuilder().withName("Holy Diver")
+				.withRating(100).build());
+
+		Album album = artist.getAlbums().iterator().next();
+
 		SongInfo songInfo = new SongInfoBuilder("Invisible").withTrackNumber(7)
 				.withTrackNumber(1).withYear(1983).withGenre("Rock")
 				.withHasVideo(false).withRating(100).build();
+		StatInfo statInfo = new StatInfoBuilder()
+				.withLibrary(new Library("Library UUID")).withSkipCount(0)
+				.withRating(80).withPlayCount(19).build();
 
-		album.addSong(songInfo,
-				new StatInfoBuilder().withLibrary(new Library("Library UUID"))
-						.withSkipCount(0).withRating(80).withPlayCount(19)
-						.build());
+		album.addSong(songInfo, statInfo);
 
 		Song song = new Song(songInfo, album);
 		assertTrue(album.getSongs().contains(song));
@@ -70,22 +83,14 @@ public class AlbumTest {
 
 	@Test(expected = UnsupportedOperationException.class)
 	public void testCannotModifySongsSet() {
-		Album album = new Album("Holy Diver", artist, new Rating(100));
+		artist.addAlbum(new AlbumInfoBuilder().withName("Holy Diver")
+				.withRating(100).build());
+		Album album = artist.getAlbums().iterator().next();
+
 		Song song = new Song(new SongInfoBuilder("Invisible")
 				.withTrackNumber(7).withTrackNumber(1).withYear(1983)
 				.withGenre("Rock").withHasVideo(false).withRating(100).build(),
 				album);
 		album.getSongs().add(song);
-	}
-
-	@Test
-	public void testAlbumBelongsToOneArtist() {
-		Artist artist2 = new Artist("Black Sabbath");
-		Album album = new Album("Mob Rules", artist2, new Rating(100));
-		AlbumInfo albumInfo = new AlbumInfoBuilder().withName("Mob Rules")
-				.withRating(100).build();
-		artist2.addAlbum(albumInfo);
-		assertFalse(artist.getAlbums().contains(album));
-		assertTrue(artist2.getAlbums().contains(album));
 	}
 }

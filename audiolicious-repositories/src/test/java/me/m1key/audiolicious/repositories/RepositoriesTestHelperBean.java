@@ -28,8 +28,8 @@ import javax.persistence.Query;
 import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.Library;
-import me.m1key.audiolicious.domain.entities.Rating;
 import me.m1key.audiolicious.domain.entities.Song;
+import me.m1key.audiolicious.domain.to.AlbumInfoBuilder;
 
 @Stateless
 public class RepositoriesTestHelperBean {
@@ -55,8 +55,9 @@ public class RepositoriesTestHelperBean {
 		}
 	}
 
-	public Album createAlbum(String albumName, Artist artist, Rating rating) {
-		entityManager.persist(new Album(albumName, artist, rating));
+	public Album createAlbum(String albumName, Artist artist, int rating) {
+		artist.addAlbum(new AlbumInfoBuilder().withName(albumName)
+				.withRating(rating).build());
 
 		@SuppressWarnings("unchecked")
 		List<Album> albumObjects = entityManager

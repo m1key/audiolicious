@@ -71,15 +71,6 @@ public class Album {
 	protected Album() {
 	}
 
-	public Album(String albumName, Artist albumArtist, Rating albumRating) {
-		this.uuid = UUID.randomUUID().toString();
-		this.name = albumName;
-		this.rating = albumRating;
-		this.artist = albumArtist;
-
-		songs = new HashSet<Song>();
-	}
-
 	Album(AlbumInfo albumInfo, Artist artist) {
 		this.uuid = UUID.randomUUID().toString();
 		this.name = albumInfo.getAlbumName();

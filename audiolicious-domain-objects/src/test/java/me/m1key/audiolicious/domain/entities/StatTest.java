@@ -5,6 +5,7 @@ import static org.junit.Assert.assertFalse;
 
 import java.util.Date;
 
+import me.m1key.audiolicious.domain.to.AlbumInfoBuilder;
 import me.m1key.audiolicious.domain.to.SongInfoBuilder;
 
 import org.junit.Test;
@@ -168,7 +169,9 @@ public class StatTest {
 	public void testEquals8() {
 		Library library = new Library(new Date());
 		Artist artist = new Artist("Grinderman");
-		Album album = new Album("Album name", artist, new Rating(100));
+		artist.addAlbum(new AlbumInfoBuilder().withName("Album Name")
+				.withRating(100).build());
+		Album album = artist.getAlbums().iterator().next();
 		Song song = new Song(new SongInfoBuilder("Song name").build(), album);
 		Song song2 = new Song(new SongInfoBuilder("Song name").build(), album);
 		Date dateAdded = new Date();

@@ -20,12 +20,6 @@ package me.m1key.audiolicious.domain.entities;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import me.m1key.audiolicious.domain.entities.Album;
-import me.m1key.audiolicious.domain.entities.Artist;
-import me.m1key.audiolicious.domain.entities.Rating;
-import me.m1key.audiolicious.domain.to.AlbumInfoBuilder;
 
 import org.junit.Test;
 
@@ -45,43 +39,6 @@ public class ArtistTest {
 		Artist artist2 = new Artist("Black Sabbath");
 
 		assertFalse(artist1.equals(artist2));
-	}
-
-	@Test
-	public void testContains1Album() {
-		Artist artist = new Artist("Dio");
-		Album album = new Album("Holy Diver", artist, new Rating(100));
-		AlbumInfo albumInfo = new AlbumInfoBuilder().withName("Holy Diver")
-				.withRating(100).build();
-		assertFalse(artist.getAlbums().contains(album));
-		artist.addAlbum(albumInfo);
-		assertTrue(artist.getAlbums().contains(album));
-	}
-
-	@Test
-	public void testContains2Albums() {
-		Artist artist = new Artist("Dio");
-		Album album1 = new Album("Holy Diver", artist, new Rating(100));
-		Album album2 = new Album("Strange Highways", artist, new Rating(100));
-		assertFalse(artist.getAlbums().contains(album1));
-		assertFalse(artist.getAlbums().contains(album2));
-
-		AlbumInfo albumInfo1 = new AlbumInfoBuilder().withName("Holy Diver")
-				.withRating(100).build();
-		AlbumInfo albumInfo2 = new AlbumInfoBuilder()
-				.withName("Strange Highways").withRating(100).build();
-		artist.addAlbum(albumInfo1);
-		artist.addAlbum(albumInfo2);
-
-		assertTrue(artist.getAlbums().contains(album1));
-		assertTrue(artist.getAlbums().contains(album2));
-	}
-
-	@Test(expected = UnsupportedOperationException.class)
-	public void testCannotModifySongsSet() {
-		Artist artist = new Artist("Dio");
-		Album album1 = new Album("Holy Diver", artist, new Rating(100));
-		artist.getAlbums().add(album1);
 	}
 
 }
