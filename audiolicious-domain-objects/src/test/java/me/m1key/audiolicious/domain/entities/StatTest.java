@@ -5,9 +5,6 @@ import static org.junit.Assert.assertFalse;
 
 import java.util.Date;
 
-import me.m1key.audiolicious.domain.to.AlbumInfoBuilder;
-import me.m1key.audiolicious.domain.to.SongInfoBuilder;
-
 import org.junit.Test;
 
 public class StatTest {
@@ -163,31 +160,6 @@ public class StatTest {
 		assertEquals("Stats should be identical because "
 				+ "they are for the same song and are from the same library.",
 				stat1, stat2);
-	}
-
-	@Test
-	public void testEquals8() {
-		Library library = new Library(new Date());
-		Artist artist = new Artist("Grinderman");
-		artist.addAlbum(new AlbumInfoBuilder().withName("Album Name")
-				.withRating(100).build());
-		Album album = artist.getAlbums().iterator().next();
-		Song song = new Song(new SongInfoBuilder("Song name").build(), album);
-		Song song2 = new Song(new SongInfoBuilder("Song name").build(), album);
-		Date dateAdded = new Date();
-		Date dateModified = new Date();
-		Date dateSkipped = new Date();
-		int skipCount = 1;
-		Rating rating = new Rating(100);
-		int playCount = 10;
-
-		Stat stat1 = new Stat(library, song, dateAdded, dateModified,
-				dateSkipped, skipCount, rating, playCount);
-		Stat stat2 = new Stat(library, song2, dateAdded, dateModified,
-				dateSkipped, skipCount, rating, playCount);
-
-		assertEquals("Stats should be identical because "
-				+ "they are for the same song.", stat1, stat2);
 	}
 
 	@Test

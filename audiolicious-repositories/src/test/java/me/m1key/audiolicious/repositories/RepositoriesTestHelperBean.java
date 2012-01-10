@@ -25,11 +25,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.entities.Song;
-import me.m1key.audiolicious.domain.to.AlbumInfoBuilder;
 
 @Stateless
 public class RepositoriesTestHelperBean {
@@ -53,17 +51,6 @@ public class RepositoriesTestHelperBean {
 		for (Object artist : allArtists) {
 			entityManager.remove(artist);
 		}
-	}
-
-	public Album createAlbum(String albumName, Artist artist, int rating) {
-		artist.addAlbum(new AlbumInfoBuilder().withName(albumName)
-				.withRating(rating).build());
-
-		@SuppressWarnings("unchecked")
-		List<Album> albumObjects = entityManager
-				.createQuery("from Album a where a.name = :name")
-				.setParameter("name", albumName).getResultList();
-		return albumObjects.get(0);
 	}
 
 	public Song getSongByUuid(String uuid) {

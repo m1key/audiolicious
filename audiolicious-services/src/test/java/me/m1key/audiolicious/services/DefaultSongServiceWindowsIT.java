@@ -30,6 +30,7 @@ import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.commons.qualifiers.NullLibrary;
 import me.m1key.audiolicious.domain.entities.Album;
+import me.m1key.audiolicious.domain.entities.AlbumAndSongInfo;
 import me.m1key.audiolicious.domain.entities.AlbumInfo;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.Library;
@@ -123,9 +124,10 @@ public class DefaultSongServiceWindowsIT {
 						ArchivePaths.create("beans.xml"))
 				.addAsResource("log4j.xml", "log4j.xml")
 				.addClasses(AggregateTrackMapper.class, Album.class,
-						AlbumInfo.class, Artist.class, ArtistRepository.class,
-						AudiobookHandler.class, AudiobookMapper.class,
-						AudiobookTo.class, CannotMapTrackValuesException.class,
+						AlbumAndSongInfo.class, AlbumInfo.class, Artist.class,
+						ArtistRepository.class, AudiobookHandler.class,
+						AudiobookMapper.class, AudiobookTo.class,
+						CannotMapTrackValuesException.class,
 						DefaultAggregateTrackMapper.class,
 						DefaultAudiobookMapper.class,
 						DefaultEnglishValuesProvider.class,

@@ -24,7 +24,6 @@ import javax.ejb.Singleton;
 import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
-import me.m1key.audiolicious.domain.entities.Album;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.to.SongTo;
@@ -43,10 +42,8 @@ public class DefaultSongService implements SongService {
 	@Override
 	public void addSong(SongTo songTo, Library library) {
 		Artist artist = getOrCreateArtistByName(getAlbumArtistName(songTo));
-		artist.addAlbum(songTo);
-		Album album = getAlbum(songTo.getAlbumName(), artist);
 
-		if (album.addSong(songTo, new FullStatInfo(songTo, library))) {
+		if (artist.addSong(songTo, new FullStatInfo(songTo, library))) {
 			artistRepository.createArtist(artist);
 		}
 	}
@@ -66,15 +63,5 @@ public class DefaultSongService implements SongService {
 			artistRepository.createArtist(artist);
 		}
 		return artist;
-	}
-
-	private Album getAlbum(String albumName, Artist artist) {
-		for (Album album : artist.getAlbums()) {
-			if (album.getName().equals(albumName)) {
-				return album;
-			}
-		}
-		throw new RuntimeException(String.format(
-				"Album [%d] not found in artist [%d].", albumName, artist));
 	}
 }

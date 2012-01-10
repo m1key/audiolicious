@@ -100,7 +100,7 @@ public class Album {
 		return Collections.unmodifiableSet(songs);
 	}
 
-	public boolean addSong(SongInfo songInfo, StatInfo statInfo) {
+	boolean addSong(SongInfo songInfo, StatInfo statInfo) {
 		Song song = new Song(songInfo, this);
 		boolean added = songs.add(song);
 		Song songFromTheCollection = getSong(songInfo);

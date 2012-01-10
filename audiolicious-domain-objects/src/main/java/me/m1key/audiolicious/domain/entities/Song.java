@@ -138,7 +138,7 @@ public class Song {
 		return Collections.unmodifiableSet(stats);
 	}
 
-	public void addStat(StatInfo statInfo) {
+	void addStat(StatInfo statInfo) {
 		stats.add(new Stat(statInfo, this)); // TODO library.addStat
 	}
 

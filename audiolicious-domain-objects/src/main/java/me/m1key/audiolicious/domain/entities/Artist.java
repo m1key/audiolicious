@@ -78,9 +78,24 @@ public class Artist {
 		return uuid;
 	}
 
-	public boolean addAlbum(AlbumInfo albumInfo) {
+	public boolean addSong(AlbumAndSongInfo albumAndSongInfo, StatInfo statInfo) {
+		addAlbum(albumAndSongInfo);
+		Album album = getAlbum(albumAndSongInfo);
+		return album.addSong(albumAndSongInfo, statInfo);
+	}
+
+	private Album getAlbum(AlbumInfo albumInfo) {
+		for (Album album : getAlbums()) {
+			if (album.equals(new Album(albumInfo, this))) {
+				return album;
+			}
+		}
+		return null;
+	}
+
+	private void addAlbum(AlbumInfo albumInfo) {
 		Album album = new Album(albumInfo, this);
-		return albums.add(album);
+		albums.add(album);
 	}
 
 	@Override
