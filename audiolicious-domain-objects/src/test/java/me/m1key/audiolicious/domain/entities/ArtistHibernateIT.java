@@ -24,6 +24,7 @@ import static org.junit.Assert.assertTrue;
 
 import javax.persistence.PersistenceException;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class ArtistHibernateIT extends HibernateIT {
@@ -34,13 +35,15 @@ public class ArtistHibernateIT extends HibernateIT {
 
 	private Artist artist1;
 
-	@Test
-	public void shouldHaveCorrectNumberOfArtists() {
+	@Before
+	public void setup() {
 		assertEquals("There should be no artists before none are created.",
 				Integer.valueOf(0), numberOfArtists());
+	}
+
+	@Test
+	public void shouldHaveCorrectNumberOfArtists() {
 		createArtists();
-		assertEquals("There should be three artists after three are created.",
-				Integer.valueOf(3), numberOfArtists());
 	}
 
 	@Test(expected = PersistenceException.class)
@@ -54,8 +57,6 @@ public class ArtistHibernateIT extends HibernateIT {
 
 	@Test
 	public void shouldReturnArtistByName() {
-		assertEquals("There should be no artists before none are created.",
-				Integer.valueOf(0), numberOfArtists());
 		createArtists();
 		assertTrue(String.format("Should return artist [%s].", ARTIST_1_NAME),
 				artistsContainByName(ARTIST_1_NAME));
@@ -63,11 +64,7 @@ public class ArtistHibernateIT extends HibernateIT {
 
 	@Test
 	public void shouldDeleteOnlyOneArtistByName() {
-		assertEquals("There should be no artists before none are created.",
-				Integer.valueOf(0), numberOfArtists());
 		createArtists();
-		assertEquals("There should be three artists after three are created.",
-				Integer.valueOf(3), numberOfArtists());
 		assertTrue(String.format("Should return artist [%s].", ARTIST_1_NAME),
 				artistsContainByName(ARTIST_1_NAME));
 		deleteArtistByName(ARTIST_1_NAME);
@@ -80,11 +77,7 @@ public class ArtistHibernateIT extends HibernateIT {
 
 	@Test
 	public void shouldDeleteOnlyOneArtistByUuid() {
-		assertEquals("There should be no artists before none are created.",
-				Integer.valueOf(0), numberOfArtists());
 		createArtists();
-		assertEquals("There should be three artists after three are created.",
-				Integer.valueOf(3), numberOfArtists());
 		assertTrue(String.format("Should return artist [%s].", ARTIST_1_NAME),
 				artistsContainByName(ARTIST_1_NAME));
 		deleteArtistByUuid(artist1.getUuid());
@@ -106,5 +99,8 @@ public class ArtistHibernateIT extends HibernateIT {
 		persistArtist(artist1);
 		persistArtist(artist2);
 		persistArtist(artist3);
+
+		assertEquals("There should be three artists after three are created.",
+				Integer.valueOf(3), numberOfArtists());
 	}
 }

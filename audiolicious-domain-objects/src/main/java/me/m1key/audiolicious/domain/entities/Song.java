@@ -47,7 +47,7 @@ public class Song {
 	@SuppressWarnings("unused")
 	@Id
 	@GeneratedValue
-	@Column(name = "ARTIST_ID")
+	@Column(name = "ALBUM_ID")
 	private Long id;
 
 	@Column(name = "UUID", unique = true, length = 36)
