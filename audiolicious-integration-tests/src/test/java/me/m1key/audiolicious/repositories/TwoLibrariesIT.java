@@ -85,10 +85,11 @@ import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.SongMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapper;
 import me.m1key.audiolicious.services.ArtistRepository;
-import me.m1key.audiolicious.services.DefaultLibraryImporter;
+import me.m1key.audiolicious.services.CacheableSongService;
+import me.m1key.audiolicious.services.CacheAwareLibraryImporter;
 import me.m1key.audiolicious.services.DefaultLibraryService;
-import me.m1key.audiolicious.services.DefaultSongService;
 import me.m1key.audiolicious.services.FullStatInfo;
+import me.m1key.audiolicious.services.InMemoryCacheableSongService;
 import me.m1key.audiolicious.services.LibraryImporter;
 import me.m1key.audiolicious.services.LibraryRepository;
 import me.m1key.audiolicious.services.LibraryService;
@@ -150,6 +151,7 @@ public class TwoLibrariesIT {
 						AlbumAndSongInfo.class, AlbumInfo.class, Artist.class,
 						ArtistRepository.class, AudiobookHandler.class,
 						AudiobookMapper.class, AudiobookTo.class,
+						CacheableSongService.class,
 						CannotMapTrackValuesException.class,
 						DataExtractor.class, DefaultAggregateTrackMapper.class,
 						DefaultAudiobookMapper.class,
@@ -158,19 +160,19 @@ public class TwoLibrariesIT {
 						DefaultPodcastMapper.class, DefaultSongMapper.class,
 						DefaultVideoMapper.class,
 						DefaultEnglishValuesProvider.class,
-						DefaultLibraryImporter.class,
+						CacheAwareLibraryImporter.class,
 						DefaultObjectTrackDataHandler.class,
 						DefaultRawTrackDataHandler.class,
-						DefaultSongHandler.class, DefaultSongService.class,
-						EnglishValuesProvider.class, FullStatInfo.class,
-						I18nDataExtractor.class, JpaArtistRepository.class,
-						JpaLibraryRepository.class, Library.class,
-						LibraryImporter.class, LibraryParser.class,
-						LibraryService.class, LibraryRepository.class,
-						LibraryTo.class, NonAggregateTrackMapper.class,
-						NoopTrackHandler.class, NullArtist.class,
-						NullEntitiesFactory.class, NullLibrary.class,
-						ObjectMappingException.class,
+						DefaultSongHandler.class, EnglishValuesProvider.class,
+						FullStatInfo.class, I18nDataExtractor.class,
+						InMemoryCacheableSongService.class,
+						JpaArtistRepository.class, JpaLibraryRepository.class,
+						Library.class, LibraryImporter.class,
+						LibraryParser.class, LibraryService.class,
+						LibraryRepository.class, LibraryTo.class,
+						NonAggregateTrackMapper.class, NoopTrackHandler.class,
+						NullArtist.class, NullEntitiesFactory.class,
+						NullLibrary.class, ObjectMappingException.class,
 						ObjectTrackDataHandler.class, PodcastHandler.class,
 						PodcastMapper.class, PodcastTo.class, Rating.class,
 						RatingTo.class, RawTrackDataHandler.class, Song.class,

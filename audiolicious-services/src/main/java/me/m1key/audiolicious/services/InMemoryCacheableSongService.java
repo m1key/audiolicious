@@ -1,26 +1,13 @@
-/* 
- * Audiolicious - Your Music Library Statistics
- * Copyright (C) 2011, Michal Huniewicz
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see http://www.m1key.me
- */
-
 package me.m1key.audiolicious.services;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Singleton;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
@@ -30,8 +17,8 @@ import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.objecthandler.handlers.SongService;
 
 @Singleton
-@Local(SongService.class)
-public class DefaultSongService implements SongService {
+@Local({ CacheableSongService.class, SongService.class })
+public class InMemoryCacheableSongService implements CacheableSongService {
 
 	@EJB
 	private ArtistRepository artistRepository;
@@ -39,7 +26,10 @@ public class DefaultSongService implements SongService {
 	@NullArtist
 	private Artist nullArtist;
 
+	private Map<String, Artist> artistCache = new HashMap<String, Artist>();
+
 	@Override
+	@TransactionAttribute(TransactionAttributeType.MANDATORY)
 	public void addSong(SongTo songTo, Library library) {
 		Artist artist = getOrCreateArtistByName(getAlbumArtistName(songTo));
 
@@ -57,11 +47,33 @@ public class DefaultSongService implements SongService {
 	}
 
 	private Artist getOrCreateArtistByName(String albumArtistName) {
-		Artist artist = artistRepository.getArtist(albumArtistName);
-		if (artist.equals(nullArtist)) {
-			artist = new Artist(albumArtistName);
-			artistRepository.createArtist(artist);
+		Artist artistFromCache = getArtistCache().get(albumArtistName);
+
+		if (artistFromCache == null) {
+			Artist artist = artistRepository.getArtist(albumArtistName);
+			if (artist.equals(nullArtist)) {
+				artist = new Artist(albumArtistName);
+				artistRepository.createArtist(artist);
+			}
+			getArtistCache().put(albumArtistName, artist);
+			return artist;
+		} else {
+			return artistFromCache;
 		}
-		return artist;
 	}
+
+	@Override
+	public void initialise() {
+		getArtistCache().clear();
+	}
+
+	@Override
+	public void finalise() {
+		getArtistCache().clear();
+	}
+
+	protected Map<String, Artist> getArtistCache() {
+		return artistCache;
+	}
+
 }

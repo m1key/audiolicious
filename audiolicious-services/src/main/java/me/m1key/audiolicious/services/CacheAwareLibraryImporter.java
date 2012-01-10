@@ -32,19 +32,22 @@ import me.m1key.audiolicious.libraryparser.LibraryParser;
 
 @Singleton
 @Local(LibraryImporter.class)
-public class DefaultLibraryImporter implements LibraryImporter {
+public class CacheAwareLibraryImporter implements LibraryImporter {
 
 	@EJB
 	private LibraryParser libraryParser;
 	@EJB
 	private LibraryService libraryService;
+	@EJB
+	private CacheableSongService cacheableSongService;
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public LibraryTo importLibrary(File libraryFile) {
 		Library library = libraryService.createLibrary();
+		cacheableSongService.initialise();
 		libraryParser.process(libraryFile, library);
+		cacheableSongService.finalise();
 		return new LibraryTo(library);
 	}
-
 }
