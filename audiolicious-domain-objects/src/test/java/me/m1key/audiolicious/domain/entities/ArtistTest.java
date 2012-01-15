@@ -62,6 +62,30 @@ public class ArtistTest {
 	}
 
 	@Test
+	public void testAddSongOneAlbumTwice() {
+		Artist artist = new Artist("Dio");
+		assertEquals("Artist should have no albums when it has just"
+				+ " been created.", 0, artist.getAlbums().size());
+
+		artist.addSong(SampleData.album1Song1Info(),
+				SampleData.album1Song1Stat());
+		artist.addSong(SampleData.album1Song1Info(),
+				SampleData.album1Song1Stat());
+
+		assertEquals("Artist should have one album when one song added.", 1,
+				artist.getAlbums().size());
+
+		Album justAddedAlbum = artist.getAlbums().iterator().next();
+		verifyAlbum1(artist, justAddedAlbum);
+		Song justAddedSong = TestHelper.getSongByName(justAddedAlbum,
+				"Stand Up and Shout");
+		verifyAlbum1Song1(justAddedAlbum, justAddedSong);
+
+		assertEquals("Album should only one song when one song "
+				+ "was added twice.", 1, justAddedAlbum.getSongs().size());
+	}
+
+	@Test
 	public void testAddTwoSongsOneAlbum() {
 		Artist artist = new Artist("Dio");
 		assertEquals("Artist should have no albums when it has just"
