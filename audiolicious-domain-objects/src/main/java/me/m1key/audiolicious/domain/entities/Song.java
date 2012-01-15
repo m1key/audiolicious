@@ -41,13 +41,13 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 @Entity(name = "Song")
 @Table(name = "SONGS", uniqueConstraints = { @UniqueConstraint(columnNames = {
-		"NAME", "ALBUM_ID", "SONG_KEY" }) })
+		"NAME", "SONG_ID", "SONG_KEY" }) })
 public class Song {
 
 	@SuppressWarnings("unused")
 	@Id
 	@GeneratedValue
-	@Column(name = "ALBUM_ID")
+	@Column(name = "SONG_ID")
 	private Long id;
 
 	@Column(name = "UUID", unique = true, length = 36)

@@ -24,7 +24,6 @@ import static org.junit.Assert.assertTrue;
 
 import javax.persistence.PersistenceException;
 
-import org.junit.Before;
 import org.junit.Test;
 
 public class ArtistHibernateIT extends HibernateIT {
@@ -34,12 +33,6 @@ public class ArtistHibernateIT extends HibernateIT {
 	private static final String ARTIST_3_NAME = "The Edgar Winter Group";
 
 	private Artist artist1;
-
-	@Before
-	public void setup() {
-		assertEquals("There should be no artists before none are created.",
-				Integer.valueOf(0), numberOfArtists());
-	}
 
 	@Test
 	public void shouldHaveCorrectNumberOfArtists() {
@@ -92,6 +85,9 @@ public class ArtistHibernateIT extends HibernateIT {
 	}
 
 	private void createArtists() {
+		assertEquals("There should be no artists before none are created.",
+				Integer.valueOf(0), numberOfArtists());
+
 		artist1 = new Artist(ARTIST_1_NAME);
 		Artist artist2 = new Artist(ARTIST_2_NAME);
 		Artist artist3 = new Artist(ARTIST_3_NAME);

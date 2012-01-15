@@ -131,7 +131,7 @@ public abstract class HibernateIT {
 		getEntityManager().getTransaction().begin();
 		for (Album album : artistToDelete.getAlbums()) {
 			for (Song song : album.getSongs()) {
-				for(Stat stat : song.getStats()) {
+				for (Stat stat : song.getStats()) {
 					stat.removeFromLibrary();
 				}
 			}
