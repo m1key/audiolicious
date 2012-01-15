@@ -23,7 +23,7 @@ import static org.junit.Assert.assertEquals;
 import java.io.File;
 import java.io.IOException;
 
-import javax.inject.Inject;
+import javax.ejb.EJB;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
@@ -107,15 +107,15 @@ public class DefaultSongServiceWindowsCountIT {
 	private static final int TOTAL_AUDIOBOOKS = 31;
 	private static final int TOTAL_VIDEOS = 0;
 
-	@Inject
+	@EJB
 	private LibraryImporter libraryImporter;
-	@Inject
+	@EJB
 	private StubSongHandler songHandler;
-	@Inject
+	@EJB
 	private StubAudiobookHandler audiobookHandler;
-	@Inject
+	@EJB
 	private StubPodcastHandler podcastHandler;
-	@Inject
+	@EJB
 	private StubVideoHandler videoHandler;
 
 	@Deployment

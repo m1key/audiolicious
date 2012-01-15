@@ -24,7 +24,7 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.util.Date;
 
-import javax.inject.Inject;
+import javax.ejb.EJB;
 
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.commons.qualifiers.NullLibrary;
@@ -60,9 +60,9 @@ import org.junit.runner.RunWith;
 @RunWith(Arquillian.class)
 public class JpaLibraryRepositoryIT {
 
-	@Inject
+	@EJB
 	private LibraryRepository jpaLibraryRepository;
-	@Inject
+	@EJB
 	private RepositoriesTestHelperBean testHelperBean;
 
 	@Deployment

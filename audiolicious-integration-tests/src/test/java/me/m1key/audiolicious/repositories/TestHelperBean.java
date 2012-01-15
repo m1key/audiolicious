@@ -20,8 +20,8 @@ package me.m1key.audiolicious.repositories;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -35,7 +35,7 @@ public class TestHelperBean {
 
 	@PersistenceContext
 	private EntityManager entityManager;
-	@Inject
+	@EJB
 	private ArtistRepository artistRepository;
 
 	public void deleteAllArtists() {

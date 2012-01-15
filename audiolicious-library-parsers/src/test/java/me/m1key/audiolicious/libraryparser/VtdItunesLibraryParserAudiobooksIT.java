@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.Map;
 
-import javax.inject.Inject;
+import javax.ejb.EJB;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.domain.entities.Library;
@@ -50,9 +50,9 @@ public class VtdItunesLibraryParserAudiobooksIT {
 
 	private Library library;
 
-	@Inject
+	@EJB
 	private LibraryParser parser;
-	@Inject
+	@EJB
 	private StubRawTrackDataHandler stubRawTrackDataHandler;
 
 	@Deployment

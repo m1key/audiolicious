@@ -24,6 +24,7 @@ import static org.junit.Assert.assertFalse;
 import java.io.File;
 import java.io.IOException;
 
+import javax.ejb.EJB;
 import javax.inject.Inject;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
@@ -121,11 +122,11 @@ public class TwoLibrariesIT {
 	private static final String PATH_TO_FILE_1 = "../audiolicious-test-data/src/test/resources/libraries/Fragment_1.xml";
 	private static final String pathToFile2 = "../audiolicious-test-data/src/test/resources/libraries/Fragment_2.xml";
 
-	@Inject
+	@EJB
 	private LibraryImporter libraryImporter;
-	@Inject
+	@EJB
 	private ArtistRepository artistRepository;
-	@Inject
+	@EJB
 	private TestHelperBean testHelperBean;
 	@Inject
 	@NullArtist

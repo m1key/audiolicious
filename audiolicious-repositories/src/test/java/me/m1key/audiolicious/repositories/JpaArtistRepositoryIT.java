@@ -23,7 +23,7 @@ import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
 
-import javax.inject.Inject;
+import javax.ejb.EJB;
 
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.commons.qualifiers.NullLibrary;
@@ -62,9 +62,9 @@ public class JpaArtistRepositoryIT {
 	private static final String ARTIST_1_NAME = "Foreigner";
 	private static final String ARTIST_2_NAME = "Natacha Atlas";
 
-	@Inject
+	@EJB
 	private ArtistRepository jpaArtistRepository;
-	@Inject
+	@EJB
 	private RepositoriesTestHelperBean testHelperBean;
 
 	@Deployment

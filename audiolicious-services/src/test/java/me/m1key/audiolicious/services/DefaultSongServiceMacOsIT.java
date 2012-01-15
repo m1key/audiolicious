@@ -24,7 +24,7 @@ import static org.junit.Assert.assertNotNull;
 import java.io.File;
 import java.io.IOException;
 
-import javax.inject.Inject;
+import javax.ejb.EJB;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
@@ -102,9 +102,9 @@ public class DefaultSongServiceMacOsIT {
 
 	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/MacOsExportedLibrary-2011-07-28.xml";
 
-	@Inject
+	@EJB
 	private LibraryImporter libraryImporter;
-	@Inject
+	@EJB
 	private StubArtistRepository stubArtistRepository;
 
 	private static boolean handlerHasNotRunYet = true;
