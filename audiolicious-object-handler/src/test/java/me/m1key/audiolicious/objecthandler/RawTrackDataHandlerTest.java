@@ -32,7 +32,7 @@ import me.m1key.audiolicious.domain.to.AudiobookTo;
 import me.m1key.audiolicious.domain.to.AudiobookToBuilder;
 import me.m1key.audiolicious.domain.to.PodcastTo;
 import me.m1key.audiolicious.domain.to.PodcastToBuilder;
-import me.m1key.audiolicious.domain.to.SongInfoBuilder;
+import me.m1key.audiolicious.domain.to.SongToBuilder;
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.domain.to.VideoTo;
@@ -106,7 +106,7 @@ public class RawTrackDataHandlerTest {
 
 	@Test
 	public void shouldCallHandleForSong() {
-		SongTo song = (SongTo) new SongInfoBuilder("Invisible").build();
+		SongTo song = new SongToBuilder("Invisible").build();
 
 		when(songMapper.canMap(receivedTrackValues)).thenReturn(true);
 		when(songMapper.map(receivedTrackValues)).thenReturn(song);

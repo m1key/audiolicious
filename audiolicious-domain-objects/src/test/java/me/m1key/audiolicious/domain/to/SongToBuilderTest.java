@@ -24,7 +24,7 @@ import java.util.Date;
 
 import me.m1key.audiolicious.domain.to.RatingTo;
 import me.m1key.audiolicious.domain.to.SongTo;
-import me.m1key.audiolicious.domain.to.SongInfoBuilder;
+import me.m1key.audiolicious.domain.to.SongToBuilder;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -63,14 +63,13 @@ public class SongToBuilderTest {
 				albumRatingComputed, new RatingTo(albumRating), hasVideo,
 				trackNumber, discNumber, totalTime);
 
-		songViaBuilder = (SongTo) new SongInfoBuilder(name)
-				.withAlbumName(albumName).withArtist(artist)
-				.withAlbumArtist(albumArtist).withYear(year).withGenre(genre)
-				.withDateAdded(dateAdded).withDateModified(dateModified)
-				.withRating(rating).withPlayCount(playCount)
-				.withHasVideo(hasVideo).withCompilation(compilation)
-				.withSkipCount(skipCount).withSkipDate(skipDate)
-				.withAlbumRating(albumRating)
+		songViaBuilder = new SongToBuilder(name).withAlbumName(albumName)
+				.withArtist(artist).withAlbumArtist(albumArtist).withYear(year)
+				.withGenre(genre).withDateAdded(dateAdded)
+				.withDateModified(dateModified).withRating(rating)
+				.withPlayCount(playCount).withHasVideo(hasVideo)
+				.withCompilation(compilation).withSkipCount(skipCount)
+				.withSkipDate(skipDate).withAlbumRating(albumRating)
 				.withAlbumRatingComputed(albumRatingComputed)
 				.withTrackNumber(trackNumber).withDiscNumber(discNumber)
 				.build();

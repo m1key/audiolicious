@@ -25,7 +25,7 @@ import me.m1key.audiolicious.domain.to.AudiobookTo;
 import me.m1key.audiolicious.domain.to.AudiobookToBuilder;
 import me.m1key.audiolicious.domain.to.PodcastTo;
 import me.m1key.audiolicious.domain.to.PodcastToBuilder;
-import me.m1key.audiolicious.domain.to.SongInfoBuilder;
+import me.m1key.audiolicious.domain.to.SongToBuilder;
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.domain.to.VideoTo;
 import me.m1key.audiolicious.domain.to.VideoToBuilder;
@@ -64,7 +64,7 @@ public class NoopTrackHandlerTest {
 
 	@Test
 	public void canHandleSongTo() {
-		SongTo songTo = (SongTo) new SongInfoBuilder("Invisible").build();
+		SongTo songTo = new SongToBuilder("Invisible").build();
 		handler.handle(songTo, library);
 	}
 
