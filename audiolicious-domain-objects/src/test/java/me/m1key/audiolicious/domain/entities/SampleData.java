@@ -18,6 +18,7 @@
 
 package me.m1key.audiolicious.domain.entities;
 
+import me.m1key.audiolicious.domain.to.AlbumAndSongInfoBuilder;
 import me.m1key.audiolicious.domain.to.StatInfoBuilder;
 
 public class SampleData {

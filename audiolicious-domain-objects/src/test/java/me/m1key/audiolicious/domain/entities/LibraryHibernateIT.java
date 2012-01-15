@@ -24,6 +24,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 
+import me.m1key.audiolicious.domain.to.AlbumAndSongInfoBuilder;
 import me.m1key.audiolicious.domain.to.StatInfoBuilder;
 
 import org.junit.Test;
