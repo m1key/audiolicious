@@ -11,12 +11,14 @@
 		<class>me.m1key.audiolicious.domain.entities.Album</class>
 		<class>me.m1key.audiolicious.domain.entities.Song</class>
 		<class>me.m1key.audiolicious.domain.entities.Rating</class>
+		<class>me.m1key.audiolicious.domain.entities.Stat</class>
+		<class>me.m1key.audiolicious.domain.entities.Library</class>
 
 		<properties>
 			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.format_sql" value="true" />
 
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 
 			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
 		</properties>
