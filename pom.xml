@@ -30,7 +30,7 @@
 		<junit.version>4.8.2</junit.version>
 		<mockito.version>1.8.5</mockito.version>
 		<jboss-as-arquillian-container-manager.version>7.0.2.Final</jboss-as-arquillian-container-manager.version>
-		<shrinkwrap.version>1.0.0-beta-3</shrinkwrap.version>
+		<shrinkwrap.version>1.0.0-cr-2</shrinkwrap.version>
 
 		<!-- UTILS -->
 		<vtd.version>2.10</vtd.version>
@@ -40,7 +40,7 @@
 		<!-- CDI -->
 		<weld-core.version>1.1.2.Final</weld-core.version>
 		<weld-spi.version>1.1.Beta2</weld-spi.version>
-		<arquillian.version>1.0.0.CR5</arquillian.version>
+		<arquillian.version>1.0.0.CR7</arquillian.version>
 		<arquillian-weld-ee-embedded-1.1.version>1.0.0.CR2</arquillian-weld-ee-embedded-1.1.version>
 
 		<!-- PERSISTENCE -->
@@ -174,7 +174,7 @@
 			<dependency>
 				<groupId>org.jboss.shrinkwrap.resolver</groupId>
 				<artifactId>shrinkwrap-resolver-impl-maven</artifactId>
-				<version>${shrinkwrap.version}</version>
+				<version>1.1.0-alpha-2</version>
 			</dependency>
 
 			<!-- UTILS -->
