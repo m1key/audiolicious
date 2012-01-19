@@ -18,7 +18,7 @@
 
 package me.m1key.audiolicious.domain.entities;
 
-public class TestHelper {
+public class DomainObjectsTestHelper {
 
 	public static Album getAlbumByName(Artist artist, String albumName) {
 		for (Album album : artist.getAlbums()) {

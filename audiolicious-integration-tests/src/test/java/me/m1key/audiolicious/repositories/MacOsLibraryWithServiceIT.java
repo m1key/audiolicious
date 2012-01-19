@@ -118,7 +118,7 @@ public class MacOsLibraryWithServiceIT {
 	@EJB
 	private LibraryImporter libraryImporter;
 	@EJB
-	private TestHelperBean testHelperBean;
+	private IntegrationTestHelperBean testHelperBean;
 
 	@Deployment
 	public static WebArchive createTestArchive()
@@ -155,6 +155,7 @@ public class MacOsLibraryWithServiceIT {
 						DefaultSongHandler.class, EnglishValuesProvider.class,
 						FullStatInfo.class, I18nDataExtractor.class,
 						InMemoryCacheableSongService.class,
+						IntegrationTestHelperBean.class,
 						JpaArtistRepository.class, JpaLibraryRepository.class,
 						Library.class, LibraryImporter.class,
 						LibraryParser.class, LibraryService.class,
@@ -167,10 +168,10 @@ public class MacOsLibraryWithServiceIT {
 						RatingTo.class, RawTrackDataHandler.class, Song.class,
 						SongHandler.class, SongInfo.class, SongMapper.class,
 						SongService.class, SongTo.class, Stat.class,
-						StatInfo.class, TestHelperBean.class,
-						TrackHandler.class, TrackHandlersFactory.class,
-						TrackMapper.class, TrackMappersFactory.class,
-						TrackTo.class, TrackToType.class, VideoHandler.class,
+						StatInfo.class, TrackHandler.class,
+						TrackHandlersFactory.class, TrackMapper.class,
+						TrackMappersFactory.class, TrackTo.class,
+						TrackToType.class, VideoHandler.class,
 						VideoMapper.class, VideoTo.class,
 						VtdItunesLibraryParser.class, XmlNodeName.class,
 						XmlParseException.class)

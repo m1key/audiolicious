@@ -56,8 +56,8 @@ public class ArtistTest {
 
 		Album justAddedAlbum = artist.getAlbums().iterator().next();
 		verifyAlbum1(artist, justAddedAlbum);
-		Song justAddedSong = TestHelper.getSongByName(justAddedAlbum,
-				"Stand Up and Shout");
+		Song justAddedSong = DomainObjectsTestHelper.getSongByName(
+				justAddedAlbum, "Stand Up and Shout");
 		verifyAlbum1Song1(justAddedAlbum, justAddedSong);
 	}
 
@@ -77,8 +77,8 @@ public class ArtistTest {
 
 		Album justAddedAlbum = artist.getAlbums().iterator().next();
 		verifyAlbum1(artist, justAddedAlbum);
-		Song justAddedSong = TestHelper.getSongByName(justAddedAlbum,
-				"Stand Up and Shout");
+		Song justAddedSong = DomainObjectsTestHelper.getSongByName(
+				justAddedAlbum, "Stand Up and Shout");
 		verifyAlbum1Song1(justAddedAlbum, justAddedSong);
 
 		assertEquals("Album should only one song when one song "
@@ -102,11 +102,11 @@ public class ArtistTest {
 
 		Album justAddedAlbum = artist.getAlbums().iterator().next();
 		verifyAlbum1(artist, justAddedAlbum);
-		Song justAddedSong1 = TestHelper.getSongByName(justAddedAlbum,
-				"Stand Up and Shout");
+		Song justAddedSong1 = DomainObjectsTestHelper.getSongByName(
+				justAddedAlbum, "Stand Up and Shout");
 		verifyAlbum1Song1(justAddedAlbum, justAddedSong1);
-		Song justAddedSong2 = TestHelper.getSongByName(justAddedAlbum,
-				"Holy Diver");
+		Song justAddedSong2 = DomainObjectsTestHelper.getSongByName(
+				justAddedAlbum, "Holy Diver");
 		verifyAlbum1Song2(justAddedAlbum, justAddedSong2);
 	}
 
@@ -129,27 +129,28 @@ public class ArtistTest {
 				"Artist should have two album when four song from two albums added.",
 				2, artist.getAlbums().size());
 
-		Album justAddedAlbum1 = TestHelper.getAlbumByName(artist, "Holy Diver");
+		Album justAddedAlbum1 = DomainObjectsTestHelper.getAlbumByName(artist,
+				"Holy Diver");
 		assertEquals("Album should have two songs when two songs added.", 2,
 				justAddedAlbum1.getSongs().size());
 		verifyAlbum1(artist, justAddedAlbum1);
-		Song justAddedAlbum1Song1 = TestHelper.getSongByName(justAddedAlbum1,
-				"Stand Up and Shout");
+		Song justAddedAlbum1Song1 = DomainObjectsTestHelper.getSongByName(
+				justAddedAlbum1, "Stand Up and Shout");
 		verifyAlbum1Song1(justAddedAlbum1, justAddedAlbum1Song1);
-		Song justAddedAlbum1Song2 = TestHelper.getSongByName(justAddedAlbum1,
-				"Holy Diver");
+		Song justAddedAlbum1Song2 = DomainObjectsTestHelper.getSongByName(
+				justAddedAlbum1, "Holy Diver");
 		verifyAlbum1Song2(justAddedAlbum1, justAddedAlbum1Song2);
 
-		Album justAddedAlbum2 = TestHelper.getAlbumByName(artist,
+		Album justAddedAlbum2 = DomainObjectsTestHelper.getAlbumByName(artist,
 				"Strange Highways");
 		assertEquals("Album should have two songs when two songs added.", 2,
 				justAddedAlbum2.getSongs().size());
 		verifyAlbum2(artist, justAddedAlbum2);
-		Song justAddedAlbum2Song1 = TestHelper.getSongByName(justAddedAlbum2,
-				"Jesus, Mary & the Holy Ghost");
+		Song justAddedAlbum2Song1 = DomainObjectsTestHelper.getSongByName(
+				justAddedAlbum2, "Jesus, Mary & the Holy Ghost");
 		verifyAlbum2Song1(justAddedAlbum2, justAddedAlbum2Song1);
-		Song justAddedAlbum2Song2 = TestHelper.getSongByName(justAddedAlbum2,
-				"Firehead");
+		Song justAddedAlbum2Song2 = DomainObjectsTestHelper.getSongByName(
+				justAddedAlbum2, "Firehead");
 		verifyAlbum2Song2(justAddedAlbum2, justAddedAlbum2Song2);
 	}
 

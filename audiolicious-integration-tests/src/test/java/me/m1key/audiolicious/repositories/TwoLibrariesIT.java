@@ -86,8 +86,8 @@ import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.SongMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapper;
 import me.m1key.audiolicious.services.ArtistRepository;
-import me.m1key.audiolicious.services.CacheableSongService;
 import me.m1key.audiolicious.services.CacheAwareLibraryImporter;
+import me.m1key.audiolicious.services.CacheableSongService;
 import me.m1key.audiolicious.services.DefaultLibraryService;
 import me.m1key.audiolicious.services.FullStatInfo;
 import me.m1key.audiolicious.services.InMemoryCacheableSongService;
@@ -127,7 +127,7 @@ public class TwoLibrariesIT {
 	@EJB
 	private ArtistRepository artistRepository;
 	@EJB
-	private TestHelperBean testHelperBean;
+	private IntegrationTestHelperBean testHelperBean;
 	@Inject
 	@NullArtist
 	private Artist nullArtist;
@@ -167,6 +167,7 @@ public class TwoLibrariesIT {
 						DefaultSongHandler.class, EnglishValuesProvider.class,
 						FullStatInfo.class, I18nDataExtractor.class,
 						InMemoryCacheableSongService.class,
+						IntegrationTestHelperBean.class,
 						JpaArtistRepository.class, JpaLibraryRepository.class,
 						Library.class, LibraryImporter.class,
 						LibraryParser.class, LibraryService.class,
@@ -179,10 +180,10 @@ public class TwoLibrariesIT {
 						RatingTo.class, RawTrackDataHandler.class, Song.class,
 						SongHandler.class, SongInfo.class, SongMapper.class,
 						SongService.class, SongTo.class, Stat.class,
-						StatInfo.class, TestHelperBean.class,
-						TrackHandler.class, TrackHandlersFactory.class,
-						TrackMapper.class, TrackMappersFactory.class,
-						TrackTo.class, TrackToType.class, VideoHandler.class,
+						StatInfo.class, TrackHandler.class,
+						TrackHandlersFactory.class, TrackMapper.class,
+						TrackMappersFactory.class, TrackTo.class,
+						TrackToType.class, VideoHandler.class,
 						VideoMapper.class, VideoTo.class,
 						VtdItunesLibraryParser.class, XmlNodeName.class,
 						XmlParseException.class)

@@ -31,7 +31,7 @@ import me.m1key.audiolicious.domain.entities.Song;
 import me.m1key.audiolicious.services.ArtistRepository;
 
 @Stateless
-public class TestHelperBean {
+public class IntegrationTestHelperBean {
 
 	@PersistenceContext
 	private EntityManager entityManager;
