@@ -144,6 +144,7 @@ public class Stat {
 
 		this.uuid = UUID.randomUUID().toString();
 		this.library = statInfo.getLibrary();
+		this.songUuid = song.getUuid();
 		this.song = song;
 		this.dateAdded = statInfo.getDateAdded();
 		this.dateModified = statInfo.getDateModified();
@@ -189,6 +190,10 @@ public class Stat {
 
 	public void setLibrary(Library library) {
 		this.library = library;
+	}
+
+	public String getSongUuid() {
+		return songUuid;
 	}
 
 	@Override

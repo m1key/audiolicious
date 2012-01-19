@@ -19,32 +19,26 @@
 package me.m1key.audiolicious.services;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
+import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.entities.Song;
 import me.m1key.audiolicious.domain.entities.Stat;
 
 @Stateless
 public class ServicesTestHelperBean {
 
-	@PersistenceContext
-	private EntityManager entityManager;
-
-	public Set<Stat> getStats(Song song) {
-		Query select = entityManager
-				.createQuery("FROM Stat WHERE song = :song").setParameter(
-						"song", song);
-		@SuppressWarnings("unchecked")
-		List<Stat> allArtists = select.getResultList();
-		Set<Stat> statsSet = new HashSet<Stat>();
-		statsSet.addAll(allArtists);
-		return statsSet;
+	public Set<Stat> getStats(Song song, Library library) {
+		Set<Stat> stats = new HashSet<Stat>();
+		System.out.println("!!! " + library);
+		for (Stat stat : library.getStats()) {
+			if (song.getUuid().equals(stat.getSongUuid())) {
+				stats.add(stat);
+			}
+		}
+		return stats;
 	}
 
 }

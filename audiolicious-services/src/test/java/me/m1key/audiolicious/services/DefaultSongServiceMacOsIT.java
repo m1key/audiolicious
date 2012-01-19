@@ -23,6 +23,7 @@ import static org.junit.Assert.assertNotNull;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Set;
 
 import javax.ejb.EJB;
 
@@ -106,6 +107,10 @@ public class DefaultSongServiceMacOsIT {
 	private LibraryImporter libraryImporter;
 	@EJB
 	private StubArtistRepository stubArtistRepository;
+	@EJB
+	private ServicesTestHelperBean servicesTestHelperBean;
+	@EJB
+	private LibraryService libraryService;
 
 	private static boolean handlerHasNotRunYet = true;
 
@@ -133,7 +138,6 @@ public class DefaultSongServiceMacOsIT {
 						DefaultAggregateTrackMapper.class,
 						DefaultAudiobookMapper.class, DataExtractor.class,
 						DefaultEnglishValuesProvider.class,
-						DefaultLibraryService.class,
 						DefaultNoopTrackHandler.class,
 						DefaultObjectTrackDataHandler.class,
 						DefaultPodcastMapper.class,
@@ -150,16 +154,17 @@ public class DefaultSongServiceMacOsIT {
 						NullLibrary.class, ObjectMappingException.class,
 						ObjectTrackDataHandler.class, PodcastHandler.class,
 						PodcastMapper.class, PodcastTo.class, Rating.class,
-						RatingTo.class, RawTrackDataHandler.class, Song.class,
+						RatingTo.class, RawTrackDataHandler.class,
+						ServicesTestHelperBean.class, Song.class,
 						SongHandler.class, StatInfo.class, SongInfo.class,
 						SongMapper.class, SongService.class, SongTo.class,
 						Stat.class, StubArtistRepository.class,
 						StubLibraryRepository.class,
 						StubLibraryRepositoryWithInfo.class,
-						ToBasedStatInfo.class, TrackHandler.class,
-						TrackHandlersFactory.class, TrackMapper.class,
-						TrackMappersFactory.class, TrackTo.class,
-						TrackToType.class, VideoHandler.class,
+						StubLibraryService.class, ToBasedStatInfo.class,
+						TrackHandler.class, TrackHandlersFactory.class,
+						TrackMapper.class, TrackMappersFactory.class,
+						TrackTo.class, TrackToType.class, VideoHandler.class,
 						VideoMapper.class, VideoTo.class,
 						VtdItunesLibraryParser.class, XmlNodeName.class,
 						XmlParseException.class)
@@ -231,17 +236,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Fleet Foxes", song1.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song1.getAlbum().getRating());
 		assertEquals("Fleet Foxes", song1.getArtistName());
-		assertEquals(1305833366000L, song1.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1305833386000L, song1.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song1,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1305833366000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1305833386000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Alternative", song1.getGenre());
 		assertEquals("Sun It Rises", song1.getName());
-		assertEquals(1, song1.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(80), song1.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song1.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song1.getStats().iterator().next().getDateSkipped());
+		assertEquals(1, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song1.getAlbum());
 		assertEquals(2009, song1.getYear());
 	}
@@ -256,17 +262,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Fleet Foxes", song2.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song2.getAlbum().getRating());
 		assertEquals("Fleet Foxes", song2.getArtistName());
-		assertEquals(1305833367000L, song2.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1305833479000L, song2.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song2,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1305833367000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1305833479000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Alternative", song2.getGenre());
 		assertEquals("He Doesn't Know Why", song2.getName());
-		assertEquals(1, song2.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(80), song2.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song2.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song2.getStats().iterator().next().getDateSkipped());
+		assertEquals(1, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song2.getAlbum());
 		assertEquals(2009, song2.getYear());
 	}
@@ -281,17 +288,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Fleet Foxes", song3.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song3.getAlbum().getRating());
 		assertEquals("Fleet Foxes", song3.getArtistName());
-		assertEquals(1305833367000L, song3.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1305833399000L, song3.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song3,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1305833367000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1305833399000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Alternative", song3.getGenre());
 		assertEquals("White Winter Hymnal", song3.getName());
-		assertEquals(1, song3.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(80), song3.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song3.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song3.getStats().iterator().next().getDateSkipped());
+		assertEquals(1, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song3.getAlbum());
 		assertEquals(2009, song3.getYear());
 	}
@@ -306,17 +314,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Fleet Foxes", song4.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song4.getAlbum().getRating());
 		assertEquals("Fleet Foxes", song4.getArtistName());
-		assertEquals(1305833367000L, song4.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1305833418000L, song4.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song4,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1305833367000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1305833418000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Alternative", song4.getGenre());
 		assertEquals("Ragged Wood", song4.getName());
-		assertEquals(1, song4.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(80), song4.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song4.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song4.getStats().iterator().next().getDateSkipped());
+		assertEquals(1, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song4.getAlbum());
 		assertEquals(2009, song4.getYear());
 	}
@@ -331,17 +340,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Fleet Foxes", song5.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song5.getAlbum().getRating());
 		assertEquals("Fleet Foxes", song5.getArtistName());
-		assertEquals(1305833367000L, song5.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1305833433000L, song5.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song5,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1305833367000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1305833433000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Alternative", song5.getGenre());
 		assertEquals("Tiger Mountain Peasant Song", song5.getName());
-		assertEquals(1, song5.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(80), song5.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song5.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song5.getStats().iterator().next().getDateSkipped());
+		assertEquals(1, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song5.getAlbum());
 		assertEquals(2009, song5.getYear());
 	}
@@ -356,17 +366,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Fleet Foxes", song6.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song6.getAlbum().getRating());
 		assertEquals("Fleet Foxes", song6.getArtistName());
-		assertEquals(1305833367000L, song6.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1305833453000L, song6.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song6,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1305833367000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1305833453000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Alternative", song6.getGenre());
 		assertEquals("Quiet Houses", song6.getName());
-		assertEquals(1, song6.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(80), song6.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song6.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song6.getStats().iterator().next().getDateSkipped());
+		assertEquals(1, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song6.getAlbum());
 		assertEquals(2009, song6.getYear());
 	}
@@ -381,17 +392,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Fleet Foxes", song7.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song7.getAlbum().getRating());
 		assertEquals("Fleet Foxes", song7.getArtistName());
-		assertEquals(1305833367000L, song7.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1305833467000L, song7.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song7,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1305833367000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1305833467000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Alternative", song7.getGenre());
 		assertEquals("Heard Them Stirring", song7.getName());
-		assertEquals(1, song7.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(80), song7.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song7.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song7.getStats().iterator().next().getDateSkipped());
+		assertEquals(1, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song7.getAlbum());
 		assertEquals(2009, song7.getYear());
 	}
@@ -406,17 +418,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Fleet Foxes", song8.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song8.getAlbum().getRating());
 		assertEquals("Fleet Foxes", song8.getArtistName());
-		assertEquals(1305833367000L, song8.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1305833493000L, song8.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song8,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1305833367000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1305833493000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Alternative", song8.getGenre());
 		assertEquals("Your Protector", song8.getName());
-		assertEquals(1, song8.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(80), song8.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song8.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song8.getStats().iterator().next().getDateSkipped());
+		assertEquals(1, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song8.getAlbum());
 		assertEquals(2009, song8.getYear());
 	}
@@ -431,17 +444,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Fleet Foxes", song9.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song9.getAlbum().getRating());
 		assertEquals("Fleet Foxes", song9.getArtistName());
-		assertEquals(1305833367000L, song9.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1305833497000L, song9.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song9,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1305833367000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1305833497000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Alternative", song9.getGenre());
 		assertEquals("Meadowlarks", song9.getName());
-		assertEquals(1, song9.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(60), song9.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song9.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song9.getStats().iterator().next().getDateSkipped());
+		assertEquals(1, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(60), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song9.getAlbum());
 		assertEquals(2009, song9.getYear());
 	}
@@ -457,17 +471,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Fleet Foxes", song10.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song10.getAlbum().getRating());
 		assertEquals("Fleet Foxes", song10.getArtistName());
-		assertEquals(1305833367000L, song10.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1305833516000L, song10.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song10,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1305833367000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1305833516000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Alternative", song10.getGenre());
 		assertEquals("Blue Ridge Mountains", song10.getName());
-		assertEquals(1, song10.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(80), song10.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song10.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song10.getStats().iterator().next().getDateSkipped());
+		assertEquals(1, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song10.getAlbum());
 		assertEquals(2009, song10.getYear());
 	}
@@ -483,17 +498,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Fleet Foxes", song11.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song11.getAlbum().getRating());
 		assertEquals("Fleet Foxes", song11.getArtistName());
-		assertEquals(1305833367000L, song11.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1305833513000L, song11.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song11,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1305833367000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1305833513000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Alternative", song11.getGenre());
 		assertEquals("Oliver James", song11.getName());
-		assertEquals(1, song11.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(60), song11.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song11.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song11.getStats().iterator().next().getDateSkipped());
+		assertEquals(1, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(60), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song11.getAlbum());
 		assertEquals(2009, song11.getYear());
 	}
@@ -509,17 +525,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Fleet Foxes", song12.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song12.getAlbum().getRating());
 		assertEquals("Fleet Foxes", song12.getArtistName());
-		assertEquals(1305833367000L, song12.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1305833518000L, song12.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song12,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1305833367000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1305833518000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Alternative", song12.getGenre());
 		assertEquals("Sun Giant", song12.getName());
-		assertEquals(1, song12.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(60), song12.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song12.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song12.getStats().iterator().next().getDateSkipped());
+		assertEquals(1, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(60), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song12.getAlbum());
 		assertEquals(2009, song12.getYear());
 	}
@@ -535,17 +552,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Fleet Foxes", song13.getAlbum().getArtist().getName());
 		assertEquals(new Rating(80), song13.getAlbum().getRating());
 		assertEquals("Fleet Foxes", song13.getArtistName());
-		assertEquals(1305833367000L, song13.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1305833534000L, song13.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song13,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1305833367000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1305833534000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Alternative", song13.getGenre());
 		assertEquals("Drops In River", song13.getName());
-		assertEquals(1, song13.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(80), song13.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song13.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song13.getStats().iterator().next().getDateSkipped());
+		assertEquals(1, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song13.getAlbum());
 		assertEquals(2009, song13.getYear());
 	}
@@ -753,17 +771,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Various Artists", song2.getAlbum().getArtist().getName());
 		assertEquals(new Rating(100), song2.getAlbum().getRating());
 		assertEquals("Freeland", song2.getArtistName());
-		assertEquals(1255633820000L, song2.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1255631063000L, song2.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song2,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1255633820000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1255631063000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Soundtrack", song2.getGenre());
 		assertEquals("Big Wednesday", song2.getName());
-		assertEquals(10, song2.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(80), song2.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song2.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song2.getStats().iterator().next().getDateSkipped());
+		assertEquals(10, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song2.getAlbum());
 		assertEquals(2003, song2.getYear());
 	}
@@ -778,17 +797,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Various Artists", song3.getAlbum().getArtist().getName());
 		assertEquals(new Rating(100), song3.getAlbum().getRating());
 		assertEquals("Layo & Bushwacka!", song3.getArtistName());
-		assertEquals(1255633866000L, song3.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1255631063000L, song3.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song3,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1255633866000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1255631063000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Soundtrack", song3.getGenre());
 		assertEquals("Blind Tiger", song3.getName());
-		assertEquals(7, song3.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(80), song3.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song3.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song3.getStats().iterator().next().getDateSkipped());
+		assertEquals(7, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song3.getAlbum());
 		assertEquals(2003, song3.getYear());
 	}
@@ -803,17 +823,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Various Artists", song4.getAlbum().getArtist().getName());
 		assertEquals(new Rating(100), song4.getAlbum().getRating());
 		assertEquals("Supreme Beings Of Leisure", song4.getArtistName());
-		assertEquals(1255633919000L, song4.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1255631063000L, song4.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song4,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1255633919000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1255631063000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Soundtrack", song4.getGenre());
 		assertEquals("Under The Gun", song4.getName());
-		assertEquals(8, song4.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(100), song4.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song4.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song4.getStats().iterator().next().getDateSkipped());
+		assertEquals(8, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(100), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song4.getAlbum());
 		assertEquals(2003, song4.getYear());
 	}
@@ -828,17 +849,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Various Artists", song5.getAlbum().getArtist().getName());
 		assertEquals(new Rating(100), song5.getAlbum().getRating());
 		assertEquals("Meat Beat Manifesto", song5.getArtistName());
-		assertEquals(1255633946000L, song5.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1255631063000L, song5.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song5,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1255633946000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1255631063000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Soundtrack", song5.getGenre());
 		assertEquals("Martenot Waves", song5.getName());
-		assertEquals(7, song5.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(100), song5.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song5.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song5.getStats().iterator().next().getDateSkipped());
+		assertEquals(7, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(100), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song5.getAlbum());
 		assertEquals(2003, song5.getYear());
 	}
@@ -853,17 +875,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Various Artists", song6.getAlbum().getArtist().getName());
 		assertEquals(new Rating(100), song6.getAlbum().getRating());
 		assertEquals("Photek", song6.getArtistName());
-		assertEquals(1255634002000L, song6.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1255631063000L, song6.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song6,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1255634002000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1255631063000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Soundtrack", song6.getGenre());
 		assertEquals("Ren 2", song6.getName());
-		assertEquals(8, song6.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(100), song6.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song6.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song6.getStats().iterator().next().getDateSkipped());
+		assertEquals(8, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(100), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song6.getAlbum());
 		assertEquals(2003, song6.getYear());
 	}
@@ -878,17 +901,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Various Artists", song7.getAlbum().getArtist().getName());
 		assertEquals(new Rating(100), song7.getAlbum().getRating());
 		assertEquals("Death In Vegas", song7.getArtistName());
-		assertEquals(1255634030000L, song7.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1255631063000L, song7.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song7,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1255634030000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1255631063000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Soundtrack", song7.getGenre());
 		assertEquals("Hands Around My Throat", song7.getName());
-		assertEquals(6, song7.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(80), song7.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song7.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song7.getStats().iterator().next().getDateSkipped());
+		assertEquals(6, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song7.getAlbum());
 		assertEquals(2003, song7.getYear());
 	}
@@ -904,17 +928,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Various Artists", song8.getAlbum().getArtist().getName());
 		assertEquals(new Rating(100), song8.getAlbum().getRating());
 		assertEquals("Junkie XL Feat. Saffron", song8.getArtistName());
-		assertEquals(1255634063000L, song8.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1255631063000L, song8.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song8,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1255634063000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1255631063000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Soundtrack", song8.getGenre());
 		assertEquals("Beauty Never Fades (Animatrix Edit)", song8.getName());
-		assertEquals(8, song8.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(80), song8.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song8.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song8.getStats().iterator().next().getDateSkipped());
+		assertEquals(8, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song8.getAlbum());
 		assertEquals(2003, song8.getYear());
 	}
@@ -929,17 +954,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals("Various Artists", song9.getAlbum().getArtist().getName());
 		assertEquals(new Rating(100), song9.getAlbum().getRating());
 		assertEquals("Overseer", song9.getArtistName());
-		assertEquals(1255634102000L, song9.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1255631063000L, song9.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song9,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1255634102000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1255631063000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Soundtrack", song9.getGenre());
 		assertEquals("Supermoves (Animatrix)", song9.getName());
-		assertEquals(7, song9.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(100), song9.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song9.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song9.getStats().iterator().next().getDateSkipped());
+		assertEquals(7, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(100), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song9.getAlbum());
 		assertEquals(2003, song9.getYear());
 	}
@@ -955,17 +981,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals(new Rating(100), song10.getAlbum().getRating());
 		assertEquals("Juno Reactor Feat. Keanu Reeves & Laurence Fishburne",
 				song10.getArtistName());
-		assertEquals(1255634128000L, song10.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1255631063000L, song10.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song10,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1255634128000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1255631063000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Soundtrack", song10.getGenre());
 		assertEquals("Conga Fury (Animatrix Edit)", song10.getName());
-		assertEquals(7, song10.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(100), song10.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song10.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song10.getStats().iterator().next().getDateSkipped());
+		assertEquals(7, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(100), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song10.getAlbum());
 		assertEquals(2003, song10.getYear());
 	}
@@ -982,17 +1009,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals(
 				"Junkie XL/Don Davis Feat. Keanu Reeves And Laurence Fishburne",
 				song11.getArtistName());
-		assertEquals(1255634169000L, song11.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1255631063000L, song11.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song11,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1255634169000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1255631063000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Soundtrack", song11.getGenre());
 		assertEquals("Red Pill, Blue Pill", song11.getName());
-		assertEquals(4, song11.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(80), song11.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song11.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song11.getStats().iterator().next().getDateSkipped());
+		assertEquals(4, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song11.getAlbum());
 		assertEquals(2003, song11.getYear());
 	}
@@ -1009,17 +1037,18 @@ public class DefaultSongServiceMacOsIT {
 		assertEquals(
 				"Tech Itch/Don Davis Feat. Laurence Fishburne & Lambert Wilson",
 				song12.getArtistName());
-		assertEquals(1255634217000L, song12.getStats().iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1255631063000L, song12.getStats().iterator().next()
-				.getDateModified().getTime());
+		Set<Stat> stats = servicesTestHelperBean.getStats(song12,
+				libraryService.getByUuid("Library UUID"));
+		assertEquals(1255634217000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1255631063000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Soundtrack", song12.getGenre());
 		assertEquals("The Real", song12.getName());
-		assertEquals(5, song12.getStats().iterator().next().getPlayCount());
-		assertEquals(new Rating(80), song12.getStats().iterator().next()
-				.getRating());
-		assertEquals(0, song12.getStats().iterator().next().getSkipCount());
-		assertEquals(null, song12.getStats().iterator().next().getDateSkipped());
+		assertEquals(5, stats.iterator().next().getPlayCount());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
+		assertEquals(0, stats.iterator().next().getSkipCount());
+		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song12.getAlbum());
 		assertEquals(2003, song12.getYear());
 	}
