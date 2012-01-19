@@ -65,6 +65,9 @@ public class Stat {
 	@Column(name = "PLAY_COUNT")
 	private int playCount;
 
+	@Column(name = "SONG_UUID")
+	private String songUuid;
+
 	@Embedded
 	private Rating rating;
 
@@ -94,6 +97,7 @@ public class Stat {
 
 		this.uuid = UUID.randomUUID().toString();
 		this.library = library;
+		this.songUuid = song.getUuid();
 		this.song = song;
 		this.dateAdded = dateAdded;
 		this.dateModified = dateModified;
@@ -103,6 +107,29 @@ public class Stat {
 		this.playCount = playCount;
 
 		library.addStat(this);
+	}
+
+	protected Stat(Library library, String songUuid, Date dateAdded,
+			Date dateModified, Date dateSkipped, int skipCount, Rating rating,
+			int playCount) {
+		if (library == null) {
+			throw new IllegalArgumentException(
+					"Null library passed to Stat constructor.");
+		}
+		if (songUuid == null) {
+			throw new IllegalArgumentException(
+					"Null songUuid passed to Stat constructor.");
+		}
+
+		this.uuid = UUID.randomUUID().toString();
+		this.library = library;
+		this.songUuid = songUuid;
+		this.dateAdded = dateAdded;
+		this.dateModified = dateModified;
+		this.dateSkipped = dateSkipped;
+		this.skipCount = skipCount;
+		this.rating = rating;
+		this.playCount = playCount;
 	}
 
 	protected Stat(StatInfo statInfo, Song song) {

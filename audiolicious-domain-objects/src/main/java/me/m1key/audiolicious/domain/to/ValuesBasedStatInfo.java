@@ -5,7 +5,7 @@ import java.util.Date;
 import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.entities.StatInfo;
 
-public class DefaultStatInfo implements StatInfo {
+public class ValuesBasedStatInfo implements StatInfo {
 
 	private Library library;
 	private Date dateAdded;
@@ -14,11 +14,14 @@ public class DefaultStatInfo implements StatInfo {
 	private int rating;
 	private Date dateSkipped;
 	private int skipCount;
+	private String songUuid;
 
-	public DefaultStatInfo(Library library, Date dateAdded, Date dateModified,
-			int playCount, int rating, Date dateSkipped, int skipCount) {
+	public ValuesBasedStatInfo(Library library, String songUuid, Date dateAdded,
+			Date dateModified, int playCount, int rating, Date dateSkipped,
+			int skipCount) {
 		super();
 		this.library = library;
+		this.songUuid = songUuid;
 		this.dateAdded = dateAdded;
 		this.dateModified = dateModified;
 		this.playCount = playCount;
@@ -60,6 +63,11 @@ public class DefaultStatInfo implements StatInfo {
 	@Override
 	public int getSkipCount() {
 		return skipCount;
+	}
+
+	@Override
+	public String getSongUuid() {
+		return songUuid;
 	}
 
 }

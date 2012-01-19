@@ -156,9 +156,10 @@ public class DefaultSongServiceWindowsIT {
 						StatInfo.class, StubArtistRepository.class,
 						StubLibraryRepository.class,
 						StubLibraryRepositoryWithInfo.class,
-						TrackHandler.class, TrackHandlersFactory.class,
-						TrackMapper.class, TrackMappersFactory.class,
-						TrackTo.class, TrackToType.class, VideoHandler.class,
+						ToBasedStatInfo.class, TrackHandler.class,
+						TrackHandlersFactory.class, TrackMapper.class,
+						TrackMappersFactory.class, TrackTo.class,
+						TrackToType.class, VideoHandler.class,
 						VideoMapper.class, VideoTo.class,
 						VtdItunesLibraryParser.class, XmlNodeName.class,
 						XmlParseException.class)

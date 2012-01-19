@@ -38,4 +38,6 @@ public interface StatInfo {
 
 	int getSkipCount();
 
+	String getSongUuid();
+
 }

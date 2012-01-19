@@ -92,6 +92,7 @@ import me.m1key.audiolicious.services.InMemoryCacheableSongService;
 import me.m1key.audiolicious.services.LibraryImporter;
 import me.m1key.audiolicious.services.LibraryRepository;
 import me.m1key.audiolicious.services.LibraryService;
+import me.m1key.audiolicious.services.ToBasedStatInfo;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -168,10 +169,10 @@ public class MacOsLibraryWithServiceIT {
 						RatingTo.class, RawTrackDataHandler.class, Song.class,
 						SongHandler.class, SongInfo.class, SongMapper.class,
 						SongService.class, SongTo.class, Stat.class,
-						StatInfo.class, TrackHandler.class,
-						TrackHandlersFactory.class, TrackMapper.class,
-						TrackMappersFactory.class, TrackTo.class,
-						TrackToType.class, VideoHandler.class,
+						StatInfo.class, ToBasedStatInfo.class,
+						TrackHandler.class, TrackHandlersFactory.class,
+						TrackMapper.class, TrackMappersFactory.class,
+						TrackTo.class, TrackToType.class, VideoHandler.class,
 						VideoMapper.class, VideoTo.class,
 						VtdItunesLibraryParser.class, XmlNodeName.class,
 						XmlParseException.class)

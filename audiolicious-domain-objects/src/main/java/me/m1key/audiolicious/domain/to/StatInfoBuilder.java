@@ -8,6 +8,7 @@ import me.m1key.audiolicious.domain.entities.StatInfo;
 public class StatInfoBuilder {
 
 	private Library library;
+	private String songUuid;
 	private Date dateAdded;
 	private Date dateModified;
 	private int playCount;
@@ -17,6 +18,11 @@ public class StatInfoBuilder {
 
 	public StatInfoBuilder withLibrary(Library library) {
 		this.library = library;
+		return this;
+	}
+
+	public StatInfoBuilder withSongUuid(String songUuid) {
+		this.songUuid = songUuid;
 		return this;
 	}
 
@@ -51,8 +57,8 @@ public class StatInfoBuilder {
 	}
 
 	public StatInfo build() {
-		return new DefaultStatInfo(library, dateAdded, dateModified, playCount,
-				rating, dateSkipped, skipCount);
+		return new ValuesBasedStatInfo(library, songUuid, dateAdded, dateModified,
+				playCount, rating, dateSkipped, skipCount);
 	}
 
 }

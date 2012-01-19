@@ -79,4 +79,9 @@ public class FullStatInfo implements StatInfo {
 		return songTo.getSkipCount();
 	}
 
+	@Override
+	public String getSongUuid() {
+		throw new UnsupportedOperationException("Cannot call getSongUuid here");
+	}
+
 }

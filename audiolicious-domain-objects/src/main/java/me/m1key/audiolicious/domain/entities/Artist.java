@@ -78,7 +78,7 @@ public class Artist {
 		return uuid;
 	}
 
-	public boolean addSong(AlbumAndSongInfo albumAndSongInfo, StatInfo statInfo) {
+	public String addSong(AlbumAndSongInfo albumAndSongInfo, StatInfo statInfo) {
 		addAlbum(albumAndSongInfo);
 		Album album = getAlbum(albumAndSongInfo);
 		return album.addSong(albumAndSongInfo, statInfo);
