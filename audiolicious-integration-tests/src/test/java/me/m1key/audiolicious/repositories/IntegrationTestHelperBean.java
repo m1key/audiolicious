@@ -90,17 +90,21 @@ public class IntegrationTestHelperBean {
 	}
 
 	public int getSongStatsSize(String songName) {
-		Query select = entityManager
-				.createQuery("FROM Song WHERE name = :name").setParameter(
-						"name", songName);
+		Query selectSongs = entityManager.createQuery(
+				"FROM Song WHERE name = :name").setParameter("name", songName);
 		@SuppressWarnings("unchecked")
-		List<Song> allSongsByName = select.getResultList();
+		List<Song> allSongsByName = selectSongs.getResultList();
 		if (allSongsByName.size() != 1) {
 			throw new RuntimeException(String.format(
 					"There should be one song by "
 							+ "name [%s] but there are [%d].", songName,
 					allSongsByName.size()));
 		}
-		return allSongsByName.get(0).getStats().size();
+		Song song = allSongsByName.get(0);
+
+		Query selectStats = entityManager.createQuery(
+				"FROM Stat WHERE song = :song").setParameter("song", song);
+		List<?> allStatsForSong = selectStats.getResultList();
+		return allStatsForSong.size();
 	}
 }
