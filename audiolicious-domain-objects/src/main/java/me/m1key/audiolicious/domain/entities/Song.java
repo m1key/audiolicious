@@ -18,7 +18,6 @@
 
 package me.m1key.audiolicious.domain.entities;
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -132,10 +131,6 @@ public class Song {
 
 	public String getKey() {
 		return key;
-	}
-
-	public Set<Stat> getStats() {
-		return Collections.unmodifiableSet(stats);
 	}
 
 	void addStat(StatInfo statInfo) {
