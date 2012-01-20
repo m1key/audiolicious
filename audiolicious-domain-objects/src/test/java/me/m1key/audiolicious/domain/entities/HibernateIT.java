@@ -21,6 +21,7 @@ package me.m1key.audiolicious.domain.entities;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -126,16 +127,24 @@ public abstract class HibernateIT {
 		return select.getResultList();
 	}
 
-	protected void deleteArtistByName(String artistName) {
+	protected void deleteArtistByName(String artistName, Library library) {
 		Artist artistToDelete = getArtistByName(artistName);
 		getEntityManager().getTransaction().begin();
 		for (Album album : artistToDelete.getAlbums()) {
 			for (Song song : album.getSongs()) {
-				for (Stat stat : song.getStats()) {
+				for (Stat stat : getStats(song, library)) {
 					stat.removeFromLibrary();
 				}
 			}
 		}
+		getEntityManager().remove(artistToDelete);
+		getEntityManager().getTransaction().commit();
+	}
+
+	// TODO merge with the other one once library is converted to DDD.
+	protected void deleteArtistByName(String artistName) {
+		Artist artistToDelete = getArtistByName(artistName);
+		getEntityManager().getTransaction().begin();
 		getEntityManager().remove(artistToDelete);
 		getEntityManager().getTransaction().commit();
 	}
@@ -298,6 +307,16 @@ public abstract class HibernateIT {
 				.getResultList().get(0);
 		getEntityManager().getTransaction().commit();
 		return song;
+	}
+
+	protected Set<Stat> getStats(Song song, Library library) {
+		Set<Stat> stats = new HashSet<Stat>();
+		for (Stat stat : library.getStats()) {
+			if (song.getUuid().equals(stat.getSongUuid())) {
+				stats.add(stat);
+			}
+		}
+		return stats;
 	}
 
 }

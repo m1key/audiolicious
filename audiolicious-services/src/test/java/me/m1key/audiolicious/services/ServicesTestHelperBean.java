@@ -32,7 +32,6 @@ public class ServicesTestHelperBean {
 
 	public Set<Stat> getStats(Song song, Library library) {
 		Set<Stat> stats = new HashSet<Stat>();
-		System.out.println("!!! " + library);
 		for (Stat stat : library.getStats()) {
 			if (song.getUuid().equals(stat.getSongUuid())) {
 				stats.add(stat);

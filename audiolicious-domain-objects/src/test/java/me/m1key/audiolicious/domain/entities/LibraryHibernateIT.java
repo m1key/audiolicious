@@ -23,6 +23,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
+import java.util.Set;
 
 import me.m1key.audiolicious.domain.to.AlbumAndSongInfoBuilder;
 import me.m1key.audiolicious.domain.to.StatInfoBuilder;
@@ -133,7 +134,7 @@ public class LibraryHibernateIT extends HibernateIT {
 	public void shouldDeleteOnlyOneArtistAndAllOfItsStatsSongsAndAlbums() {
 		createArtistsAlbumsSongsAndStats();
 
-		deleteArtistByName(ARTIST_1_NAME);
+		deleteArtistByName(ARTIST_1_NAME, library);
 
 		assertEquals("There should be one artist after one has been deleted.",
 				1, getAllArtists().size());
@@ -158,10 +159,11 @@ public class LibraryHibernateIT extends HibernateIT {
 		assertNotNull(String.format("Song [%s] should not be null.",
 				ARTIST_2_ALBUM_1_SONG_5_NAME), song);
 
-		assertTrue("There should be at least one stat for this song.", song
-				.getStats().iterator().hasNext());
+		Set<Stat> stats = getStats(song, library);
+		assertTrue("There should be at least one stat for this song.", stats
+				.iterator().hasNext());
 
-		Stat stat = song.getStats().iterator().next();
+		Stat stat = stats.iterator().next();
 
 		assertEquals(String.format("Song [%s] date added should be correct.",
 				ARTIST_2_ALBUM_1_SONG_5_NAME), stat.getDateAdded(),

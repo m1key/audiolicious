@@ -36,7 +36,7 @@ public class InMemoryCacheableSongService implements CacheableSongService {
 		String songUuid = artist.addSong(songTo, new FullStatInfo(songTo,
 				library));
 
-//		library.addStat(new ToBasedStatInfo(songTo, songUuid));
+		// library.addStat(new ToBasedStatInfo(songTo, songUuid));
 	}
 
 	private String getAlbumArtistName(SongTo song) {
