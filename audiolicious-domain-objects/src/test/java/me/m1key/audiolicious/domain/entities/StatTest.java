@@ -195,9 +195,9 @@ public class StatTest {
 				.withYear(1988).withGenre("Rock").withHasVideo(false)
 				.withRating(100).withAlbumName("Anthology").withAlbumRating(80)
 				.build());
-		library.addStat(new StatInfoBuilder().withLibrary(library)
-				.withDateAdded(new Date()).withSkipCount(0).withRating(80)
-				.withPlayCount(12).withSongUuid(song.getUuid()).build());
+		library.addStat(new StatInfoBuilder().withDateAdded(new Date())
+				.withSkipCount(0).withRating(80).withPlayCount(12)
+				.withSongUuid(song.getUuid()).build());
 		return artist.getAlbums().iterator().next().getSongs().iterator()
 				.next();
 	}

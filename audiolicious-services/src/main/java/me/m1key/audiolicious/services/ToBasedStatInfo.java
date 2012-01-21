@@ -2,7 +2,6 @@ package me.m1key.audiolicious.services;
 
 import java.util.Date;
 
-import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.entities.StatInfo;
 import me.m1key.audiolicious.domain.to.RatingTo;
 import me.m1key.audiolicious.domain.to.SongTo;
@@ -11,14 +10,8 @@ public class ToBasedStatInfo implements StatInfo {
 
 	private SongTo songTo;
 	private String songUuid;
-	private Library library;
 
-	@Override
-	public Library getLibrary() {
-		return library;
-	}
-
-	public ToBasedStatInfo(SongTo songTo, String songUuid, Library library) {
+	public ToBasedStatInfo(SongTo songTo, String songUuid) {
 		if (songTo == null) {
 			throw new IllegalArgumentException(
 					"Null SongTo passed to DefaultStatInfo constructor.");
@@ -30,7 +23,6 @@ public class ToBasedStatInfo implements StatInfo {
 
 		this.songTo = songTo;
 		this.songUuid = songUuid;
-		this.library = library;
 	}
 
 	@Override

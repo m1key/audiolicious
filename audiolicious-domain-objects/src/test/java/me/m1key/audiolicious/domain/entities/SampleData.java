@@ -30,9 +30,7 @@ public class SampleData {
 	}
 
 	public static StatInfo album1Song1Stat() {
-		Library library = new Library("Library UUID");
-		StatInfo statInfo = new StatInfoBuilder().withRating(100)
-				.withLibrary(library).build();
+		StatInfo statInfo = new StatInfoBuilder().withRating(100).build();
 		return statInfo;
 	}
 
@@ -43,9 +41,7 @@ public class SampleData {
 	}
 
 	public static StatInfo album1Song2Stat() {
-		Library library = new Library("Library UUID");
-		StatInfo statInfo = new StatInfoBuilder().withRating(100)
-				.withLibrary(library).build();
+		StatInfo statInfo = new StatInfoBuilder().withRating(100).build();
 		return statInfo;
 	}
 
@@ -56,9 +52,7 @@ public class SampleData {
 	}
 
 	public static StatInfo album2Song1Stat() {
-		Library library = new Library("Library UUID");
-		StatInfo statInfo = new StatInfoBuilder().withRating(100)
-				.withLibrary(library).build();
+		StatInfo statInfo = new StatInfoBuilder().withRating(100).build();
 		return statInfo;
 	}
 
@@ -69,9 +63,7 @@ public class SampleData {
 	}
 
 	public static StatInfo album2Song2Stat() {
-		Library library = new Library("Library UUID");
-		StatInfo statInfo = new StatInfoBuilder().withRating(100)
-				.withLibrary(library).build();
+		StatInfo statInfo = new StatInfoBuilder().withRating(100).build();
 		return statInfo;
 	}
 

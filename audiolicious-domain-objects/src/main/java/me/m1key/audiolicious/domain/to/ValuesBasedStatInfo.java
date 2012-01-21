@@ -2,12 +2,10 @@ package me.m1key.audiolicious.domain.to;
 
 import java.util.Date;
 
-import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.entities.StatInfo;
 
 public class ValuesBasedStatInfo implements StatInfo {
 
-	private Library library;
 	private Date dateAdded;
 	private Date dateModified;
 	private int playCount;
@@ -16,11 +14,10 @@ public class ValuesBasedStatInfo implements StatInfo {
 	private int skipCount;
 	private String songUuid;
 
-	public ValuesBasedStatInfo(Library library, String songUuid,
-			Date dateAdded, Date dateModified, int playCount, int rating,
-			Date dateSkipped, int skipCount) {
+	public ValuesBasedStatInfo(String songUuid, Date dateAdded,
+			Date dateModified, int playCount, int rating, Date dateSkipped,
+			int skipCount) {
 		super();
-		this.library = library;
 		this.songUuid = songUuid;
 		this.dateAdded = dateAdded;
 		this.dateModified = dateModified;
@@ -28,11 +25,6 @@ public class ValuesBasedStatInfo implements StatInfo {
 		this.rating = rating;
 		this.dateSkipped = dateSkipped;
 		this.skipCount = skipCount;
-	}
-
-	@Override
-	public Library getLibrary() {
-		return library;
 	}
 
 	@Override

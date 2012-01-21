@@ -24,8 +24,6 @@ import me.m1key.audiolicious.domain.to.RatingTo;
 
 public interface StatInfo {
 
-	Library getLibrary();
-
 	Date getDateAdded();
 
 	Date getDateModified();
