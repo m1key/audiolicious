@@ -144,7 +144,7 @@ public class DefaultSongServiceWindowsIT {
 						DefaultRawTrackDataHandler.class,
 						DefaultSongHandler.class, DefaultSongMapper.class,
 						DefaultVideoMapper.class, EnglishValuesProvider.class,
-						FullStatInfo.class, I18nDataExtractor.class,
+						I18nDataExtractor.class,
 						InMemoryCacheableSongService.class, Library.class,
 						LibraryImporter.class, LibraryParser.class,
 						LibraryService.class, LibraryRepository.class,
@@ -688,15 +688,14 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song10.getArtistName());
 		Set<Stat> stats = servicesTestHelperBean.getStats(song10,
 				libraryService.getByUuid("Library UUID"));
-		assertEquals(1279381466000L, stats.iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1276755858000L, stats.iterator().next()
-				.getDateModified().getTime());
+		assertEquals(1279381466000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1276755858000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Rock", song10.getGenre());
 		assertEquals("Die Eier Von Satan", song10.getName());
 		assertEquals(1, stats.iterator().next().getPlayCount());
-		assertEquals(new Rating(80), stats.iterator().next()
-				.getRating());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
 		assertEquals(0, stats.iterator().next().getSkipCount());
 		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song10.getAlbum());
@@ -715,15 +714,14 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song11.getArtistName());
 		Set<Stat> stats = servicesTestHelperBean.getStats(song11,
 				libraryService.getByUuid("Library UUID"));
-		assertEquals(1279381466000L, stats.iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1276755858000L, stats.iterator().next()
-				.getDateModified().getTime());
+		assertEquals(1279381466000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1276755858000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Rock", song11.getGenre());
 		assertEquals("Pushit", song11.getName());
 		assertEquals(1, stats.iterator().next().getPlayCount());
-		assertEquals(new Rating(80), stats.iterator().next()
-				.getRating());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
 		assertEquals(0, stats.iterator().next().getSkipCount());
 		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song11.getAlbum());
@@ -742,15 +740,14 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song12.getArtistName());
 		Set<Stat> stats = servicesTestHelperBean.getStats(song12,
 				libraryService.getByUuid("Library UUID"));
-		assertEquals(1279381466000L, stats.iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1276755858000L, stats.iterator().next()
-				.getDateModified().getTime());
+		assertEquals(1279381466000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1276755858000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Rock", song12.getGenre());
 		assertEquals("Cesaro Summability", song12.getName());
 		assertEquals(1, stats.iterator().next().getPlayCount());
-		assertEquals(new Rating(80), stats.iterator().next()
-				.getRating());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
 		assertEquals(0, stats.iterator().next().getSkipCount());
 		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song12.getAlbum());
@@ -769,15 +766,14 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song13.getArtistName());
 		Set<Stat> stats = servicesTestHelperBean.getStats(song13,
 				libraryService.getByUuid("Library UUID"));
-		assertEquals(1279381466000L, stats.iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1276755858000L, stats.iterator().next()
-				.getDateModified().getTime());
+		assertEquals(1279381466000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1276755858000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Rock", song13.getGenre());
 		assertEquals("Ænema", song13.getName());
 		assertEquals(1, stats.iterator().next().getPlayCount());
-		assertEquals(new Rating(80), stats.iterator().next()
-				.getRating());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
 		assertEquals(0, stats.iterator().next().getSkipCount());
 		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song13.getAlbum());
@@ -796,15 +792,14 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song14.getArtistName());
 		Set<Stat> stats = servicesTestHelperBean.getStats(song14,
 				libraryService.getByUuid("Library UUID"));
-		assertEquals(1279381466000L, stats.iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1276755858000L, stats.iterator().next()
-				.getDateModified().getTime());
+		assertEquals(1279381466000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1276755858000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Rock", song14.getGenre());
 		assertEquals("(-) Ions", song14.getName());
 		assertEquals(1, stats.iterator().next().getPlayCount());
-		assertEquals(new Rating(20), stats.iterator().next()
-				.getRating());
+		assertEquals(new Rating(20), stats.iterator().next().getRating());
 		assertEquals(0, stats.iterator().next().getSkipCount());
 		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song14.getAlbum());
@@ -823,15 +818,14 @@ public class DefaultSongServiceWindowsIT {
 		assertEquals("Tool", song15.getArtistName());
 		Set<Stat> stats = servicesTestHelperBean.getStats(song15,
 				libraryService.getByUuid("Library UUID"));
-		assertEquals(1279381466000L, stats.iterator().next()
-				.getDateAdded().getTime());
-		assertEquals(1276755858000L, stats.iterator().next()
-				.getDateModified().getTime());
+		assertEquals(1279381466000L, stats.iterator().next().getDateAdded()
+				.getTime());
+		assertEquals(1276755858000L, stats.iterator().next().getDateModified()
+				.getTime());
 		assertEquals("Rock", song15.getGenre());
 		assertEquals("Third Eye", song15.getName());
 		assertEquals(1, stats.iterator().next().getPlayCount());
-		assertEquals(new Rating(80), stats.iterator().next()
-				.getRating());
+		assertEquals(new Rating(80), stats.iterator().next().getRating());
 		assertEquals(0, stats.iterator().next().getSkipCount());
 		assertEquals(null, stats.iterator().next().getDateSkipped());
 		assertEquals(album, song15.getAlbum());

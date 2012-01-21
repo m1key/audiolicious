@@ -89,7 +89,6 @@ import me.m1key.audiolicious.services.ArtistRepository;
 import me.m1key.audiolicious.services.CacheAwareLibraryImporter;
 import me.m1key.audiolicious.services.CacheableSongService;
 import me.m1key.audiolicious.services.DefaultLibraryService;
-import me.m1key.audiolicious.services.FullStatInfo;
 import me.m1key.audiolicious.services.InMemoryCacheableSongService;
 import me.m1key.audiolicious.services.LibraryImporter;
 import me.m1key.audiolicious.services.LibraryRepository;
@@ -166,7 +165,7 @@ public class TwoLibrariesIT {
 						DefaultObjectTrackDataHandler.class,
 						DefaultRawTrackDataHandler.class,
 						DefaultSongHandler.class, EnglishValuesProvider.class,
-						FullStatInfo.class, I18nDataExtractor.class,
+						I18nDataExtractor.class,
 						InMemoryCacheableSongService.class,
 						IntegrationTestHelperBean.class,
 						JpaArtistRepository.class, JpaLibraryRepository.class,

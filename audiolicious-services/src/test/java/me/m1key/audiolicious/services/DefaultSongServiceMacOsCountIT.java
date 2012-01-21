@@ -148,7 +148,7 @@ public class DefaultSongServiceMacOsCountIT {
 						DefaultObjectTrackDataHandler.class,
 						DefaultPodcastMapper.class, DefaultSongMapper.class,
 						DefaultVideoMapper.class, EnglishValuesProvider.class,
-						FullStatInfo.class, I18nDataExtractor.class,
+						I18nDataExtractor.class,
 						InMemoryCacheableSongService.class, Library.class,
 						LibraryImporter.class, LibraryParser.class,
 						LibraryService.class, LibraryRepository.class,

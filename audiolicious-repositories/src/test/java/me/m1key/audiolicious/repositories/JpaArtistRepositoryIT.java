@@ -42,7 +42,6 @@ import me.m1key.audiolicious.domain.to.RatingTo;
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.services.ArtistRepository;
-import me.m1key.audiolicious.services.FullStatInfo;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -80,11 +79,10 @@ public class JpaArtistRepositoryIT {
 						"META-INF/persistence.xml")
 				.addClasses(Album.class, AlbumAndSongInfo.class,
 						AlbumInfo.class, Artist.class, ArtistRepository.class,
-						FullStatInfo.class, JpaArtistRepository.class,
-						Library.class, NullArtist.class,
-						NullEntitiesFactory.class, NullLibrary.class,
-						Rating.class, RatingTo.class, Song.class,
-						SongInfo.class, SongTo.class, Stat.class,
+						JpaArtistRepository.class, Library.class,
+						NullArtist.class, NullEntitiesFactory.class,
+						NullLibrary.class, Rating.class, RatingTo.class,
+						Song.class, SongInfo.class, SongTo.class, Stat.class,
 						StatInfo.class, RepositoriesTestHelperBean.class,
 						TrackTo.class)
 				.addAsLibraries(
