@@ -79,27 +79,6 @@ public class Stat {
 	protected Stat() {
 	}
 
-	protected Stat(Library library, Song song, Date dateAdded,
-			Date dateModified, Date dateSkipped, int skipCount, Rating rating,
-			int playCount) {
-		if (library == null) {
-			throw new IllegalArgumentException(
-					"Null library passed to Stat constructor.");
-		}
-
-		this.uuid = UUID.randomUUID().toString();
-		this.library = library;
-		this.songUuid = song.getUuid();
-		this.dateAdded = dateAdded;
-		this.dateModified = dateModified;
-		this.dateSkipped = dateSkipped;
-		this.skipCount = skipCount;
-		this.rating = rating;
-		this.playCount = playCount;
-
-		library.addStat(this);
-	}
-
 	protected Stat(Library library, String songUuid, Date dateAdded,
 			Date dateModified, Date dateSkipped, int skipCount, Rating rating,
 			int playCount) {
@@ -121,29 +100,6 @@ public class Stat {
 		this.skipCount = skipCount;
 		this.rating = rating;
 		this.playCount = playCount;
-	}
-
-	protected Stat(StatInfo statInfo, Song song) {
-		if (statInfo.getLibrary() == null) {
-			throw new IllegalArgumentException(
-					"Null library passed to Stat constructor.");
-		}
-		if (song == null) {
-			throw new IllegalArgumentException(
-					"Null song passed to Stat constructor.");
-		}
-
-		this.uuid = UUID.randomUUID().toString();
-		this.library = statInfo.getLibrary();
-		this.songUuid = song.getUuid();
-		this.dateAdded = statInfo.getDateAdded();
-		this.dateModified = statInfo.getDateModified();
-		this.playCount = statInfo.getPlayCount();
-		this.rating = new Rating(statInfo.getRating());
-		this.dateSkipped = statInfo.getDateSkipped();
-		this.skipCount = statInfo.getSkipCount();
-
-		library.addStat(this);
 	}
 
 	public Date getDateAdded() {

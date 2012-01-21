@@ -34,13 +34,13 @@ public class LibraryTest {
 				.build());
 		library.addStat(new StatInfoBuilder().withLibrary(library)
 				.withDateAdded(new Date()).withSkipCount(0).withRating(80)
-				.withPlayCount(12).withSong(song).build());
+				.withPlayCount(12).withSongUuid(song.getUuid()).build());
 		// Song song =
 		// artist.getAlbums().iterator().next().getSongs().iterator()
 		// .next();
 
-		Stat stat = new Stat(library, song, new Date(), new Date(), new Date(),
-				0, new Rating(100), 10);
+		Stat stat = new Stat(library, song.getUuid(), new Date(), new Date(),
+				new Date(), 0, new Rating(100), 10);
 		library.addStat(stat);
 
 		assertTrue("Library should contain stat after stat added.", library

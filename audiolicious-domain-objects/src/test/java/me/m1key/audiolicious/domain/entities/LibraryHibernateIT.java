@@ -237,7 +237,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(12).withSong(song1).build());
+				.withRating(80).withPlayCount(12).withSongUuid(song1.getUuid())
+				.build());
 
 		Song song2 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_2_NAME).withTrackNumber(2)
@@ -249,7 +250,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(3).withSong(song2).build());
+				.withRating(80).withPlayCount(3).withSongUuid(song2.getUuid())
+				.build());
 
 		Song song3 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_3_NAME).withTrackNumber(3)
@@ -261,7 +263,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(4).withSong(song3).build());
+				.withRating(80).withPlayCount(4).withSongUuid(song3.getUuid())
+				.build());
 
 		Song song4 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_4_NAME).withTrackNumber(4)
@@ -273,7 +276,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(8).withSong(song4).build());
+				.withRating(80).withPlayCount(8).withSongUuid(song4.getUuid())
+				.build());
 
 		Song song5 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_5_NAME).withTrackNumber(5)
@@ -285,7 +289,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(91).withSong(song5).build());
+				.withRating(80).withPlayCount(91).withSongUuid(song5.getUuid())
+				.build());
 
 		Song song6 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_6_NAME).withTrackNumber(6)
@@ -297,7 +302,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(11).withSong(song6).build());
+				.withRating(80).withPlayCount(11).withSongUuid(song6.getUuid())
+				.build());
 
 		Song song7 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_7_NAME).withTrackNumber(7)
@@ -309,7 +315,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(6).withSong(song7).build());
+				.withRating(80).withPlayCount(6).withSongUuid(song7.getUuid())
+				.build());
 
 		Song song8 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_8_NAME).withTrackNumber(8)
@@ -321,7 +328,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(2).withSong(song8).build());
+				.withRating(80).withPlayCount(2).withSongUuid(song8.getUuid())
+				.build());
 
 		Song song9 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_9_NAME).withTrackNumber(9)
@@ -333,7 +341,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(5).withSong(song9).build());
+				.withRating(80).withPlayCount(5).withSongUuid(song9.getUuid())
+				.build());
 
 		Song song10 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_10_NAME).withTrackNumber(10)
@@ -345,7 +354,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(6).withSong(song10).build());
+				.withRating(80).withPlayCount(6).withSongUuid(song10.getUuid())
+				.build());
 
 		Song song11 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_11_NAME).withTrackNumber(11)
@@ -357,7 +367,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(7).withSong(song11).build());
+				.withRating(80).withPlayCount(7).withSongUuid(song11.getUuid())
+				.build());
 	}
 
 	private void addSongsToAlbum2(Artist artist1) {
@@ -371,7 +382,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(19).withSong(song1).build());
+				.withRating(80).withPlayCount(19).withSongUuid(song1.getUuid())
+				.build());
 
 		Song song2 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_2_NAME).withTrackNumber(2)
@@ -383,7 +395,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(29).withSong(song2).build());
+				.withRating(80).withPlayCount(29).withSongUuid(song2.getUuid())
+				.build());
 
 		Song song3 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_3_NAME).withTrackNumber(3)
@@ -395,7 +408,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(39).withSong(song3).build());
+				.withRating(80).withPlayCount(39).withSongUuid(song3.getUuid())
+				.build());
 
 		Song song4 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_4_NAME).withTrackNumber(4)
@@ -407,7 +421,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(49).withSong(song4).build());
+				.withRating(80).withPlayCount(49).withSongUuid(song4.getUuid())
+				.build());
 
 		Song song5 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_5_NAME).withTrackNumber(5)
@@ -419,7 +434,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(59).withSong(song5).build());
+				.withRating(80).withPlayCount(59).withSongUuid(song5.getUuid())
+				.build());
 
 		Song song6 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_6_NAME).withTrackNumber(6)
@@ -431,7 +447,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(69).withSong(song6).build());
+				.withRating(80).withPlayCount(69).withSongUuid(song6.getUuid())
+				.build());
 
 		Song song7 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_7_NAME).withTrackNumber(7)
@@ -443,7 +460,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(79).withSong(song7).build());
+				.withRating(80).withPlayCount(79).withSongUuid(song7.getUuid())
+				.build());
 
 		Song song8 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_8_NAME).withTrackNumber(8)
@@ -455,7 +473,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(89).withSong(song8).build());
+				.withRating(80).withPlayCount(89).withSongUuid(song8.getUuid())
+				.build());
 
 		Song song9 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_9_NAME).withTrackNumber(9)
@@ -467,7 +486,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(99).withSong(song9).build());
+				.withRating(80).withPlayCount(99).withSongUuid(song9.getUuid())
+				.build());
 
 		Song song10 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_10_NAME).withTrackNumber(10)
@@ -479,7 +499,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(109).withSong(song10).build());
+				.withRating(80).withPlayCount(109)
+				.withSongUuid(song10.getUuid()).build());
 
 		Song song11 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_11_NAME).withTrackNumber(11)
@@ -491,7 +512,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(119).withSong(song11).build());
+				.withRating(80).withPlayCount(119)
+				.withSongUuid(song11.getUuid()).build());
 
 		Song song12 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_12_NAME).withTrackNumber(12)
@@ -503,7 +525,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(129).withSong(song12).build());
+				.withRating(80).withPlayCount(129)
+				.withSongUuid(song12.getUuid()).build());
 
 		Song song13 = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_13_NAME).withTrackNumber(13)
@@ -515,7 +538,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(139).withSong(song13).build());
+				.withRating(80).withPlayCount(139)
+				.withSongUuid(song13.getUuid()).build());
 	}
 
 	private void addSongsToAlbum3(Artist artist2) {
@@ -529,7 +553,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(19).withSong(song1).build());
+				.withRating(80).withPlayCount(19).withSongUuid(song1.getUuid())
+				.build());
 
 		Song song2 = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_2_NAME).withTrackNumber(2)
@@ -540,7 +565,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(29).withSong(song2).build());
+				.withRating(80).withPlayCount(29).withSongUuid(song2.getUuid())
+				.build());
 
 		Song song3 = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_3_NAME).withTrackNumber(3)
@@ -551,7 +577,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(39).withSong(song3).build());
+				.withRating(80).withPlayCount(39).withSongUuid(song3.getUuid())
+				.build());
 
 		Song song4 = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_4_NAME).withTrackNumber(4)
@@ -562,7 +589,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(49).withSong(song4).build());
+				.withRating(80).withPlayCount(49).withSongUuid(song4.getUuid())
+				.build());
 
 		Song song5 = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_5_NAME).withTrackNumber(5)
@@ -573,7 +601,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(59).withSong(song5).build());
+				.withRating(80).withPlayCount(59).withSongUuid(song5.getUuid())
+				.build());
 
 		Song song6 = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_6_NAME).withTrackNumber(6)
@@ -584,7 +613,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(69).withSong(song6).build());
+				.withRating(80).withPlayCount(69).withSongUuid(song6.getUuid())
+				.build());
 
 		Song song7 = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_7_NAME).withTrackNumber(7)
@@ -595,7 +625,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(79).withSong(song7).build());
+				.withRating(80).withPlayCount(79).withSongUuid(song7.getUuid())
+				.build());
 
 		Song song8 = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_8_NAME).withTrackNumber(8)
@@ -606,7 +637,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(89).withSong(song8).build());
+				.withRating(80).withPlayCount(89).withSongUuid(song8.getUuid())
+				.build());
 
 		Song song9 = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_9_NAME).withTrackNumber(1)
@@ -617,7 +649,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(99).withSong(song9).build());
+				.withRating(80).withPlayCount(99).withSongUuid(song9.getUuid())
+				.build());
 
 		Song song10 = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_10_NAME).withTrackNumber(10)
@@ -628,7 +661,8 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(109).withSong(song10).build());
+				.withRating(80).withPlayCount(109)
+				.withSongUuid(song10.getUuid()).build());
 
 		Song song11 = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_11_NAME).withTrackNumber(11)
@@ -639,6 +673,7 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(119).withSong(song11).build());
+				.withRating(80).withPlayCount(119)
+				.withSongUuid(song11.getUuid()).build());
 	}
 }

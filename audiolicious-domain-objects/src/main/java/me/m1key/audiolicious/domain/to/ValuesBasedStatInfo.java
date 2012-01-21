@@ -3,7 +3,6 @@ package me.m1key.audiolicious.domain.to;
 import java.util.Date;
 
 import me.m1key.audiolicious.domain.entities.Library;
-import me.m1key.audiolicious.domain.entities.Song;
 import me.m1key.audiolicious.domain.entities.StatInfo;
 
 public class ValuesBasedStatInfo implements StatInfo {
@@ -16,11 +15,10 @@ public class ValuesBasedStatInfo implements StatInfo {
 	private Date dateSkipped;
 	private int skipCount;
 	private String songUuid;
-	private Song song;
 
 	public ValuesBasedStatInfo(Library library, String songUuid,
 			Date dateAdded, Date dateModified, int playCount, int rating,
-			Date dateSkipped, int skipCount, Song song) {
+			Date dateSkipped, int skipCount) {
 		super();
 		this.library = library;
 		this.songUuid = songUuid;
@@ -30,7 +28,6 @@ public class ValuesBasedStatInfo implements StatInfo {
 		this.rating = rating;
 		this.dateSkipped = dateSkipped;
 		this.skipCount = skipCount;
-		this.song = song;
 	}
 
 	@Override
@@ -71,12 +68,6 @@ public class ValuesBasedStatInfo implements StatInfo {
 	@Override
 	public String getSongUuid() {
 		return songUuid;
-	}
-
-	@Override
-	public Song getSong() {
-		// TODO REMOVE THIS
-		return song;
 	}
 
 }

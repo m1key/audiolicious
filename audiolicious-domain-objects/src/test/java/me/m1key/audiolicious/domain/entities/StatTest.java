@@ -23,9 +23,9 @@ public class StatTest {
 		Rating rating = new Rating(100);
 		int playCount = 10;
 
-		Stat stat1 = new Stat(library, song, dateAdded, dateModified,
+		Stat stat1 = new Stat(library, song.getUuid(), dateAdded, dateModified,
 				dateSkipped, skipCount, rating, playCount);
-		Stat stat2 = new Stat(library, song, dateAdded, dateModified,
+		Stat stat2 = new Stat(library, song.getUuid(), dateAdded, dateModified,
 				dateSkipped, skipCount, rating, playCount);
 
 		assertEquals("Stats should be identical because "
@@ -45,10 +45,10 @@ public class StatTest {
 		Rating rating = new Rating(100);
 		int playCount = 10;
 
-		Stat stat1 = new Stat(library, song, dateAdded, dateModified,
+		Stat stat1 = new Stat(library, song.getUuid(), dateAdded, dateModified,
 				dateSkipped, skipCount, rating, playCount);
-		Stat stat2 = new Stat(library, song, dateAdded2, dateModified,
-				dateSkipped, skipCount, rating, playCount);
+		Stat stat2 = new Stat(library, song.getUuid(), dateAdded2,
+				dateModified, dateSkipped, skipCount, rating, playCount);
 
 		assertEquals("Stats should be identical because "
 				+ "they are for the same song and are from the same library.",
@@ -67,10 +67,10 @@ public class StatTest {
 		Rating rating = new Rating(100);
 		int playCount = 10;
 
-		Stat stat1 = new Stat(library, song, dateAdded, dateModified,
+		Stat stat1 = new Stat(library, song.getUuid(), dateAdded, dateModified,
 				dateSkipped, skipCount, rating, playCount);
-		Stat stat2 = new Stat(library, song, dateAdded, dateModified2,
-				dateSkipped, skipCount, rating, playCount);
+		Stat stat2 = new Stat(library, song.getUuid(), dateAdded,
+				dateModified2, dateSkipped, skipCount, rating, playCount);
 
 		assertEquals("Stats should be identical because "
 				+ "they are for the same song and are from the same library.",
@@ -89,9 +89,9 @@ public class StatTest {
 		Rating rating = new Rating(100);
 		int playCount = 10;
 
-		Stat stat1 = new Stat(library, song, dateAdded, dateModified,
+		Stat stat1 = new Stat(library, song.getUuid(), dateAdded, dateModified,
 				dateSkipped, skipCount, rating, playCount);
-		Stat stat2 = new Stat(library, song, dateAdded, dateModified,
+		Stat stat2 = new Stat(library, song.getUuid(), dateAdded, dateModified,
 				dateSkipped2, skipCount, rating, playCount);
 
 		assertEquals("Stats should be identical because "
@@ -111,9 +111,9 @@ public class StatTest {
 		Rating rating = new Rating(100);
 		int playCount = 10;
 
-		Stat stat1 = new Stat(library, song, dateAdded, dateModified,
+		Stat stat1 = new Stat(library, song.getUuid(), dateAdded, dateModified,
 				dateSkipped, skipCount, rating, playCount);
-		Stat stat2 = new Stat(library, song, dateAdded, dateModified,
+		Stat stat2 = new Stat(library, song.getUuid(), dateAdded, dateModified,
 				dateSkipped, skipCount2, rating, playCount);
 
 		assertEquals("Stats should be identical because "
@@ -133,9 +133,9 @@ public class StatTest {
 		Rating rating2 = new Rating(80);
 		int playCount = 10;
 
-		Stat stat1 = new Stat(library, song, dateAdded, dateModified,
+		Stat stat1 = new Stat(library, song.getUuid(), dateAdded, dateModified,
 				dateSkipped, skipCount, rating, playCount);
-		Stat stat2 = new Stat(library, song, dateAdded, dateModified,
+		Stat stat2 = new Stat(library, song.getUuid(), dateAdded, dateModified,
 				dateSkipped, skipCount, rating2, playCount);
 
 		assertEquals("Stats should be identical because "
@@ -155,9 +155,9 @@ public class StatTest {
 		int playCount = 10;
 		int playCount2 = 11;
 
-		Stat stat1 = new Stat(library, song, dateAdded, dateModified,
+		Stat stat1 = new Stat(library, song.getUuid(), dateAdded, dateModified,
 				dateSkipped, skipCount, rating, playCount);
-		Stat stat2 = new Stat(library, song, dateAdded, dateModified,
+		Stat stat2 = new Stat(library, song.getUuid(), dateAdded, dateModified,
 				dateSkipped, skipCount, rating, playCount2);
 
 		assertEquals("Stats should be identical because "
@@ -177,10 +177,10 @@ public class StatTest {
 		Rating rating = new Rating(100);
 		int playCount = 10;
 
-		Stat stat1 = new Stat(library, song, dateAdded, dateModified,
+		Stat stat1 = new Stat(library, song.getUuid(), dateAdded, dateModified,
 				dateSkipped, skipCount, rating, playCount);
-		Stat stat2 = new Stat(library2, song, dateAdded, dateModified,
-				dateSkipped, skipCount, rating, playCount);
+		Stat stat2 = new Stat(library2, song.getUuid(), dateAdded,
+				dateModified, dateSkipped, skipCount, rating, playCount);
 
 		assertFalse("Stats should not be identical because "
 				+ "they are for the same song but not from the same library.",
@@ -197,7 +197,7 @@ public class StatTest {
 				.build());
 		library.addStat(new StatInfoBuilder().withLibrary(library)
 				.withDateAdded(new Date()).withSkipCount(0).withRating(80)
-				.withPlayCount(12).withSong(song).build());
+				.withPlayCount(12).withSongUuid(song.getUuid()).build());
 		return artist.getAlbums().iterator().next().getSongs().iterator()
 				.next();
 	}
