@@ -78,10 +78,10 @@ public class Artist {
 		return uuid;
 	}
 
-	public Song addSong(AlbumAndSongInfo albumAndSongInfo, StatInfo statInfo) {
+	public Song addSong(AlbumAndSongInfo albumAndSongInfo) {
 		addAlbum(albumAndSongInfo);
 		Album album = getAlbum(albumAndSongInfo);
-		return album.addSong(albumAndSongInfo, statInfo);
+		return album.addSong(albumAndSongInfo);
 	}
 
 	private Album getAlbum(AlbumInfo albumInfo) {

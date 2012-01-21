@@ -34,7 +34,7 @@ public class InMemoryCacheableSongService implements CacheableSongService {
 	@TransactionAttribute(TransactionAttributeType.MANDATORY)
 	public void addSong(SongTo songTo, Library library) {
 		Artist artist = getOrCreateArtistByName(getAlbumArtistName(songTo));
-		Song song = artist.addSong(songTo, new FullStatInfo(songTo, library));
+		Song song = artist.addSong(songTo);
 
 		library.addStat(new ToBasedStatInfo(songTo, song.getUuid(), song,
 				library));

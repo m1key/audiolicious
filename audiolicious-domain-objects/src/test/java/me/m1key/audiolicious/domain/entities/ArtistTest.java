@@ -48,8 +48,7 @@ public class ArtistTest {
 		assertEquals("Artist should have no albums when it has just"
 				+ " been created.", 0, artist.getAlbums().size());
 
-		artist.addSong(SampleData.album1Song1Info(),
-				SampleData.album1Song1Stat());
+		artist.addSong(SampleData.album1Song1Info());
 
 		assertEquals("Artist should have one album when one song added.", 1,
 				artist.getAlbums().size());
@@ -67,10 +66,8 @@ public class ArtistTest {
 		assertEquals("Artist should have no albums when it has just"
 				+ " been created.", 0, artist.getAlbums().size());
 
-		artist.addSong(SampleData.album1Song1Info(),
-				SampleData.album1Song1Stat());
-		artist.addSong(SampleData.album1Song1Info(),
-				SampleData.album1Song1Stat());
+		artist.addSong(SampleData.album1Song1Info());
+		artist.addSong(SampleData.album1Song1Info());
 
 		assertEquals("Artist should have one album when one song added.", 1,
 				artist.getAlbums().size());
@@ -91,10 +88,8 @@ public class ArtistTest {
 		assertEquals("Artist should have no albums when it has just"
 				+ " been created.", 0, artist.getAlbums().size());
 
-		artist.addSong(SampleData.album1Song1Info(),
-				SampleData.album1Song1Stat());
-		artist.addSong(SampleData.album1Song2Info(),
-				SampleData.album1Song2Stat());
+		artist.addSong(SampleData.album1Song1Info());
+		artist.addSong(SampleData.album1Song2Info());
 
 		assertEquals(
 				"Artist should have one album when two song from same album added.",
@@ -116,14 +111,10 @@ public class ArtistTest {
 		assertEquals("Artist should have no albums when it has just"
 				+ " been created.", 0, artist.getAlbums().size());
 
-		artist.addSong(SampleData.album1Song1Info(),
-				SampleData.album1Song1Stat());
-		artist.addSong(SampleData.album1Song2Info(),
-				SampleData.album1Song2Stat());
-		artist.addSong(SampleData.album2Song1Info(),
-				SampleData.album2Song1Stat());
-		artist.addSong(SampleData.album2Song2Info(),
-				SampleData.album2Song2Stat());
+		artist.addSong(SampleData.album1Song1Info());
+		artist.addSong(SampleData.album1Song2Info());
+		artist.addSong(SampleData.album2Song1Info());
+		artist.addSong(SampleData.album2Song2Info());
 
 		assertEquals(
 				"Artist should have two album when four song from two albums added.",

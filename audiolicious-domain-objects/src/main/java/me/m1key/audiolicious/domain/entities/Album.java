@@ -100,7 +100,7 @@ public class Album {
 		return Collections.unmodifiableSet(songs);
 	}
 
-	Song addSong(SongInfo songInfo, StatInfo statInfo) {
+	Song addSong(SongInfo songInfo) {
 		Song song = new Song(songInfo, this);
 		songs.add(song);
 		return getSong(songInfo);
