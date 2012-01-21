@@ -103,7 +103,8 @@ public class IntegrationTestHelperBean {
 		Song song = allSongsByName.get(0);
 
 		Query selectStats = entityManager.createQuery(
-				"FROM Stat WHERE song = :song").setParameter("song", song);
+				"FROM Stat WHERE songUuid = :songUuid").setParameter(
+				"songUuid", song.getUuid());
 		List<?> allStatsForSong = selectStats.getResultList();
 		return allStatsForSong.size();
 	}

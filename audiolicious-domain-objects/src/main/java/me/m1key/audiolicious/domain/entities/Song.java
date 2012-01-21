@@ -134,7 +134,7 @@ public class Song {
 	}
 
 	void addStat(StatInfo statInfo) {
-		stats.add(new Stat(statInfo, this)); // TODO library.addStat
+//		stats.add(new Stat(statInfo, this)); // TODO library.addStat
 	}
 
 	public void clearStats() {

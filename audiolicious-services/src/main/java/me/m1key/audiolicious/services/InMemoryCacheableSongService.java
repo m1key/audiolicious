@@ -14,6 +14,7 @@ import javax.inject.Inject;
 import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.Library;
+import me.m1key.audiolicious.domain.entities.Song;
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.objecthandler.handlers.SongService;
 
@@ -33,10 +34,10 @@ public class InMemoryCacheableSongService implements CacheableSongService {
 	@TransactionAttribute(TransactionAttributeType.MANDATORY)
 	public void addSong(SongTo songTo, Library library) {
 		Artist artist = getOrCreateArtistByName(getAlbumArtistName(songTo));
-		String songUuid = artist.addSong(songTo, new FullStatInfo(songTo,
-				library));
+		Song song = artist.addSong(songTo, new FullStatInfo(songTo, library));
 
-		// library.addStat(new ToBasedStatInfo(songTo, songUuid));
+		library.addStat(new ToBasedStatInfo(songTo, song.getUuid(), song,
+				library));
 	}
 
 	private String getAlbumArtistName(SongTo song) {

@@ -21,6 +21,7 @@ package me.m1key.audiolicious.services;
 import java.util.Date;
 
 import me.m1key.audiolicious.domain.entities.Library;
+import me.m1key.audiolicious.domain.entities.Song;
 import me.m1key.audiolicious.domain.entities.StatInfo;
 import me.m1key.audiolicious.domain.to.RatingTo;
 import me.m1key.audiolicious.domain.to.SongTo;
@@ -82,6 +83,12 @@ public class FullStatInfo implements StatInfo {
 	@Override
 	public String getSongUuid() {
 		throw new UnsupportedOperationException("Cannot call getSongUuid here");
+	}
+
+	@Override
+	public Song getSong() {
+		// TODO REMOVE THIS
+		return null;
 	}
 
 }

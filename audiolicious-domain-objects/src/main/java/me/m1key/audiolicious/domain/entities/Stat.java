@@ -71,7 +71,7 @@ public class Stat {
 	@Embedded
 	private Rating rating;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(fetch = FetchType.LAZY, optional = true)
 	@JoinColumn(name = "SONG_ID")
 	private Song song;
 
@@ -198,7 +198,7 @@ public class Stat {
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(getSong()).toHashCode();
+		return new HashCodeBuilder().append(getSongUuid()).toHashCode();
 	}
 
 	@Override
@@ -206,7 +206,8 @@ public class Stat {
 		if (!(other instanceof Stat))
 			return false;
 		Stat castOther = (Stat) other;
-		return new EqualsBuilder().append(getSong(), castOther.getSong())
+		return new EqualsBuilder()
+				.append(getSongUuid(), castOther.getSongUuid())
 				.append(getLibrary(), castOther.getLibrary()).isEquals();
 	}
 

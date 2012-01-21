@@ -119,11 +119,13 @@ public class Library {
 	}
 
 	public void addStat(StatInfo defaultStatInfo) {
-		stats.add(new Stat(this, defaultStatInfo.getSongUuid(), defaultStatInfo
-				.getDateAdded(), defaultStatInfo.getDateModified(),
-				defaultStatInfo.getDateSkipped(), defaultStatInfo
-						.getSkipCount(),
-				new Rating(defaultStatInfo.getRating()), defaultStatInfo
-						.getPlayCount()));
+		// stats.add(new Stat(this, defaultStatInfo.getSongUuid(),
+		// defaultStatInfo
+		// .getDateAdded(), defaultStatInfo.getDateModified(),
+		// defaultStatInfo.getDateSkipped(), defaultStatInfo
+		// .getSkipCount(),
+		// new Rating(defaultStatInfo.getRating()), defaultStatInfo
+		// .getPlayCount()));
+		stats.add(new Stat(defaultStatInfo, defaultStatInfo.getSong()));
 	}
 }

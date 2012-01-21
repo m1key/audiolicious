@@ -40,4 +40,6 @@ public interface StatInfo {
 
 	String getSongUuid();
 
+	Song getSong();
+
 }

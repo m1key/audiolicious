@@ -227,7 +227,7 @@ public class LibraryHibernateIT extends HibernateIT {
 
 	private void addSongsToAlbum1(Artist artist1) {
 
-		artist1.addSong(
+		Song song1 = artist1.addSong(
 				new AlbumAndSongInfoBuilder(ARTIST_1_ALBUM_1_SONG_1_NAME)
 						.withTrackNumber(1).withDiscNumber(1).withYear(1988)
 						.withGenre("Rock").withHasVideo(false).withRating(100)
@@ -239,6 +239,11 @@ public class LibraryHibernateIT extends HibernateIT {
 						.withDateSkipped(artist1Album1DateSkipped)
 						.withSkipCount(0).withRating(80).withPlayCount(12)
 						.build());
+		library.addStat(new StatInfoBuilder().withLibrary(library)
+				.withDateAdded(artist1Album1DateAdded)
+				.withDateModified(artist1Album1DateModified)
+				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
+				.withRating(80).withPlayCount(12).withSong(song1).build());
 
 		artist1.addSong(
 				new AlbumAndSongInfoBuilder(ARTIST_1_ALBUM_1_SONG_2_NAME)
@@ -545,7 +550,7 @@ public class LibraryHibernateIT extends HibernateIT {
 
 	private void addSongsToAlbum3(Artist artist2) {
 
-		artist2.addSong(
+		Song song1 = artist2.addSong(
 				new AlbumAndSongInfoBuilder(ARTIST_2_ALBUM_1_SONG_1_NAME)
 						.withTrackNumber(1).withDiscNumber(1).withYear(2009)
 						.withGenre("Alternative").withHasVideo(false)
@@ -557,8 +562,13 @@ public class LibraryHibernateIT extends HibernateIT {
 						.withDateSkipped(artist2Album1DateSkipped)
 						.withSkipCount(0).withRating(80).withPlayCount(19)
 						.build());
+		library.addStat(new StatInfoBuilder().withLibrary(library)
+				.withDateAdded(artist2Album1DateAdded)
+				.withDateModified(artist2Album1DateModified)
+				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
+				.withRating(80).withPlayCount(19).withSong(song1).build());
 
-		artist2.addSong(
+		Song song2 = artist2.addSong(
 				new AlbumAndSongInfoBuilder(ARTIST_2_ALBUM_1_SONG_2_NAME)
 						.withTrackNumber(2).withDiscNumber(1).withYear(2009)
 						.withGenre("Alternative").withHasVideo(false)
@@ -570,8 +580,13 @@ public class LibraryHibernateIT extends HibernateIT {
 						.withDateSkipped(artist2Album1DateSkipped)
 						.withSkipCount(0).withRating(80).withPlayCount(29)
 						.build());
+		library.addStat(new StatInfoBuilder().withLibrary(library)
+				.withDateAdded(artist2Album1DateAdded)
+				.withDateModified(artist2Album1DateModified)
+				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
+				.withRating(80).withPlayCount(29).withSong(song2).build());
 
-		artist2.addSong(
+		Song song3 = artist2.addSong(
 				new AlbumAndSongInfoBuilder(ARTIST_2_ALBUM_1_SONG_3_NAME)
 						.withTrackNumber(3).withDiscNumber(1).withYear(2009)
 						.withGenre("Alternative").withHasVideo(false)
@@ -583,8 +598,13 @@ public class LibraryHibernateIT extends HibernateIT {
 						.withDateSkipped(artist2Album1DateSkipped)
 						.withSkipCount(0).withRating(80).withPlayCount(39)
 						.build());
+		library.addStat(new StatInfoBuilder().withLibrary(library)
+				.withDateAdded(artist2Album1DateAdded)
+				.withDateModified(artist2Album1DateModified)
+				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
+				.withRating(80).withPlayCount(39).withSong(song3).build());
 
-		artist2.addSong(
+		Song song4 = artist2.addSong(
 				new AlbumAndSongInfoBuilder(ARTIST_2_ALBUM_1_SONG_4_NAME)
 						.withTrackNumber(4).withDiscNumber(1).withYear(2009)
 						.withGenre("Alternative").withHasVideo(false)
@@ -596,8 +616,13 @@ public class LibraryHibernateIT extends HibernateIT {
 						.withDateSkipped(artist2Album1DateSkipped)
 						.withSkipCount(0).withRating(80).withPlayCount(49)
 						.build());
+		library.addStat(new StatInfoBuilder().withLibrary(library)
+				.withDateAdded(artist2Album1DateAdded)
+				.withDateModified(artist2Album1DateModified)
+				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
+				.withRating(80).withPlayCount(49).withSong(song4).build());
 
-		artist2.addSong(
+		Song song5 = artist2.addSong(
 				new AlbumAndSongInfoBuilder(ARTIST_2_ALBUM_1_SONG_5_NAME)
 						.withTrackNumber(5).withDiscNumber(1).withYear(2009)
 						.withGenre("Alternative").withHasVideo(false)
@@ -609,8 +634,13 @@ public class LibraryHibernateIT extends HibernateIT {
 						.withDateSkipped(artist2Album1DateSkipped)
 						.withSkipCount(0).withRating(80).withPlayCount(59)
 						.build());
+		library.addStat(new StatInfoBuilder().withLibrary(library)
+				.withDateAdded(artist2Album1DateAdded)
+				.withDateModified(artist2Album1DateModified)
+				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
+				.withRating(80).withPlayCount(59).withSong(song5).build());
 
-		artist2.addSong(
+		Song song6 = artist2.addSong(
 				new AlbumAndSongInfoBuilder(ARTIST_2_ALBUM_1_SONG_6_NAME)
 						.withTrackNumber(6).withDiscNumber(1).withYear(2009)
 						.withGenre("Alternative").withHasVideo(false)
@@ -622,8 +652,13 @@ public class LibraryHibernateIT extends HibernateIT {
 						.withDateSkipped(artist2Album1DateSkipped)
 						.withSkipCount(0).withRating(80).withPlayCount(69)
 						.build());
+		library.addStat(new StatInfoBuilder().withLibrary(library)
+				.withDateAdded(artist2Album1DateAdded)
+				.withDateModified(artist2Album1DateModified)
+				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
+				.withRating(80).withPlayCount(69).withSong(song6).build());
 
-		artist2.addSong(
+		Song song7 = artist2.addSong(
 				new AlbumAndSongInfoBuilder(ARTIST_2_ALBUM_1_SONG_7_NAME)
 						.withTrackNumber(7).withDiscNumber(1).withYear(2009)
 						.withGenre("Alternative").withHasVideo(false)
@@ -635,8 +670,13 @@ public class LibraryHibernateIT extends HibernateIT {
 						.withDateSkipped(artist2Album1DateSkipped)
 						.withSkipCount(0).withRating(80).withPlayCount(79)
 						.build());
+		library.addStat(new StatInfoBuilder().withLibrary(library)
+				.withDateAdded(artist2Album1DateAdded)
+				.withDateModified(artist2Album1DateModified)
+				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
+				.withRating(80).withPlayCount(79).withSong(song7).build());
 
-		artist2.addSong(
+		Song song8 = artist2.addSong(
 				new AlbumAndSongInfoBuilder(ARTIST_2_ALBUM_1_SONG_8_NAME)
 						.withTrackNumber(8).withDiscNumber(1).withYear(2009)
 						.withGenre("Alternative").withHasVideo(false)
@@ -648,8 +688,13 @@ public class LibraryHibernateIT extends HibernateIT {
 						.withDateSkipped(artist2Album1DateSkipped)
 						.withSkipCount(0).withRating(80).withPlayCount(89)
 						.build());
+		library.addStat(new StatInfoBuilder().withLibrary(library)
+				.withDateAdded(artist2Album1DateAdded)
+				.withDateModified(artist2Album1DateModified)
+				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
+				.withRating(80).withPlayCount(89).withSong(song8).build());
 
-		artist2.addSong(
+		Song song9 = artist2.addSong(
 				new AlbumAndSongInfoBuilder(ARTIST_2_ALBUM_1_SONG_9_NAME)
 						.withTrackNumber(1).withDiscNumber(1).withYear(2009)
 						.withGenre("Alternative").withHasVideo(false)
@@ -661,8 +706,13 @@ public class LibraryHibernateIT extends HibernateIT {
 						.withDateSkipped(artist2Album1DateSkipped)
 						.withSkipCount(0).withRating(80).withPlayCount(99)
 						.build());
+		library.addStat(new StatInfoBuilder().withLibrary(library)
+				.withDateAdded(artist2Album1DateAdded)
+				.withDateModified(artist2Album1DateModified)
+				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
+				.withRating(80).withPlayCount(99).withSong(song9).build());
 
-		artist2.addSong(
+		Song song10 = artist2.addSong(
 				new AlbumAndSongInfoBuilder(ARTIST_2_ALBUM_1_SONG_10_NAME)
 						.withTrackNumber(10).withDiscNumber(1).withYear(2009)
 						.withGenre("Alternative").withHasVideo(false)
@@ -674,8 +724,13 @@ public class LibraryHibernateIT extends HibernateIT {
 						.withDateSkipped(artist2Album1DateSkipped)
 						.withSkipCount(0).withRating(80).withPlayCount(109)
 						.build());
+		library.addStat(new StatInfoBuilder().withLibrary(library)
+				.withDateAdded(artist2Album1DateAdded)
+				.withDateModified(artist2Album1DateModified)
+				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
+				.withRating(80).withPlayCount(109).withSong(song10).build());
 
-		artist2.addSong(
+		Song song11 = artist2.addSong(
 				new AlbumAndSongInfoBuilder(ARTIST_2_ALBUM_1_SONG_11_NAME)
 						.withTrackNumber(11).withDiscNumber(1).withYear(2009)
 						.withGenre("Alternative").withHasVideo(false)
@@ -687,6 +742,10 @@ public class LibraryHibernateIT extends HibernateIT {
 						.withDateSkipped(artist2Album1DateSkipped)
 						.withSkipCount(0).withRating(80).withPlayCount(119)
 						.build());
+		library.addStat(new StatInfoBuilder().withLibrary(library)
+				.withDateAdded(artist2Album1DateAdded)
+				.withDateModified(artist2Album1DateModified)
+				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
+				.withRating(80).withPlayCount(119).withSong(song11).build());
 	}
-
 }
