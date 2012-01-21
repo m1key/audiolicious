@@ -103,9 +103,7 @@ public class Album {
 	Song addSong(SongInfo songInfo, StatInfo statInfo) {
 		Song song = new Song(songInfo, this);
 		songs.add(song);
-		Song songFromTheCollection = getSong(songInfo);
-		songFromTheCollection.addStat(statInfo);
-		return songFromTheCollection;
+		return getSong(songInfo);
 	}
 
 	private Song getSong(SongInfo songInfo) {

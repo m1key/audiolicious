@@ -38,7 +38,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 @Entity(name = "Stat")
 @Table(name = "STATS", uniqueConstraints = { @UniqueConstraint(columnNames = {
-		"SONG_ID", "LIBRARY_ID" }) })
+		"SONG_UUID", "LIBRARY_ID" }) })
 public class Stat {
 
 	@SuppressWarnings("unused")
@@ -71,10 +71,6 @@ public class Stat {
 	@Embedded
 	private Rating rating;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = true)
-	@JoinColumn(name = "SONG_ID")
-	private Song song;
-
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "LIBRARY_ID")
 	private Library library;
@@ -90,15 +86,10 @@ public class Stat {
 			throw new IllegalArgumentException(
 					"Null library passed to Stat constructor.");
 		}
-		if (song == null) {
-			throw new IllegalArgumentException(
-					"Null song passed to Stat constructor.");
-		}
 
 		this.uuid = UUID.randomUUID().toString();
 		this.library = library;
 		this.songUuid = song.getUuid();
-		this.song = song;
 		this.dateAdded = dateAdded;
 		this.dateModified = dateModified;
 		this.dateSkipped = dateSkipped;
@@ -145,7 +136,6 @@ public class Stat {
 		this.uuid = UUID.randomUUID().toString();
 		this.library = statInfo.getLibrary();
 		this.songUuid = song.getUuid();
-		this.song = song;
 		this.dateAdded = statInfo.getDateAdded();
 		this.dateModified = statInfo.getDateModified();
 		this.playCount = statInfo.getPlayCount();
@@ -178,10 +168,6 @@ public class Stat {
 
 	public Date getDateSkipped() {
 		return dateSkipped;
-	}
-
-	public Song getSong() {
-		return song;
 	}
 
 	public Library getLibrary() {

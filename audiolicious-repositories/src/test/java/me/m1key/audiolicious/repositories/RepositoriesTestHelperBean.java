@@ -80,11 +80,7 @@ public class RepositoriesTestHelperBean {
 
 	public void deleteAllLibraries() {
 		List<Library> allLibraries = getAllLibraries();
-		List<Song> songs = getAllSongs();
 
-		for (Song song : songs) {
-			song.clearStats();
-		}
 		for (Library library : allLibraries) {
 			entityManager.remove(library);
 		}
@@ -93,12 +89,6 @@ public class RepositoriesTestHelperBean {
 	@SuppressWarnings("unchecked")
 	private List<Library> getAllLibraries() {
 		Query select = entityManager.createQuery("FROM Library");
-		return select.getResultList();
-	}
-
-	@SuppressWarnings("unchecked")
-	private List<Song> getAllSongs() {
-		Query select = entityManager.createQuery("FROM Song");
 		return select.getResultList();
 	}
 

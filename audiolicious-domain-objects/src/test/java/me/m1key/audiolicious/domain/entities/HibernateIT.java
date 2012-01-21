@@ -103,12 +103,8 @@ public abstract class HibernateIT {
 
 	protected void deleteAllLibraries() {
 		List<Library> allLibraries = getAllLibraries();
-		List<Song> songs = getAllSongs();
 
 		getEntityManager().getTransaction().begin();
-		for (Song song : songs) {
-			song.clearStats();
-		}
 		for (Library library : allLibraries) {
 			getEntityManager().remove(library);
 		}
