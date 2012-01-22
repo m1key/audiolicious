@@ -60,11 +60,9 @@ public class Library {
 	protected Library() {
 	}
 
+	// Only used by NullEntitesFactory.
 	Library(String uuid) {
-		stats = new HashSet<Stat>();
-
 		this.uuid = uuid;
-		this.dateAdded = new Date();
 	}
 
 	public Library(Date dateAdded) {
@@ -95,8 +93,13 @@ public class Library {
 		stats.clear();
 	}
 
-	public void remove(Stat stat) {
-		stats.remove(stat);
+	public void addStat(StatInfo defaultStatInfo) {
+		stats.add(new Stat(this, defaultStatInfo.getSongUuid(), defaultStatInfo
+				.getDateAdded(), defaultStatInfo.getDateModified(),
+				defaultStatInfo.getDateSkipped(), defaultStatInfo
+						.getSkipCount(),
+				new Rating(defaultStatInfo.getRating()), defaultStatInfo
+						.getPlayCount()));
 	}
 
 	@Override
@@ -116,14 +119,5 @@ public class Library {
 	public String toString() {
 		return new ToStringBuilder(this).append("uuid", uuid)
 				.append("dateAdded", dateAdded).toString();
-	}
-
-	public void addStat(StatInfo defaultStatInfo) {
-		stats.add(new Stat(this, defaultStatInfo.getSongUuid(), defaultStatInfo
-				.getDateAdded(), defaultStatInfo.getDateModified(),
-				defaultStatInfo.getDateSkipped(), defaultStatInfo
-						.getSkipCount(),
-				new Rating(defaultStatInfo.getRating()), defaultStatInfo
-						.getPlayCount()));
 	}
 }

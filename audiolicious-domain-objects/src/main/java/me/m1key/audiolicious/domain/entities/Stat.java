@@ -75,9 +75,8 @@ public class Stat {
 	protected Stat() {
 	}
 
-	protected Stat(Library library, String songUuid, Date dateAdded,
-			Date dateModified, Date dateSkipped, int skipCount, Rating rating,
-			int playCount) {
+	Stat(Library library, String songUuid, Date dateAdded, Date dateModified,
+			Date dateSkipped, int skipCount, Rating rating, int playCount) {
 		if (library == null) {
 			throw new IllegalArgumentException(
 					"Null library passed to Stat constructor.");
@@ -125,10 +124,6 @@ public class Stat {
 		return library;
 	}
 
-	public void setLibrary(Library library) {
-		this.library = library;
-	}
-
 	public String getSongUuid() {
 		return songUuid;
 	}
@@ -156,9 +151,5 @@ public class Stat {
 				.append("dateSkipped", dateSkipped)
 				.append("skipCount", skipCount).append("rating", rating)
 				.toString();
-	}
-
-	public void removeFromLibrary() {
-		library.remove(this);
 	}
 }

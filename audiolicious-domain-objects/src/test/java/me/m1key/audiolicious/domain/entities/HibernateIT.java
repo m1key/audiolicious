@@ -123,21 +123,6 @@ public abstract class HibernateIT {
 		return select.getResultList();
 	}
 
-	protected void deleteArtistByName(String artistName, Library library) {
-		Artist artistToDelete = getArtistByName(artistName);
-		getEntityManager().getTransaction().begin();
-		for (Album album : artistToDelete.getAlbums()) {
-			for (Song song : album.getSongs()) {
-				for (Stat stat : getStats(song, library)) {
-					stat.removeFromLibrary();
-				}
-			}
-		}
-		getEntityManager().remove(artistToDelete);
-		getEntityManager().getTransaction().commit();
-	}
-
-	// TODO merge with the other one once library is converted to DDD.
 	protected void deleteArtistByName(String artistName) {
 		Artist artistToDelete = getArtistByName(artistName);
 		getEntityManager().getTransaction().begin();

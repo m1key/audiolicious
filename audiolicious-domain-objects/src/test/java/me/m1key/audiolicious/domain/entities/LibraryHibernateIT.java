@@ -134,7 +134,7 @@ public class LibraryHibernateIT extends HibernateIT {
 	public void shouldDeleteOnlyOneArtistAndAllOfItsStatsSongsAndAlbums() {
 		createArtistsAlbumsSongsAndStats();
 
-		deleteArtistByName(ARTIST_1_NAME, library);
+		deleteArtistByName(ARTIST_1_NAME);
 
 		assertEquals("There should be one artist after one has been deleted.",
 				1, getAllArtists().size());
@@ -145,8 +145,9 @@ public class LibraryHibernateIT extends HibernateIT {
 				"There should be 11 songs after one artist has been deleted.",
 				11, getAllSongs().size());
 		assertEquals(
-				"There should be 11 stats after one artist has been deleted.",
-				11, getAllStats().size());
+				"There should still be 35 stats after one artist has been deleted "
+						+ "because they are separate entities.", 35,
+				getAllStats().size());
 	}
 
 	@Test
