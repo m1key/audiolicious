@@ -26,6 +26,7 @@ import me.m1key.audiolicious.domain.entities.Library;
 
 public interface StubRawTrackDataHandler extends RawTrackDataHandler {
 
+	@Override
 	void handle(Map<XmlNodeName, String> trackValues, Library library);
 
 	List<Map<XmlNodeName, String>> getRawTrackData();

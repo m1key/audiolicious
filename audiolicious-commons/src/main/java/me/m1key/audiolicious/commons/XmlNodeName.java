@@ -20,310 +20,361 @@ package me.m1key.audiolicious.commons;
 
 public enum XmlNodeName {
 
-	ALBUM_ARTIST {
-		public String toString() {
-			return "Album Artist";
-		}
-	},
+    ALBUM_ARTIST {
+        @Override
+        public String toString() {
+            return "Album Artist";
+        }
+    },
 
-	ALBUM_RATING {
-		public String toString() {
-			return "Album Rating";
-		}
-	},
+    ALBUM_RATING {
+        @Override
+        public String toString() {
+            return "Album Rating";
+        }
+    },
 
-	ALBUM_RATING_COMPUTED {
-		public String toString() {
-			return "Album Rating Computed";
-		}
-	},
+    ALBUM_RATING_COMPUTED {
+        @Override
+        public String toString() {
+            return "Album Rating Computed";
+        }
+    },
 
-	ALBUM {
-		public String toString() {
-			return "Album";
-		}
-	},
+    ALBUM {
+        @Override
+        public String toString() {
+            return "Album";
+        }
+    },
 
-	ARTIST {
-		public String toString() {
-			return "Artist";
-		}
-	},
+    ARTIST {
+        @Override
+        public String toString() {
+            return "Artist";
+        }
+    },
 
-	ARTWORK_COUNT {
-		public String toString() {
-			return "Artwork Count";
-		}
-	},
+    ARTWORK_COUNT {
+        @Override
+        public String toString() {
+            return "Artwork Count";
+        }
+    },
 
-	BIT_RATE {
-		public String toString() {
-			return "Bit Rate";
-		}
-	},
+    BIT_RATE {
+        @Override
+        public String toString() {
+            return "Bit Rate";
+        }
+    },
 
-	COMMENTS {
-		public String toString() {
-			return "Comments";
-		}
-	},
+    COMMENTS {
+        @Override
+        public String toString() {
+            return "Comments";
+        }
+    },
 
-	COMPILATION {
-		public String toString() {
-			return "Compilation";
-		}
-	},
+    COMPILATION {
+        @Override
+        public String toString() {
+            return "Compilation";
+        }
+    },
 
-	COMPOSER {
-		public String toString() {
-			return "Composer";
-		}
-	},
+    COMPOSER {
+        @Override
+        public String toString() {
+            return "Composer";
+        }
+    },
 
-	CONTENT_RATING {
-		public String toString() {
-			return "Content Rating";
-		}
-	},
+    CONTENT_RATING {
+        @Override
+        public String toString() {
+            return "Content Rating";
+        }
+    },
 
-	DATE_ADDED {
-		public String toString() {
-			return "Date Added";
-		}
-	},
+    DATE_ADDED {
+        @Override
+        public String toString() {
+            return "Date Added";
+        }
+    },
 
-	DATE_MODIFIED {
-		public String toString() {
-			return "Date Modified";
-		}
-	},
+    DATE_MODIFIED {
+        @Override
+        public String toString() {
+            return "Date Modified";
+        }
+    },
 
-	DISC_COUNT {
-		public String toString() {
-			return "Disc Count";
-		}
-	},
+    DISC_COUNT {
+        @Override
+        public String toString() {
+            return "Disc Count";
+        }
+    },
 
-	DISC_NUMBER {
-		public String toString() {
-			return "Disc Number";
-		}
-	},
+    DISC_NUMBER {
+        @Override
+        public String toString() {
+            return "Disc Number";
+        }
+    },
 
-	FILE_FOLDER_COUNT {
-		public String toString() {
-			return "File Folder Count";
-		}
-	},
+    FILE_FOLDER_COUNT {
+        @Override
+        public String toString() {
+            return "File Folder Count";
+        }
+    },
 
-	GENRE {
-		public String toString() {
-			return "Genre";
-		}
-	},
+    GENRE {
+        @Override
+        public String toString() {
+            return "Genre";
+        }
+    },
 
-	HAS_VIDEO {
-		public String toString() {
-			return "Has Video";
-		}
-	},
+    HAS_VIDEO {
+        @Override
+        public String toString() {
+            return "Has Video";
+        }
+    },
 
-	HD {
-		public String toString() {
-			return "HD";
-		}
-	},
+    HD {
+        @Override
+        public String toString() {
+            return "HD";
+        }
+    },
 
-	KIND {
-		public String toString() {
-			return "Kind";
-		}
-	},
+    KIND {
+        @Override
+        public String toString() {
+            return "Kind";
+        }
+    },
 
-	LIBRARY_FOLDER_COUNT {
-		public String toString() {
-			return "Library Folder Count";
-		}
-	},
+    LIBRARY_FOLDER_COUNT {
+        @Override
+        public String toString() {
+            return "Library Folder Count";
+        }
+    },
 
-	LOCATION {
-		public String toString() {
-			return "Location";
-		}
-	},
+    LOCATION {
+        @Override
+        public String toString() {
+            return "Location";
+        }
+    },
 
-	MOVIE {
-		public String toString() {
-			return "Movie";
-		}
-	},
+    MOVIE {
+        @Override
+        public String toString() {
+            return "Movie";
+        }
+    },
 
-	MUSIC_VIDEO {
-		public String toString() {
-			return "Music Video";
-		}
-	},
+    MUSIC_VIDEO {
+        @Override
+        public String toString() {
+            return "Music Video";
+        }
+    },
 
-	NAME {
-		public String toString() {
-			return "Name";
-		}
-	},
+    NAME {
+        @Override
+        public String toString() {
+            return "Name";
+        }
+    },
 
-	NORMALIZATION {
-		public String toString() {
-			return "Normalization";
-		}
-	},
+    NORMALIZATION {
+        @Override
+        public String toString() {
+            return "Normalization";
+        }
+    },
 
-	PERSISTENT_ID {
-		public String toString() {
-			return "Persistent ID";
-		}
-	},
+    PERSISTENT_ID {
+        @Override
+        public String toString() {
+            return "Persistent ID";
+        }
+    },
 
-	PLAY_COUNT {
-		public String toString() {
-			return "Play Count";
-		}
-	},
+    PLAY_COUNT {
+        @Override
+        public String toString() {
+            return "Play Count";
+        }
+    },
 
-	PLAY_DATE {
-		public String toString() {
-			return "Play Date";
-		}
-	},
+    PLAY_DATE {
+        @Override
+        public String toString() {
+            return "Play Date";
+        }
+    },
 
-	PLAY_DATE_UTC {
-		public String toString() {
-			return "Play Date UTC";
-		}
-	},
+    PLAY_DATE_UTC {
+        @Override
+        public String toString() {
+            return "Play Date UTC";
+        }
+    },
 
-	PODCAST {
-		public String toString() {
-			return "Podcast";
-		}
-	},
+    PODCAST {
+        @Override
+        public String toString() {
+            return "Podcast";
+        }
+    },
 
-	PROTECTED {
-		public String toString() {
-			return "Protected";
-		}
-	},
+    PROTECTED {
+        @Override
+        public String toString() {
+            return "Protected";
+        }
+    },
 
-	PURCHASED {
-		public String toString() {
-			return "Purchased";
-		}
-	},
+    PURCHASED {
+        @Override
+        public String toString() {
+            return "Purchased";
+        }
+    },
 
-	RATING {
-		public String toString() {
-			return "Rating";
-		}
-	},
+    RATING {
+        @Override
+        public String toString() {
+            return "Rating";
+        }
+    },
 
-	RELEASE_DATE {
-		public String toString() {
-			return "Release Date";
-		}
-	},
+    RELEASE_DATE {
+        @Override
+        public String toString() {
+            return "Release Date";
+        }
+    },
 
-	SAMPLE_RATE {
-		public String toString() {
-			return "Sample Rate";
-		}
-	},
+    SAMPLE_RATE {
+        @Override
+        public String toString() {
+            return "Sample Rate";
+        }
+    },
 
-	SIZE {
-		public String toString() {
-			return "Size";
-		}
-	},
+    SIZE {
+        @Override
+        public String toString() {
+            return "Size";
+        }
+    },
 
-	SKIP_COUNT {
-		public String toString() {
-			return "Skip Count";
-		}
-	},
+    SKIP_COUNT {
+        @Override
+        public String toString() {
+            return "Skip Count";
+        }
+    },
 
-	SKIP_DATE {
-		public String toString() {
-			return "Skip Date";
-		}
-	},
+    SKIP_DATE {
+        @Override
+        public String toString() {
+            return "Skip Date";
+        }
+    },
 
-	SORT_ALBUM {
-		public String toString() {
-			return "Sort Album";
-		}
-	},
+    SORT_ALBUM {
+        @Override
+        public String toString() {
+            return "Sort Album";
+        }
+    },
 
-	SORT_ALBUM_ARTIST {
-		public String toString() {
-			return "Sort Album Artist";
-		}
-	},
+    SORT_ALBUM_ARTIST {
+        @Override
+        public String toString() {
+            return "Sort Album Artist";
+        }
+    },
 
-	SORT_ARTIST {
-		public String toString() {
-			return "Sort Artist";
-		}
-	},
+    SORT_ARTIST {
+        @Override
+        public String toString() {
+            return "Sort Artist";
+        }
+    },
 
-	SORT_NAME {
-		public String toString() {
-			return "Sort Name";
-		}
-	},
+    SORT_NAME {
+        @Override
+        public String toString() {
+            return "Sort Name";
+        }
+    },
 
-	TOTAL_TIME {
-		public String toString() {
-			return "Total Time";
-		}
-	},
+    TOTAL_TIME {
+        @Override
+        public String toString() {
+            return "Total Time";
+        }
+    },
 
-	TRACK_COUNT {
-		public String toString() {
-			return "Track Count";
-		}
-	},
+    TRACK_COUNT {
+        @Override
+        public String toString() {
+            return "Track Count";
+        }
+    },
 
-	TRACK_ID {
-		public String toString() {
-			return "Track ID";
-		}
-	},
+    TRACK_ID {
+        @Override
+        public String toString() {
+            return "Track ID";
+        }
+    },
 
-	TRACK_NUMBER {
-		public String toString() {
-			return "Track Number";
-		}
-	},
+    TRACK_NUMBER {
+        @Override
+        public String toString() {
+            return "Track Number";
+        }
+    },
 
-	TRACK_TYPE {
-		public String toString() {
-			return "Track Type";
-		}
-	},
+    TRACK_TYPE {
+        @Override
+        public String toString() {
+            return "Track Type";
+        }
+    },
 
-	YEAR {
-		public String toString() {
-			return "Year";
-		}
-	},
+    YEAR {
+        @Override
+        public String toString() {
+            return "Year";
+        }
+    },
 
-	VIDEO_HEIGHT {
-		public String toString() {
-			return "Video Height";
-		}
-	},
+    VIDEO_HEIGHT {
+        @Override
+        public String toString() {
+            return "Video Height";
+        }
+    },
 
-	VIDEO_WIDTH {
-		public String toString() {
-			return "Video Width";
-		}
-	},
+    VIDEO_WIDTH {
+        @Override
+        public String toString() {
+            return "Video Width";
+        }
+    },
 
 }
