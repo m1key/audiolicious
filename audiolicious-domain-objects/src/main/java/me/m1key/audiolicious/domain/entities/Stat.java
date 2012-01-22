@@ -19,7 +19,6 @@
 package me.m1key.audiolicious.domain.entities;
 
 import java.util.Date;
-import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -46,9 +45,6 @@ public class Stat {
 	@GeneratedValue
 	@Column(name = "STAT_ID")
 	private Long id;
-
-	@Column(name = "UUID", unique = true, length = 36)
-	private String uuid;
 
 	@Column(name = "DATE_ADDED")
 	private Date dateAdded;
@@ -91,7 +87,6 @@ public class Stat {
 					"Null songUuid passed to Stat constructor.");
 		}
 
-		this.uuid = UUID.randomUUID().toString();
 		this.library = library;
 		this.songUuid = songUuid;
 		this.dateAdded = dateAdded;
@@ -155,8 +150,7 @@ public class Stat {
 
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this).append("uuid", uuid)
-				.append("dateAdded", dateAdded)
+		return new ToStringBuilder(this).append("dateAdded", dateAdded)
 				.append("dateModified", dateModified)
 				.append("playCount", playCount)
 				.append("dateSkipped", dateSkipped)

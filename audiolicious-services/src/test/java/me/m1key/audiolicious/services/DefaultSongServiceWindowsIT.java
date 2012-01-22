@@ -194,7 +194,6 @@ public class DefaultSongServiceWindowsIT {
 	public void testAlbum1Correct() {
 		Album album = stubArtistRepository.getMonsterMagnetSpineOfGod();
 		assertNotNull(album);
-		assertNotNull(album.getUuid());
 		assertEquals("Monster Magnet", album.getArtist().getName());
 		assertEquals("Spine Of God", album.getName());
 		assertEquals(9, album.getSongs().size());
@@ -438,7 +437,6 @@ public class DefaultSongServiceWindowsIT {
 	public void testAlbum2Correct() {
 		Album album = stubArtistRepository.getToolAenima();
 		assertNotNull(album);
-		assertNotNull(album.getUuid());
 		assertEquals("Tool", album.getArtist().getName());
 		assertEquals("Ænima", album.getName());
 		assertEquals(15, album.getSongs().size());

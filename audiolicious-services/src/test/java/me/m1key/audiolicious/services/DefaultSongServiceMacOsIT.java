@@ -194,7 +194,6 @@ public class DefaultSongServiceMacOsIT {
 	public void testAlbum1Correct() {
 		Album album = stubArtistRepository.getMonsterMagnetSpineOfGod();
 		assertNotNull(album);
-		assertNotNull(album.getUuid());
 		assertEquals("Monster Magnet", album.getArtist().getName());
 		assertEquals("Spine Of God", album.getName());
 		assertEquals(9, album.getSongs().size());
@@ -204,7 +203,6 @@ public class DefaultSongServiceMacOsIT {
 	public void testAlbum2Correct() {
 		Album album = stubArtistRepository.getToolAenima();
 		assertNotNull(album);
-		assertNotNull(album.getUuid());
 		assertEquals("Tool", album.getArtist().getName());
 		assertEquals("Ænima", album.getName());
 		assertEquals(15, album.getSongs().size());
@@ -222,7 +220,6 @@ public class DefaultSongServiceMacOsIT {
 	public void testAlbum3Correct() {
 		Album album = stubArtistRepository.getFleetFoxesFleetFoxes();
 		assertNotNull(album);
-		assertNotNull(album.getUuid());
 		assertEquals("Fleet Foxes", album.getArtist().getName());
 		assertEquals("Fleet Foxes (Deluxe Edition)", album.getName());
 		assertEquals(19, album.getSongs().size());
@@ -737,7 +734,6 @@ public class DefaultSongServiceMacOsIT {
 	public void testAlbum4Correct() {
 		Album album = stubArtistRepository.getVariousArtistsAnimatrix();
 		assertNotNull(album);
-		assertNotNull(album.getUuid());
 		assertEquals("Various Artists", album.getArtist().getName());
 		assertEquals("Animatrix: The Album", album.getName());
 		assertEquals(12, album.getSongs().size());

@@ -152,7 +152,6 @@ public class ArtistTest {
 				"Holy Diver", album1.getName());
 		assertEquals("Album rating should be set to correct value.",
 				new Rating(80), album1.getRating());
-		assertNotNull("Album UUID should be set.", album1.getUuid());
 	}
 
 	private void verifyAlbum2(Artist artist, Album album2) {
@@ -162,7 +161,6 @@ public class ArtistTest {
 				"Strange Highways", album2.getName());
 		assertEquals("Album rating should be set to correct value.",
 				new Rating(80), album2.getRating());
-		assertNotNull("Album UUID should be set.", album2.getUuid());
 	}
 
 	private void verifyAlbum1Song1(Album album1, Song song1) {

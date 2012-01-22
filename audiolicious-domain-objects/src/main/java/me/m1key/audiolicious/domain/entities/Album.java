@@ -21,7 +21,6 @@ package me.m1key.audiolicious.domain.entities;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -51,9 +50,6 @@ public class Album {
 	@Column(name = "ALBUM_ID")
 	private Long id;
 
-	@Column(name = "UUID", unique = true, length = 36)
-	private String uuid;
-
 	@Column(name = "NAME", length = 255)
 	private String name;
 
@@ -72,16 +68,11 @@ public class Album {
 	}
 
 	Album(AlbumInfo albumInfo, Artist artist) {
-		this.uuid = UUID.randomUUID().toString();
 		this.name = albumInfo.getAlbumName();
 		this.rating = new Rating(albumInfo.getAlbumRating());
 		this.artist = artist;
 
 		songs = new HashSet<Song>();
-	}
-
-	public String getUuid() {
-		return uuid;
 	}
 
 	public Artist getArtist() {
@@ -131,8 +122,7 @@ public class Album {
 
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this).append("uuid", getUuid())
-				.append("name", getName()).toString();
+		return new ToStringBuilder(this).append("name", getName()).toString();
 	}
 
 }
