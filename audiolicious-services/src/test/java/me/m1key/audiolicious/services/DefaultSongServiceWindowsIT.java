@@ -129,13 +129,15 @@ public class DefaultSongServiceWindowsIT {
 						ArchivePaths.create("beans.xml"))
 				.addAsResource("log4j.xml", "log4j.xml")
 				.addClasses(AggregateTrackMapper.class, Album.class,
-						AlbumAndSongInfo.class, AlbumInfo.class, Artist.class,
+						AlbumAndSongInfo.class, AlbumInfo.class,
+						ApplicationConversation.class, Artist.class,
 						ArtistRepository.class, AudiobookHandler.class,
 						AudiobookMapper.class, AudiobookTo.class,
 						CacheableSongService.class,
 						CacheAwareLibraryImporter.class,
 						CannotMapTrackValuesException.class,
 						DefaultAggregateTrackMapper.class,
+						DefaultApplicationConversation.class,
 						DefaultAudiobookMapper.class,
 						DefaultEnglishValuesProvider.class,
 						DataExtractor.class, DefaultNoopTrackHandler.class,

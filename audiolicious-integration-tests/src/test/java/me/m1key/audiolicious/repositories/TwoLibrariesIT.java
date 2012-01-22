@@ -85,9 +85,11 @@ import me.m1key.audiolicious.objectmapper.trackmappers.NonAggregateTrackMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.SongMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapper;
+import me.m1key.audiolicious.services.ApplicationConversation;
 import me.m1key.audiolicious.services.ArtistRepository;
 import me.m1key.audiolicious.services.CacheAwareLibraryImporter;
 import me.m1key.audiolicious.services.CacheableSongService;
+import me.m1key.audiolicious.services.DefaultApplicationConversation;
 import me.m1key.audiolicious.services.DefaultLibraryService;
 import me.m1key.audiolicious.services.InMemoryCacheableSongService;
 import me.m1key.audiolicious.services.LibraryImporter;
@@ -149,12 +151,14 @@ public class TwoLibrariesIT {
 						"META-INF/persistence.xml")
 				.addAsResource("log4j.xml", "log4j.xml")
 				.addClasses(AggregateTrackMapper.class, Album.class,
-						AlbumAndSongInfo.class, AlbumInfo.class, Artist.class,
+						AlbumAndSongInfo.class, AlbumInfo.class,
+						ApplicationConversation.class, Artist.class,
 						ArtistRepository.class, AudiobookHandler.class,
 						AudiobookMapper.class, AudiobookTo.class,
 						CacheableSongService.class,
 						CacheAwareLibraryImporter.class,
 						CannotMapTrackValuesException.class,
+						DefaultApplicationConversation.class,
 						DataExtractor.class, DefaultAggregateTrackMapper.class,
 						DefaultAudiobookMapper.class,
 						DefaultLibraryService.class,

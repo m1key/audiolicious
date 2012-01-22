@@ -18,7 +18,6 @@
 
 package me.m1key.audiolicious.services;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -44,15 +43,14 @@ public class InMemoryCacheableSongService implements CacheableSongService {
 	@Inject
 	@NullArtist
 	private Artist nullArtist;
-
-	private Map<String, Artist> artistCache = new HashMap<String, Artist>();
-
-	private Library library;
+	@EJB
+	private ApplicationConversation applicationConversation;
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.MANDATORY)
 	public void addSong(SongTo songTo, Library libraryNotUsed) {
-		Artist artist = getOrCreateArtistByName(getAlbumArtistName(songTo));
+		Artist artist = getOrCreateArtistByName(getAlbumArtistName(songTo),
+				libraryNotUsed);
 		String songUuid = artist.addSong(songTo);
 
 		libraryNotUsed.addStat(new ToBasedStatInfo(songTo, songUuid));
@@ -66,15 +64,16 @@ public class InMemoryCacheableSongService implements CacheableSongService {
 		}
 	}
 
-	private Artist getOrCreateArtistByName(String albumArtistName) {
-		Artist artistFromCache = getArtistCache().get(albumArtistName);
+	private Artist getOrCreateArtistByName(String albumArtistName,
+			Library library) {
+		Artist artistFromCache = getArtistCache(library).get(albumArtistName);
 
 		if (artistFromCache == null) {
 			Artist artist = artistRepository.getArtist(albumArtistName);
 			if (artist.equals(nullArtist)) {
 				artist = new Artist(albumArtistName);
 			}
-			getArtistCache().put(albumArtistName, artist);
+			getArtistCache(library).put(albumArtistName, artist);
 			return artist;
 		} else {
 			return artistFromCache;
@@ -82,25 +81,20 @@ public class InMemoryCacheableSongService implements CacheableSongService {
 	}
 
 	@Override
-	public void initialise() {
-		getArtistCache().clear();
+	public void initialise(Library library) {
+		getArtistCache(library).clear();
 	}
 
 	@Override
-	public void finalise() {
-		for (Entry<String, Artist> entry : getArtistCache().entrySet()) {
+	public void finalise(Library library) {
+		for (Entry<String, Artist> entry : getArtistCache(library).entrySet()) {
 			artistRepository.createArtist(entry.getValue());
 		}
-		getArtistCache().clear();
+		getArtistCache(library).clear();
 	}
 
-	protected Map<String, Artist> getArtistCache() {
-		return artistCache;
-	}
-
-	@Override
-	public void setLibrary(Library library) {
-		this.library = library;
+	protected Map<String, Artist> getArtistCache(Library library) {
+		return applicationConversation.getArtistCache(library);
 	}
 
 }

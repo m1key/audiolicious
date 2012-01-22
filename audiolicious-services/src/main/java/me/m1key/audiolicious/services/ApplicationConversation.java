@@ -1,6 +1,6 @@
 /* 
  * Audiolicious - Your Music Library Statistics
- * Copyright (C) 2011, Michal Huniewicz
+ * Copyright (C) 2012, Michal Huniewicz
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,13 +16,19 @@
  * along with this program.  If not, see http://www.m1key.me
  */
 
-package me.m1key.audiolicious.objecthandler.handlers;
+package me.m1key.audiolicious.services;
 
+import java.util.Map;
+
+import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.Library;
-import me.m1key.audiolicious.domain.to.SongTo;
 
-public interface StatefulSongService {
+public interface ApplicationConversation {
 
-	void addSong(SongTo songTo, Library library);
+	void startConversation(Library library);
+
+	void endConversation(Library library);
+
+	Map<String, Artist> getArtistCache(Library library);
 
 }
