@@ -45,17 +45,16 @@ public class LibraryTest {
 		Library library = new Library(new Date());
 
 		Artist artist = new Artist("George Thorogood");
-		Song song = artist.addSong(new AlbumAndSongInfoBuilder(
+		String songUuid = artist.addSong(new AlbumAndSongInfoBuilder(
 				"Bad to the Bone").withTrackNumber(1).withDiscNumber(1)
 				.withYear(1988).withGenre("Rock").withHasVideo(false)
 				.withRating(100).withAlbumName("Anthology").withAlbumRating(80)
 				.build());
 		library.addStat(new StatInfoBuilder().withDateAdded(new Date())
 				.withSkipCount(0).withRating(80).withPlayCount(12)
-				.withSongUuid(song.getUuid()).build());
-		// Song song =
-		// artist.getAlbums().iterator().next().getSongs().iterator()
-		// .next();
+				.withSongUuid(songUuid).build());
+		Song song = artist.getAlbums().iterator().next().getSongs().iterator()
+				.next();
 
 		Stat stat = new Stat(library, song.getUuid(), new Date(), new Date(),
 				new Date(), 0, new Rating(100), 10);

@@ -1,3 +1,21 @@
+/* 
+ * Audiolicious - Your Music Library Statistics
+ * Copyright (C) 2012, Michal Huniewicz
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see http://www.m1key.me
+ */
+
 package me.m1key.audiolicious.domain.entities;
 
 import static org.junit.Assert.assertEquals;
@@ -190,14 +208,14 @@ public class StatTest {
 	private Song createSong(Library library) {
 
 		Artist artist = new Artist("George Thorogood");
-		Song song = artist.addSong(new AlbumAndSongInfoBuilder(
+		String songUuid = artist.addSong(new AlbumAndSongInfoBuilder(
 				"Bad to the Bone").withTrackNumber(1).withDiscNumber(1)
 				.withYear(1988).withGenre("Rock").withHasVideo(false)
 				.withRating(100).withAlbumName("Anthology").withAlbumRating(80)
 				.build());
 		library.addStat(new StatInfoBuilder().withDateAdded(new Date())
 				.withSkipCount(0).withRating(80).withPlayCount(12)
-				.withSongUuid(song.getUuid()).build());
+				.withSongUuid(songUuid).build());
 		return artist.getAlbums().iterator().next().getSongs().iterator()
 				.next();
 	}

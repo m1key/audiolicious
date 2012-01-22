@@ -157,7 +157,7 @@ public class LibraryHibernateIT extends HibernateIT {
 				ARTIST_2_ALBUM_1_NAME, ARTIST_2_ALBUM_1_SONG_5_NAME);
 
 		assertNotNull(String.format("Song [%s] should not be null.",
-				ARTIST_2_ALBUM_1_SONG_5_NAME), song);
+				ARTIST_2_ALBUM_1_SONG_5_NAME), song.getUuid());
 
 		Set<Stat> stats = getStats(song, library);
 		assertTrue("There should be at least one stat for this song.", stats
@@ -227,7 +227,7 @@ public class LibraryHibernateIT extends HibernateIT {
 
 	private void addSongsToAlbum1(Artist artist1) {
 
-		Song song1 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song1Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_1_NAME).withTrackNumber(1)
 				.withDiscNumber(1).withYear(1988).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -237,10 +237,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(12).withSongUuid(song1.getUuid())
+				.withRating(80).withPlayCount(12).withSongUuid(song1Uuid)
 				.build());
 
-		Song song2 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song2Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_2_NAME).withTrackNumber(2)
 				.withDiscNumber(1).withYear(1988).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -250,10 +250,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(3).withSongUuid(song2.getUuid())
+				.withRating(80).withPlayCount(3).withSongUuid(song2Uuid)
 				.build());
 
-		Song song3 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song3Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_3_NAME).withTrackNumber(3)
 				.withDiscNumber(1).withYear(1988).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -263,10 +263,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(4).withSongUuid(song3.getUuid())
+				.withRating(80).withPlayCount(4).withSongUuid(song3Uuid)
 				.build());
 
-		Song song4 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song4Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_4_NAME).withTrackNumber(4)
 				.withDiscNumber(1).withYear(1988).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -276,10 +276,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(8).withSongUuid(song4.getUuid())
+				.withRating(80).withPlayCount(8).withSongUuid(song4Uuid)
 				.build());
 
-		Song song5 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song5Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_5_NAME).withTrackNumber(5)
 				.withDiscNumber(1).withYear(1988).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -289,10 +289,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(91).withSongUuid(song5.getUuid())
+				.withRating(80).withPlayCount(91).withSongUuid(song5Uuid)
 				.build());
 
-		Song song6 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song6Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_6_NAME).withTrackNumber(6)
 				.withDiscNumber(1).withYear(1988).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -302,10 +302,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(11).withSongUuid(song6.getUuid())
+				.withRating(80).withPlayCount(11).withSongUuid(song6Uuid)
 				.build());
 
-		Song song7 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song7Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_7_NAME).withTrackNumber(7)
 				.withDiscNumber(1).withYear(1988).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -315,10 +315,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(6).withSongUuid(song7.getUuid())
+				.withRating(80).withPlayCount(6).withSongUuid(song7Uuid)
 				.build());
 
-		Song song8 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song8Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_8_NAME).withTrackNumber(8)
 				.withDiscNumber(1).withYear(1988).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -328,10 +328,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(2).withSongUuid(song8.getUuid())
+				.withRating(80).withPlayCount(2).withSongUuid(song8Uuid)
 				.build());
 
-		Song song9 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song9Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_9_NAME).withTrackNumber(9)
 				.withDiscNumber(1).withYear(1988).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -341,10 +341,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(5).withSongUuid(song9.getUuid())
+				.withRating(80).withPlayCount(5).withSongUuid(song9Uuid)
 				.build());
 
-		Song song10 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song10Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_10_NAME).withTrackNumber(10)
 				.withDiscNumber(1).withYear(1988).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -354,10 +354,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(6).withSongUuid(song10.getUuid())
+				.withRating(80).withPlayCount(6).withSongUuid(song10Uuid)
 				.build());
 
-		Song song11 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song11Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_1_SONG_11_NAME).withTrackNumber(11)
 				.withDiscNumber(1).withYear(1988).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -367,12 +367,12 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album1DateAdded)
 				.withDateModified(artist1Album1DateModified)
 				.withDateSkipped(artist1Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(7).withSongUuid(song11.getUuid())
+				.withRating(80).withPlayCount(7).withSongUuid(song11Uuid)
 				.build());
 	}
 
 	private void addSongsToAlbum2(Artist artist1) {
-		Song song1 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song1Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_1_NAME).withTrackNumber(1)
 				.withDiscNumber(1).withYear(1991).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -382,10 +382,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(19).withSongUuid(song1.getUuid())
+				.withRating(80).withPlayCount(19).withSongUuid(song1Uuid)
 				.build());
 
-		Song song2 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song2Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_2_NAME).withTrackNumber(2)
 				.withDiscNumber(1).withYear(1991).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -395,10 +395,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(29).withSongUuid(song2.getUuid())
+				.withRating(80).withPlayCount(29).withSongUuid(song2Uuid)
 				.build());
 
-		Song song3 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song3Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_3_NAME).withTrackNumber(3)
 				.withDiscNumber(1).withYear(1991).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -408,10 +408,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(39).withSongUuid(song3.getUuid())
+				.withRating(80).withPlayCount(39).withSongUuid(song3Uuid)
 				.build());
 
-		Song song4 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song4Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_4_NAME).withTrackNumber(4)
 				.withDiscNumber(1).withYear(1991).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -421,10 +421,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(49).withSongUuid(song4.getUuid())
+				.withRating(80).withPlayCount(49).withSongUuid(song4Uuid)
 				.build());
 
-		Song song5 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song5Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_5_NAME).withTrackNumber(5)
 				.withDiscNumber(1).withYear(1991).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -434,10 +434,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(59).withSongUuid(song5.getUuid())
+				.withRating(80).withPlayCount(59).withSongUuid(song5Uuid)
 				.build());
 
-		Song song6 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song6Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_6_NAME).withTrackNumber(6)
 				.withDiscNumber(1).withYear(1991).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -447,10 +447,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(69).withSongUuid(song6.getUuid())
+				.withRating(80).withPlayCount(69).withSongUuid(song6Uuid)
 				.build());
 
-		Song song7 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song7Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_7_NAME).withTrackNumber(7)
 				.withDiscNumber(1).withYear(1991).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -460,10 +460,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(79).withSongUuid(song7.getUuid())
+				.withRating(80).withPlayCount(79).withSongUuid(song7Uuid)
 				.build());
 
-		Song song8 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song8Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_8_NAME).withTrackNumber(8)
 				.withDiscNumber(1).withYear(1991).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -473,10 +473,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(89).withSongUuid(song8.getUuid())
+				.withRating(80).withPlayCount(89).withSongUuid(song8Uuid)
 				.build());
 
-		Song song9 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song9Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_9_NAME).withTrackNumber(9)
 				.withDiscNumber(1).withYear(1991).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -486,10 +486,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(99).withSongUuid(song9.getUuid())
+				.withRating(80).withPlayCount(99).withSongUuid(song9Uuid)
 				.build());
 
-		Song song10 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song10Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_10_NAME).withTrackNumber(10)
 				.withDiscNumber(1).withYear(1991).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -499,10 +499,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(109)
-				.withSongUuid(song10.getUuid()).build());
+				.withRating(80).withPlayCount(109).withSongUuid(song10Uuid)
+				.build());
 
-		Song song11 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song11Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_11_NAME).withTrackNumber(11)
 				.withDiscNumber(1).withYear(1991).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -512,10 +512,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(119)
-				.withSongUuid(song11.getUuid()).build());
+				.withRating(80).withPlayCount(119).withSongUuid(song11Uuid)
+				.build());
 
-		Song song12 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song12Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_12_NAME).withTrackNumber(12)
 				.withDiscNumber(1).withYear(1991).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -525,10 +525,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(129)
-				.withSongUuid(song12.getUuid()).build());
+				.withRating(80).withPlayCount(129).withSongUuid(song12Uuid)
+				.build());
 
-		Song song13 = artist1.addSong(new AlbumAndSongInfoBuilder(
+		String song13Uuid = artist1.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_1_ALBUM_2_SONG_13_NAME).withTrackNumber(13)
 				.withDiscNumber(1).withYear(1991).withGenre("Rock")
 				.withHasVideo(false).withRating(100)
@@ -538,13 +538,13 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist1Album2DateAdded)
 				.withDateModified(artist1Album2DateModified)
 				.withDateSkipped(artist1Album2DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(139)
-				.withSongUuid(song13.getUuid()).build());
+				.withRating(80).withPlayCount(139).withSongUuid(song13Uuid)
+				.build());
 	}
 
 	private void addSongsToAlbum3(Artist artist2) {
 
-		Song song1 = artist2.addSong(new AlbumAndSongInfoBuilder(
+		String song1Uuid = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_1_NAME).withTrackNumber(1)
 				.withDiscNumber(1).withYear(2009).withGenre("Alternative")
 				.withHasVideo(false).withAlbumName(ARTIST_2_ALBUM_1_NAME)
@@ -553,10 +553,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(19).withSongUuid(song1.getUuid())
+				.withRating(80).withPlayCount(19).withSongUuid(song1Uuid)
 				.build());
 
-		Song song2 = artist2.addSong(new AlbumAndSongInfoBuilder(
+		String song2Uuid = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_2_NAME).withTrackNumber(2)
 				.withDiscNumber(1).withYear(2009).withGenre("Alternative")
 				.withHasVideo(false).withAlbumName(ARTIST_2_ALBUM_1_NAME)
@@ -565,10 +565,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(29).withSongUuid(song2.getUuid())
+				.withRating(80).withPlayCount(29).withSongUuid(song2Uuid)
 				.build());
 
-		Song song3 = artist2.addSong(new AlbumAndSongInfoBuilder(
+		String song3Uuid = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_3_NAME).withTrackNumber(3)
 				.withDiscNumber(1).withYear(2009).withGenre("Alternative")
 				.withHasVideo(false).withAlbumName(ARTIST_2_ALBUM_1_NAME)
@@ -577,10 +577,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(39).withSongUuid(song3.getUuid())
+				.withRating(80).withPlayCount(39).withSongUuid(song3Uuid)
 				.build());
 
-		Song song4 = artist2.addSong(new AlbumAndSongInfoBuilder(
+		String song4Uuid = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_4_NAME).withTrackNumber(4)
 				.withDiscNumber(1).withYear(2009).withGenre("Alternative")
 				.withHasVideo(false).withAlbumName(ARTIST_2_ALBUM_1_NAME)
@@ -589,10 +589,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(49).withSongUuid(song4.getUuid())
+				.withRating(80).withPlayCount(49).withSongUuid(song4Uuid)
 				.build());
 
-		Song song5 = artist2.addSong(new AlbumAndSongInfoBuilder(
+		String song5Uuid = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_5_NAME).withTrackNumber(5)
 				.withDiscNumber(1).withYear(2009).withGenre("Alternative")
 				.withHasVideo(false).withAlbumName(ARTIST_2_ALBUM_1_NAME)
@@ -601,10 +601,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(59).withSongUuid(song5.getUuid())
+				.withRating(80).withPlayCount(59).withSongUuid(song5Uuid)
 				.build());
 
-		Song song6 = artist2.addSong(new AlbumAndSongInfoBuilder(
+		String song6Uuid = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_6_NAME).withTrackNumber(6)
 				.withDiscNumber(1).withYear(2009).withGenre("Alternative")
 				.withHasVideo(false).withAlbumName(ARTIST_2_ALBUM_1_NAME)
@@ -613,10 +613,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(69).withSongUuid(song6.getUuid())
+				.withRating(80).withPlayCount(69).withSongUuid(song6Uuid)
 				.build());
 
-		Song song7 = artist2.addSong(new AlbumAndSongInfoBuilder(
+		String song7Uuid = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_7_NAME).withTrackNumber(7)
 				.withDiscNumber(1).withYear(2009).withGenre("Alternative")
 				.withHasVideo(false).withAlbumName(ARTIST_2_ALBUM_1_NAME)
@@ -625,10 +625,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(79).withSongUuid(song7.getUuid())
+				.withRating(80).withPlayCount(79).withSongUuid(song7Uuid)
 				.build());
 
-		Song song8 = artist2.addSong(new AlbumAndSongInfoBuilder(
+		String song8Uuid = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_8_NAME).withTrackNumber(8)
 				.withDiscNumber(1).withYear(2009).withGenre("Alternative")
 				.withHasVideo(false).withAlbumName(ARTIST_2_ALBUM_1_NAME)
@@ -637,10 +637,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(89).withSongUuid(song8.getUuid())
+				.withRating(80).withPlayCount(89).withSongUuid(song8Uuid)
 				.build());
 
-		Song song9 = artist2.addSong(new AlbumAndSongInfoBuilder(
+		String song9Uuid = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_9_NAME).withTrackNumber(1)
 				.withDiscNumber(1).withYear(2009).withGenre("Alternative")
 				.withHasVideo(false).withAlbumName(ARTIST_2_ALBUM_1_NAME)
@@ -649,10 +649,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(99).withSongUuid(song9.getUuid())
+				.withRating(80).withPlayCount(99).withSongUuid(song9Uuid)
 				.build());
 
-		Song song10 = artist2.addSong(new AlbumAndSongInfoBuilder(
+		String song10Uuid = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_10_NAME).withTrackNumber(10)
 				.withDiscNumber(1).withYear(2009).withGenre("Alternative")
 				.withHasVideo(false).withAlbumName(ARTIST_2_ALBUM_1_NAME)
@@ -661,10 +661,10 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(109)
-				.withSongUuid(song10.getUuid()).build());
+				.withRating(80).withPlayCount(109).withSongUuid(song10Uuid)
+				.build());
 
-		Song song11 = artist2.addSong(new AlbumAndSongInfoBuilder(
+		String song11Uuid = artist2.addSong(new AlbumAndSongInfoBuilder(
 				ARTIST_2_ALBUM_1_SONG_11_NAME).withTrackNumber(11)
 				.withDiscNumber(1).withYear(2009).withGenre("Alternative")
 				.withHasVideo(false).withAlbumName(ARTIST_2_ALBUM_1_NAME)
@@ -673,7 +673,7 @@ public class LibraryHibernateIT extends HibernateIT {
 				.withDateAdded(artist2Album1DateAdded)
 				.withDateModified(artist2Album1DateModified)
 				.withDateSkipped(artist2Album1DateSkipped).withSkipCount(0)
-				.withRating(80).withPlayCount(119)
-				.withSongUuid(song11.getUuid()).build());
+				.withRating(80).withPlayCount(119).withSongUuid(song11Uuid)
+				.build());
 	}
 }

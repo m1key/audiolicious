@@ -100,10 +100,10 @@ public class Album {
 		return Collections.unmodifiableSet(songs);
 	}
 
-	Song addSong(SongInfo songInfo) {
+	String addSong(SongInfo songInfo) {
 		Song song = new Song(songInfo, this);
 		songs.add(song);
-		return getSong(songInfo);
+		return getSong(songInfo).getUuid();
 	}
 
 	private Song getSong(SongInfo songInfo) {
