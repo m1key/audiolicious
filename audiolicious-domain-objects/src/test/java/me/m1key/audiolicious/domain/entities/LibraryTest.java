@@ -18,8 +18,8 @@
 
 package me.m1key.audiolicious.domain.entities;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 
@@ -56,12 +56,16 @@ public class LibraryTest {
 		Song song = artist.getAlbums().iterator().next().getSongs().iterator()
 				.next();
 
-		Stat stat = new Stat(library, song.getUuid(), new Date(), new Date(),
-				new Date(), 0, new Rating(100), 10);
-		library.addStat(stat);
+		assertEquals("Library should contain stat after stat added.", 1,
+				library.getStats().size());
+		library.addStat(new StatInfoBuilder().withDateAdded(new Date())
+				.withDateModified(new Date()).withDateSkipped(new Date())
+				.withSkipCount(0).withRating(100).withPlayCount(10)
+				.withSongUuid(song.getUuid()).build());
 
-		assertTrue("Library should contain stat after stat added.", library
-				.getStats().contains(stat));
+		assertEquals(
+				"Library should contain stat after stat added for the same song.",
+				1, library.getStats().size());
 	}
 
 }

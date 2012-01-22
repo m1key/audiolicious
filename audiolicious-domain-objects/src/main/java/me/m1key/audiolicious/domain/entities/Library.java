@@ -80,10 +80,6 @@ public class Library {
 		return dateAdded;
 	}
 
-	public void addStat(Stat stat) {
-		stats.add(stat);
-	}
-
 	public Set<Stat> getStats() {
 		return Collections.unmodifiableSet(stats);
 	}
