@@ -81,16 +81,11 @@ public class Library {
 	}
 
 	public void addStat(Stat stat) {
-		// stat.setLibrary(this);
 		stats.add(stat);
 	}
 
 	public Set<Stat> getStats() {
 		return Collections.unmodifiableSet(stats);
-	}
-
-	void clearStats() {
-		stats.clear();
 	}
 
 	public void addStat(StatInfo defaultStatInfo) {

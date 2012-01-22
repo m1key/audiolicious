@@ -107,11 +107,11 @@ public class LibraryHibernateIT extends HibernateIT {
 	}
 
 	@Test
-	public void whenAllArtistsRemovedThereShouldBeNoStatsButThereShouldBeLibrary() {
+	public void whenAllArtistsRemovedThereShouldStillBeStatstAndLibrary() {
 		createArtistsAlbumsSongsAndStats();
 
 		deleteAllArtists();
-		assertEquals("There should be no stats after all artists removed.", 0,
+		assertEquals("There should be no stats after all artists removed.", 35,
 				getAllStats().size());
 		assertEquals("There should be songs after all artists removed.", 0,
 				getAllSongs().size());
@@ -122,12 +122,12 @@ public class LibraryHibernateIT extends HibernateIT {
 	}
 
 	@Test
-	public void whenAllArtistsRemovedThereShouldBeNoStats() {
+	public void whenAllArtistsRemovedThereShouldStillBeStats() {
 		createArtistsAlbumsSongsAndStats();
 
 		deleteAllArtists();
-		assertEquals("There should be no stats after all artists removed.", 0,
-				getAllStats().size());
+		assertEquals("There should still be stats after all artists removed.",
+				35, getAllStats().size());
 	}
 
 	@Test

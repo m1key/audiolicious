@@ -81,10 +81,7 @@ public abstract class HibernateIT {
 
 	protected void deleteAllArtists() {
 		List<Artist> allArtists = getAllArtists();
-		List<Library> allLibraries = getAllLibraries();
-
 		getEntityManager().getTransaction().begin();
-		clearStatsOnAllLibraries(allLibraries);
 		removeAllArtists(allArtists);
 		getEntityManager().getTransaction().commit();
 	}
@@ -92,12 +89,6 @@ public abstract class HibernateIT {
 	private void removeAllArtists(List<Artist> allArtists) {
 		for (Artist artist : allArtists) {
 			getEntityManager().remove(artist);
-		}
-	}
-
-	private void clearStatsOnAllLibraries(List<Library> allLibraries) {
-		for (Library library : allLibraries) {
-			library.clearStats();
 		}
 	}
 
