@@ -24,8 +24,6 @@ public interface LibraryService {
 
 	Library createLibrary();
 
-	void saveLibrary(Library library);
-
 	Library getByUuid(String libraryUuid);
 
 }

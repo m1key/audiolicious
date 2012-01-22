@@ -19,10 +19,6 @@ public class StubLibraryService implements LibraryService {
 	}
 
 	@Override
-	public void saveLibrary(Library library) {	
-	}
-
-	@Override
 	public Library getByUuid(String libraryUuid) {
 		return library;
 	}

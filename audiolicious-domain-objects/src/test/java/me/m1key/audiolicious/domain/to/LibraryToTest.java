@@ -22,19 +22,18 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
 import java.util.Date;
-import java.util.UUID;
+
+import me.m1key.audiolicious.domain.entities.Library;
 
 import org.junit.Test;
 
 public class LibraryToTest {
 
-	private static final String RANDOM_UUID = UUID.randomUUID().toString();
-	private static final String RANDOM_UUID12 = UUID.randomUUID().toString();
-
 	@Test
 	public void testEquals1() {
-		LibraryTo libraryTo1 = new LibraryTo(RANDOM_UUID, new Date());
-		LibraryTo libraryTo2 = new LibraryTo(RANDOM_UUID, new Date());
+		Library library = new Library(new Date());
+		LibraryTo libraryTo1 = new LibraryTo(library);
+		LibraryTo libraryTo2 = new LibraryTo(library);
 
 		assertEquals("Two library TOs should be equal even if the "
 				+ "date is different so long as the uuid is identical.",
@@ -42,20 +41,11 @@ public class LibraryToTest {
 	}
 
 	@Test
-	public void testEquals2() {
-		Date date = new Date();
-		LibraryTo libraryTo1 = new LibraryTo(RANDOM_UUID, date);
-		LibraryTo libraryTo2 = new LibraryTo(RANDOM_UUID, date);
-
-		assertEquals("Two library TOs should be equal if the "
-				+ "date is identical and the uuid is identical.", libraryTo1,
-				libraryTo2);
-	}
-
-	@Test
 	public void testNotEquals1() {
-		LibraryTo libraryTo1 = new LibraryTo(RANDOM_UUID, new Date());
-		LibraryTo libraryTo2 = new LibraryTo(RANDOM_UUID12, new Date());
+		Library library1 = new Library(new Date());
+		Library library2 = new Library(new Date());
+		LibraryTo libraryTo1 = new LibraryTo(library1);
+		LibraryTo libraryTo2 = new LibraryTo(library2);
 
 		assertFalse("Two library TOs should be not equal even if the "
 				+ "uuids are not identical.", libraryTo1.equals(libraryTo2));

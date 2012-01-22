@@ -45,9 +45,4 @@ public class DefaultLibraryService implements LibraryService {
 		return libraryRepository.getByUuid(libraryUuid);
 	}
 
-	@Override
-	public void saveLibrary(Library library) {
-		libraryRepository.save(library);
-	}
-
 }

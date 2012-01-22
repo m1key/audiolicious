@@ -124,7 +124,7 @@ public class Song {
 		return key;
 	}
 
-	public static String toKey(int totalTime, int trackNumber, int discNumber) {
+	private String toKey(int totalTime, int trackNumber, int discNumber) {
 		return String.format("%d:%d:%d", totalTime, trackNumber, discNumber);
 	}
 

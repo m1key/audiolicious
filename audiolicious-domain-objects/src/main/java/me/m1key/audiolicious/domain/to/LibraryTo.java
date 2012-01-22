@@ -31,11 +31,6 @@ public class LibraryTo {
 	private String uuid;
 	private Date dateAdded;
 
-	public LibraryTo(String uuid, Date dateAdded) {
-		this.uuid = uuid;
-		this.dateAdded = dateAdded;
-	}
-
 	public LibraryTo(Library library) {
 		this.uuid = library.getUuid();
 		this.dateAdded = library.getDateAdded();
