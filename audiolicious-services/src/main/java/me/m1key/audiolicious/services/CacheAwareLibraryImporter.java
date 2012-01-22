@@ -22,7 +22,7 @@ import java.io.File;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
-import javax.ejb.Singleton;
+import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 
@@ -30,7 +30,7 @@ import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.to.LibraryTo;
 import me.m1key.audiolicious.libraryparser.LibraryParser;
 
-@Singleton
+@Stateless
 @Local(LibraryImporter.class)
 public class CacheAwareLibraryImporter implements LibraryImporter {
 

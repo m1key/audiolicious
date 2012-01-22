@@ -20,13 +20,13 @@ package me.m1key.audiolicious.objecthandler.handlers;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
-import javax.ejb.Singleton;
+import javax.ejb.Stateful;
 
 import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.objecthandler.TrackHandler;
 
-@Singleton
+@Stateful
 @Local({ SongHandler.class, TrackHandler.class })
 public class DefaultSongHandler implements SongHandler {
 

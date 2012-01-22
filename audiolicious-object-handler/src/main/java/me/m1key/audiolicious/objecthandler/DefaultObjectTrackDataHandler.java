@@ -21,13 +21,13 @@ package me.m1key.audiolicious.objecthandler;
 import java.util.Map;
 
 import javax.ejb.Local;
-import javax.ejb.Singleton;
+import javax.ejb.Stateful;
 import javax.inject.Inject;
 
 import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.to.TrackTo;
 
-@Singleton
+@Stateful
 @Local(ObjectTrackDataHandler.class)
 public class DefaultObjectTrackDataHandler implements ObjectTrackDataHandler {
 

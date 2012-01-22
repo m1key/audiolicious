@@ -22,7 +22,7 @@ import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
-import javax.ejb.Singleton;
+import javax.ejb.Stateful;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.domain.entities.Library;
@@ -30,7 +30,7 @@ import me.m1key.audiolicious.domain.to.TrackTo;
 import me.m1key.audiolicious.libraryparser.RawTrackDataHandler;
 import me.m1key.audiolicious.objectmapper.AggregateTrackMapper;
 
-@Singleton
+@Stateful
 @Local(RawTrackDataHandler.class)
 public class DefaultRawTrackDataHandler implements RawTrackDataHandler {
 
