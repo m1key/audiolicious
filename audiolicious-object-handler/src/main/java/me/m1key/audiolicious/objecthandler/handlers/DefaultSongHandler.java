@@ -31,7 +31,7 @@ import me.m1key.audiolicious.objecthandler.TrackHandler;
 public class DefaultSongHandler implements SongHandler {
 
 	@EJB
-	private SongService songService;
+	private StatefulSongService songService;
 
 	@Override
 	public void handle(SongTo songTo, Library library) {

@@ -63,7 +63,7 @@ import me.m1key.audiolicious.objecthandler.handlers.DefaultSongHandler;
 import me.m1key.audiolicious.objecthandler.handlers.NoopTrackHandler;
 import me.m1key.audiolicious.objecthandler.handlers.PodcastHandler;
 import me.m1key.audiolicious.objecthandler.handlers.SongHandler;
-import me.m1key.audiolicious.objecthandler.handlers.SongService;
+import me.m1key.audiolicious.objecthandler.handlers.StatefulSongService;
 import me.m1key.audiolicious.objecthandler.handlers.VideoHandler;
 import me.m1key.audiolicious.objectmapper.AggregateTrackMapper;
 import me.m1key.audiolicious.objectmapper.CannotMapTrackValuesException;
@@ -167,7 +167,7 @@ public class MacOsLibraryWithServiceIT {
 						PodcastMapper.class, PodcastTo.class, Rating.class,
 						RatingTo.class, RawTrackDataHandler.class, Song.class,
 						SongHandler.class, SongInfo.class, SongMapper.class,
-						SongService.class, SongTo.class, Stat.class,
+						SongTo.class, Stat.class, StatefulSongService.class,
 						StatInfo.class, ToBasedStatInfo.class,
 						TrackHandler.class, TrackHandlersFactory.class,
 						TrackMapper.class, TrackMappersFactory.class,

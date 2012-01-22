@@ -33,10 +33,10 @@ import me.m1key.audiolicious.commons.qualifiers.NullArtist;
 import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.to.SongTo;
-import me.m1key.audiolicious.objecthandler.handlers.SongService;
+import me.m1key.audiolicious.objecthandler.handlers.StatefulSongService;
 
 @Singleton
-@Local({ CacheableSongService.class, SongService.class })
+@Local({ CacheableSongService.class, StatefulSongService.class })
 public class InMemoryCacheableSongService implements CacheableSongService {
 
 	@EJB
@@ -47,9 +47,11 @@ public class InMemoryCacheableSongService implements CacheableSongService {
 
 	private Map<String, Artist> artistCache = new HashMap<String, Artist>();
 
+	private Library library;
+
 	@Override
 	@TransactionAttribute(TransactionAttributeType.MANDATORY)
-	public void addSong(SongTo songTo, Library library) {
+	public void addSong(SongTo songTo, Library libraryNotUsed) {
 		Artist artist = getOrCreateArtistByName(getAlbumArtistName(songTo));
 		String songUuid = artist.addSong(songTo);
 
@@ -94,6 +96,11 @@ public class InMemoryCacheableSongService implements CacheableSongService {
 
 	protected Map<String, Artist> getArtistCache() {
 		return artistCache;
+	}
+
+	@Override
+	public void setLibrary(Library library) {
+		this.library = library;
 	}
 
 }

@@ -21,8 +21,10 @@ package me.m1key.audiolicious.objecthandler.handlers;
 import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.to.SongTo;
 
-public interface SongService {
+public interface StatefulSongService {
 
 	void addSong(SongTo songTo, Library library);
+
+	void setLibrary(Library library);
 
 }

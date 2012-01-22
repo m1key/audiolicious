@@ -45,6 +45,7 @@ public class CacheAwareLibraryImporter implements LibraryImporter {
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public LibraryTo importLibrary(File libraryFile) {
 		Library library = libraryService.createLibrary();
+		cacheableSongService.setLibrary(library);
 		cacheableSongService.initialise();
 		libraryParser.process(libraryFile, library);
 		cacheableSongService.finalise();

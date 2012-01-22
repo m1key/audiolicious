@@ -1,8 +1,8 @@
 package me.m1key.audiolicious.services;
 
-import me.m1key.audiolicious.objecthandler.handlers.SongService;
+import me.m1key.audiolicious.objecthandler.handlers.StatefulSongService;
 
-public interface CacheableSongService extends SongService {
+public interface CacheableSongService extends StatefulSongService {
 
 	void initialise();
 
