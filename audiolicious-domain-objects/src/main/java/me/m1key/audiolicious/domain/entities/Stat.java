@@ -29,6 +29,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -47,12 +49,15 @@ public class Stat {
 	private Long id;
 
 	@Column(name = "DATE_ADDED")
+	@Temporal(TemporalType.DATE)
 	private Date dateAdded;
 
 	@Column(name = "DATE_MODIFIED")
+	@Temporal(TemporalType.DATE)
 	private Date dateModified;
 
 	@Column(name = "DATE_SKIPPED")
+	@Temporal(TemporalType.DATE)
 	private Date dateSkipped;
 
 	@Column(name = "SKIP_COUNT")
