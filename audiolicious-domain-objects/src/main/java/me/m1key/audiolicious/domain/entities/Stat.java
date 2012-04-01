@@ -49,15 +49,15 @@ public class Stat {
 	private Long id;
 
 	@Column(name = "DATE_ADDED")
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIME)
 	private Date dateAdded;
 
 	@Column(name = "DATE_MODIFIED")
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIME)
 	private Date dateModified;
 
 	@Column(name = "DATE_SKIPPED")
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIME)
 	private Date dateSkipped;
 
 	@Column(name = "SKIP_COUNT")

@@ -53,7 +53,7 @@ public class Library {
 	private String uuid;
 
 	@Column(name = "DATE_ADDED")
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIME)
 	private Date dateAdded;
 
 	@OneToMany(mappedBy = "library", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
