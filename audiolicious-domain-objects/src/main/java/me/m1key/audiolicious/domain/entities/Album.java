@@ -44,7 +44,6 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 		"ARTIST_ID", "NAME" }) })
 public class Album {
 
-	@SuppressWarnings("unused")
 	@Id
 	@GeneratedValue
 	@Column(name = "ALBUM_ID")

@@ -39,7 +39,6 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 		"NAME", "SONG_ID", "SONG_KEY" }) })
 public class Song {
 
-	@SuppressWarnings("unused")
 	@Id
 	@GeneratedValue
 	@Column(name = "SONG_ID")

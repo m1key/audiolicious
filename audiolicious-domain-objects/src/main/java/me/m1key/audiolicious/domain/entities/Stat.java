@@ -42,7 +42,6 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 		"SONG_UUID", "LIBRARY_ID" }) })
 public class Stat {
 
-	@SuppressWarnings("unused")
 	@Id
 	@GeneratedValue
 	@Column(name = "STAT_ID")

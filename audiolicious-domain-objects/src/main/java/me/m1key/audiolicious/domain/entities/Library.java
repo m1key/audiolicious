@@ -43,7 +43,6 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 @Table(name = "LIBRARIES")
 public class Library {
 
-	@SuppressWarnings("unused")
 	@Id
 	@GeneratedValue
 	@Column(name = "LIBRARY_ID")

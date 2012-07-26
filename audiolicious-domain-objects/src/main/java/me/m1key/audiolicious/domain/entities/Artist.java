@@ -40,7 +40,6 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 @Table(name = "ARTISTS")
 public class Artist {
 
-	@SuppressWarnings("unused")
 	@Id
 	@GeneratedValue
 	@Column(name = "ARTIST_ID")
