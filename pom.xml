@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>me.m1key.audiolicious</groupId>
 	<artifactId>audiolicious</artifactId>
-	<version>0.1.0</version>
+	<version>0.1.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Audiolicious Parent</name>
 	<description>This application allows you to see both simple and
