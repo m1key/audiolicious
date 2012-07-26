@@ -9,6 +9,11 @@
 	<description>This application allows you to see both simple and
 		sophisticated statistics of your music library.
 	</description>
+	<scm>
+		<connection>scm:git:http://github.com/m1key/audiolicious.git</connection>
+		<developerConnection>scm:git:git@github.com:m1key/audiolicious.git</developerConnection>
+		<url>http://github.com/m1key/audiolicious</url>
+	</scm>
 	<modules>
 		<module>audiolicious-library-parsers</module>
 		<module>audiolicious-object-mappers</module>
@@ -291,7 +296,7 @@
 			<id>jboss-public-repository-group</id>
 			<name>JBoss Public Maven Repository Group</name>
 			<url>https://repository.jboss.org/nexus/content/groups/public-jboss/
-			</url>
+				</url>
 			<layout>default</layout>
 			<releases>
 				<enabled>true</enabled>
