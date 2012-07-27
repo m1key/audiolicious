@@ -118,11 +118,47 @@ Prerequisites:
                         </password>
                     </security>
                 </datasource>
+                <datasource jndi-name="java:jboss/datasources/AudioliciousDS" pool-name="AudioliciousDS" enabled="true" jta="true" use-java-context="true" use-ccm="true">
+                    <connection-url>
+                        jdbc:mysql://localhost:3306/audiolicious
+                    </connection-url>
+                    <driver>
+                        com.mysql
+                    </driver>
+                    <transaction-isolation>
+                        TRANSACTION_READ_COMMITTED
+                    </transaction-isolation>
+                    <pool>
+                        <min-pool-size>
+                            10
+                        </min-pool-size>
+                        <max-pool-size>
+                            100
+                        </max-pool-size>
+                        <prefill>
+                            true
+                        </prefill>
+                        <use-strict-min>
+                            false
+                        </use-strict-min>
+                        <flush-strategy>
+                            FailingConnectionOnly
+                        </flush-strategy>
+                    </pool>
+                    <security>
+                        <user-name>
+                            root
+                        </user-name>
+                        <password>
+                            
+                        </password>
+                    </security>
+                </datasource>
 
 11. Modify transaction timeout value to 14400.
 	<coordinator-environment default-timeout="14400"/>
 
-12. In MySQL, create audiolicious_test schema.
+12. In MySQL, create audiolicious, audiolicious_test schemas.
 
 13. Set your ADLCS_DUMP environment variable to point to a folder where
 	Audiolicious Web will write temporary library files.
