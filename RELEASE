@@ -1,0 +1,3 @@
+This is the release command. Please note that you will have to change the local repository location (2 occurrences).
+
+mvn -DaltDeploymentRepository=releases::default::file:///home/m1key/Development/Projects/Other/repo/releases -Darguments="-DaltDeploymentRepository=releases::default::file:///home/m1key/Development/Projects/Other/repo/releases" release:prepare release:perform
