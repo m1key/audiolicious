@@ -63,4 +63,9 @@ public class StubRawTrackDataHandlerImpl implements StubRawTrackDataHandler {
 				matchingTrack);
 		return matchingTrack;
 	}
+
+	@Override
+	public void reset() {
+		rawTrackData.clear();
+	}
 }

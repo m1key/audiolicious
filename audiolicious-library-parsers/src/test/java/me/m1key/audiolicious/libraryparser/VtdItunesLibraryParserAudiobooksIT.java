@@ -101,6 +101,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 	public void setup() {
 		testHelperBean.deleteAllArtists();
 		testHelperBean.deleteAllLibraries();
+		stubRawTrackDataHandler.reset();
 		File libraryFile = new File(pathToFile);
 		library = new Library(new Date());
 		parser.process(libraryFile, library);

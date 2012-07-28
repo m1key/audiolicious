@@ -33,4 +33,6 @@ public interface StubRawTrackDataHandler extends RawTrackDataHandler {
 
 	Map<XmlNodeName, String> getTrack(String trackId);
 
+	void reset();
+
 }
