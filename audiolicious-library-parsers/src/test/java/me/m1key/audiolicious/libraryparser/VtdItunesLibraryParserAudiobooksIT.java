@@ -29,7 +29,17 @@ import java.util.Map;
 import javax.ejb.EJB;
 
 import me.m1key.audiolicious.commons.XmlNodeName;
+import me.m1key.audiolicious.domain.entities.Album;
+import me.m1key.audiolicious.domain.entities.AlbumAndSongInfo;
+import me.m1key.audiolicious.domain.entities.AlbumInfo;
+import me.m1key.audiolicious.domain.entities.Artist;
 import me.m1key.audiolicious.domain.entities.Library;
+import me.m1key.audiolicious.domain.entities.Rating;
+import me.m1key.audiolicious.domain.entities.Song;
+import me.m1key.audiolicious.domain.entities.SongInfo;
+import me.m1key.audiolicious.domain.entities.Stat;
+import me.m1key.audiolicious.domain.entities.StatInfo;
+import me.m1key.audiolicious.domain.to.RatingTo;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -54,6 +64,8 @@ public class VtdItunesLibraryParserAudiobooksIT {
 	private LibraryParser parser;
 	@EJB
 	private StubRawTrackDataHandler stubRawTrackDataHandler;
+	@EJB
+	private IntegrationTestHelperBean testHelperBean;
 
 	@Deployment
 	public static WebArchive createTestArchive()
@@ -64,8 +76,14 @@ public class VtdItunesLibraryParserAudiobooksIT {
 								.getSimpleName() + ".war")
 				.addAsWebInfResource(EmptyAsset.INSTANCE,
 						ArchivePaths.create("beans.xml"))
-				.addClasses(Library.class, LibraryParser.class,
-						RawTrackDataHandler.class,
+				.addAsResource("META-INF/persistence.xml",
+						"META-INF/persistence.xml")
+				.addClasses(Album.class, AlbumAndSongInfo.class,
+						AlbumInfo.class, Artist.class,
+						IntegrationTestHelperBean.class, Library.class,
+						LibraryParser.class, Rating.class, RatingTo.class,
+						RawTrackDataHandler.class, Song.class, SongInfo.class,
+						Stat.class, StatInfo.class,
 						StubRawTrackDataHandler.class,
 						StubRawTrackDataHandlerImpl.class,
 						VtdItunesLibraryParser.class, XmlNodeName.class,
@@ -74,12 +92,15 @@ public class VtdItunesLibraryParserAudiobooksIT {
 						DependencyResolvers
 								.use(MavenDependencyResolver.class)
 								.artifacts("com.ximpleware:vtd-xml:2.10",
-										"org.slf4j:slf4j-api:1.6.1")
+										"org.slf4j:slf4j-api:1.6.1",
+										"commons-lang:commons-lang:2.6")
 								.resolveAsFiles());
 	}
 
 	@Before
 	public void setup() {
+		testHelperBean.deleteAllArtists();
+		testHelperBean.deleteAllLibraries();
 		File libraryFile = new File(pathToFile);
 		library = new Library(new Date());
 		parser.process(libraryFile, library);
