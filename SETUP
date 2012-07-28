@@ -159,6 +159,9 @@ Prerequisites:
 	<coordinator-environment default-timeout="14400"/>
 
 12. In MySQL, create audiolicious, audiolicious_test schemas.
+    CREATE DATABASE audiolicious DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+
+    CREATE DATABASE audiolicious_test DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 
 13. Set your ADLCS_DUMP environment variable to point to a folder where
 	Audiolicious Web will write temporary library files.
