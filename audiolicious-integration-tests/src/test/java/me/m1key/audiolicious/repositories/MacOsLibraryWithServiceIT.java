@@ -192,9 +192,6 @@ public class MacOsLibraryWithServiceIT {
 
 	@Before
 	public void setUp() throws Exception {
-		assertEquals("There should be no artists before the test.",
-				Long.valueOf(0), testHelperBean.totalArtists());
-
 		File xmlLibraryFile = new File(pathToFile);
 		libraryImporter.importLibrary(xmlLibraryFile);
 	}
@@ -212,6 +209,6 @@ public class MacOsLibraryWithServiceIT {
 
 	@After
 	public void cleanup() {
-	    //testHelperBean.deleteAllArtists();
+		// testHelperBean.deleteAllArtists();
 	}
 }
