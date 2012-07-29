@@ -209,6 +209,10 @@ public class MacOsLibraryWithServiceIT {
 
 	@After
 	public void cleanup() {
+<<<<<<< HEAD
 		// testHelperBean.deleteAllArtists();
+=======
+	    //testHelperBean.deleteAllArtists();
+>>>>>>> 6871823656a7a9671870f510a20d58b81f8e0954
 	}
 }
