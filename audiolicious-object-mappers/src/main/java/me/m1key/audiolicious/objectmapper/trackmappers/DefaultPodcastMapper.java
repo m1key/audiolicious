@@ -81,10 +81,6 @@ public class DefaultPodcastMapper extends NonAggregateTrackMapper<PodcastTo>
 			return false;
 		}
 
-		if (fileFolderCountNotEquals(trackValues, "4")) {
-			return false;
-		}
-
 		if (locationsEndsWith(trackValues, ".m4b")) {
 			return false;
 		}

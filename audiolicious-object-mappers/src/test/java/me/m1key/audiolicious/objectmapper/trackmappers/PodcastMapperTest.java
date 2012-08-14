@@ -58,13 +58,6 @@ public class PodcastMapperTest {
 	}
 
 	@Test
-	public void testCannotMapPodcast() {
-		Map<XmlNodeName, String> trackValues = new HashMap<XmlNodeName, String>();
-		trackValues.put(XmlNodeName.PODCAST, TRUE);
-		assertFalse(podcastMapper.canMap(trackValues));
-	}
-
-	@Test
 	public void testCannotMapM4b() {
 		Map<XmlNodeName, String> trackValues = new HashMap<XmlNodeName, String>();
 		trackValues.put(XmlNodeName.PODCAST, FALSE);
@@ -73,12 +66,11 @@ public class PodcastMapperTest {
 	}
 
 	@Test
-	public void testCannotMapFileFolderCount() {
+	public void testCannotMapNonPodcast() {
 		Map<XmlNodeName, String> trackValues = new HashMap<XmlNodeName, String>();
 		trackValues.put(XmlNodeName.PODCAST, FALSE);
 		trackValues.put(XmlNodeName.LOCATION, "a.m4a");
 		trackValues.put(XmlNodeName.MOVIE, FALSE);
-		trackValues.put(XmlNodeName.FILE_FOLDER_COUNT, "3");
 		assertFalse(podcastMapper.canMap(trackValues));
 	}
 
@@ -88,7 +80,6 @@ public class PodcastMapperTest {
 		trackValues.put(XmlNodeName.PODCAST, TRUE);
 		trackValues.put(XmlNodeName.LOCATION, "a.m4a");
 		trackValues.put(XmlNodeName.MOVIE, FALSE);
-		trackValues.put(XmlNodeName.FILE_FOLDER_COUNT, "4");
 		assertTrue(podcastMapper.canMap(trackValues));
 	}
 
@@ -98,7 +89,6 @@ public class PodcastMapperTest {
 		trackValues.put(XmlNodeName.GENRE, "Podcast");
 		trackValues.put(XmlNodeName.LOCATION, "a.m4a");
 		trackValues.put(XmlNodeName.MOVIE, FALSE);
-		trackValues.put(XmlNodeName.FILE_FOLDER_COUNT, "4");
 		assertTrue(podcastMapper.canMap(trackValues));
 	}
 
@@ -108,7 +98,6 @@ public class PodcastMapperTest {
 		trackValues.put(XmlNodeName.PODCAST, TRUE);
 		trackValues.put(XmlNodeName.LOCATION, "a.m4a");
 		trackValues.put(XmlNodeName.MOVIE, FALSE);
-		trackValues.put(XmlNodeName.FILE_FOLDER_COUNT, "4");
 		trackValues.put(XmlNodeName.GENRE, "Rock");
 		trackValues.put(XmlNodeName.ARTIST, "Metallica artist");
 		trackValues.put(XmlNodeName.ALBUM_ARTIST, "Metallica album artist");
