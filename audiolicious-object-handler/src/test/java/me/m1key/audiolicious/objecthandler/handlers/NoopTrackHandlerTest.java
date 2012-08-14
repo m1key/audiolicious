@@ -31,8 +31,10 @@ import me.m1key.audiolicious.domain.to.VideoTo;
 import me.m1key.audiolicious.domain.to.VideoToBuilder;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore
 public class NoopTrackHandlerTest {
 
 	private Library library;

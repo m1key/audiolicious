@@ -24,8 +24,10 @@ import static org.junit.Assert.assertTrue;
 
 import javax.persistence.PersistenceException;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore
 public class ArtistHibernateIT extends HibernateIT {
 
 	private static final String ARTIST_1_NAME = "Blue Öyster Cult";

@@ -23,8 +23,10 @@ import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.objectmapper.extractor.DefaultEnglishValuesProvider;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore
 public class DefaultEnglishValuesProviderTest {
 
 	private DefaultEnglishValuesProvider defaultEnglishValuesProvider;

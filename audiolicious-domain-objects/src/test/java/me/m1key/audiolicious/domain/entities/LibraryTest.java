@@ -26,8 +26,10 @@ import java.util.Date;
 import me.m1key.audiolicious.domain.to.AlbumAndSongInfoBuilder;
 import me.m1key.audiolicious.domain.to.StatInfoBuilder;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore
 public class LibraryTest {
 
 	@Test

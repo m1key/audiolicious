@@ -107,10 +107,12 @@ import org.jboss.shrinkwrap.resolver.api.DependencyResolvers;
 import org.jboss.shrinkwrap.resolver.api.maven.MavenDependencyResolver;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(Arquillian.class)
+@Ignore
 public class TwoLibrariesIT {
 
 	private static final Long TOTAL_LIBRARIES = Long.valueOf(2);

@@ -25,8 +25,10 @@ import java.util.Date;
 
 import me.m1key.audiolicious.domain.entities.Library;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore
 public class LibraryToTest {
 
 	@Test

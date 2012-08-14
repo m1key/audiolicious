@@ -115,7 +115,7 @@ public class MacOsLibraryWithServiceIT {
 	private static final Long TOTAL_ALBUMS = Long.valueOf(704);
 	private static final Long TOTAL_SONGS = Long.valueOf(10732);
 	private static final Long TOTAL_VIDEOS = Long.valueOf(6);
-	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/MacOsExportedLibrary-2011-07-28.xml";
+	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/2012-08-30.xml";
 
 	@EJB
 	private LibraryImporter libraryImporter;

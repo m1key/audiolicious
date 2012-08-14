@@ -29,8 +29,10 @@ import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.domain.entities.Library;
 
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore
 public class VtdItunesLibraryParserVariousTest {
 
 	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/Fragment_1.xml";
