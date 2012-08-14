@@ -27,8 +27,10 @@ import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.domain.to.SongToBuilder;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore
 public class SongToBuilderTest {
 
 	private SongTo songViaConstructor;

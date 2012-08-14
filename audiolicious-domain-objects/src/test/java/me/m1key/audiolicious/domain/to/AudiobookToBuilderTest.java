@@ -27,8 +27,10 @@ import me.m1key.audiolicious.domain.to.AudiobookToBuilder;
 import me.m1key.audiolicious.domain.to.RatingTo;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore
 public class AudiobookToBuilderTest {
 
 	private AudiobookTo audiobookViaConstructor;

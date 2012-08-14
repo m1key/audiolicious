@@ -30,8 +30,10 @@ import me.m1key.audiolicious.commons.XmlNodeName;
 import me.m1key.audiolicious.domain.to.RatingTo;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore
 public class I18nDataExtractorTest {
 
 	private I18nDataExtractor dataExtractor;

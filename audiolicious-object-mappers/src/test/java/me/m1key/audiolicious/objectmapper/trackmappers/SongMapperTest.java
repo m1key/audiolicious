@@ -34,8 +34,10 @@ import me.m1key.audiolicious.objectmapper.extractor.DefaultEnglishValuesProvider
 import me.m1key.audiolicious.objectmapper.extractor.I18nDataExtractor;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore
 public class SongMapperTest {
 
 	private static final String TRUE = "true";

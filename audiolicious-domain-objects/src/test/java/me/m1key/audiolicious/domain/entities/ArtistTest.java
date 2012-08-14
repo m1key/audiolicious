@@ -22,8 +22,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore
 public class ArtistTest {
 
 	@Test

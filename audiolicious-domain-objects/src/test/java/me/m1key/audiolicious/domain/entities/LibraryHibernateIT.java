@@ -28,8 +28,10 @@ import java.util.Set;
 import me.m1key.audiolicious.domain.to.AlbumAndSongInfoBuilder;
 import me.m1key.audiolicious.domain.to.StatInfoBuilder;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore
 public class LibraryHibernateIT extends HibernateIT {
 
 	private static final String ARTIST_1_NAME = "Ozzy Osbourne";

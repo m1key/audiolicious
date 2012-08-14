@@ -24,8 +24,10 @@ import static org.junit.Assert.assertFalse;
 import me.m1key.audiolicious.domain.entities.Rating;
 import me.m1key.audiolicious.domain.to.RatingTo;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore
 public class RatingTest {
 
 	@Test

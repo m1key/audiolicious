@@ -46,11 +46,13 @@ import me.m1key.audiolicious.objectmapper.trackmappers.DefaultSongMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.DefaultVideoMapper;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+@Ignore
 @RunWith(MockitoJUnitRunner.class)
 public class RawTrackDataHandlerTest {
 	private DefaultRawTrackDataHandler handler;
