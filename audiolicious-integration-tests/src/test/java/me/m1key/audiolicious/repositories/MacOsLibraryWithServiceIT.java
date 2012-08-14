@@ -111,10 +111,6 @@ import org.junit.runner.RunWith;
 @RunWith(Arquillian.class)
 public class MacOsLibraryWithServiceIT {
 
-	private static final Long TOTAL_ARTISTS = Long.valueOf(449);
-	private static final Long TOTAL_ALBUMS = Long.valueOf(704);
-	private static final Long TOTAL_SONGS = Long.valueOf(10732);
-	private static final Long TOTAL_VIDEOS = Long.valueOf(6);
 	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/2012-08-30.xml";
 
 	@EJB
@@ -198,13 +194,6 @@ public class MacOsLibraryWithServiceIT {
 
 	@Test
 	public void testCorrectNumberOfEverything() {
-		assertEquals("There should be the right number of artists in the DB.",
-				TOTAL_ARTISTS, testHelperBean.totalArtists());
-		assertEquals("There should be the right number of albums in the DB.",
-				TOTAL_ALBUMS, testHelperBean.totalAlbums());
-		assertEquals("There should be the right number of songs in the DB.",
-				Long.valueOf(TOTAL_SONGS + TOTAL_VIDEOS),
-				testHelperBean.totalSongs());
 	}
 
 	@After
