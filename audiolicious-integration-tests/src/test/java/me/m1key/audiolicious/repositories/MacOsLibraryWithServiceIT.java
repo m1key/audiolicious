@@ -111,7 +111,7 @@ import org.junit.runner.RunWith;
 @RunWith(Arquillian.class)
 public class MacOsLibraryWithServiceIT {
 
-	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/2012-08-30.xml";
+	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/2012-09-27.xml";
 
 	@EJB
 	private LibraryImporter libraryImporter;
