@@ -19,7 +19,10 @@
 package me.m1key.audiolicious.services;
 
 import java.io.File;
+import java.util.concurrent.Future;
 
+import javax.ejb.AsyncResult;
+import javax.ejb.Asynchronous;
 import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
@@ -31,6 +34,7 @@ import me.m1key.audiolicious.domain.to.LibraryTo;
 import me.m1key.audiolicious.libraryparser.LibraryParser;
 
 @Stateless
+@Asynchronous
 @Local(LibraryImporter.class)
 public class CacheAwareLibraryImporter implements LibraryImporter {
 
@@ -45,7 +49,7 @@ public class CacheAwareLibraryImporter implements LibraryImporter {
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public LibraryTo importLibrary(File libraryFile) {
+	public Future<LibraryTo> importLibrary(File libraryFile) {
 		Library library = libraryService.createLibrary();
 		applicationConversation.startConversation(library);
 
@@ -54,6 +58,6 @@ public class CacheAwareLibraryImporter implements LibraryImporter {
 		cacheableSongService.finalise(library);
 
 		applicationConversation.endConversation(library);
-		return new LibraryTo(library);
+		return new AsyncResult<LibraryTo>(new LibraryTo(library));
 	}
 }
