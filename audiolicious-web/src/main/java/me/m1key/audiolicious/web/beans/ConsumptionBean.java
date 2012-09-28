@@ -19,32 +19,31 @@
 package me.m1key.audiolicious.web.beans;
 
 import java.io.File;
+import java.util.Date;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.inject.Inject;
+
+import me.m1key.audiolicious.domain.entities.Library;
+import me.m1key.audiolicious.libraryparser.LibraryParser;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @ManagedBean
 @ApplicationScoped
-public class ConsumptionBean /* Implements LibraryConsumer */{
+public class ConsumptionBean {
 
 	private static Logger log = LoggerFactory.getLogger(ConsumptionBean.class);
+	
+	@Inject
+	private LibraryParser libraryParser;
 
 	public void consume(File savedLibraryFile, String libraryUuid) {
 		log.info("Consuming library file [{}].", savedLibraryFile);
 		// TODO make an asynchronous call.
-		// librariesBeingConsumed.add(libraryUuid);
-		// libraryManager.parse(savedLibraryFile, libraryUuid, this)
+		libraryParser.process(savedLibraryFile, new Library(new Date()));
 	}
-	
-	/*
-	@Override
-	public void libraryConsumed(String libraryUuid) {
-		librariesBeingConsumed.remove(libraryUuid);
-		librariesConsumed.add(libraryUuid); // But don't keep more than 5.
-	}
-	 */
 
 }

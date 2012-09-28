@@ -16,29 +16,19 @@
  * along with this program.  If not, see http://www.m1key.me
  */
 
-package me.m1key.audiolicious.domain.entities;
+package me.m1key.audiolicious.commons.qualifiers;
 
-import javax.ejb.Singleton;
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Produces;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-import me.m1key.audiolicious.commons.qualifiers.NullArtist;
-import me.m1key.audiolicious.commons.qualifiers.NullLibrary;
+import javax.inject.Qualifier;
 
-@Singleton
-public class NullEntitiesFactory {
+@Qualifier
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER,
+		ElementType.TYPE })
+public @interface AggregateHandler {
 
-	@Produces
-	@ApplicationScoped
-	@NullArtist
-	public Artist getNullArtist() {
-		return new Artist("(null artist");
-	}
-
-	@Produces
-	@ApplicationScoped
-	@NullLibrary
-	public Library getNullLibrary() {
-		return new Library("(null library");
-	}
 }

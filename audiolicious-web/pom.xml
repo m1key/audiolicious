@@ -50,6 +50,30 @@
 	</profiles>
 	<dependencies>
 		<dependency>
+			<groupId>me.m1key.audiolicious</groupId>
+			<artifactId>audiolicious-library-parsers</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>me.m1key.audiolicious</groupId>
+			<artifactId>audiolicious-object-handler</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>me.m1key.audiolicious</groupId>
+			<artifactId>audiolicious-services</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>me.m1key.audiolicious</groupId>
+			<artifactId>audiolicious-repositories</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>me.m1key.audiolicious</groupId>
+			<artifactId>audiolicious-domain-objects</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>me.m1key.audiolicious</groupId>
+			<artifactId>audiolicious-commons</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.jboss.spec.javax.faces</groupId>
 			<artifactId>jboss-jsf-api_2.1_spec</artifactId>
 			<scope>provided</scope>

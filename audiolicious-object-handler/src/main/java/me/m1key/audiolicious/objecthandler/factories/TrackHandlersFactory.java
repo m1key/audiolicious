@@ -22,9 +22,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.ejb.EJB;
-import javax.enterprise.context.ApplicationScoped;
+import javax.ejb.Singleton;
 import javax.enterprise.inject.Produces;
 
+import me.m1key.audiolicious.commons.qualifiers.AggregateHandler;
 import me.m1key.audiolicious.domain.to.AudiobookTo;
 import me.m1key.audiolicious.domain.to.PodcastTo;
 import me.m1key.audiolicious.domain.to.SongTo;
@@ -36,7 +37,7 @@ import me.m1key.audiolicious.objecthandler.handlers.PodcastHandler;
 import me.m1key.audiolicious.objecthandler.handlers.SongHandler;
 import me.m1key.audiolicious.objecthandler.handlers.VideoHandler;
 
-@ApplicationScoped
+@Singleton
 public class TrackHandlersFactory {
 
 	@EJB
@@ -49,7 +50,8 @@ public class TrackHandlersFactory {
 	private VideoHandler videoHandler;
 
 	@Produces
-	public Map<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>> getTrackHandlers() {
+	@AggregateHandler
+	public Map<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>> getAggregateTrackHandler() {
 		Map<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>> handlers = new HashMap<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>>();
 		handlers.put(AudiobookTo.class, audiobookHandler);
 		handlers.put(PodcastTo.class, podcastHandler);

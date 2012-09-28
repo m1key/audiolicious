@@ -29,6 +29,9 @@ import javax.faces.component.UIComponent;
 import javax.faces.component.UIPanel;
 import javax.inject.Inject;
 
+import me.m1key.audiolicious.domain.entities.Library;
+import me.m1key.audiolicious.libraryparser.LibraryParser;
+
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ArchivePaths;
@@ -65,9 +68,10 @@ public class FileUploadBeanIT {
 						ArchivePaths.create("beans.xml"))
 				.addClasses(AudioliciousConfigurationException.class,
 						ConsumptionBean.class, FileUploadBean.class,
-						FileUploadEvent.class, LibrarySaveBean.class,
-						StubConsumptionBean.class, StubLibrarySaveBean.class,
-						UploadedFile.class)
+						FileUploadEvent.class, Library.class,
+						LibraryParser.class, LibrarySaveBean.class,
+						StubConsumptionBean.class, StubLibraryParser.class,
+						StubLibrarySaveBean.class, UploadedFile.class)
 				.addAsLibraries(
 						DependencyResolvers.use(MavenDependencyResolver.class)
 								.artifacts("org.slf4j:slf4j-api:1.6.1")
