@@ -1,6 +1,6 @@
 /* 
  * Audiolicious - Your Music Library Statistics
- * Copyright (C) 2011, Michal Huniewicz
+ * Copyright (C) 2012, Michal Huniewicz
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,28 +20,19 @@ package me.m1key.audiolicious.web.beans;
 
 import java.io.File;
 
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
-import javax.inject.Inject;
+import javax.ejb.Local;
+import javax.ejb.Stateful;
 
+import me.m1key.audiolicious.domain.to.LibraryTo;
 import me.m1key.audiolicious.services.LibraryImporter;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+@Stateful
+@Local(LibraryImporter.class)
+public class StubLibraryImporter implements LibraryImporter {
 
-@ManagedBean
-@ApplicationScoped
-public class ConsumptionBean {
-
-	private static Logger log = LoggerFactory.getLogger(ConsumptionBean.class);
-	
-	@Inject
-	private LibraryImporter libraryImporter;
-
-	public void consume(File savedLibraryFile, String libraryUuid) {
-		log.info("Consuming library file [{}].", savedLibraryFile);
-		// TODO make an asynchronous call.
-		libraryImporter.importLibrary(savedLibraryFile);
+	@Override
+	public LibraryTo importLibrary(File libraryFile) {
+		return null;
 	}
 
 }

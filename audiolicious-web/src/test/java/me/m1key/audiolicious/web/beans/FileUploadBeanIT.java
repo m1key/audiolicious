@@ -29,8 +29,8 @@ import javax.faces.component.UIComponent;
 import javax.faces.component.UIPanel;
 import javax.inject.Inject;
 
-import me.m1key.audiolicious.domain.entities.Library;
-import me.m1key.audiolicious.libraryparser.LibraryParser;
+import me.m1key.audiolicious.domain.to.LibraryTo;
+import me.m1key.audiolicious.services.LibraryImporter;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -68,9 +68,9 @@ public class FileUploadBeanIT {
 						ArchivePaths.create("beans.xml"))
 				.addClasses(AudioliciousConfigurationException.class,
 						ConsumptionBean.class, FileUploadBean.class,
-						FileUploadEvent.class, Library.class,
-						LibraryParser.class, LibrarySaveBean.class,
-						StubConsumptionBean.class, StubLibraryParser.class,
+						FileUploadEvent.class, LibraryImporter.class,
+						LibrarySaveBean.class, LibraryTo.class,
+						StubConsumptionBean.class, StubLibraryImporter.class,
 						StubLibrarySaveBean.class, UploadedFile.class)
 				.addAsLibraries(
 						DependencyResolvers.use(MavenDependencyResolver.class)
