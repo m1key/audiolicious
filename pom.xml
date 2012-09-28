@@ -63,7 +63,7 @@
 		<jboss-jsf.version>2.0.0.Beta1</jboss-jsf.version>
 
 		<!-- WEB -->
-		<org.richfaces.bom.version>4.0.0.Final</org.richfaces.bom.version>
+		<org.richfaces.bom.version>4.2.2.Final</org.richfaces.bom.version>
 
 		<!-- MAVEN -->
 		<plugin.surefire.version>2.9</plugin.surefire.version>
