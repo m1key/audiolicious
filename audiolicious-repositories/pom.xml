@@ -3,7 +3,7 @@
 	<parent>
 		<artifactId>audiolicious</artifactId>
 		<groupId>me.m1key.audiolicious</groupId>
-		<version>0.1.3-SNAPSHOT</version>
+		<version>0.1.3</version>
 	</parent>
 	<artifactId>audiolicious-repositories</artifactId>
 	<name>Audiolicious Repositories</name>
