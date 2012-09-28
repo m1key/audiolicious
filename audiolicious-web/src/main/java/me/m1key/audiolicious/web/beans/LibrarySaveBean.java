@@ -39,7 +39,7 @@ public class LibrarySaveBean {
 	private static Logger log = LoggerFactory.getLogger(LibrarySaveBean.class);
 
 	private static final String XML_EXTENSION = ".xml";
-	private static final String PATH_SEPARATOR = "path.separator";
+	private static final String FILE_SEPARATOR = "file.separator";
 	private static final String TARGET_DIRECTORY_PATH_SYSTEM_VARIABLE_NAME = "ADLCS_DUMP";
 	private static final Object EMPTY_STRING = "";
 
@@ -67,7 +67,7 @@ public class LibrarySaveBean {
 	}
 
 	private void setTargetDirectoryPath(String targetDirectoryPathFromOs) {
-		String pathSeparator = System.getProperty(PATH_SEPARATOR);
+		String pathSeparator = System.getProperty(FILE_SEPARATOR);
 
 		if (targetDirectoryPathFromOs.endsWith(pathSeparator)) {
 			targetDirectoryPath = targetDirectoryPathFromOs;
