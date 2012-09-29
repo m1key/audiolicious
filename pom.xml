@@ -67,8 +67,8 @@
 		<org.richfaces.bom.version>4.2.2.Final</org.richfaces.bom.version>
 
 		<!-- MAVEN -->
-		<plugin.surefire.version>2.9</plugin.surefire.version>
-		<plugin.war.version>2.1.1</plugin.war.version>
+		<plugin.surefire.version>2.12.2</plugin.surefire.version>
+		<plugin.war.version>2.2</plugin.war.version>
 		<plugin.compiler.version>2.5.1</plugin.compiler.version>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

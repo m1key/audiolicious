@@ -30,7 +30,12 @@ import javax.faces.component.UIComponent;
 import javax.faces.component.UIPanel;
 import javax.inject.Inject;
 
+import me.m1key.audiolicious.domain.entities.Library;
+import me.m1key.audiolicious.domain.entities.Rating;
+import me.m1key.audiolicious.domain.entities.Stat;
+import me.m1key.audiolicious.domain.entities.StatInfo;
 import me.m1key.audiolicious.domain.to.LibraryTo;
+import me.m1key.audiolicious.domain.to.RatingTo;
 import me.m1key.audiolicious.services.LibraryImporter;
 
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -69,13 +74,17 @@ public class FileUploadBeanIT {
 						ArchivePaths.create("beans.xml"))
 				.addClasses(AudioliciousConfigurationException.class,
 						ConsumptionBean.class, FileUploadBean.class,
-						FileUploadEvent.class, LibraryImporter.class,
-						LibrarySaveBean.class, LibraryTo.class,
-						StubConsumptionBean.class, StubLibraryImporter.class,
-						StubLibrarySaveBean.class, UploadedFile.class)
+						FileUploadEvent.class, Library.class,
+						LibraryImporter.class, LibrarySaveBean.class,
+						LibraryTo.class, Rating.class, RatingTo.class,
+						Stat.class, StatInfo.class, StubConsumptionBean.class,
+						StubLibraryImporter.class, StubLibrarySaveBean.class,
+						UploadedFile.class)
 				.addAsLibraries(
-						DependencyResolvers.use(MavenDependencyResolver.class)
-								.artifacts("org.slf4j:slf4j-api:1.6.1")
+						DependencyResolvers
+								.use(MavenDependencyResolver.class)
+								.artifacts("org.slf4j:slf4j-api:1.6.1",
+										"org.richfaces.ui:richfaces-components-api:4.2.2.Final")
 								.resolveAsFiles());
 	}
 
