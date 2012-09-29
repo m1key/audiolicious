@@ -42,6 +42,7 @@ import me.m1key.audiolicious.domain.entities.StatInfo;
 import me.m1key.audiolicious.domain.to.RatingTo;
 import me.m1key.audiolicious.domain.to.SongTo;
 import me.m1key.audiolicious.domain.to.TrackTo;
+import me.m1key.audiolicious.domain.to.TrackToType;
 import me.m1key.audiolicious.services.LibraryRepository;
 
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -83,7 +84,7 @@ public class JpaLibraryRepositoryIT {
 						Rating.class, RatingTo.class, Song.class,
 						SongInfo.class, SongTo.class, Stat.class,
 						StatInfo.class, RepositoriesTestHelperBean.class,
-						TrackTo.class)
+						TrackTo.class, TrackToType.class)
 				.addAsLibraries(
 						DependencyResolvers
 								.use(MavenDependencyResolver.class)
