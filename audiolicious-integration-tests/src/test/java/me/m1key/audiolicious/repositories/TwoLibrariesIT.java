@@ -125,7 +125,7 @@ public class TwoLibrariesIT {
 	private static final String pathToFile2 = "../audiolicious-test-data/src/test/resources/libraries/Fragment_2.xml";
 
 	@EJB
-	private LibraryImporter libraryImporter;
+	private SynchronousLibraryImporter libraryImporter;
 	@EJB
 	private ArtistRepository artistRepository;
 	@EJB
@@ -184,10 +184,13 @@ public class TwoLibrariesIT {
 						RatingTo.class, RawTrackDataHandler.class, Song.class,
 						SongHandler.class, SongInfo.class, SongMapper.class,
 						SongTo.class, Stat.class, StatefulSongService.class,
-						StatInfo.class, ToBasedStatInfo.class,
-						TrackHandler.class, TrackHandlersFactory.class,
-						TrackMapper.class, TrackMappersFactory.class,
-						TrackTo.class, TrackToType.class, VideoHandler.class,
+						StatInfo.class,
+						SynchronousCacheAwareLibraryImporter.class,
+						SynchronousLibraryImporter.class,
+						ToBasedStatInfo.class, TrackHandler.class,
+						TrackHandlersFactory.class, TrackMapper.class,
+						TrackMappersFactory.class, TrackTo.class,
+						TrackToType.class, VideoHandler.class,
 						VideoMapper.class, VideoTo.class,
 						VtdItunesLibraryParser.class, XmlNodeName.class,
 						XmlParseException.class)

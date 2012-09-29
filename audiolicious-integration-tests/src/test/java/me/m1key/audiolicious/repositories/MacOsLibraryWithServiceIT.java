@@ -118,7 +118,7 @@ public class MacOsLibraryWithServiceIT {
 	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/MacOsExportedLibrary-2011-07-28.xml";
 
 	@EJB
-	private LibraryImporter libraryImporter;
+	private SynchronousLibraryImporter libraryImporter;
 	@EJB
 	private IntegrationTestHelperBean testHelperBean;
 
@@ -172,10 +172,13 @@ public class MacOsLibraryWithServiceIT {
 						RatingTo.class, RawTrackDataHandler.class, Song.class,
 						SongHandler.class, SongInfo.class, SongMapper.class,
 						SongTo.class, Stat.class, StatefulSongService.class,
-						StatInfo.class, ToBasedStatInfo.class,
-						TrackHandler.class, TrackHandlersFactory.class,
-						TrackMapper.class, TrackMappersFactory.class,
-						TrackTo.class, TrackToType.class, VideoHandler.class,
+						StatInfo.class,
+						SynchronousCacheAwareLibraryImporter.class,
+						SynchronousLibraryImporter.class,
+						ToBasedStatInfo.class, TrackHandler.class,
+						TrackHandlersFactory.class, TrackMapper.class,
+						TrackMappersFactory.class, TrackTo.class,
+						TrackToType.class, VideoHandler.class,
 						VideoMapper.class, VideoTo.class,
 						VtdItunesLibraryParser.class, XmlNodeName.class,
 						XmlParseException.class)

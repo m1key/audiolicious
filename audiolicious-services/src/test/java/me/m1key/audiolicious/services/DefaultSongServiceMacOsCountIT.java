@@ -108,7 +108,7 @@ public class DefaultSongServiceMacOsCountIT {
 	private static final int TOTAL_VIDEOS = 1;
 
 	@EJB
-	private LibraryImporter importer;
+	private SynchronousLibraryImporter importer;
 	@EJB
 	private StubSongHandler songHandler;
 	@EJB
@@ -169,9 +169,10 @@ public class DefaultSongServiceMacOsCountIT {
 						StubLibraryRepositoryWithInfo.class,
 						StubPodcastHandler.class, StubSongHandler.class,
 						StubTrackHandlersFactory.class, StubVideoHandler.class,
-						TrackHandler.class, TrackMapper.class,
-						TrackMappersFactory.class, TrackTo.class,
-						TrackToType.class, VideoHandler.class,
+						SynchronousCacheAwareLibraryImporter.class,
+						SynchronousLibraryImporter.class, TrackHandler.class,
+						TrackMapper.class, TrackMappersFactory.class,
+						TrackTo.class, TrackToType.class, VideoHandler.class,
 						VideoMapper.class, VideoTo.class,
 						VtdItunesLibraryParser.class, XmlNodeName.class,
 						XmlParseException.class)
