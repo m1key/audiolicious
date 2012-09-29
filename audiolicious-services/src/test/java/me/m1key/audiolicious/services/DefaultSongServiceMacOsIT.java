@@ -174,7 +174,7 @@ public class DefaultSongServiceMacOsIT {
 						DependencyResolvers
 								.use(MavenDependencyResolver.class)
 								.artifacts("com.ximpleware:vtd-xml:2.10",
-										"joda-time:joda-time:1.6.2",
+										"joda-time:joda-time:2.1",
 										"org.slf4j:slf4j-api:1.6.1",
 										"org.slf4j:slf4j-log4j12:1.6.1",
 										"commons-lang:commons-lang:2.6")
