@@ -46,7 +46,7 @@
 		<weld-core.version>1.1.9.Final</weld-core.version>
 		<weld-spi.version>1.1.Final</weld-spi.version>
 		<arquillian.version>1.0.2.Final</arquillian.version>
-		<arquillian-weld-ee-embedded-1.1.version>1.0.0.CR3</arquillian-weld-ee-embedded-1.1.version>
+		<arquillian-weld-ee-embedded-1.1.version>1.1.2.Final</arquillian-weld-ee-embedded-1.1.version>
 
 		<!-- PERSISTENCE -->
 		<hibernate.version>4.0.1.Final</hibernate.version>
@@ -221,7 +221,7 @@
 				<version>${weld-spi.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.jboss.arquillian.container</groupId>
+				<groupId>org.jboss.weld.arquillian.container</groupId>
 				<artifactId>arquillian-weld-ee-embedded-1.1</artifactId>
 				<version>${arquillian-weld-ee-embedded-1.1.version}</version>
 			</dependency>
