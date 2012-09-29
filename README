@@ -34,7 +34,7 @@ Requirements for running:
 	* JBoss 7 AS,
 	* MySQL 5.
 A different configuration has not been tested.
-Initial JBoss version was 7.0.0.Final, now it is 7.0.2.Final.
+Initial JBoss version was 7.0.0.Final, now it is 7.1.1.Final.
 You must set your JBOSS_HOME system variable.
 
 See SETUP for more details.

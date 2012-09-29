@@ -19,12 +19,11 @@
 package me.m1key.audiolicious.services;
 
 import java.io.File;
-import java.util.concurrent.Future;
 
 import me.m1key.audiolicious.domain.to.LibraryTo;
 
 public interface LibraryImporter {
 
-	Future<LibraryTo> importLibrary(File libraryFile);
+	LibraryTo importLibrary(File libraryFile);
 
 }

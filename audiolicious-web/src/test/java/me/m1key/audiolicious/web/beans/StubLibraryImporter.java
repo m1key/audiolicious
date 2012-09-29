@@ -19,7 +19,6 @@
 package me.m1key.audiolicious.web.beans;
 
 import java.io.File;
-import java.util.concurrent.Future;
 
 import javax.ejb.Local;
 import javax.ejb.Stateful;
@@ -32,7 +31,7 @@ import me.m1key.audiolicious.services.LibraryImporter;
 public class StubLibraryImporter implements LibraryImporter {
 
 	@Override
-	public Future<LibraryTo> importLibrary(File libraryFile) {
+	public LibraryTo importLibrary(File libraryFile) {
 		return null;
 	}
 
