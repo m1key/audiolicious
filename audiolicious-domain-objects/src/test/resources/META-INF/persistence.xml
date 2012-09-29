@@ -14,7 +14,7 @@
 		<class>me.m1key.audiolicious.domain.entities.Library</class>
 
 		<properties>
-			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.format_sql" value="true" />
 
 			<property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver" />
