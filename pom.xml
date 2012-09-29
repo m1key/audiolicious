@@ -59,9 +59,9 @@
 		<!-- JEE -->
 		<javax.inject.version>1</javax.inject.version>
 		<el-api.version>2.2</el-api.version>
-		<cdi-api.version>1.0-SP1</cdi-api.version>
+		<cdi-api.version>1.0-SP4</cdi-api.version>
 		<jboss-javaee-6.0.version>3.0.0.Final</jboss-javaee-6.0.version>
-		<jboss-jsf.version>2.0.0.Beta1</jboss-jsf.version>
+		<jboss-jsf.version>2.0.1.Final</jboss-jsf.version>
 
 		<!-- WEB -->
 		<org.richfaces.bom.version>4.2.2.Final</org.richfaces.bom.version>
