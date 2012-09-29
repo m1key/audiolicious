@@ -182,7 +182,7 @@ public class MacOsLibraryWithServiceIT {
 				.addAsLibraries(
 						DependencyResolvers
 								.use(MavenDependencyResolver.class)
-								.artifacts("com.ximpleware:vtd-xml:2.10",
+								.artifacts("com.ximpleware:vtd-xml:2.11",
 										"joda-time:joda-time:2.1",
 										"org.slf4j:slf4j-api:1.6.1",
 										"org.slf4j:slf4j-log4j12:1.6.1",
