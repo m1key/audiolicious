@@ -104,7 +104,7 @@ public class DefaultSongServiceMacOsIT {
 	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/MacOsExportedLibrary-2011-07-28.xml";
 
 	@EJB
-	private LibraryImporter libraryImporter;
+	private SynchronousLibraryImporter libraryImporter;
 	@EJB
 	private StubArtistRepository stubArtistRepository;
 	@EJB
@@ -163,10 +163,13 @@ public class DefaultSongServiceMacOsIT {
 						StatefulSongService.class, StubArtistRepository.class,
 						StubLibraryRepository.class,
 						StubLibraryRepositoryWithInfo.class,
-						StubLibraryService.class, ToBasedStatInfo.class,
-						TrackHandler.class, TrackHandlersFactory.class,
-						TrackMapper.class, TrackMappersFactory.class,
-						TrackTo.class, TrackToType.class, VideoHandler.class,
+						StubLibraryService.class,
+						SynchronousCacheAwareLibraryImporter.class,
+						SynchronousLibraryImporter.class,
+						ToBasedStatInfo.class, TrackHandler.class,
+						TrackHandlersFactory.class, TrackMapper.class,
+						TrackMappersFactory.class, TrackTo.class,
+						TrackToType.class, VideoHandler.class,
 						VideoMapper.class, VideoTo.class,
 						VtdItunesLibraryParser.class, XmlNodeName.class,
 						XmlParseException.class)

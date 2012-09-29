@@ -108,7 +108,7 @@ public class DefaultSongServiceWindowsCountIT {
 	private static final int TOTAL_VIDEOS = 0;
 
 	@EJB
-	private LibraryImporter libraryImporter;
+	private SynchronousLibraryImporter libraryImporter;
 	@EJB
 	private StubSongHandler songHandler;
 	@EJB
@@ -167,9 +167,10 @@ public class DefaultSongServiceWindowsCountIT {
 						StubLibraryRepositoryWithInfo.class,
 						StubPodcastHandler.class, StubSongHandler.class,
 						StubTrackHandlersFactory.class, StubVideoHandler.class,
-						TrackHandler.class, TrackMapper.class,
-						TrackMappersFactory.class, TrackTo.class,
-						TrackToType.class, VideoHandler.class,
+						SynchronousCacheAwareLibraryImporter.class,
+						SynchronousLibraryImporter.class, TrackHandler.class,
+						TrackMapper.class, TrackMappersFactory.class,
+						TrackTo.class, TrackToType.class, VideoHandler.class,
 						VideoMapper.class, VideoTo.class,
 						VtdItunesLibraryParser.class, XmlNodeName.class,
 						XmlParseException.class)
