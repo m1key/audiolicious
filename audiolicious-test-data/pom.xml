@@ -3,7 +3,7 @@
 	<parent>
 		<artifactId>audiolicious</artifactId>
 		<groupId>me.m1key.audiolicious</groupId>
-		<version>0.2.1-SNAPSHOT</version>
+		<version>0.2.1</version>
 	</parent>
 	<artifactId>audiolicious-test-data</artifactId>
 	<name>Audiolicious Test Data</name>
