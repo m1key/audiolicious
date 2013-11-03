@@ -66,14 +66,14 @@ public class InMemoryCacheableSongService implements CacheableSongService {
 
 	private Artist getOrCreateArtistByName(String albumArtistName,
 			Library library) {
-		Artist artistFromCache = getArtistCache(library).get(albumArtistName);
+		Artist artistFromCache = getArtistCache(library).get(albumArtistName.toLowerCase());
 
 		if (artistFromCache == null) {
 			Artist artist = artistRepository.getArtist(albumArtistName);
 			if (artist.equals(nullArtist)) {
 				artist = new Artist(albumArtistName);
 			}
-			getArtistCache(library).put(albumArtistName, artist);
+			getArtistCache(library).put(albumArtistName.toLowerCase(), artist);
 			return artist;
 		} else {
 			return artistFromCache;
