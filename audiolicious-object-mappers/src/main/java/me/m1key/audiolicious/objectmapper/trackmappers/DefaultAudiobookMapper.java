@@ -86,10 +86,6 @@ public class DefaultAudiobookMapper extends
 			return false;
 		}
 
-		if (fileFolderCountNotEquals(trackValues, "4")) {
-			return false;
-		}
-
 		if (locationsEndsWith(trackValues, ".m4b")) {
 			return true;
 		}

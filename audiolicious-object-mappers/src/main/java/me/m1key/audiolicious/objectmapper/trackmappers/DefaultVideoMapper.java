@@ -85,15 +85,11 @@ public class DefaultVideoMapper extends NonAggregateTrackMapper<VideoTo>
 			return false;
 		}
 
-		if (fileFolderCountNotEquals(trackValues, "3")) {
-			return false;
-		}
-
 		if (locationsEndsWith(trackValues, ".m4b")) {
 			return false;
 		}
 
-		if (isMovie(trackValues) && hasVideo(trackValues)
+		if ((isMovie(trackValues) || hasVideo(trackValues))
 				&& hasNonZeroVideoDimensions(trackValues)) {
 			return true;
 		}

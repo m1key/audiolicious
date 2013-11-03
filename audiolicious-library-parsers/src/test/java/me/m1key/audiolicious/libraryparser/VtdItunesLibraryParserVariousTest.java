@@ -97,7 +97,6 @@ public class VtdItunesLibraryParserVariousTest {
 		assertEquals(
 				"file://localhost/Users/michalhuniewicz/Music/iTunes/iTunes%20Music/Movies/The%20Kite%20Runner.m4v",
 				track01.get(XmlNodeName.LOCATION));
-		assertEquals("3", track01.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", track01.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(track01.get(XmlNodeName.COMMENTS));
 	}
@@ -134,7 +133,6 @@ public class VtdItunesLibraryParserVariousTest {
 		assertEquals(
 				"file://localhost/Users/michalhuniewicz/Music/iTunes/iTunes%20Music/Podcasts/Scientific%20American%20Podcast/Tree%20Ring%20Science%20and%20Tomorrow's%20Water.mp3",
 				track02.get(XmlNodeName.LOCATION));
-		assertEquals("4", track02.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", track02.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertEquals("Join host Steve Mirsky each week as he explores the "
 				+ "latest developments in science and technology through "
@@ -186,7 +184,6 @@ public class VtdItunesLibraryParserVariousTest {
 		assertEquals(
 				"file://localhost/E:/iTunes/Omar%20Khayyam/The%20Rubaiyat%20(Unabridged)/01%20The%20Rubaiyat%20(Unabridged).m4b",
 				track03.get(XmlNodeName.LOCATION));
-		assertEquals("4", track03.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", track03.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(track03.get(XmlNodeName.COMMENTS));
 	}
@@ -230,7 +227,6 @@ public class VtdItunesLibraryParserVariousTest {
 		assertEquals(
 				"file://localhost/E:/iTunes/Audioslave/Revelations/01%20Revelations.m4a",
 				track04.get(XmlNodeName.LOCATION));
-		assertEquals("4", track04.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", track04.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(track04.get(XmlNodeName.COMMENTS));
 	}
@@ -274,7 +270,6 @@ public class VtdItunesLibraryParserVariousTest {
 		assertEquals(
 				"file://localhost/E:/iTunes/Audioslave/Revelations/02%20One%20and%20the%20Same.m4a",
 				track05.get(XmlNodeName.LOCATION));
-		assertEquals("4", track05.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", track05.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(track05.get(XmlNodeName.COMMENTS));
 	}
@@ -318,7 +313,6 @@ public class VtdItunesLibraryParserVariousTest {
 		assertEquals(
 				"file://localhost/E:/iTunes/Audioslave/Revelations/03%20Sound%20of%20a%20Gun.m4a",
 				track06.get(XmlNodeName.LOCATION));
-		assertEquals("4", track06.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", track06.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(track06.get(XmlNodeName.COMMENTS));
 	}
@@ -362,7 +356,6 @@ public class VtdItunesLibraryParserVariousTest {
 		assertEquals(
 				"file://localhost/E:/iTunes/Audioslave/Revelations/04%20Until%20We%20Fall.m4a",
 				track07.get(XmlNodeName.LOCATION));
-		assertEquals("4", track07.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", track07.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(track07.get(XmlNodeName.COMMENTS));
 	}
@@ -406,7 +399,6 @@ public class VtdItunesLibraryParserVariousTest {
 		assertEquals(
 				"file://localhost/E:/iTunes/Audioslave/Revelations/05%20Original%20Fire.m4a",
 				track08.get(XmlNodeName.LOCATION));
-		assertEquals("4", track08.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", track08.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(track08.get(XmlNodeName.COMMENTS));
 	}
@@ -451,7 +443,6 @@ public class VtdItunesLibraryParserVariousTest {
 		assertEquals(
 				"file://localhost/E:/iTunes/Monster%20Magnet/4-Way%20Diablo/01%204%20Way%20Diablo.m4a",
 				track09.get(XmlNodeName.LOCATION));
-		assertEquals("4", track09.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", track09.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(track09.get(XmlNodeName.COMMENTS));
 	}
@@ -502,7 +493,6 @@ public class VtdItunesLibraryParserVariousTest {
 		assertEquals(
 				"file://localhost/E:/iTunes/The%20Rolling%20Stones/Exile%20On%20Main%20St/11%20Plundered%20My%20Soul%20(Stones%20In%20Exil.m4v",
 				track10.get(XmlNodeName.LOCATION));
-		assertEquals("4", track10.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", track10.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(track10.get(XmlNodeName.COMMENTS));
 	}

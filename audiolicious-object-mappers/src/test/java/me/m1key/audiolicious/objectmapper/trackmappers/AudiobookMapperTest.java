@@ -70,7 +70,6 @@ public class AudiobookMapperTest {
 	public void testCanMapM4b() {
 		Map<XmlNodeName, String> trackValues = new HashMap<XmlNodeName, String>();
 		trackValues.put(XmlNodeName.LOCATION, "something.m4b");
-		trackValues.put(XmlNodeName.FILE_FOLDER_COUNT, "4");
 		assertTrue(audiobookMapper.canMap(trackValues));
 	}
 
@@ -78,7 +77,6 @@ public class AudiobookMapperTest {
 	public void testCanMapGenreAudiobook() {
 		Map<XmlNodeName, String> trackValues = new HashMap<XmlNodeName, String>();
 		trackValues.put(XmlNodeName.LOCATION, "something.mp3");
-		trackValues.put(XmlNodeName.FILE_FOLDER_COUNT, "4");
 		trackValues.put(XmlNodeName.GENRE, "Audiobook");
 		assertTrue(audiobookMapper.canMap(trackValues));
 	}
@@ -87,7 +85,6 @@ public class AudiobookMapperTest {
 	public void testCanMapGenreAudiobookDutch() {
 		Map<XmlNodeName, String> trackValues = new HashMap<XmlNodeName, String>();
 		trackValues.put(XmlNodeName.LOCATION, "something.mp3");
-		trackValues.put(XmlNodeName.FILE_FOLDER_COUNT, "4");
 		trackValues.put(XmlNodeName.GENRE, "Audioboek");
 		assertTrue(audiobookMapper.canMap(trackValues));
 	}
@@ -98,7 +95,6 @@ public class AudiobookMapperTest {
 		trackValues.put(XmlNodeName.PODCAST, FALSE);
 		trackValues.put(XmlNodeName.LOCATION, "a.m4b");
 		trackValues.put(XmlNodeName.MOVIE, FALSE);
-		trackValues.put(XmlNodeName.FILE_FOLDER_COUNT, "4");
 		trackValues.put(XmlNodeName.GENRE, "Rock");
 		trackValues.put(XmlNodeName.ARTIST, "Metallica artist");
 		trackValues.put(XmlNodeName.ALBUM_ARTIST, "Metallica album artist");

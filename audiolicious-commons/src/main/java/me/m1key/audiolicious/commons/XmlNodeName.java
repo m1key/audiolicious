@@ -125,13 +125,6 @@ public enum XmlNodeName {
         }
     },
 
-    FILE_FOLDER_COUNT {
-        @Override
-        public String toString() {
-            return "File Folder Count";
-        }
-    },
-
     GENRE {
         @Override
         public String toString() {

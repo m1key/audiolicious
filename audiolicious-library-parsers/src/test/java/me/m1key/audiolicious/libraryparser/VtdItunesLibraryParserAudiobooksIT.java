@@ -151,7 +151,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Erich%20Maria%20Remarque/All%20Quiet%20on%20the%20Western%20Front%20(Unabridg/01%20All%20Quiet%20on%20the%20Western%20Front%20(U.m4b",
 				audiobook01.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook01.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook01.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 	}
 
@@ -184,7 +183,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Bill%20Bryson/At%20Home_%20A%20Short%20History%20of%20Private%20Life/At%20Home_%20A%20Short%20History%20of%20Private.aax",
 				audiobook02.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook02.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook02.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertEquals(
 				"Bill Bryson was struck one day by the thought that we devote "
@@ -222,7 +220,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Bill%20Bryson/At%20Home_%20A%20Short%20History%20of%20Private%20Life/At%20Home_%20A%20Short%20History%20of%20Private%201.aax",
 				audiobook03.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook03.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook03.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertEquals(
 				"Bill Bryson was struck one day by the thought that we devote "
@@ -261,7 +258,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Philip%20K.%20Dick/Blade%20Runner%20(Unabridged)/Blade%20Runner%20(Unabridged),%20Part%201.aax",
 				audiobook04.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook04.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook04.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertEquals("Somewhere among the hordes of humans out there, lurked "
 				+ "several rogue androids....",
@@ -298,7 +294,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Philip%20K.%20Dick/Blade%20Runner%20(Unabridged)/Blade%20Runner%20(Unabridged),%20Part%202.aax",
 				audiobook05.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook05.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook05.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertEquals("Somewhere among the hordes of humans out there, lurked "
 				+ "several rogue androids....",
@@ -333,7 +328,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Frank%20Herbert/Dune%20(Unabridged)/Dune%20(Unabridged),%20Part%201.aa",
 				audiobook06.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook06.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook06.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(audiobook06.get(XmlNodeName.COMMENTS));
 	}
@@ -366,7 +360,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Frank%20Herbert/Dune%20(Unabridged)/Dune%20(Unabridged),%20Part%202.aa",
 				audiobook07.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook07.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook07.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(audiobook07.get(XmlNodeName.COMMENTS));
 	}
@@ -399,7 +392,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Frank%20Herbert/Dune%20(Unabridged)/Dune%20(Unabridged),%20Part%203.aa",
 				audiobook08.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook08.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook08.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(audiobook08.get(XmlNodeName.COMMENTS));
 	}
@@ -441,7 +433,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Pimsleur/Farsi%20Persian%20Phase%201,%20Unit%2001-05_%20Learn/01%20Farsi%20Persian%20Phase%201,%20Unit%2001-05.m4b",
 				audiobook09.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook09.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook09.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(audiobook09.get(XmlNodeName.COMMENTS));
 	}
@@ -493,7 +484,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Richard%20P.%20Feynman/The%20Feynman%20Lectures%20On%20Physics_%20Volume/01%20The%20Feynman%20Lectures%20On%20Physics_.m4b",
 				audiobook10.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook10.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook10.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(audiobook10.get(XmlNodeName.COMMENTS));
 	}
@@ -545,7 +535,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Richard%20P.%20Feynman/The%20Feynman%20Lectures%20On%20Physics_%20Volume/02%20The%20Feynman%20Lectures%20On%20Physics_.m4b",
 				audiobook11.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook11.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook11.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(audiobook11.get(XmlNodeName.COMMENTS));
 	}
@@ -597,7 +586,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Richard%20P.%20Feynman/The%20Feynman%20Lectures%20On%20Physics_%20Volume/03%20The%20Feynman%20Lectures%20On%20Physics_.m4b",
 				audiobook12.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook12.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook12.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(audiobook12.get(XmlNodeName.COMMENTS));
 	}
@@ -638,7 +626,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Lewis%20Carroll/Jabberwocky%20(Unabridged)/01%20Jabberwocky%20(Unabridged).m4b",
 				audiobook13.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook13.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook13.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(audiobook13.get(XmlNodeName.COMMENTS));
 	}
@@ -683,7 +670,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Khaled%20Hosseini/The%20Kite%20Runner%20(Unabridged)/01%20The%20Kite%20Runner%20(Unabridged),%20Par.m4b",
 				audiobook14.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook14.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook14.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(audiobook14.get(XmlNodeName.COMMENTS));
 	}
@@ -728,7 +714,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Khaled%20Hosseini/The%20Kite%20Runner%20(Unabridged)/02%20The%20Kite%20Runner%20(Unabridged),%20Par.m4b",
 				audiobook15.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook15.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook15.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(audiobook15.get(XmlNodeName.COMMENTS));
 	}
@@ -768,7 +753,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Mark%20Twain/Letters%20from%20the%20Earth%20(Unabridged)/01%20Letters%20from%20the%20Earth%20(Unabridge.m4b",
 				audiobook16.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook16.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook16.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(audiobook16.get(XmlNodeName.COMMENTS));
 	}
@@ -813,7 +797,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Edgar%20Allan%20Poe/The%20Raven%20(Unabridged)/01%20The%20Raven%20(Unabridged).m4b",
 				audiobook17.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook17.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook17.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(audiobook17.get(XmlNodeName.COMMENTS));
 	}
@@ -865,7 +848,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Omar%20Khayyam/The%20Rubaiyat%20(Unabridged)/01%20The%20Rubaiyat%20(Unabridged).m4b",
 				audiobook18.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook18.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook18.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertNull(audiobook18.get(XmlNodeName.COMMENTS));
 	}
@@ -898,7 +880,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Jacek%20Piekara/Sluga%20Bozy/01%20Sluga%20Bozy.m4b",
 				audiobook19.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook19.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook19.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 		assertEquals("czyta Jaroslaw Rabenda",
 				audiobook19.get(XmlNodeName.COMMENTS));
@@ -944,7 +925,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Ernest%20Hemingway/The%20Sun%20Also%20Rises%20(Unabridged)/01%20The%20Sun%20Also%20Rises%20(Unabridged)%20P.m4b",
 				audiobook20.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook20.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook20.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 	}
 
@@ -988,7 +968,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Ernest%20Hemingway/The%20Sun%20Also%20Rises%20(Unabridged)/02%20The%20Sun%20Also%20Rises%20(Unabridged)%20P.m4b",
 				audiobook21.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook21.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook21.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 	}
 
@@ -1032,7 +1011,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Ernest%20Hemingway/The%20Sun%20Also%20Rises%20(Unabridged)/03%20The%20Sun%20Also%20Rises%20(Unabridged)%20P.m4b",
 				audiobook22.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook22.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook22.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 	}
 
@@ -1076,7 +1054,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Ernest%20Hemingway/The%20Sun%20Also%20Rises%20(Unabridged)/04%20The%20Sun%20Also%20Rises%20(Unabridged)%20P.m4b",
 				audiobook23.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook23.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook23.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 	}
 
@@ -1118,7 +1095,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Richard%20P.%20Feynman/Surely%20You're%20Joking,%20Mr.%20Feynman!%20(Unab/01%20Surely%20You're%20Joking,%20Mr.%20Feynman.m4b",
 				audiobook24.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook24.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook24.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 	}
 
@@ -1160,7 +1136,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Richard%20P.%20Feynman/Surely%20You're%20Joking,%20Mr.%20Feynman!%20(Unab/02%20Surely%20You're%20Joking,%20Mr.%20Feynman.m4b",
 				audiobook25.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook25.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook25.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 	}
 
@@ -1202,7 +1177,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Richard%20P.%20Feynman/Surely%20You're%20Joking,%20Mr.%20Feynman!%20(Unab/03%20Surely%20You're%20Joking,%20Mr.%20Feynman.m4b",
 				audiobook26.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook26.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook26.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 	}
 
@@ -1244,7 +1218,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Richard%20P.%20Feynman/Surely%20You're%20Joking,%20Mr.%20Feynman!%20(Unab/04%20Surely%20You're%20Joking,%20Mr.%20Feynman.m4b",
 				audiobook27.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook27.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook27.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 	}
 
@@ -1286,7 +1259,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Richard%20P.%20Feynman/Surely%20You're%20Joking,%20Mr.%20Feynman!%20(Unab/05%20Surely%20You're%20Joking,%20Mr.%20Feynman.m4b",
 				audiobook28.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook28.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook28.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 	}
 
@@ -1328,7 +1300,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Richard%20P.%20Feynman/Surely%20You're%20Joking,%20Mr.%20Feynman!%20(Unab/06%20Surely%20You're%20Joking,%20Mr.%20Feynman.m4b",
 				audiobook29.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook29.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook29.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 	}
 
@@ -1368,7 +1339,6 @@ public class VtdItunesLibraryParserAudiobooksIT {
 		assertEquals(
 				"file://localhost/E:/iTunes/Arthur%20C.%20Clarke/2001_%20a%20Space%20Odyssey%20(Unabridged)/01%202001_%20a%20Space%20Odyssey%20(Unabridged.m4b",
 				audiobook30.get(XmlNodeName.LOCATION));
-		assertEquals("4", audiobook30.get(XmlNodeName.FILE_FOLDER_COUNT));
 		assertEquals("1", audiobook30.get(XmlNodeName.LIBRARY_FOLDER_COUNT));
 	}
 

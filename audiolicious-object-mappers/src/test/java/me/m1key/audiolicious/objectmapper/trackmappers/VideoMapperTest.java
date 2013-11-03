@@ -80,7 +80,6 @@ public class VideoMapperTest {
 		trackValues.put(XmlNodeName.PODCAST, FALSE);
 		trackValues.put(XmlNodeName.LOCATION, "a.m4a");
 		trackValues.put(XmlNodeName.MOVIE, FALSE);
-		trackValues.put(XmlNodeName.FILE_FOLDER_COUNT, "4");
 		assertFalse(videoMapper.canMap(trackValues));
 	}
 
@@ -93,7 +92,6 @@ public class VideoMapperTest {
 		trackValues.put(XmlNodeName.HAS_VIDEO, TRUE);
 		trackValues.put(XmlNodeName.VIDEO_HEIGHT, "240");
 		trackValues.put(XmlNodeName.VIDEO_WIDTH, "320");
-		trackValues.put(XmlNodeName.FILE_FOLDER_COUNT, "3");
 		assertFalse(videoMapper.canMap(trackValues));
 	}
 
@@ -106,7 +104,6 @@ public class VideoMapperTest {
 		trackValues.put(XmlNodeName.HAS_VIDEO, FALSE);
 		trackValues.put(XmlNodeName.VIDEO_HEIGHT, "240");
 		trackValues.put(XmlNodeName.VIDEO_WIDTH, "320");
-		trackValues.put(XmlNodeName.FILE_FOLDER_COUNT, "3");
 		assertFalse(videoMapper.canMap(trackValues));
 	}
 
@@ -119,7 +116,6 @@ public class VideoMapperTest {
 		trackValues.put(XmlNodeName.HAS_VIDEO, TRUE);
 		trackValues.put(XmlNodeName.VIDEO_HEIGHT, "0");
 		trackValues.put(XmlNodeName.VIDEO_WIDTH, "320");
-		trackValues.put(XmlNodeName.FILE_FOLDER_COUNT, "3");
 		assertFalse(videoMapper.canMap(trackValues));
 	}
 
@@ -132,7 +128,6 @@ public class VideoMapperTest {
 		trackValues.put(XmlNodeName.HAS_VIDEO, TRUE);
 		trackValues.put(XmlNodeName.VIDEO_HEIGHT, "240");
 		trackValues.put(XmlNodeName.VIDEO_WIDTH, "0");
-		trackValues.put(XmlNodeName.FILE_FOLDER_COUNT, "3");
 		assertFalse(videoMapper.canMap(trackValues));
 	}
 
@@ -145,7 +140,6 @@ public class VideoMapperTest {
 		trackValues.put(XmlNodeName.HAS_VIDEO, TRUE);
 		trackValues.put(XmlNodeName.VIDEO_HEIGHT, "240");
 		trackValues.put(XmlNodeName.VIDEO_WIDTH, "320");
-		trackValues.put(XmlNodeName.FILE_FOLDER_COUNT, "3");
 		assertTrue(videoMapper.canMap(trackValues));
 	}
 
@@ -156,7 +150,6 @@ public class VideoMapperTest {
 		trackValues.put(XmlNodeName.LOCATION, "a.m4a");
 		trackValues.put(XmlNodeName.MOVIE, TRUE);
 		trackValues.put(XmlNodeName.HAS_VIDEO, TRUE);
-		trackValues.put(XmlNodeName.FILE_FOLDER_COUNT, "3");
 		trackValues.put(XmlNodeName.GENRE, "Rock");
 		trackValues.put(XmlNodeName.ARTIST, "Metallica artist");
 		trackValues.put(XmlNodeName.ALBUM_ARTIST, "Metallica album artist");
