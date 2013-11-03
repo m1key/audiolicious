@@ -24,6 +24,7 @@ import javax.ejb.Local;
 import javax.ejb.Stateful;
 import javax.inject.Inject;
 
+import me.m1key.audiolicious.commons.qualifiers.AggregateHandler;
 import me.m1key.audiolicious.domain.entities.Library;
 import me.m1key.audiolicious.domain.to.TrackTo;
 
@@ -32,6 +33,7 @@ import me.m1key.audiolicious.domain.to.TrackTo;
 public class DefaultObjectTrackDataHandler implements ObjectTrackDataHandler {
 
 	@Inject
+	@AggregateHandler
 	private Map<Class<? extends TrackTo>, TrackHandler<? extends TrackTo>> handlersForAllKnownTos;
 
 	@Override

@@ -93,7 +93,7 @@ public class VtdItunesLibraryParserAudiobooksIT {
 				.addAsLibraries(
 						DependencyResolvers
 								.use(MavenDependencyResolver.class)
-								.artifacts("com.ximpleware:vtd-xml:2.10",
+								.artifacts("com.ximpleware:vtd-xml:2.11",
 										"org.slf4j:slf4j-api:1.6.1",
 										"commons-lang:commons-lang:2.6")
 								.resolveAsFiles());

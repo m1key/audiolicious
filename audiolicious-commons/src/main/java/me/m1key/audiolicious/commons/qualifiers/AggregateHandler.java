@@ -16,29 +16,19 @@
  * along with this program.  If not, see http://www.m1key.me
  */
 
-package me.m1key.audiolicious.objecthandler.handlers;
+package me.m1key.audiolicious.commons.qualifiers;
 
-import javax.ejb.Local;
-import javax.ejb.Singleton;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-import me.m1key.audiolicious.domain.entities.Library;
-import me.m1key.audiolicious.domain.to.TrackTo;
-import me.m1key.audiolicious.objecthandler.TrackHandler;
+import javax.inject.Qualifier;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-@Singleton
-@Local({ AudiobookHandler.class, PodcastHandler.class, TrackHandler.class,
-		VideoHandler.class })
-public class DefaultNoopTrackHandler implements TrackHandler<TrackTo> {
-
-	private static Logger log = LoggerFactory
-			.getLogger(DefaultNoopTrackHandler.class);
-
-	@Override
-	public void handle(TrackTo track, Library library) {
-		log.debug("Ignoring track [{}].", track);
-	}
+@Qualifier
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER,
+		ElementType.TYPE })
+public @interface AggregateHandler {
 
 }

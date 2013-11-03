@@ -131,7 +131,7 @@ public class VtdItunesLibraryParser implements LibraryParser {
 					log.debug("Key [{}], value [{}].", trackKey, trackValue);
 					trackValues.put(trackKey, trackValue);
 				} else {
-					log.warn("Unknown key [{}].", trackKeyStringValue);
+					log.debug("Unknown key [{}].", trackKeyStringValue);
 				}
 			}
 			trackKey.resetXPath();

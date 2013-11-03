@@ -7,7 +7,7 @@ Steb-by-step setup to build the application.
 
 Prerequisites:
 	* Git (if you don't have the sources),
-	* JBoss 7.0.2.Final (Web),
+	* JBoss 7.1.1.Final (Web),
 	* MySql 5,
 	* Maven 3,
 	* VTD XML 2.10.
@@ -60,7 +60,7 @@ Prerequisites:
 
 <module xmlns="urn:jboss:module:1.0" name="com.mysql">
     <resources>
-        <resource-root path="mysql-connector-java-5.1.18.jar"/>
+        <resource-root path="mysql-connector-java-5.1.22-bin.jar"/>
     </resources>
 
     <dependencies>
@@ -69,7 +69,7 @@ Prerequisites:
     </dependencies>
 </module>
 
-8. In the same folder, add file mysql-connector-java-5.1.18.jar.
+8. In the same folder, add file mysql-connector-java-5.1.22.jar.
 	http://www.mysql.com/downloads/connector/j/
 
 9. Add driver definition to standalone/configuration/standalone.xml.

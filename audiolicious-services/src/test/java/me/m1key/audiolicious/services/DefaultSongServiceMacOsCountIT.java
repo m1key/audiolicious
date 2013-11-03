@@ -110,7 +110,7 @@ public class DefaultSongServiceMacOsCountIT {
 	private static final int TOTAL_VIDEOS = 1;
 
 	@EJB
-	private LibraryImporter importer;
+	private SynchronousLibraryImporter importer;
 	@EJB
 	private StubSongHandler songHandler;
 	@EJB
@@ -171,17 +171,18 @@ public class DefaultSongServiceMacOsCountIT {
 						StubLibraryRepositoryWithInfo.class,
 						StubPodcastHandler.class, StubSongHandler.class,
 						StubTrackHandlersFactory.class, StubVideoHandler.class,
-						TrackHandler.class, TrackMapper.class,
-						TrackMappersFactory.class, TrackTo.class,
-						TrackToType.class, VideoHandler.class,
+						SynchronousCacheAwareLibraryImporter.class,
+						SynchronousLibraryImporter.class, TrackHandler.class,
+						TrackMapper.class, TrackMappersFactory.class,
+						TrackTo.class, TrackToType.class, VideoHandler.class,
 						VideoMapper.class, VideoTo.class,
 						VtdItunesLibraryParser.class, XmlNodeName.class,
 						XmlParseException.class)
 				.addAsLibraries(
 						DependencyResolvers
 								.use(MavenDependencyResolver.class)
-								.artifacts("com.ximpleware:vtd-xml:2.10",
-										"joda-time:joda-time:1.6.2",
+								.artifacts("com.ximpleware:vtd-xml:2.11",
+										"joda-time:joda-time:2.1",
 										"org.slf4j:slf4j-api:1.6.1",
 										"org.slf4j:slf4j-log4j12:1.6.1",
 										"commons-lang:commons-lang:2.6")

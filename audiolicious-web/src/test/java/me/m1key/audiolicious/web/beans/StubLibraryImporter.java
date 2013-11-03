@@ -1,6 +1,6 @@
 /* 
  * Audiolicious - Your Music Library Statistics
- * Copyright (C) 2011, Michal Huniewicz
+ * Copyright (C) 2012, Michal Huniewicz
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,29 +16,24 @@
  * along with this program.  If not, see http://www.m1key.me
  */
 
-package me.m1key.audiolicious.domain.entities;
+package me.m1key.audiolicious.web.beans;
 
-import javax.ejb.Singleton;
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Produces;
+import java.io.File;
+import java.util.concurrent.Future;
 
-import me.m1key.audiolicious.commons.qualifiers.NullArtist;
-import me.m1key.audiolicious.commons.qualifiers.NullLibrary;
+import javax.ejb.Local;
+import javax.ejb.Stateful;
 
-@Singleton
-public class NullEntitiesFactory {
+import me.m1key.audiolicious.domain.to.LibraryTo;
+import me.m1key.audiolicious.services.LibraryImporter;
 
-	@Produces
-	@ApplicationScoped
-	@NullArtist
-	public Artist getNullArtist() {
-		return new Artist("(null artist");
+@Stateful
+@Local(LibraryImporter.class)
+public class StubLibraryImporter implements LibraryImporter {
+
+	@Override
+	public Future<LibraryTo> importLibrary(File libraryFile) {
+		return null;
 	}
 
-	@Produces
-	@ApplicationScoped
-	@NullLibrary
-	public Library getNullLibrary() {
-		return new Library("(null library");
-	}
 }

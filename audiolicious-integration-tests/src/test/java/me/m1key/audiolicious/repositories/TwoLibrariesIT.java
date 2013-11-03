@@ -127,7 +127,7 @@ public class TwoLibrariesIT {
 	private static final String pathToFile2 = "../audiolicious-test-data/src/test/resources/libraries/Fragment_2.xml";
 
 	@EJB
-	private LibraryImporter libraryImporter;
+	private SynchronousLibraryImporter libraryImporter;
 	@EJB
 	private ArtistRepository artistRepository;
 	@EJB
@@ -186,18 +186,21 @@ public class TwoLibrariesIT {
 						RatingTo.class, RawTrackDataHandler.class, Song.class,
 						SongHandler.class, SongInfo.class, SongMapper.class,
 						SongTo.class, Stat.class, StatefulSongService.class,
-						StatInfo.class, ToBasedStatInfo.class,
-						TrackHandler.class, TrackHandlersFactory.class,
-						TrackMapper.class, TrackMappersFactory.class,
-						TrackTo.class, TrackToType.class, VideoHandler.class,
+						StatInfo.class,
+						SynchronousCacheAwareLibraryImporter.class,
+						SynchronousLibraryImporter.class,
+						ToBasedStatInfo.class, TrackHandler.class,
+						TrackHandlersFactory.class, TrackMapper.class,
+						TrackMappersFactory.class, TrackTo.class,
+						TrackToType.class, VideoHandler.class,
 						VideoMapper.class, VideoTo.class,
 						VtdItunesLibraryParser.class, XmlNodeName.class,
 						XmlParseException.class)
 				.addAsLibraries(
 						DependencyResolvers
 								.use(MavenDependencyResolver.class)
-								.artifacts("com.ximpleware:vtd-xml:2.10",
-										"joda-time:joda-time:1.6.2",
+								.artifacts("com.ximpleware:vtd-xml:2.11",
+										"joda-time:joda-time:2.1",
 										"org.slf4j:slf4j-api:1.6.1",
 										"org.slf4j:slf4j-log4j12:1.6.1",
 										"commons-lang:commons-lang:2.6")

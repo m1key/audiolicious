@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.ejb.EJB;
-import javax.enterprise.context.ApplicationScoped;
+import javax.ejb.Singleton;
 import javax.enterprise.inject.Produces;
 
 import me.m1key.audiolicious.commons.qualifiers.AggregateMapper;
@@ -37,7 +37,7 @@ import me.m1key.audiolicious.objectmapper.trackmappers.PodcastMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.SongMapper;
 import me.m1key.audiolicious.objectmapper.trackmappers.VideoMapper;
 
-@ApplicationScoped
+@Singleton
 public class TrackMappersFactory {
 
 	@EJB

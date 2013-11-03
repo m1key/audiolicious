@@ -24,10 +24,19 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Collection;
 
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIPanel;
 import javax.inject.Inject;
+
+import me.m1key.audiolicious.domain.entities.Library;
+import me.m1key.audiolicious.domain.entities.Rating;
+import me.m1key.audiolicious.domain.entities.Stat;
+import me.m1key.audiolicious.domain.entities.StatInfo;
+import me.m1key.audiolicious.domain.to.LibraryTo;
+import me.m1key.audiolicious.domain.to.RatingTo;
+import me.m1key.audiolicious.services.LibraryImporter;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -67,12 +76,17 @@ public class FileUploadBeanIT {
 						ArchivePaths.create("beans.xml"))
 				.addClasses(AudioliciousConfigurationException.class,
 						ConsumptionBean.class, FileUploadBean.class,
-						FileUploadEvent.class, LibrarySaveBean.class,
-						StubConsumptionBean.class, StubLibrarySaveBean.class,
+						FileUploadEvent.class, Library.class,
+						LibraryImporter.class, LibrarySaveBean.class,
+						LibraryTo.class, Rating.class, RatingTo.class,
+						Stat.class, StatInfo.class, StubConsumptionBean.class,
+						StubLibraryImporter.class, StubLibrarySaveBean.class,
 						UploadedFile.class)
 				.addAsLibraries(
-						DependencyResolvers.use(MavenDependencyResolver.class)
-								.artifacts("org.slf4j:slf4j-api:1.6.1")
+						DependencyResolvers
+								.use(MavenDependencyResolver.class)
+								.artifacts("org.slf4j:slf4j-api:1.6.1",
+										"org.richfaces.ui:richfaces-components-api:4.2.2.Final")
 								.resolveAsFiles());
 	}
 
@@ -117,6 +131,34 @@ public class FileUploadBeanIT {
 		@Override
 		public long getSize() {
 			return 0;
+		}
+
+		@Override
+		public void delete() throws IOException {
+		}
+
+		@Override
+		public String getHeader(String arg0) {
+			return null;
+		}
+
+		@Override
+		public Collection<String> getHeaderNames() {
+			return null;
+		}
+
+		@Override
+		public Collection<String> getHeaders(String arg0) {
+			return null;
+		}
+
+		@Override
+		public String getParameterName() {
+			return null;
+		}
+
+		@Override
+		public void write(String arg0) throws IOException {
 		}
 
 	}

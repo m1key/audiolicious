@@ -3,7 +3,7 @@
 	<parent>
 		<artifactId>audiolicious</artifactId>
 		<groupId>me.m1key.audiolicious</groupId>
-		<version>0.1.3-SNAPSHOT</version>
+		<version>0.2.2-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>audiolicious-web</artifactId>
@@ -50,6 +50,30 @@
 	</profiles>
 	<dependencies>
 		<dependency>
+			<groupId>me.m1key.audiolicious</groupId>
+			<artifactId>audiolicious-library-parsers</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>me.m1key.audiolicious</groupId>
+			<artifactId>audiolicious-object-handler</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>me.m1key.audiolicious</groupId>
+			<artifactId>audiolicious-services</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>me.m1key.audiolicious</groupId>
+			<artifactId>audiolicious-repositories</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>me.m1key.audiolicious</groupId>
+			<artifactId>audiolicious-domain-objects</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>me.m1key.audiolicious</groupId>
+			<artifactId>audiolicious-commons</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.jboss.spec.javax.faces</groupId>
 			<artifactId>jboss-jsf-api_2.1_spec</artifactId>
 			<scope>provided</scope>
@@ -80,6 +104,12 @@
 		<dependency>
 			<groupId>javax.enterprise</groupId>
 			<artifactId>cdi-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.spec</groupId>
+			<artifactId>jboss-javaee-6.0</artifactId>
+			<type>pom</type>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>

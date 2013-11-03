@@ -106,7 +106,7 @@ public class DefaultSongServiceWindowsIT {
 	private static final String pathToFile = "../audiolicious-test-data/src/test/resources/libraries/WindowsExportedLibrary-2011-06-18.xml";
 
 	@EJB
-	private LibraryImporter libraryImport;
+	private SynchronousLibraryImporter libraryImport;
 	@EJB
 	private StubArtistRepository stubArtistRepository;
 	@EJB
@@ -165,18 +165,21 @@ public class DefaultSongServiceWindowsIT {
 						StatInfo.class, StubArtistRepository.class,
 						StubLibraryRepository.class,
 						StubLibraryRepositoryWithInfo.class,
-						StubLibraryService.class, ToBasedStatInfo.class,
-						TrackHandler.class, TrackHandlersFactory.class,
-						TrackMapper.class, TrackMappersFactory.class,
-						TrackTo.class, TrackToType.class, VideoHandler.class,
+						StubLibraryService.class,
+						SynchronousCacheAwareLibraryImporter.class,
+						SynchronousLibraryImporter.class,
+						ToBasedStatInfo.class, TrackHandler.class,
+						TrackHandlersFactory.class, TrackMapper.class,
+						TrackMappersFactory.class, TrackTo.class,
+						TrackToType.class, VideoHandler.class,
 						VideoMapper.class, VideoTo.class,
 						VtdItunesLibraryParser.class, XmlNodeName.class,
 						XmlParseException.class)
 				.addAsLibraries(
 						DependencyResolvers
 								.use(MavenDependencyResolver.class)
-								.artifacts("com.ximpleware:vtd-xml:2.10",
-										"joda-time:joda-time:1.6.2",
+								.artifacts("com.ximpleware:vtd-xml:2.11",
+										"joda-time:joda-time:2.1",
 										"org.slf4j:slf4j-api:1.6.1",
 										"org.slf4j:slf4j-log4j12:1.6.1",
 										"commons-lang:commons-lang:2.6")
