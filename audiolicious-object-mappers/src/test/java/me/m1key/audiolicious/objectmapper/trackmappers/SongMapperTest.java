@@ -82,22 +82,11 @@ public class SongMapperTest {
 	}
 
 	@Test
-	public void testCannotMapFileFolderCount() {
-		Map<XmlNodeName, String> trackValues = new HashMap<XmlNodeName, String>();
-		trackValues.put(XmlNodeName.PODCAST, FALSE);
-		trackValues.put(XmlNodeName.LOCATION, "a.m4a");
-		trackValues.put(XmlNodeName.MOVIE, FALSE);
-		trackValues.put(XmlNodeName.FILE_FOLDER_COUNT, "3");
-		assertFalse(songMapper.canMap(trackValues));
-	}
-
-	@Test
 	public void testCannotMapAudiobook() {
 		Map<XmlNodeName, String> trackValues = new HashMap<XmlNodeName, String>();
 		trackValues.put(XmlNodeName.PODCAST, FALSE);
 		trackValues.put(XmlNodeName.LOCATION, "a.m4a");
 		trackValues.put(XmlNodeName.MOVIE, FALSE);
-		trackValues.put(XmlNodeName.FILE_FOLDER_COUNT, "4");
 		trackValues.put(XmlNodeName.GENRE, "Audiobook");
 		assertFalse(songMapper.canMap(trackValues));
 	}
@@ -108,7 +97,6 @@ public class SongMapperTest {
 		trackValues.put(XmlNodeName.PODCAST, FALSE);
 		trackValues.put(XmlNodeName.LOCATION, "a.m4a");
 		trackValues.put(XmlNodeName.MOVIE, FALSE);
-		trackValues.put(XmlNodeName.FILE_FOLDER_COUNT, "4");
 		trackValues.put(XmlNodeName.GENRE, "rock");
 		assertTrue(songMapper.canMap(trackValues));
 	}
@@ -119,7 +107,6 @@ public class SongMapperTest {
 		trackValues.put(XmlNodeName.PODCAST, FALSE);
 		trackValues.put(XmlNodeName.LOCATION, "a.m4a");
 		trackValues.put(XmlNodeName.MOVIE, FALSE);
-		trackValues.put(XmlNodeName.FILE_FOLDER_COUNT, "4");
 		trackValues.put(XmlNodeName.GENRE, "Rock");
 		trackValues.put(XmlNodeName.ARTIST, "Metallica artist");
 		trackValues.put(XmlNodeName.ALBUM_ARTIST, "Metallica album artist");

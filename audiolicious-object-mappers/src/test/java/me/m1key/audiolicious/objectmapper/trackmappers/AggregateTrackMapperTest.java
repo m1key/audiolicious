@@ -66,7 +66,6 @@ public class AggregateTrackMapperTest {
 		songValues.put(XmlNodeName.PODCAST, FALSE);
 		songValues.put(XmlNodeName.LOCATION, "a.m4a");
 		songValues.put(XmlNodeName.MOVIE, FALSE);
-		songValues.put(XmlNodeName.FILE_FOLDER_COUNT, "4");
 		songValues.put(XmlNodeName.GENRE, "rock");
 		assertTrue(trackMapper.canMap(songValues));
 	}

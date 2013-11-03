@@ -107,10 +107,6 @@ public class DefaultSongMapper extends NonAggregateTrackMapper<SongTo>
 			return false;
 		}
 
-		if (fileFolderCountNotEquals(trackValues, "4")) {
-			return false;
-		}
-
 		if (genreEquals(trackValues, "Audiobook")) {
 			return false;
 		}

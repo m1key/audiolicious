@@ -36,12 +36,6 @@ public abstract class NonAggregateTrackMapper<T extends TrackTo> implements
 				XmlNodeName.GENRE));
 	}
 
-	protected boolean fileFolderCountNotEquals(
-			Map<XmlNodeName, String> trackValues, String value) {
-		return !value.equals(getDataExtractor().extractString(trackValues,
-				XmlNodeName.FILE_FOLDER_COUNT));
-	}
-
 	protected boolean isMovie(Map<XmlNodeName, String> trackValues) {
 		return ((boolean) getDataExtractor().extractBoolean(trackValues,
 				XmlNodeName.MOVIE));
