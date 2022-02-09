@@ -48,7 +48,7 @@
 		<arquillian-weld-ee-embedded-1.1.version>1.0.0.CR3</arquillian-weld-ee-embedded-1.1.version>
 
 		<!-- PERSISTENCE -->
-		<hibernate.version>4.0.1.Final</hibernate.version>
+		<hibernate.version>5.4.24.Final</hibernate.version>
 		<hibernate-jpa-2.0-api.version>1.0.1.Final
 		</hibernate-jpa-2.0-api.version>
 		<hibernate-entitymanager.version>4.0.1.Final</hibernate-entitymanager.version>
